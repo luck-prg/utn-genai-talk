@@ -10,7 +10,7 @@
 
 Cómo dirigir agentes de desarrollo para generar software escalable, predecible y de calidad.
 
-Técnicas que usan equipos de ingeniería modernos: **Context Engineering**, **Spec-Driven Development**, **evaluación de agentes** y **orquestación**.
+Técnicas que usan equipos de ingeniería modernos: **Context Engineering**, **Spec-Driven Development**, **harnesses de proyecto**, **skills**, **MCP** y **second brain**.
 
 ## Oradores
 
@@ -66,11 +66,12 @@ En la práctica suele traer:
 Trabajar con:
 
 - especificaciones como contrato;
-- evaluaciones que midan calidad;
+- validaciones básicas y checklist como evidencia externa;
 - contexto diseñado explícitamente;
-- comandos y flujos repetibles;
+- comandos, skills y flujos repetibles;
+- documentación viva del proyecto;
 - revisión humana en puntos críticos;
-- agentes orquestados según rol y objetivo.
+- agentes configurados con límites, tools y permisos claros.
 
 ## Mensaje clave
 
@@ -322,6 +323,26 @@ La profesionalización ocurre cuando se combinan ambas dimensiones:
 
 > mejor contexto para decidir, mejor ejecución para actuar y mejor validación para confiar.
 
+## Señales prácticas tomadas de la investigación en X
+
+La investigación sobre buenas prácticas de agentes refuerza una idea transversal: **el modelo no es el sistema**. El agente útil aparece cuando se diseña el entorno donde el modelo trabaja.
+
+Las señales más repetidas fueron:
+
+- **Contexto antes que prompt:** explicar objetivo, restricciones, definición de buen resultado y reglas del proyecto.
+- **Plan antes que código:** usar plan mode o specs para tareas con ambigüedad o impacto arquitectónico.
+- **Artefactos persistentes:** guardar instrucciones repetidas en `AGENTS.md`, `CLAUDE.md`, rules, skills o documentación del repo.
+- **Tools con criterio:** MCP y herramientas externas expanden capacidad, pero también aumentan permisos, costos de contexto y superficie de riesgo.
+- **Validación externa:** incluso dentro del alcance de esta charla, checklist, tests, builds y linters valen más que la frase “listo” del modelo.
+- **Memoria curada:** un second brain ayuda solo si la información está ordenada, actualizada y pensada para ser recuperada.
+
+La conclusión operativa es simple: subir en la pirámide no significa escribir prompts más largos, sino diseñar mejores **contratos de trabajo** para el agente.
+
+Fuentes externas leídas para esta síntesis:
+
+- **ChatGPT Learn — Best practices:** recomienda tratar a Codex menos como asistente de una sola vez y más como un teammate que se configura y mejora con el tiempo.
+- **OpenAI — Harness Engineering:** muestra que el cuello de botella deja de ser escribir código y pasa a ser diseñar entornos, especificar intenciones y crear bucles de feedback para que los agentes trabajen de forma fiable.
+
 ---
 
 # 4. Context Engineering
@@ -329,6 +350,26 @@ La profesionalización ocurre cuando se combinan ambas dimensiones:
 **Context Engineering** es la práctica de diseñar el contexto del agente: el harness que lo hace útil y le permite trabajar de forma consistente.
 
 En vez de pensar solo en prompts aislados, se diseña un sistema completo alrededor del agente.
+
+## Principio central: el modelo no es el sistema
+
+Una de las ideas más fuertes que aparece en las recomendaciones investigadas es que el agente real no es solamente Claude, Codex o Cursor. El agente real es la combinación de:
+
+- modelo;
+- contexto;
+- rules;
+- tools;
+- memoria;
+- skills;
+- permisos;
+- validaciones;
+- intervención humana en puntos críticos.
+
+Por eso el rendimiento no depende solo de “qué tan bueno es el modelo”, sino de la calidad del **harness** que lo rodea.
+
+> **Context Engineering** es convertir conocimiento tácito del equipo en contexto explícito, reutilizable y verificable.
+
+Para esta charla, el harness se puede presentar como el entorno mínimo que hace que un agente deje de trabajar “a ciegas”.
 
 ## Las 6 herramientas del harness
 
@@ -356,7 +397,7 @@ Ejemplo:
 /test
 /review
 /create-spec
-/run-evals
+/checklist
 ```
 
 Reducen costo de tokens y tiempo porque el agente ya tiene un flujo definido.
@@ -375,6 +416,14 @@ Permite conectar al agente con:
 - repositorios o servicios externos.
 
 Es muy potente, aunque puede consumir muchos tokens si no se diseña con cuidado.
+
+Buenas prácticas para MCPs:
+
+- conectarlos solo cuando aportan contexto o acciones realmente necesarias;
+- limitar permisos y alcance;
+- evitar que el agente traiga documentos enormes sin filtrar;
+- preferir herramientas que devuelvan resúmenes, paths o resultados acotados;
+- registrar qué herramientas usó el agente para poder auditar el proceso.
 
 ### 4. Subagents
 
@@ -409,6 +458,63 @@ Ejemplos:
 
 Los hooks aseguran estándares y permiten human-in-the-loop en puntos críticos.
 
+## Harness mínimo recomendado para un proyecto
+
+Una adopción realista para niveles 2/3 puede empezar con este kit mínimo:
+
+```text
+AGENTS.md / CLAUDE.md
+docs/architecture.md
+docs/business-context.md
+docs/testing.md
+commands: /plan, /test, /review, /checklist
+skills: debugging, code-review, docs-update
+hooks: format, lint, test, approval-before-risky-change
+```
+
+La idea no es documentar todo, sino documentar lo que el agente necesita para no romper supuestos importantes.
+
+## Contexto como código
+
+El contexto debe tener la misma disciplina que el código:
+
+- versionarse;
+- revisarse;
+- mantenerse actualizado;
+- eliminar duplicados;
+- evitar instrucciones contradictorias;
+- medirse por su impacto en la calidad del trabajo del agente.
+
+Si el contexto se degrada, el agente también se degrada. La diferencia es que lo hace con seguridad retórica, lo cual puede ser incluso más peligroso.
+
+## `AGENTS.md` como índice, no como enciclopedia
+
+Una lección fuerte del artículo de OpenAI sobre Harness Engineering es evitar que `AGENTS.md` se convierta en un manual gigante. Un archivo enorme desplaza la tarea real, envejece rápido y vuelve difícil verificar qué sigue siendo cierto.
+
+Mejor patrón:
+
+- mantener `AGENTS.md` corto y estable;
+- usarlo como mapa del repo;
+- apuntar desde ahí a documentos específicos;
+- guardar conocimiento profundo en `docs/`;
+- versionar planes, decisiones y deuda técnica conocida;
+- permitir **divulgación progresiva**: el agente empieza con un punto de entrada chico y sabe dónde mirar después.
+
+Ejemplo:
+
+```text
+AGENTS.md
+├── docs/architecture.md
+├── docs/business-context.md
+├── docs/testing.md
+├── docs/quality.md
+├── specs/active/
+├── specs/completed/
+└── docs/technical-debt.md
+```
+
+La regla práctica: darle al agente **un mapa, no mil páginas de instrucciones**.
+
 ## Gestión de conversaciones
 
 El historial de una conversación es una “aspiradora de tokens”: cuanto más crece, más caro y menos preciso se vuelve el agente.
@@ -426,13 +532,15 @@ Buenas prácticas:
 
 El orden recomendado para ejecutar bien una tarea:
 
-1. Analizar el problema.
-2. Escribir la especificación.
-3. Generar el plan.
-4. Validar humanamente.
-5. Implementar.
-6. Medir el resultado.
-7. Ajustar y repetir si hace falta.
+1. Definir **objetivo**: qué queremos cambiar o construir.
+2. Agregar **contexto**: archivos, docs, errores, ejemplos o restricciones relevantes.
+3. Explicitar **constraints**: estándares, arquitectura, seguridad y convenciones.
+4. Definir **done when**: qué debe ser verdadero para considerar terminada la tarea.
+5. Generar el plan.
+6. Validar humanamente.
+7. Implementar.
+8. Medir el resultado.
+9. Ajustar y repetir si hace falta.
 
 ---
 
@@ -443,6 +551,18 @@ El orden recomendado para ejecutar bien una tarea:
 Su principio central:
 
 > Las especificaciones son el artefacto principal; el código es una consecuencia.
+
+La investigación en X refuerza que SDD aparece como respuesta natural al **vibe-coding**: pedirle al agente que implemente directo es rápido, pero suele producir código que no coincide con la intención real cuando el problema crece.
+
+Una spec permite:
+
+- preservar intención entre sesiones;
+- controlar cambios grandes con pocas instrucciones bien diseñadas;
+- reducir ambigüedad antes de implementar;
+- separar discusión de producto, diseño técnico y ejecución;
+- darle al agente un contrato más estable que una conversación larga.
+
+> La spec no reemplaza al developer. Le da al developer una palanca más precisa para dirigir al agente.
 
 ## ¿Qué es SDD?
 
@@ -465,6 +585,28 @@ Las specs son el contrato que guía a todos los involucrados:
 ### La IA ejecuta
 
 Una vez escritas, las specs se convierten en instrucciones precisas para que el agente genere, pruebe y valide el código de forma estructurada.
+
+## Del prompt a la spec
+
+Una forma simple de explicar el salto:
+
+```text
+Prompt suelto: "Hacé una pantalla de login"
+
+Spec: "Necesitamos una pantalla de login para usuarios internos, con validación de email corporativo, manejo de errores, estados de loading, compatibilidad mobile, tests de los casos principales y sin modificar el contrato actual de autenticación."
+```
+
+El primer pedido deja demasiadas decisiones implícitas. El segundo convierte intención, restricciones y validación esperada en contexto ejecutable.
+
+## Qué debe contener una buena spec para agentes
+
+- **Objetivo:** qué problema se quiere resolver.
+- **Contexto de negocio:** por qué importa y para quién.
+- **Alcance:** qué entra y qué queda fuera.
+- **Restricciones:** compatibilidad, arquitectura, seguridad, performance.
+- **Criterios de aceptación:** cómo sabremos que está bien.
+- **Plan de validación:** qué tests, comandos o checks debe correr el agente.
+- **Riesgos:** qué partes no debería tocar sin aprobación humana.
 
 ## Las 3 etapas y el ecosistema
 
@@ -622,6 +764,8 @@ La integridad de estos componentes es clave para un flujo SDD predecible.
 
 # 6. Orquestación de agentes
 
+> Esta sección queda como **horizonte avanzado**. En la charla principal se trabaja hasta niveles 3/4; orquestación corresponde al nivel 7 de la pirámide.
+
 ## Agent Loop
 
 El ciclo de razonamiento de un agente puede pensarse así:
@@ -634,6 +778,8 @@ El ciclo de razonamiento de un agente puede pensarse así:
 6. Repite hasta cumplir el objetivo.
 
 Entender este loop es clave para diseñar sistemas autónomos y predecibles.
+
+Para el alcance de esta charla, alcanza con dejar instalada la intuición: un agente no “responde”; un agente ejecuta ciclos de contexto, acción y observación.
 
 ## Orquestación multi-agente
 
@@ -700,13 +846,22 @@ Solución:
 
 La orquestación también es escala horizontal, no solo división por roles.
 
+## Qué no conviene prometer en esta charla
+
+- Que sumar agentes mejora automáticamente la calidad.
+- Que la orquestación reemplaza arquitectura o criterio humano.
+- Que se puede delegar autonomía alta sin evals, trazas y límites claros.
+- Que todos los equipos necesitan multi-agente desde el día uno.
+
+La tesis más sana es que primero se profesionaliza el harness del proyecto. Después, cuando contexto y validación maduran, tiene sentido pensar en loops, evals y orquestación.
+
 ---
 
 # 7. Cierre
 
 > “Context is the new code.”
 
-El contexto que le damos al agente —reglas, specs, evaluaciones y orquestación— es hoy tan determinante como el código mismo.
+El contexto que le damos al agente —reglas, specs, skills, herramientas, memoria y validaciones básicas— es hoy tan determinante como el código mismo.
 
 Dominar el harness es lo que separa el vibe-coding del desarrollo estructurado, predecible y escalable.
 
@@ -715,13 +870,28 @@ Dominar el harness es lo que separa el vibe-coding del desarrollo estructurado, 
 - La IA acelera, pero no reemplaza criterio técnico.
 - El prompt aislado no escala; el sistema de contexto sí.
 - Las specs son contratos ejecutables para humanos y agentes.
-- Los evals convierten intuición en medición.
-- La orquestación permite pasar de asistente individual a sistema de desarrollo.
+- Skills, MCPs, hooks y documentación viva convierten experiencia en un harness reutilizable.
+- Evals y orquestación son la evolución natural, pero no el punto de partida.
 - El ingeniero del futuro diseña el entorno donde los agentes trabajan bien.
 
 ---
 
 # 8. Referencias
+
+- Investigación propia en X — Buenas prácticas para desarrollar con agentes.  
+  [`docs/x-agent-best-practices-research.md`](./x-agent-best-practices-research.md)
+
+- @santtiagom_ — Buenas prácticas de OpenAI para Codex.  
+  <https://x.com/santtiagom_/status/2063629388663361691>
+
+- @santtiagom_ — Harness Engineering y Codex.  
+  <https://x.com/santtiagom_/status/2055751665345798628>
+
+- @AndrewYNg — Spec-Driven Development with Coding Agents.  
+  <https://x.com/AndrewYNg/status/2044449830605582629>
+
+- @tessl_io — Context as code.  
+  <https://x.com/tessl_io/status/2042537399750693284>
 
 - Skills.sh — Directorio de skills curadas para agentes de IA.  
   <https://www.skills.sh/>
