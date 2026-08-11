@@ -25,10 +25,9 @@ Técnicas que usan equipos de ingeniería modernos: **Context Engineering**, **S
 4. [Niveles de profesionalismo para desarrollar con agentes](#3-niveles-de-profesionalismo-para-desarrollar-con-agentes)
 5. [Context Engineering](#4-context-engineering)
 6. [Spec-Driven Development](#5-spec-driven-development-sdd)
-7. [Evals](#6-evals)
-8. [Orquestación de agentes](#7-orquestación-de-agentes)
-9. [Cierre](#8-cierre)
-10. [Referencias](#9-referencias)
+7. [Orquestación de agentes](#6-orquestación-de-agentes)
+8. [Cierre](#7-cierre)
+9. [Referencias](#8-referencias)
 
 ---
 
@@ -111,7 +110,9 @@ La IA puede acelerar el desarrollo, pero no reemplaza la ingeniería. Sin contex
 
 # 3. Niveles de profesionalismo para desarrollar con agentes
 
-Una forma práctica de entender la adopción de agentes es pensarla como una pirámide de madurez: en la base está el uso conversacional, y a medida que se asciende aparecen contexto persistente, validación, loops, grafos y orquestación.
+Una forma práctica de entender la adopción de agentes es pensarla como una pirámide de madurez: en la base está el uso conversacional, y a medida que se asciende aparecen contexto persistente, validación, loops, grafos, evals y orquestación.
+
+En esta charla el foco práctico llega hasta los **niveles 3/4**. Los niveles 5, 6 y 7 quedan como mapa de hacia dónde evoluciona la práctica, no como contenido central.
 
 La pirámide tiene dos fuerzas que crecen en paralelo:
 
@@ -247,17 +248,17 @@ El foco pasa de “qué contexto tiene el agente” a “cómo ejecuta”. Se di
 
 **Hay:**
 
-- loops de ejecución: analizar → actuar → observar → validar → corregir;
+- loops de ejecución: analizar → actuar → observar → corregir;
 - condiciones de salida verificables;
 - retries y presupuestos de iteración;
 - manejo de fallos;
 - trazas del proceso;
-- grafos con nodos, estados, ramas y handoffs;
-- evals o checks como parte del flujo.
+- grafos con nodos, estados, ramas y handoffs.
 
 **No hay:**
 
 - necesariamente múltiples agentes especializados;
+- evals sistemáticos como práctica central;
 - coordinación distribuida compleja;
 - confianza plena sin monitoreo;
 - reemplazo del criterio humano en decisiones críticas.
@@ -266,7 +267,29 @@ La frase importante para este nivel:
 
 > Un agente serio no termina cuando deja de hablar. Termina cuando una condición verificable se cumple.
 
-## Nivel 6 — Orquestación de agentes
+## Nivel 6 — Evals y validación sistemática
+
+En este nivel la calidad deja de depender de la percepción humana inmediata y empieza a medirse con señales repetibles.
+
+**Hay:**
+
+- evals del agente y de su harness;
+- tests, builds, linters y type checks como señales externas;
+- criterios de aceptación medibles;
+- observabilidad del proceso;
+- comparación entre modelos, prompts, skills y herramientas;
+- evidencia para decidir cuánta autonomía se puede delegar.
+
+**No hay:**
+
+- garantía absoluta de calidad;
+- eliminación del criterio humano;
+- orquestación multi-agente completa;
+- autonomía ilimitada sin límites de permisos, costos y riesgos.
+
+Este nivel es importante, pero queda fuera del alcance principal de esta charla. Lo mencionamos como frontera natural: antes de delegar más, hay que medir mejor.
+
+## Nivel 7 — Orquestación de agentes
 
 El nivel superior es diseñar un sistema donde múltiples agentes trabajan con roles, límites y responsabilidades claras.
 
@@ -275,7 +298,7 @@ El nivel superior es diseñar un sistema donde múltiples agentes trabajan con r
 - agentes especializados por rol;
 - paralelización de tareas;
 - handoffs entre agentes;
-- separación entre planificación, implementación, testing y revisión;
+- separación entre planificación, implementación, testing, evals y revisión;
 - agentes revisores o críticos;
 - coordinación de costos, permisos y contexto;
 - mayor confianza operativa basada en validación y trazabilidad.
@@ -293,7 +316,7 @@ Orquestar agentes no significa sumar inteligencia de forma lineal. Significa dis
 
 Los primeros niveles fortalecen la **madurez del contexto**: el agente entiende mejor qué debe hacer, con qué reglas, en qué proyecto y con qué conocimiento.
 
-Los niveles superiores fortalecen la **madurez de la ejecución**: el agente no solo entiende mejor, sino que trabaja con loops, validación, coordinación y trazabilidad.
+Los niveles superiores fortalecen la **madurez de la ejecución**: el agente no solo entiende mejor, sino que trabaja con loops, evals, coordinación y trazabilidad.
 
 La profesionalización ocurre cuando se combinan ambas dimensiones:
 
@@ -596,64 +619,8 @@ La integridad de estos componentes es clave para un flujo SDD predecible.
 
 ---
 
-# 6. Evals
 
-Un **eval** es un proceso donde se somete a un agente —junto con todo su harness— a un conjunto de pruebas diseñadas para calificar criterios específicos.
-
-Dada una entrada o prompt, se espera cierto comportamiento o salida.
-
-## Qué buscamos evaluar
-
-### Eje 1 — Calidad de la salida
-
-**Comportamiento**
-
-- ¿El agente comprende la completitud del problema?
-- ¿Identifica requisitos explícitos e implícitos?
-- ¿Respeta restricciones del sistema?
-
-**Evaluación exacta**
-
-- ¿El resultado compila?
-- ¿Pasan los tests unitarios?
-- ¿Se cumplen contratos de API?
-- ¿No se introducen regresiones?
-
-**Evaluación subjetiva**
-
-- ¿La respuesta abierta del agente está dentro del rango esperado?
-- ¿La solución es mantenible?
-- ¿El diseño es razonable?
-- ¿La implementación respeta criterios del equipo?
-
-### Eje 2 — Calidad del proceso
-
-**Uso de herramientas**
-
-- ¿Utiliza las herramientas que queremos que use?
-- ¿Consulta documentación cuando corresponde?
-- ¿Ejecuta tests antes de finalizar?
-
-**Estados intermedios**
-
-- ¿Pasa por los estados esperados?
-- ¿Primero analiza, luego planifica y recién después implementa?
-- ¿Pide aclaraciones cuando faltan datos críticos?
-
-**Eficiencia**
-
-- ¿Reduce tiempos?
-- ¿Reduce costo de iteración?
-- ¿Disminuye retrabajo?
-- ¿Mejora la predictibilidad?
-
-## Mensaje clave
-
-Sin evals, no hay mejora sistemática. Solo hay percepción subjetiva de que “el agente anda mejor”. Y la percepción, como suele suceder, es un pésimo sistema de monitoreo.
-
----
-
-# 7. Orquestación de agentes
+# 6. Orquestación de agentes
 
 ## Agent Loop
 
@@ -735,7 +702,7 @@ La orquestación también es escala horizontal, no solo división por roles.
 
 ---
 
-# 8. Cierre
+# 7. Cierre
 
 > “Context is the new code.”
 
@@ -754,7 +721,7 @@ Dominar el harness es lo que separa el vibe-coding del desarrollo estructurado, 
 
 ---
 
-# 9. Referencias
+# 8. Referencias
 
 - Skills.sh — Directorio de skills curadas para agentes de IA.  
   <https://www.skills.sh/>
