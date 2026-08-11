@@ -23,11 +23,13 @@ Técnicas que usan equipos de ingeniería modernos: **Context Engineering**, **S
 2. [Apertura: el nuevo ciclo de desarrollo](#1-apertura-el-nuevo-ciclo-de-desarrollo)
 3. [Por qué la IA sola no alcanza](#2-por-qué-la-ia-sola-no-alcanza)
 4. [Niveles de profesionalismo para desarrollar con agentes](#3-niveles-de-profesionalismo-para-desarrollar-con-agentes)
-5. [Context Engineering](#4-context-engineering)
-6. [Spec-Driven Development](#5-spec-driven-development-sdd)
-7. [Orquestación de agentes](#6-orquestación-de-agentes)
-8. [Cierre](#7-cierre)
-9. [Referencias](#8-referencias)
+5. [Modelos para coding agents](#4-modelos-para-coding-agents)
+6. [Herramientas útiles para ampliar las capacidades del agente](#5-herramientas-útiles-para-ampliar-las-capacidades-del-agente)
+7. [Context Engineering](#6-context-engineering)
+8. [Spec-Driven Development](#7-spec-driven-development-sdd)
+9. [Orquestación de agentes](#8-orquestación-de-agentes)
+10. [Cierre](#9-cierre)
+11. [Referencias](#10-referencias)
 
 ---
 
@@ -345,7 +347,255 @@ Fuentes externas leídas para esta síntesis:
 
 ---
 
-# 4. Context Engineering
+# 4. Modelos para coding agents
+
+Elegir el modelo correcto es parte del diseño del harness. No todos los problemas justifican usar el modelo más caro: muchas tareas son de búsqueda, edición mecánica o validación, y pueden resolverse con modelos rápidos o balanceados. Reservar los modelos premium para decisiones difíciles es disciplina económica, no austeridad heroica.
+
+> **Regla práctica:** usar el modelo más barato que pueda resolver la tarea con confiabilidad suficiente, y subir de modelo cuando aumentan ambigüedad, riesgo, impacto arquitectónico o necesidad de razonamiento largo.
+
+## Familias principales para desarrollo
+
+### Codex / OpenAI
+
+Codex está pensado para trabajar como agente de ingeniería sobre repositorios: leer código, modificar archivos, ejecutar comandos, correr tests y colaborar en flujos de PR.
+
+**Cuándo usarlo:**
+
+- tareas de implementación bien especificadas;
+- refactors acotados;
+- generación o reparación de tests;
+- navegación de repositorios grandes;
+- automatización desde CLI;
+- flujos donde conviene que el agente ejecute comandos y verifique resultados.
+
+**Buen uso:** darle un objetivo claro, archivos relevantes, restricciones y un comando de validación. Codex rinde mucho mejor cuando puede actuar sobre un repo real, no solo responder en abstracto.
+
+### Claude / Claude Code
+
+Claude Code se destaca como coding agent interactivo para razonar sobre arquitectura, editar proyectos y mantener conversaciones largas con buen manejo de contexto. Dentro de Claude, la elección típica es entre Haiku, Sonnet y Opus.
+
+**Cuándo usarlo:**
+
+- análisis de arquitectura o diseño técnico;
+- debugging donde hay que sostener varias hipótesis;
+- escritura y revisión de specs;
+- refactors con impacto amplio;
+- code review profundo;
+- documentación técnica y explicación de trade-offs.
+
+**Buen uso:** usar Sonnet como modelo de trabajo diario, Haiku para tareas rápidas y Opus para problemas donde el costo extra se justifica por complejidad o riesgo.
+
+## Matriz de decisión rápida
+
+| Tipo de tarea | Modelo recomendado | Motivo |
+| --- | --- | --- |
+| Buscar dónde vive una función, explicar un error simple o resumir un archivo | Haiku / modelo rápido | Bajo costo y latencia; no requiere razonamiento profundo. |
+| Agregar tests similares, cambiar un patrón en pocos archivos, actualizar documentación | Sonnet / Codex estándar | Buen balance entre costo, calidad y ejecución. |
+| Implementar una feature con spec clara y tests definidos | Codex estándar o Sonnet | Importa más el harness y la validación que usar el modelo más caro. |
+| Debugging complejo, migración delicada, diseño de arquitectura o decisiones con muchas restricciones | Opus / modelo premium | El costo se justifica si reduce errores caros o retrabajo. |
+| Revisión final de un cambio grande | Sonnet u Opus según riesgo | Conviene pagar más cuando el error puede afectar producción. |
+| Tareas masivas repetitivas | Modelo barato + scripts determinísticos | Si la tarea es mecánica, no conviene quemar tokens premium. |
+
+## Tabla visual de precios
+
+Precios públicos consultados el **2026-08-11**. Los valores están expresados en **USD por 1 millón de tokens**. Pueden cambiar; en documentación viva conviene linkear siempre la fuente oficial.
+
+### OpenAI / Codex
+
+| Modelo | Input | Input cacheado | Output | Nota de uso |
+| --- | ---: | ---: | ---: | --- |
+| `gpt-5.3-codex` — estándar | USD 1.75 | USD 0.175 | USD 14.00 | Modelo principal para tareas de coding agent en Codex. |
+| `gpt-5.3-codex` — Fast mode | USD 3.50 | USD 0.35 | USD 28.00 | Más caro; útil cuando la latencia importa más que el costo. |
+
+### Anthropic / Claude
+
+| Modelo | Input base | Cache write 5m | Cache write 1h | Cache hit / refresh | Output | Nota de uso |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| Claude Haiku 4.5 | USD 1.00 | USD 1.25 | USD 2.00 | USD 0.10 | USD 5.00 | Rápido y económico; ideal para tareas simples, clasificación, resúmenes o checks livianos. |
+| Claude Sonnet 5 — precio introductorio hasta 2026-08-31 | USD 2.00 | USD 2.50 | USD 4.00 | USD 0.20 | USD 10.00 | Excelente modelo diario si está disponible a precio promocional. |
+| Claude Sonnet 5 — desde 2026-09-01 | USD 3.00 | USD 3.75 | USD 6.00 | USD 0.30 | USD 15.00 | Balance fuerte para coding, specs, debugging y revisión. |
+| Claude Sonnet 4.6 / 4.5 | USD 3.00 | USD 3.75 | USD 6.00 | USD 0.30 | USD 15.00 | Modelo de trabajo diario cuando se busca calidad consistente. |
+| Claude Opus 5 / 4.5 | USD 5.00 | USD 6.25 | USD 10.00 | USD 0.50 | USD 25.00 | Premium; reservar para problemas complejos o de alto riesgo. |
+| Claude Fable 5 / Mythos 5 | USD 10.00 | USD 12.50 | USD 20.00 | USD 1.00 | USD 50.00 | Muy caro; usar solo si el valor de la tarea justifica razonamiento extremo o agentes largos. |
+
+## Lectura económica
+
+- El **output suele ser mucho más caro** que el input. Pedir respuestas largas, logs completos o reescrituras enormes puede multiplicar el costo.
+- El **cache** puede bajar mucho el costo cuando se reutiliza contexto estable: rules, specs, instrucciones del repo o documentación base.
+- El modo rápido puede duplicar precio. Sirve para urgencia, no como default.
+- En tareas grandes, el costo real no es solo el modelo: también cuentan loops, retries, herramientas, contexto innecesario y conversaciones eternas.
+
+La conclusión para la charla: profesionalizar agentes también implica **gestionar presupuesto de razonamiento**. No todo merece Opus; no todo debe hacerse con el modelo más barato. El criterio está en elegir la herramienta justa para el riesgo correcto.
+
+---
+
+# 5. Herramientas útiles para ampliar las capacidades del agente
+
+Un agente mejora mucho cuando puede usar herramientas reales del entorno de desarrollo. El modelo razona; las herramientas observan, ejecutan y verifican. Sin tools, el agente opina. Con tools bien configuradas, el agente puede operar sobre evidencia.
+
+## Principio: darle terminales seguras, no permisos infinitos
+
+La clave no es conectar todo, sino conectar lo necesario con permisos claros. Cada herramienta debería responder a una pregunta simple:
+
+> ¿Esta integración permite que el agente lea mejor, actúe mejor o valide mejor?
+
+Si la respuesta es no, probablemente sea decoración técnica. Y la decoración técnica, como todo ornamento en Mordor, termina pesando.
+
+## GitHub CLI — `gh`
+
+`gh` es una de las herramientas más valiosas para coding agents porque convierte GitHub en una interfaz operable desde terminal.
+
+Permite que el agente pueda:
+
+- leer issues y PRs;
+- revisar comentarios de reviewers;
+- ver diffs;
+- crear PRs;
+- comentar avances;
+- listar checks de CI;
+- leer logs de workflows;
+- hacer checkout de PRs existentes;
+- preparar resúmenes de cambios;
+- automatizar el ciclo branch → commit → PR → checks → fixes.
+
+Ejemplos útiles:
+
+```bash
+gh pr view 123 --comments
+gh pr diff 123
+gh pr checkout 123
+gh pr checks 123
+gh run view --log-failed
+gh pr create --title "docs: update agent material" --body "..."
+gh pr comment 123 --body "Actualicé la sección de modelos y herramientas."
+```
+
+**Por qué importa:** sin `gh`, el agente depende de que el usuario copie comentarios, errores o links. Con `gh`, puede traer esa información directamente, actuar sobre ella y validar el estado real del PR.
+
+## Git y comandos del repo
+
+El agente necesita operar con Git de forma segura:
+
+```bash
+git status
+git diff
+git log --oneline -n 20
+git checkout -b docs/update-agent-material
+git add docs/charla-genai-utn-material.md
+git commit -m "docs: add model and tooling guidance"
+```
+
+Buenas prácticas:
+
+- revisar `git status` antes de editar;
+- no pisar cambios ajenos;
+- trabajar en branches chicos;
+- mostrar diffs antes de cerrar;
+- usar commits con intención clara.
+
+## Herramientas de búsqueda y lectura
+
+Para entender repos grandes, el agente necesita búsqueda rápida:
+
+```bash
+rg "functionName"
+fd "service"
+jq '.scripts' package.json
+```
+
+Herramientas típicas:
+
+- `rg` / ripgrep para buscar código y texto;
+- `fd` para encontrar archivos;
+- `jq` para leer JSON;
+- `yq` para YAML;
+- `tree` para explicar estructura del repo;
+- `bat` o `sed` para inspección rápida, si el entorno lo permite.
+
+## Validación local
+
+La validación convierte una respuesta en evidencia.
+
+Ejemplos:
+
+```bash
+npm test
+npm run lint
+npm run typecheck
+pytest
+ruff check .
+go test ./...
+mvn test
+```
+
+Un harness maduro debería documentar estos comandos en `AGENTS.md`, `CLAUDE.md` o `docs/testing.md` para que el agente no tenga que adivinar cómo verificar.
+
+## Playwright y browser automation
+
+Para productos web, Playwright permite que el agente valide flujos reales:
+
+- abrir la app;
+- navegar pantallas;
+- verificar estados visuales;
+- reproducir bugs;
+- crear tests end-to-end;
+- capturar screenshots.
+
+Esto es especialmente útil cuando el error no aparece en unit tests pero sí en la experiencia del usuario.
+
+## Docker, bases de datos y servicios locales
+
+Muchas tareas requieren levantar dependencias reales:
+
+```bash
+docker compose up -d
+psql "$DATABASE_URL"
+redis-cli ping
+curl http://localhost:3000/health
+```
+
+Estas herramientas permiten validar integración, migraciones, contratos HTTP y comportamiento real del sistema.
+
+## Herramientas cloud y observabilidad
+
+Según el entorno, puede tener sentido conectar:
+
+- AWS CLI, GCloud o Azure CLI;
+- Datadog, Grafana o Prometheus;
+- Sentry;
+- logs centralizados;
+- feature flags;
+- sistemas internos.
+
+Pero acá la regla debe ser estricta: **lectura primero, escritura con aprobación humana**. El agente puede investigar producción; modificar producción requiere otro nivel de control.
+
+## MCPs y herramientas internas
+
+Cuando una herramienta se usa mucho, puede convertirse en MCP o skill. El criterio:
+
+- si es uso ocasional, alcanza con CLI o documentación;
+- si es un flujo repetido, conviene empaquetarlo como command o skill;
+- si el agente necesita consultar un sistema externo vivo, MCP puede ser buena opción;
+- si requiere permisos sensibles, debe tener límites, auditoría y aprobación.
+
+## Kit mínimo recomendado para un agente de desarrollo
+
+```text
+Git + GitHub CLI
+Comandos de test/lint/typecheck documentados
+rg/fd/jq para navegar el repo
+Docker o entorno local reproducible
+Acceso controlado a CI logs
+Playwright para flujos web cuando aplique
+AGENTS.md / CLAUDE.md con instrucciones cortas
+MCPs solo para contexto externo realmente necesario
+```
+
+El mensaje central: el agente no necesita infinitas herramientas. Necesita las herramientas correctas, documentadas, con permisos claros y conectadas a validaciones reales.
+
+---
+
+# 6. Context Engineering
 
 **Context Engineering** es la práctica de diseñar el contexto del agente: el harness que lo hace útil y le permite trabajar de forma consistente.
 
@@ -544,7 +794,7 @@ El orden recomendado para ejecutar bien una tarea:
 
 ---
 
-# 5. Spec-Driven Development (SDD)
+# 7. Spec-Driven Development (SDD)
 
 **Spec-Driven Development** es un marco de trabajo para proyectos complejos con IA.
 
@@ -762,7 +1012,7 @@ La integridad de estos componentes es clave para un flujo SDD predecible.
 ---
 
 
-# 6. Orquestación de agentes
+# 8. Orquestación de agentes
 
 > Esta sección queda como **horizonte avanzado**. En la charla principal se trabaja hasta niveles 3/4; orquestación corresponde al nivel 7 de la pirámide.
 
@@ -857,7 +1107,7 @@ La tesis más sana es que primero se profesionaliza el harness del proyecto. Des
 
 ---
 
-# 7. Cierre
+# 9. Cierre
 
 > “Context is the new code.”
 
@@ -876,7 +1126,13 @@ Dominar el harness es lo que separa el vibe-coding del desarrollo estructurado, 
 
 ---
 
-# 8. Referencias
+# 10. Referencias
+
+- OpenAI API Pricing — precios de modelos GPT y Codex.
+  <https://developers.openai.com/api/docs/pricing>
+
+- Anthropic Claude Platform Pricing — precios de Claude, cache y output tokens.
+  <https://platform.claude.com/docs/en/about-claude/pricing>
 
 - Investigación propia en X — Buenas prácticas para desarrollar con agentes.  
   [`docs/x-agent-best-practices-research.md`](./x-agent-best-practices-research.md)
