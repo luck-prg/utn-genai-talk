@@ -41,6 +41,22 @@ La tesis central de la charla es que el valor de desarrollar software de calidad
 
 > **Tesis central:** “El valor de desarrollar software de calidad se ha duplicado.”
 
+## Lectura de la audiencia
+
+La audiencia ya usa IA, pero principalmente como asistencia puntual:
+
+- para tareas repetitivas como CRUDs, DTOs o boilerplate cuando el patrón ya es conocido;
+- para destrabarse cuando no saben cómo comenzar una funcionalidad;
+- desde ChatGPT o Claude en navegador, más que integrada al IDE o al repo;
+- como “juez” para cuestionar decisiones o revisar una solución;
+- para organizarse con planes paso a paso antes de implementar.
+
+Eso ubica a la mayoría entre **Nivel 0** y **Nivel 1** de la pirámide: ya existe el hábito, pero todavía falta convertirlo en un flujo de ingeniería más estructurado.
+
+La clase debería partir de ese punto real: no vender autonomía extrema desde el minuto uno, sino mostrar cómo pasar de uso puntual a uso profesional mediante **mejor contexto, mejores contratos de trabajo y validación externa**.
+
+> **Mensaje para esta audiencia:** no están usando mal la IA; están usando la primera versión del hábito. El siguiente paso es profesionalizarlo.
+
 ---
 
 # 1. Apertura: el nuevo ciclo de desarrollo
