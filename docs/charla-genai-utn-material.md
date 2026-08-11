@@ -20,16 +20,17 @@ Técnicas que usan equipos de ingeniería modernos: **Context Engineering**, **S
 ## Índice
 
 1. [Introducción](#introducción)
-2. [Apertura: el nuevo ciclo de desarrollo](#1-apertura-el-nuevo-ciclo-de-desarrollo)
-3. [Por qué la IA sola no alcanza](#2-por-qué-la-ia-sola-no-alcanza)
-4. [Niveles de profesionalismo para desarrollar con agentes](#3-niveles-de-profesionalismo-para-desarrollar-con-agentes)
-5. [Modelos para coding agents](#4-modelos-para-coding-agents)
-6. [Herramientas útiles para ampliar las capacidades del agente](#5-herramientas-útiles-para-ampliar-las-capacidades-del-agente)
-7. [Context Engineering](#6-context-engineering)
-8. [Spec-Driven Development](#7-spec-driven-development-sdd)
-9. [Orquestación de agentes](#8-orquestación-de-agentes)
-10. [Cierre](#9-cierre)
-11. [Referencias](#10-referencias)
+2. [Marco inicial: LLMs, coding agents y nueva abstracción](#marco-inicial-llms-coding-agents-y-nueva-abstracción)
+3. [Apertura: el nuevo ciclo de desarrollo](#1-apertura-el-nuevo-ciclo-de-desarrollo)
+4. [Por qué la IA sola no alcanza](#2-por-qué-la-ia-sola-no-alcanza)
+5. [Niveles de profesionalismo para desarrollar con agentes](#3-niveles-de-profesionalismo-para-desarrollar-con-agentes)
+6. [Modelos para coding agents](#4-modelos-para-coding-agents)
+7. [Herramientas útiles para ampliar las capacidades del agente](#5-herramientas-útiles-para-ampliar-las-capacidades-del-agente)
+8. [Context Engineering](#6-context-engineering)
+9. [Spec-Driven Development](#7-spec-driven-development-sdd)
+10. [Orquestación de agentes](#8-orquestación-de-agentes)
+11. [Cierre](#9-cierre)
+12. [Referencias](#10-referencias)
 
 ---
 
@@ -40,6 +41,168 @@ El rol del ingeniero de software evolucionó con la llegada de la IA generativa:
 La tesis central de la charla es que el valor de desarrollar software de calidad se duplicó, porque ahora no alcanza con dominar ingeniería de software: también hay que aprender a dirigir los agentes que ejecutan parte de ese trabajo.
 
 > **Tesis central:** “El valor de desarrollar software de calidad se ha duplicado.”
+
+## Marco inicial: LLMs, coding agents y nueva abstracción
+
+Antes de hablar de contexto, MCPs, skills o flujos avanzados, conviene alinear una idea base: ¿qué es exactamente lo que cambió con los LLMs y por qué eso modifica la forma de desarrollar software?
+
+### Qué es un LLM
+
+Un **LLM** (*Large Language Model*) es un modelo entrenado para predecir y generar lenguaje a partir de grandes volúmenes de texto y código. En términos prácticos, no “entiende” como una persona, pero sí puede reconocer patrones, inferir intención, resumir, transformar información, explicar conceptos y producir artefactos útiles: código, documentación, tests, comandos, planes o análisis.
+
+Para un equipo de desarrollo, el punto importante no es que el LLM sea una enciclopedia. El punto importante es que puede operar sobre representaciones de trabajo que ya usamos todos los días:
+
+- lenguaje natural;
+- código fuente;
+- errores de compilación;
+- logs;
+- documentación;
+- issues;
+- pull requests;
+- comandos de terminal;
+- contratos técnicos y reglas de negocio.
+
+Esto convierte al lenguaje en una interfaz de trabajo. Ya no solo escribimos instrucciones para personas o código para máquinas: también escribimos contexto para modelos.
+
+### Qué es un coding agent
+
+Un **coding agent** es una capa por encima del LLM que lo conecta con un entorno de desarrollo real.
+
+Un chatbot puede responder una pregunta sobre código. Un coding agent puede interactuar con el proyecto:
+
+- leer archivos del repositorio;
+- buscar referencias;
+- modificar código;
+- crear tests;
+- ejecutar comandos;
+- observar errores;
+- corregir cambios;
+- validar resultados;
+- preparar un diff o un PR.
+
+La diferencia no es menor. En un chatbot, el modelo conversa. En un coding agent, el modelo participa dentro de un **loop de trabajo**.
+
+```text
+Objetivo del usuario
+  ↓
+Contexto del proyecto
+  ↓
+Decisión del modelo
+  ↓
+Uso de herramientas
+  ↓
+Observación del resultado
+  ↓
+Validación
+  ↓
+Nueva decisión
+```
+
+Herramientas como **Claude Code**, **Codex**, Cursor, Windsurf o GitHub Copilot Agent Mode llevan al modelo desde la conversación hacia el entorno donde el software realmente vive: el repositorio, la terminal, los tests, los linters, los pull requests y la documentación.
+
+### La nueva capa de abstracción
+
+Históricamente el desarrollo de software fue sumando capas de abstracción:
+
+```text
+Bits / hardware
+  ↓
+Assembler
+  ↓
+Lenguajes de alto nivel
+  ↓
+Frameworks
+  ↓
+APIs y plataformas
+  ↓
+Agentes de desarrollo guiados por lenguaje natural
+```
+
+Los coding agents agregan una nueva capa: el desarrollador ya no solo escribe cada instrucción del sistema, sino que también **dirige una entidad capaz de ejecutar parte del trabajo técnico**.
+
+Eso no elimina la ingeniería. La desplaza hacia decisiones de mayor nivel:
+
+- definir qué se quiere construir;
+- explicar el contexto correcto;
+- acotar el alcance;
+- elegir herramientas;
+- establecer criterios de validación;
+- revisar trade-offs;
+- decidir cuándo aceptar, corregir o descartar una solución.
+
+En otras palabras: el ingeniero deja de ser únicamente quien escribe código línea por línea y empieza a ser también quien diseña el entorno para que otro actor —el agente— pueda producir código con calidad.
+
+### Del prompt al contexto útil
+
+A partir de esta nueva capa aparece una distinción central para la charla: **prompt no es lo mismo que contexto útil**.
+
+Un prompt es la instrucción que se le da al modelo. Puede ser una pregunta, una orden o una descripción de tarea.
+
+El contexto útil es todo aquello que aumenta la probabilidad de que el agente tome buenas decisiones:
+
+- objetivo de negocio;
+- restricciones técnicas;
+- arquitectura existente;
+- patrones del repositorio;
+- decisiones previas;
+- ejemplos buenos y malos;
+- tests disponibles;
+- errores conocidos;
+- documentación interna;
+- criterio de finalización.
+
+La **ventana de contexto** es el límite técnico de información que el modelo puede considerar en una interacción. Pero llenar esa ventana con texto no garantiza buenos resultados. Lo importante no es solamente cuánto contexto entra, sino qué tan bien está seleccionado, ordenado y conectado con la tarea.
+
+> **Idea clave:** el trabajo profesional con agentes no consiste en escribir prompts más largos, sino en diseñar mejor contexto útil.
+
+### Tools: cuando el agente deja de adivinar
+
+Las **tools** son el mecanismo que permite que el agente interactúe con el entorno en vez de depender solo de lo que recuerda o infiere.
+
+Con tools, el agente puede:
+
+- inspeccionar el código real;
+- ejecutar tests;
+- leer logs;
+- consultar documentación;
+- llamar APIs;
+- abrir issues;
+- revisar diffs;
+- verificar si una hipótesis era correcta.
+
+Esto cambia la dinámica: el modelo no necesita imaginar el estado del sistema; puede observarlo. Y si puede observarlo, puede iterar.
+
+Por eso un coding agent como Claude Code puede resolver tareas de desarrollo: no porque el LLM “sepa todo”, sino porque el harness le permite:
+
+1. recibir un objetivo;
+2. leer contexto relevante;
+3. usar herramientas;
+4. modificar el entorno;
+5. validar con evidencia;
+6. repetir hasta cumplir una condición de parada.
+
+### Puente hacia el resto de la charla
+
+Desde esta base se entiende mejor el resto del material.
+
+Primero aparece el problema del **contexto**: qué información necesita el agente y cómo se la damos.
+
+Luego aparecen los mecanismos para profesionalizar ese contexto:
+
+- reglas del proyecto;
+- archivos `AGENTS.md` o equivalentes;
+- documentación viva;
+- skills;
+- MCPs;
+- herramientas de terminal;
+- validaciones automáticas;
+- especificaciones;
+- second brain;
+- harnesses de proyecto.
+
+La pregunta central deja de ser “¿qué prompt uso?” y pasa a ser:
+
+> **¿Qué sistema de trabajo construyo para que el agente pueda producir buen software de forma consistente?**
 
 ## Lectura de la audiencia
 
@@ -1055,14 +1218,49 @@ El ciclo de razonamiento de un agente puede pensarse así:
 
 1. Percibe contexto.
 2. Decide una acción.
-3. Ejecuta.
+3. Ejecuta una herramienta.
 4. Observa el resultado.
-5. Razona nuevamente.
-6. Repite hasta cumplir el objetivo.
+5. Valida o corrige.
+6. Razona nuevamente.
+7. Repite hasta cumplir el objetivo o alcanzar una condición de parada.
+
+En herramientas modernas como Claude Code y Codex, esto ya no es una metáfora: es la arquitectura real del CLI.
+
+Claude Code lo presenta como:
+
+```text
+Gather context → Take action → Verify results → Repeat
+```
+
+Codex CLI lo implementa alrededor de la Responses API:
+
+```text
+input del usuario
+  ↓
+inferencia del modelo
+  ↓
+function/tool call
+  ↓
+ejecución por el harness
+  ↓
+resultado agregado al contexto
+  ↓
+nueva inferencia
+```
+
+El punto importante para la charla: un agente no “responde”; un agente ejecuta ciclos de contexto, acción, observación y validación.
+
+Por eso, diseñar bien la tarea significa definir también el loop:
+
+```text
+Qué contexto debe leer
+Qué herramientas puede usar
+Qué validación debe correr
+Cuándo debe detenerse
+Qué evidencia debe mostrar al final
+```
 
 Entender este loop es clave para diseñar sistemas autónomos y predecibles.
-
-Para el alcance de esta charla, alcanza con dejar instalada la intuición: un agente no “responde”; un agente ejecuta ciclos de contexto, acción y observación.
 
 ## Orquestación multi-agente
 
