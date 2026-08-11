@@ -578,6 +578,19 @@ Cuando una herramienta se usa mucho, puede convertirse en MCP o skill. El criter
 - si el agente necesita consultar un sistema externo vivo, MCP puede ser buena opción;
 - si requiere permisos sensibles, debe tener límites, auditoría y aprobación.
 
+Ejemplos útiles de MCP en un harness de desarrollo:
+
+- **Comunicación:** Slack o Microsoft Teams para leer contexto de incidentes, decisiones técnicas, hilos de soporte o acuerdos recientes del equipo.
+- **Gestión de trabajo:** Jira, Linear o Azure DevOps para consultar tickets, criterios de aceptación, prioridades, dependencias y estado real del backlog.
+- **Observabilidad:** Datadog, Grafana, Prometheus, Sentry, OpenTelemetry o logs centralizados para investigar errores con señales reales de producción.
+- **Bases de conocimiento:** Confluence, Notion, Google Drive, SharePoint, wikis internas, runbooks o ADRs para traer documentación viva sin copiarla manualmente al prompt.
+- **Navegador y debugging web:** Chrome DevTools MCP, Playwright MCP o herramientas equivalentes para inspeccionar DOM, consola, network requests, performance y reproducir flujos desde el navegador.
+- **Dependencias y versiones:** MCPs que consultan registros como npm, PyPI, Maven, Docker Hub, GitHub Releases o bases de vulnerabilidades para saber versiones actuales, changelogs, CVEs y compatibilidades.
+- **Datos y análisis:** MCPs para consultar warehouses, dashboards, notebooks o APIs analíticas cuando el agente necesita responder con datos reales y no con intuición.
+- **Sistemas internos:** APIs corporativas, catálogos de servicios, ownership, feature flags o plataformas de deploy, siempre con permisos acotados y trazabilidad.
+
+Para GitHub, muchas veces conviene **preferir `gh` antes que un MCP**: es auditable, scriptable, estable, fácil de ejecutar desde terminal y suficiente para issues, PRs, checks, workflows y releases. El MCP de GitHub puede tener sentido si se busca una integración más estructurada o si el agente no tiene terminal disponible, pero en un coding harness con CLI, `gh` suele ser el camino más simple y controlable.
+
 ## Kit mínimo recomendado para un agente de desarrollo
 
 ```text
@@ -656,14 +669,18 @@ Reducen costo de tokens y tiempo porque el agente ya tiene un flujo definido.
 
 Contexto externo y dinámico.
 
-Permite conectar al agente con:
+Permite conectar al agente con sistemas vivos que cambian fuera del repo:
 
-- bases de datos;
-- APIs;
-- herramientas internas;
-- documentación viva;
-- sistemas de monitoreo;
-- repositorios o servicios externos.
+- **Slack / Teams:** conversaciones de incidentes, decisiones técnicas, soporte interno y acuerdos recientes.
+- **Jira / Linear / Azure DevOps:** tickets, criterios de aceptación, prioridades, dependencias y estado del trabajo.
+- **Observabilidad:** Datadog, Grafana, Prometheus, Sentry, OpenTelemetry y logs para investigar con señales reales.
+- **Bases de conocimiento:** Confluence, Notion, Google Drive, SharePoint, wikis, runbooks y ADRs.
+- **Chrome DevTools / navegador:** inspección de DOM, consola, network requests, performance y reproducción de bugs web.
+- **Dependencias y versiones:** npm, PyPI, Maven, Docker Hub, GitHub Releases, changelogs, CVEs y compatibilidades.
+- **Datos y análisis:** warehouses, dashboards, notebooks o APIs analíticas para responder con datos verificables.
+- **Herramientas internas:** catálogos de servicios, ownership, feature flags, deploys o APIs corporativas.
+
+No todo necesita MCP. Para GitHub, por ejemplo, muchas veces `gh` es mejor default que un MCP: es simple, auditable, scriptable y suficiente para issues, PRs, checks y workflows.
 
 Es muy potente, aunque puede consumir muchos tokens si no se diseña con cuidado.
 
