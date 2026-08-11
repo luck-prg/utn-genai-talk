@@ -22,12 +22,13 @@ Técnicas que usan equipos de ingeniería modernos: **Context Engineering**, **S
 1. [Introducción](#introducción)
 2. [Apertura: el nuevo ciclo de desarrollo](#1-apertura-el-nuevo-ciclo-de-desarrollo)
 3. [Por qué la IA sola no alcanza](#2-por-qué-la-ia-sola-no-alcanza)
-4. [Context Engineering](#3-context-engineering)
-5. [Spec-Driven Development](#4-spec-driven-development-sdd)
-6. [Evals](#5-evals)
-7. [Orquestación de agentes](#6-orquestación-de-agentes)
-8. [Cierre](#7-cierre)
-9. [Referencias](#8-referencias)
+4. [Niveles de profesionalismo para desarrollar con agentes](#3-niveles-de-profesionalismo-para-desarrollar-con-agentes)
+5. [Context Engineering](#4-context-engineering)
+6. [Spec-Driven Development](#5-spec-driven-development-sdd)
+7. [Evals](#6-evals)
+8. [Orquestación de agentes](#7-orquestación-de-agentes)
+9. [Cierre](#8-cierre)
+10. [Referencias](#9-referencias)
 
 ---
 
@@ -108,7 +109,199 @@ La IA puede acelerar el desarrollo, pero no reemplaza la ingeniería. Sin contex
 
 ---
 
-# 3. Context Engineering
+# 3. Niveles de profesionalismo para desarrollar con agentes
+
+Una forma práctica de entender la adopción de agentes es pensarla como una pirámide de madurez: en la base está el uso conversacional, y a medida que se asciende aparecen contexto persistente, validación, loops, grafos y orquestación.
+
+La pirámide tiene dos fuerzas que crecen en paralelo:
+
+- **Madurez del contexto:** cuánto entiende el agente del proyecto, del negocio, de las reglas y de la historia técnica.
+- **Madurez de la ejecución:** qué tan bien puede planificar, actuar, validar, iterar y coordinarse con otros agentes.
+
+![Pirámide de madurez para desarrollar con agentes](../assets/agent-maturity-pyramid.svg)
+
+> **Idea clave:** cuanto más arriba se está en la pirámide, más confianza se puede delegar en el agente. Esa confianza no nace de la fe en el modelo, sino de mejores restricciones, mejor contexto y mejores señales de validación.
+
+## Nivel 0 — Chat-driven coding
+
+Uso inicial de un coding agent como Claude, Codex, Cursor o similares, sin un harness preparado.
+
+**Hay:**
+
+- conversación directa con el agente;
+- explicación manual de la tarea;
+- feedback humano constante;
+- validación principalmente visual o manual;
+- productividad inicial alta para tareas simples.
+
+**No hay:**
+
+- contexto persistente del proyecto;
+- rules, `AGENTS.md` o `CLAUDE.md`;
+- plan formal antes de implementar;
+- comandos de validación definidos;
+- memoria de decisiones previas;
+- límites claros de permisos o herramientas.
+
+Es el nivel del **vibe-coding**: útil para empezar, peligroso si se confunde velocidad con calidad. El agente puede avanzar rápido, pero también puede acelerar deuda técnica con admirable entusiasmo.
+
+## Nivel 1 — Planificación y selección consciente de modelos
+
+El usuario empieza a dirigir el trabajo: primero se planifica, luego se ejecuta. También se elige el modelo según el tipo de tarea.
+
+**Hay:**
+
+- uso de plan mode antes de tocar código;
+- división de tareas complejas en pasos verificables;
+- elección consciente entre modelos rápidos, balanceados y de máxima capacidad;
+- revisión humana frecuente antes de implementar;
+- mayor control sobre costo, velocidad y profundidad de razonamiento.
+
+**No hay:**
+
+- workflows reutilizables;
+- automatización del proceso;
+- memoria estable del proyecto;
+- integración profunda con herramientas externas;
+- validación sistemática más allá de lo que el usuario pida manualmente.
+
+Ejemplos de elección de modelos:
+
+- **Pregunta simple:** “¿Dónde está definida esta función?” o “¿Qué comando corre los tests?” → modelo rápido/barato.
+- **Tarea repetitiva:** “Agregá tests similares para estos tres casos” o “Actualizá este patrón en varios archivos” → modelo balanceado.
+- **Tarea compleja:** “Diseñá la migración de este módulo sin romper compatibilidad” o “Investigá un bug intermitente de producción con impacto arquitectónico” → modelo de máxima capacidad.
+
+## Nivel 2 — Rules, MCPs, skills y assets reutilizables
+
+El trabajo deja de depender exclusivamente del prompt del momento. Se empiezan a empaquetar reglas, herramientas y conocimiento operativo.
+
+**Hay:**
+
+- rules de comportamiento y estilo;
+- archivos como `AGENTS.md` o `CLAUDE.md`;
+- MCPs para conectar herramientas externas;
+- skills para workflows repetidos;
+- assets, templates, scripts y checklists;
+- instrucciones reutilizables para testing, debugging, documentación o code review.
+
+**No hay:**
+
+- harness completo y mantenido como parte central del proyecto;
+- contexto de negocio suficientemente vivo;
+- estrategia clara de memoria a largo plazo;
+- observabilidad profunda del proceso del agente;
+- autonomía confiable para tareas largas.
+
+La diferencia central es que el conocimiento empieza a dejar de estar solo en la cabeza del developer y pasa a vivir en artefactos que el agente puede reutilizar.
+
+## Nivel 3 — Harness propio del proyecto
+
+El proyecto ya tiene un entorno diseñado para que el agente trabaje bien. Acá aparece con más fuerza el **Context Engineering**.
+
+**Hay:**
+
+- harness propio del repo;
+- contexto vivo del proyecto;
+- documentación técnica relevante;
+- reglas de negocio;
+- comandos de validación;
+- criterios de arquitectura;
+- subagents para investigación, testing, documentación o revisión;
+- hooks para ejecutar acciones determinísticas en momentos críticos.
+
+**No hay:**
+
+- memoria externa amplia tipo second brain;
+- recuperación histórica sofisticada;
+- loops o grafos diseñados explícitamente para tareas largas;
+- orquestación multi-agente completa;
+- autonomía alta sin supervisión humana.
+
+En este nivel la persona sigue validando activamente, pero el agente ya opera con un mapa mucho más fiel del proyecto. El salto de calidad no viene de “prompt mágico”, sino de darle al agente un entorno menos improvisado.
+
+## Nivel 4 — Second brain y conocimiento externo conectado
+
+El agente deja de depender solo del repo y puede consultar una base de conocimiento viva: Obsidian, Notion, Google Drive, ADRs, RFCs, research notes o documentación interna.
+
+**Hay:**
+
+- conexión con un second brain;
+- acceso a decisiones pasadas;
+- contexto de negocio persistente;
+- investigación acumulada;
+- documentación histórica;
+- posibilidad de recuperar aprendizajes entre sesiones.
+
+**No hay:**
+
+- garantía automática de calidad del conocimiento recuperado;
+- loops autónomos robustos;
+- coordinación multi-agente avanzada;
+- validación completa sin intervención humana.
+
+Este nivel aumenta la confianza porque el agente puede trabajar con historia, no solo con instrucciones del momento. Pero exige curaduría: una base de conocimiento desordenada no es memoria, es ruido con pretensiones académicas.
+
+## Nivel 5 — Loop engineering y graph engineering
+
+El foco pasa de “qué contexto tiene el agente” a “cómo ejecuta”. Se diseñan ciclos y topologías explícitas para resolver tareas largas o ambiguas.
+
+**Hay:**
+
+- loops de ejecución: analizar → actuar → observar → validar → corregir;
+- condiciones de salida verificables;
+- retries y presupuestos de iteración;
+- manejo de fallos;
+- trazas del proceso;
+- grafos con nodos, estados, ramas y handoffs;
+- evals o checks como parte del flujo.
+
+**No hay:**
+
+- necesariamente múltiples agentes especializados;
+- coordinación distribuida compleja;
+- confianza plena sin monitoreo;
+- reemplazo del criterio humano en decisiones críticas.
+
+La frase importante para este nivel:
+
+> Un agente serio no termina cuando deja de hablar. Termina cuando una condición verificable se cumple.
+
+## Nivel 6 — Orquestación de agentes
+
+El nivel superior es diseñar un sistema donde múltiples agentes trabajan con roles, límites y responsabilidades claras.
+
+**Hay:**
+
+- agentes especializados por rol;
+- paralelización de tareas;
+- handoffs entre agentes;
+- separación entre planificación, implementación, testing y revisión;
+- agentes revisores o críticos;
+- coordinación de costos, permisos y contexto;
+- mayor confianza operativa basada en validación y trazabilidad.
+
+**No hay:**
+
+- magia;
+- garantía de calidad por sumar más agentes;
+- independencia total del diseño humano;
+- reemplazo de arquitectura, producto o criterio técnico.
+
+Orquestar agentes no significa sumar inteligencia de forma lineal. Significa diseñar coordinación. Un solo agente bien equipado puede ser mejor que cinco agentes mal coordinados corriendo en direcciones distintas, una imagen épica, pero poco recomendable para producción.
+
+## Lectura de la pirámide
+
+Los primeros niveles fortalecen la **madurez del contexto**: el agente entiende mejor qué debe hacer, con qué reglas, en qué proyecto y con qué conocimiento.
+
+Los niveles superiores fortalecen la **madurez de la ejecución**: el agente no solo entiende mejor, sino que trabaja con loops, validación, coordinación y trazabilidad.
+
+La profesionalización ocurre cuando se combinan ambas dimensiones:
+
+> mejor contexto para decidir, mejor ejecución para actuar y mejor validación para confiar.
+
+---
+
+# 4. Context Engineering
 
 **Context Engineering** es la práctica de diseñar el contexto del agente: el harness que lo hace útil y le permite trabajar de forma consistente.
 
@@ -220,7 +413,7 @@ El orden recomendado para ejecutar bien una tarea:
 
 ---
 
-# 4. Spec-Driven Development (SDD)
+# 5. Spec-Driven Development (SDD)
 
 **Spec-Driven Development** es un marco de trabajo para proyectos complejos con IA.
 
@@ -403,7 +596,7 @@ La integridad de estos componentes es clave para un flujo SDD predecible.
 
 ---
 
-# 5. Evals
+# 6. Evals
 
 Un **eval** es un proceso donde se somete a un agente —junto con todo su harness— a un conjunto de pruebas diseñadas para calificar criterios específicos.
 
@@ -460,7 +653,7 @@ Sin evals, no hay mejora sistemática. Solo hay percepción subjetiva de que “
 
 ---
 
-# 6. Orquestación de agentes
+# 7. Orquestación de agentes
 
 ## Agent Loop
 
@@ -542,7 +735,7 @@ La orquestación también es escala horizontal, no solo división por roles.
 
 ---
 
-# 7. Cierre
+# 8. Cierre
 
 > “Context is the new code.”
 
@@ -561,7 +754,7 @@ Dominar el harness es lo que separa el vibe-coding del desarrollo estructurado, 
 
 ---
 
-# 8. Referencias
+# 9. Referencias
 
 - Skills.sh — Directorio de skills curadas para agentes de IA.  
   <https://www.skills.sh/>
