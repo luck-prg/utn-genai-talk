@@ -1,0 +1,44 @@
+/*
+ * SISTEMA DE DISEÑO — "papel + terminal"
+ * Fondo papel, tinta oscura, acento naranja. Space Grotesk (display) +
+ * IBM Plex Mono (todo lo demás). Lienzo de referencia 1920x1080, tipografía
+ * fluida por vw con techo fijo.
+ */
+@theme {
+  /* --- Paleta --- */
+  --color-fondo: #f3efe6; /* papel */
+  --color-fg: #14120e; /* tinta */
+  --color-muted: #54504a; /* tinta secundaria */
+  --color-acento: #e8482b;
+  --color-acento-2: #e8482b;
+  --color-codebg: #0c1326;
+
+  --color-linea: color-mix(in srgb, #14120e 16%, transparent);
+  --color-linea-suave: color-mix(in srgb, #14120e 10%, transparent);
+  --color-grid: color-mix(in srgb, #14120e 5%, transparent);
+
+  /* --- Tipografía --- */
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Tipografía escalada a 1920 de ancho (tope = tamaños del brief) */
+  --fs-cover: clamp(46px, 8.3vw, 168px);
+  --fs-section: clamp(40px, 5.6vw, 112px);
+  --fs-numbig: clamp(90px, 15vw, 300px);
+  --fs-title: clamp(32px, 5vw, 104px);
+  --fs-stmt: clamp(30px, 4.4vw, 92px);
+  --fs-sub: clamp(17px, 2vw, 40px);
+  --fs-body: clamp(15px, 1.55vw, 31px);
+  --fs-prompt: clamp(15px, 1.5vw, 30px);
+  --fs-chip: clamp(13px, 1.4vw, 28px);
+  --fs-foot: clamp(12px, 1.3vw, 26px);
+
+  --pad: clamp(40px, 5.5vw, 110px);
+  --gridsz: 4.4vw;
+
+  /* --- Tiempos (compartidos con Motion) --- */
+  --duration-fast: 220ms;
+  --duration-base: 620ms;
+  --duration-slow: 1100ms;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
