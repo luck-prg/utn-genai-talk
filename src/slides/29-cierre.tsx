@@ -15,9 +15,9 @@ export default function Cierre() {
       after={
         <div className="bar reveal" style={{ marginTop: "clamp(20px,2vw,40px)" }}>
           <span>
-            <b>Alan De Angelis</b> &nbsp;·&nbsp; <b>Luciano Rodriguez</b>
+            <b>Luciano Rodriguez</b>
           </span>
-          <span className="accent">GenAI · Mercado Libre</span>
+          <span className="accent">GenAI</span>
         </div>
       }
     >

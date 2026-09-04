@@ -26,11 +26,7 @@ export default function Oradores() {
               <br />
               Rodriguez
             </div>
-            <div className="s-role">
-              GenAI Software Engineer
-              <br />
-              <b>Mercado Libre</b>
-            </div>
+            <div className="s-role">GenAI Software Engineer</div>
           </div>
         </div>
 

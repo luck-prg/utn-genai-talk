@@ -102,5 +102,4 @@ npx vercel --prod # producción
 
 ## Oradores
 
-- Alan Julián De Angelis — GenAI Technical Leader, Mercado Libre
-- Luciano Rodriguez — GenAI Software Engineer, Mercado Libre
+- Luciano Rodriguez — GenAI Software Engineer
