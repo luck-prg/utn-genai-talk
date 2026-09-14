@@ -18,7 +18,7 @@ interface SlideModule {
   meta?: SlideMeta;
 }
 
-const modules = import.meta.glob<SlideModule>("../slides/*.tsx", { eager: true });
+const modules = import.meta.glob<SlideModule>("../nuevas-slides/*.tsx", { eager: true });
 
 function slugFromPath(path: string): string {
   const file = path.split("/").pop() ?? path;
