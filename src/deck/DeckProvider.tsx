@@ -64,7 +64,7 @@ export function DeckProvider({ children }: { children: ReactNode }) {
       window.history.replaceState(null, "", target);
     }
     const current = slides[index];
-    document.title = `${current?.numberLabel ?? "00"}/${lastSlideNumber} · ${current?.title ?? "GenAI Talk"}`;
+    document.title = `${current?.numberLabel ?? "00"}/${lastSlideNumber} · ${current?.title ?? "El proceso del diseño con IA Generativa"}`;
   }, [index]);
 
   // Navegación con el botón atrás/adelante del browser o con un link pegado

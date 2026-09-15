@@ -3,13 +3,13 @@ import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
   title: "Dos caminos",
-  seccion: "BLOQUE 0 · APERTURA",
+  seccion: "BLOQUE 0 · INTRODUCCIÓN",
   transition: "fade",
 };
 
 export default function DosCaminos() {
   return (
-    <SlideFrame meta="BLOQUE 0 · APERTURA">
+    <SlideFrame meta="BLOQUE 0 · INTRODUCCIÓN">
       <h2 className="display t-md reveal">
         Dos caminos para
         <br />

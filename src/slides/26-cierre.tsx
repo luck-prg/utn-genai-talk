@@ -3,14 +3,14 @@ import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
   title: "¿Preguntas?",
-  seccion: "BLOQUE 6 · CIERRE",
+  seccion: "BLOQUE 4 · CIERRE",
   transition: "zoom",
 };
 
 export default function Cierre() {
   return (
     <SlideFrame
-      meta="BLOQUE 6 · CIERRE"
+      meta="BLOQUE 4 · CIERRE"
       footer={false}
       after={
         <div className="bar reveal" style={{ marginTop: "clamp(20px,2vw,40px)" }}>
@@ -26,7 +26,7 @@ export default function Cierre() {
         ¿<span className="accent">Preguntas</span>?
       </h2>
       <p className="sub reveal mt-m maxw">
-        Gracias por venir. Hablemos de context engineering, specs, evals y agentes.
+        Gracias por venir. Hablemos de agentes de código, context engineering y specs.
       </p>
     </SlideFrame>
   );

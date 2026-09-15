@@ -4,7 +4,7 @@ import { lastSlideNumber } from "@/deck/registry";
 import { useCurrentSlide } from "@/deck/StageContext";
 import { UtnLogo } from "./UtnLogo";
 
-const FOOT_NOTE = "diseñando-el-futuro-con-genai";
+const FOOT_NOTE = "el-proceso-del-diseño-con-ia-generativa";
 
 /**
  * Layout recurrente de cada diapositiva: header (marca + rótulo de bloque),

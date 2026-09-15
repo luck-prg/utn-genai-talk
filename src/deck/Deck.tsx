@@ -46,7 +46,7 @@ export function Deck() {
       <AnimatePresence mode="wait" custom={direction} initial={false}>
         <motion.section
           key={current.id}
-          className={`slide ${visible ? "visible" : ""}`}
+          className={`slide ${current.variante ? `slide--${current.variante}` : ""} ${visible ? "visible" : ""}`}
           custom={direction}
           variants={slideVariants[current.transition]}
           initial="enter"

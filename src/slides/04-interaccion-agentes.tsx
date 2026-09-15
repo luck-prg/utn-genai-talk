@@ -3,7 +3,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
   title: "¿Quién usa agentes?",
-  seccion: "BLOQUE 0 · APERTURA",
+  seccion: "BLOQUE 0 · INTRODUCCIÓN",
   notes: "Pregunta al público, mano arriba.",
   transition: "slide",
 };
@@ -18,7 +18,7 @@ const AGENTES = [
 
 export default function InteraccionAgentes() {
   return (
-    <SlideFrame meta="BLOQUE 0 · APERTURA">
+    <SlideFrame meta="BLOQUE 0 · INTRODUCCIÓN">
       <div className="agents-row">
         <div className="agents-text">
           <p className="eyebrow reveal">›// manos arriba</p>

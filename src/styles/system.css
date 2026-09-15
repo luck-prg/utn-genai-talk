@@ -53,6 +53,20 @@
   pointer-events: none;
 }
 
+/* Divisoria de bloque: paleta invertida a pantalla completa. Redefinir los
+   tokens alcanza para que header, pie y contenido se adapten solos. */
+.slide--corte {
+  --color-fondo: #14120e;
+  --color-fg: #f6f1e7;
+  --color-muted: color-mix(in srgb, #f6f1e7 58%, transparent);
+  --color-linea: color-mix(in srgb, #f6f1e7 20%, transparent);
+  --color-grid: color-mix(in srgb, #f6f1e7 7%, transparent);
+  background-color: var(--color-fondo);
+  background-image:
+    repeating-linear-gradient(0deg, var(--color-grid) 0 1px, transparent 1px var(--gridsz)),
+    repeating-linear-gradient(90deg, var(--color-grid) 0 1px, transparent 1px var(--gridsz));
+}
+
 .s-head {
   display: flex;
   align-items: center;
@@ -612,6 +626,98 @@
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+/* ===========================================================
+   MAPA DEL HARNESS — dona de propósitos + herramientas
+   =========================================================== */
+.harness-map {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  align-items: center;
+  gap: clamp(24px, 3vw, 70px);
+  width: 100%;
+  min-height: 0;
+}
+.harness-donut {
+  display: block;
+  margin-inline: auto;
+  width: auto;
+  height: min(54vh, 30vw);
+}
+.harness-title {
+  font-size: clamp(24px, 3vw, 62px);
+  line-height: 1;
+}
+.harness-donut path {
+  stroke: var(--color-fondo);
+  stroke-width: 3;
+  stroke-linejoin: round;
+}
+.harness-donut .hd-cat,
+.harness-donut .hd-tool {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.harness-donut .hd-cat {
+  font-size: 15px;
+  fill: #f6f1e7;
+}
+.harness-donut .hd-tool {
+  font-size: 13px;
+  fill: #14120e;
+}
+.harness-donut .hd-cat.hd-off {
+  fill: #14120e;
+  fill-opacity: 0.4;
+}
+@media (max-width: 900px) {
+  .harness-map {
+    grid-template-columns: 1fr;
+  }
+  .harness-donut {
+    height: min(38vh, 62vw);
+  }
+}
+
+/* ===========================================================
+   CORTE — cuerpo de las divisorias de bloque
+   =========================================================== */
+.corte-kicker {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 1.1vw, 22px);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: var(--fs-foot);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-acento);
+}
+.corte-kicker::before {
+  content: "";
+  width: clamp(26px, 2.4vw, 48px);
+  height: clamp(10px, 0.9vw, 18px);
+  background: var(--color-acento);
+  flex-shrink: 0;
+}
+.corte-kicker::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: color-mix(in srgb, var(--color-acento) 40%, transparent);
+}
+.corte-title {
+  font-size: var(--fs-section);
+  line-height: 0.98;
+  max-width: 22ch;
+}
+.corte-sub {
+  max-width: 44ch;
 }
 
 .t-md {

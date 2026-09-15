@@ -14,16 +14,16 @@ export default function Portada() {
     <SlideFrame meta="[ DURACIÓN 02:00 ]" center footer={false}>
       <div className="cover-row">
         <div className="cover-text">
-          <p className="prompt reveal">&gt; ./charla-genai --utn-frba</p>
+          <p className="prompt reveal">&gt; ./proceso-de-diseño --utn-frba</p>
           <h1
             className="display reveal"
             style={{ fontSize: "clamp(36px,5.4vw,108px)", marginTop: "clamp(10px,1.2vw,24px)" }}
           >
-            Diseñando
+            El proceso
             <br />
-            el futuro del
+            del diseño
             <br />
-            desarrollo con <span className="accent">GenAI</span>
+            empleando IA <span className="accent">Generativa</span>
           </h1>
         </div>
         <UtnLogo className="cover-logo reveal" />

@@ -2,7 +2,7 @@
 
 > Fuente: guardados/bookmarks de X del usuario + tweets/artículos del perfil [`@santtiagom_`](https://x.com/santtiagom_).
 >
-> Criterio: relevancia para la charla “Diseñando el futuro del desarrollo con GenAI”: Context Engineering, Spec-Driven Development, evals, tools/MCP, subagents y orquestación.
+> Criterio: relevancia para la charla “El proceso del diseño empleando IA Generativa”: Context Engineering, Spec-Driven Development, evals, tools/MCP, subagents y orquestación.
 
 ## Alcance de la búsqueda
 

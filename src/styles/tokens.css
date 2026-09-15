@@ -24,7 +24,6 @@
   /* Tipografía escalada a 1920 de ancho (tope = tamaños del brief) */
   --fs-cover: clamp(46px, 8.3vw, 168px);
   --fs-section: clamp(40px, 5.6vw, 112px);
-  --fs-numbig: clamp(90px, 15vw, 300px);
   --fs-title: clamp(32px, 5vw, 104px);
   --fs-stmt: clamp(30px, 4.4vw, 92px);
   --fs-sub: clamp(17px, 2vw, 40px);
