@@ -18,7 +18,9 @@ interface SlideModule {
   meta?: SlideMeta;
 }
 
-const modules = import.meta.glob<SlideModule>("../slides/*.tsx", { eager: true });
+// TEMPORAL (sin commitear): apunta al mazo propio de las secciones 1, 6, 3 y 5.
+// Para volver al mazo de `main`, restaurar "../mis-slides/*.tsx".
+const modules = import.meta.glob<SlideModule>("../mis-slides/*.tsx", { eager: true });
 
 function slugFromPath(path: string): string {
   const file = path.split("/").pop() ?? path;

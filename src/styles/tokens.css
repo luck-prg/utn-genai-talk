@@ -21,19 +21,22 @@
   --font-display: "Space Grotesk", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
-  /* Tipografía escalada a 1920 de ancho (tope = tamaños del brief) */
-  --fs-cover: clamp(46px, 8.3vw, 168px);
-  --fs-section: clamp(40px, 5.6vw, 112px);
-  --fs-numbig: clamp(90px, 15vw, 300px);
-  --fs-title: clamp(32px, 5vw, 104px);
-  --fs-stmt: clamp(30px, 4.4vw, 92px);
-  --fs-sub: clamp(17px, 2vw, 40px);
-  --fs-body: clamp(15px, 1.55vw, 31px);
-  --fs-prompt: clamp(15px, 1.5vw, 30px);
-  --fs-chip: clamp(13px, 1.4vw, 28px);
-  --fs-foot: clamp(12px, 1.3vw, 26px);
+  /* Tipografía escalada al lienzo de referencia 1920x1080. El término medio
+     de cada clamp toma el MENOR entre ancho y alto (en 16:9, 1vw = 1.7778vh):
+     en 16:9 el render es idéntico, y si la ventana es más baja todo escala
+     junto en vez de desbordar el header y el pie. */
+  --fs-cover: clamp(46px, min(8.3vw, 14.76vh), 168px);
+  --fs-section: clamp(40px, min(5.6vw, 9.96vh), 112px);
+  --fs-numbig: clamp(90px, min(15vw, 26.67vh), 300px);
+  --fs-title: clamp(32px, min(5vw, 8.89vh), 104px);
+  --fs-stmt: clamp(30px, min(4.4vw, 7.82vh), 92px);
+  --fs-sub: clamp(17px, min(2vw, 3.56vh), 40px);
+  --fs-body: clamp(15px, min(1.55vw, 2.76vh), 31px);
+  --fs-prompt: clamp(15px, min(1.5vw, 2.67vh), 30px);
+  --fs-chip: clamp(13px, min(1.4vw, 2.49vh), 28px);
+  --fs-foot: clamp(12px, min(1.3vw, 2.31vh), 26px);
 
-  --pad: clamp(40px, 5.5vw, 110px);
+  --pad: clamp(40px, min(5.5vw, 9.78vh), 110px);
   --gridsz: 4.4vw;
 
   /* --- Tiempos (compartidos con Motion) --- */
