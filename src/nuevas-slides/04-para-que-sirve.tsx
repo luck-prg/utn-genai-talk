@@ -1,62 +1,33 @@
 import type { SlideMeta } from "@/deck/types";
 import { SlideFrame } from "@/components/SlideFrame";
+import { Picto, type PictoName } from "./components/Picto";
 
 export const meta: SlideMeta = {
   title: "Para qué sirve un método",
-  seccion: "BLOQUE 1 · EL MÉTODO",
+  seccion: "EL MÉTODO",
   notes: "Cierre del bloque 1. Cuatro ventajas concretas, sin teoría de ingeniería de software.",
   transition: "fade",
 };
 
-const VENTAJAS = [
-  {
-    tag: "01",
-    title: "Predecible",
-    body: (
-      <>
-        Sabés <b>qué paso sigue</b> y qué tiene que ser verdad para avanzar.
-      </>
-    ),
-  },
-  {
-    tag: "02",
-    title: "Trazable",
-    body: (
-      <>
-        Queda escrito <b>por qué</b> se decidió lo que se decidió.
-      </>
-    ),
-  },
-  {
-    tag: "03",
-    title: "Transferible",
-    body: (
-      <>
-        Otra persona <b>puede seguirlo</b> sin que se lo expliques.
-      </>
-    ),
-  },
-  {
-    tag: "04",
-    title: "Barato",
-    body: (
-      <>
-        El error aparece <b>temprano</b>, cuando corregirlo todavía no duele.
-      </>
-    ),
-  },
+const VENTAJAS: { icon: PictoName; title: string; body: string }[] = [
+  { icon: "path", title: "Predecible", body: "Sabés qué paso sigue." },
+  { icon: "ledger", title: "Trazable", body: "Queda escrito por qué." },
+  { icon: "handoff", title: "Transferible", body: "Otro lo sigue sin vos." },
+  { icon: "early", title: "Barato", body: "El error aparece temprano." },
 ];
 
 export default function ParaQueSirve() {
   return (
-    <SlideFrame meta="BLOQUE 1 · EL MÉTODO">
+    <SlideFrame meta="EL MÉTODO">
       <h2 className="display t-md reveal">¿Para qué sirve un método?</h2>
-      <div className="cards mt-m reveal" style={{ gridTemplateColumns: "1fr 1fr" }}>
+      <div className="cards mt-s reveal" style={{ gridTemplateColumns: "1fr 1fr" }}>
         {VENTAJAS.map((v) => (
-          <div className="card" key={v.tag}>
-            <div className="c-tag">{v.tag}</div>
+          <div className="card" key={v.icon}>
+            <div style={{ color: "var(--color-fg)" }}>
+              <Picto name={v.icon} />
+            </div>
             <div className="c-title">{v.title}</div>
-            <div className="c-body">{v.body}</div>
+            <div className="c-body" style={{ fontSize: "var(--fs-body)", color: "var(--color-fg)" }}>{v.body}</div>
           </div>
         ))}
       </div>

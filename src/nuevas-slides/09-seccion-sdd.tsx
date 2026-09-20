@@ -2,9 +2,9 @@ import type { SlideMeta } from "@/deck/types";
 import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
-  title: "04 · Spec-Driven Development",
+  title: "Spec-Driven Development",
   seccion: "SECCIÓN",
-  notes: "Medio minuto. Respirá: acá arrancan los 18 minutos centrales del bloque.",
+  notes: "Medio minuto. Respirá: acá arrancan los treinta minutos centrales del bloque.",
   transition: "zoom",
 };
 
@@ -15,7 +15,7 @@ export default function SeccionSdd() {
         className="display reveal accent"
         style={{ fontSize: "var(--fs-numbig)", lineHeight: 0.8 }}
       >
-        04
+        SDD
       </div>
       <h2 className="display reveal mt-s" style={{ fontSize: "var(--fs-section)" }}>
         Spec-Driven

@@ -4,7 +4,7 @@ import { ArtifactPanel } from "@/nuevas-slides/components/ArtifactPanel";
 
 export const meta: SlideMeta = {
   title: "El ejemplo · Tasks",
-  seccion: "BLOQUE 4 · SDD",
+  seccion: "SDD",
   notes:
     "Etapa 4 de 5. Formato real: [ID] [P?] [Story] Description. El [P] marca lo que se puede paralelizar y el [US1] ata cada tarea a su historia de la spec. Las fases están ordenadas por dependencia y la primera historia se marca como MVP. Lo que decís: cada tarea entra en una sesión y se revisa sola.",
   transition: "fade",
@@ -20,7 +20,7 @@ const HTML = `<span class="cm"># Tasks: Login interno</span>
 
 export default function EjemploTasks() {
   return (
-    <SlideFrame meta="BLOQUE 4 · SDD">
+    <SlideFrame meta="SDD">
       <p className="prompt reveal">&gt; login --etapa 4 de 5 · tasks</p>
       <ArtifactPanel path="tasks.md" html={HTML} />
     </SlideFrame>

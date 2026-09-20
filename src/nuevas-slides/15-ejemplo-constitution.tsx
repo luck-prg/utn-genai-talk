@@ -4,7 +4,7 @@ import { ArtifactPanel } from "@/nuevas-slides/components/ArtifactPanel";
 
 export const meta: SlideMeta = {
   title: "El ejemplo · Constitution",
-  seccion: "BLOQUE 4 · SDD",
+  seccion: "SDD",
   notes:
     "Etapa 1 de 5. Anunciá que las próximas seis slides son el MISMO login, creciendo, y que la estructura no es inventada: es la que generan las herramientas que ya existen, las nombrás al final. Es la única vez que mencionás la fuente. Lo que decís: se escribe una vez por proyecto y todo lo que sigue lo respeta. El template real cierra con una sección Governance y un número de versión — se versiona como el código.",
   transition: "fade",
@@ -20,7 +20,7 @@ No se rompen contratos publicados.
 
 export default function EjemploConstitution() {
   return (
-    <SlideFrame meta="BLOQUE 4 · SDD">
+    <SlideFrame meta="SDD">
       <p className="prompt reveal">&gt; login --etapa 1 de 5 · constitution</p>
       <ArtifactPanel path="constitution.md" html={HTML} />
     </SlideFrame>

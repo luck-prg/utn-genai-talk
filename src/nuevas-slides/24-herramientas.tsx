@@ -3,7 +3,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
   title: "Herramientas",
-  seccion: "BLOQUE 4 · SDD",
+  seccion: "SDD",
   notes:
     "Última slide. El remate importa: existen, pero no hacen falta para empezar. Un archivo de texto y disciplina alcanzan.",
   transition: "fade",
@@ -13,7 +13,7 @@ const TOOLKITS = ["spec-kit", "openSpec", "BMAD", "GSD"];
 
 export default function Herramientas() {
   return (
-    <SlideFrame meta="BLOQUE 4 · SDD">
+    <SlideFrame meta="SDD">
       <p className="prompt reveal">&gt; ecosistema --open-source</p>
       <h2 className="display t-md reveal mt-s">Ya hay herramientas</h2>
       <div className="chips mt-m reveal">

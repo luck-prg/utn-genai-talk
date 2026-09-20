@@ -4,7 +4,7 @@ import { ArtifactPanel } from "@/nuevas-slides/components/ArtifactPanel";
 
 export const meta: SlideMeta = {
   title: "El ejemplo · Implement",
-  seccion: "BLOQUE 4 · SDD",
+  seccion: "SDD",
   notes:
     "Etapa 5 de 5, y EL REMATE. Los tests citan los identificadores de la spec: FR-001, FR-002, SC-001. Volvé tres slides atrás con el dedo y mostrá que son los mismos. Eso es trazabilidad: de un requisito escrito en lenguaje de producto hasta un test en verde, sin que nadie se haya inventado nada en el medio.",
   transition: "fade",
@@ -20,7 +20,7 @@ const HTML = `<span class="st">$</span> npm test -- login
 
 export default function EjemploImplement() {
   return (
-    <SlideFrame meta="BLOQUE 4 · SDD">
+    <SlideFrame meta="SDD">
       <p className="prompt reveal">&gt; login --etapa 5 de 5 · implement</p>
       <ArtifactPanel path="~/mi-proyecto" html={HTML} />
     </SlideFrame>

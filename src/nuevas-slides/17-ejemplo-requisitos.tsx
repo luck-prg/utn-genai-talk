@@ -4,7 +4,7 @@ import { ArtifactPanel } from "@/nuevas-slides/components/ArtifactPanel";
 
 export const meta: SlideMeta = {
   title: "El ejemplo · Requisitos",
-  seccion: "BLOQUE 4 · SDD",
+  seccion: "SDD",
   notes:
     "Segunda mitad de la spec, misma estructura real: requisitos numerados FR-00N con MUST, y criterios de éxito medibles SC-00N. Lo que decís: ni una palabra técnica todavía. Marcá los tres identificadores — en la última etapa vuelven citados por los tests.",
   transition: "fade",
@@ -19,7 +19,7 @@ const HTML = `<span class="cm"># Feature Specification: Login interno</span>
 
 export default function EjemploRequisitos() {
   return (
-    <SlideFrame meta="BLOQUE 4 · SDD">
+    <SlideFrame meta="SDD">
       <p className="prompt reveal">&gt; login --etapa 2 de 5 · spec (requisitos)</p>
       <ArtifactPanel path="spec.md" html={HTML} />
     </SlideFrame>

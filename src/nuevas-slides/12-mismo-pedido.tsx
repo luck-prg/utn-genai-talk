@@ -3,7 +3,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
   title: "El mismo pedido, dos veces",
-  seccion: "BLOQUE 4 · SDD",
+  seccion: "SDD",
   notes:
     "Señalá cuántas decisiones quedan implícitas del lado izquierdo: las toma todas el agente, y ninguna la validaste vos.",
   transition: "fade",
@@ -11,7 +11,7 @@ export const meta: SlideMeta = {
 
 export default function MismoPedido() {
   return (
-    <SlideFrame meta="BLOQUE 4 · SDD">
+    <SlideFrame meta="SDD">
       <h2 className="display t-md reveal">El mismo pedido, dos veces</h2>
       <div className="two-col mt-l reveal">
         <div>

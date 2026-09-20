@@ -3,7 +3,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
   title: "Manos arriba",
-  seccion: "BLOQUE 2 · LO QUE YA CONOCEMOS",
+  seccion: "LO QUE YA CONOCEMOS",
   notes:
     "Las cuatro EN ORDEN, una por vez, esperando entre cada una. En la 03 pediles que dejen la mano arriba. Si en la 04 suben más manos que en la 03, tu tesis quedó probada por la sala. En streaming, pediles que respondan por el chat.",
   transition: "slide",
@@ -18,7 +18,7 @@ const PREGUNTAS = [
 
 export default function ManosArriba() {
   return (
-    <SlideFrame meta="BLOQUE 2 · LO QUE YA CONOCEMOS">
+    <SlideFrame meta="LO QUE YA CONOCEMOS">
       <p className="prompt reveal">&gt; manos --arriba</p>
       <h2 className="display t-md reveal mt-s">Cuatro preguntas</h2>
       <div className="cards mt-m reveal" style={{ gridTemplateColumns: "1fr 1fr 1fr 1fr" }}>
