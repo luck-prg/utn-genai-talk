@@ -2,8 +2,8 @@ import type { SlideMeta } from "@/deck/types";
 import { PortadaSeccion } from "@/components/PortadaSeccion";
 
 export const meta: SlideMeta = {
-  title: "Portada · Modelos",
-  seccion: "MODELOS",
+  title: "Portada · 3.1 Modelos",
+  seccion: "3.1 · MODELOS",
   notes:
     "Corte de sección. Elegir el modelo es una decisión de diseño del harness, no un detalle de configuración. Lo que importa es el criterio, porque el catálogo de modelos cambia todo el tiempo.",
   transition: "curtain",
@@ -11,9 +11,9 @@ export const meta: SlideMeta = {
 
 export default function PortadaModelos() {
   return (
-    <PortadaSeccion
+    <PortadaSeccion header={false} footer={false}
       meta="SECCIÓN"
-      numero="05"
+      numero="3.1"
       kicker="Modelos"
       titulo={
         <>
@@ -22,13 +22,8 @@ export default function PortadaModelos() {
           es <span className="accent">diseñar el harness</span>
         </>
       }
-      promesa={
-        <>
-          No todos los problemas justifican el modelo más caro. El criterio dura; el{" "}
-          <b>catálogo vigente</b>, no.
-        </>
-      }
-      temas={["criterio", "escalones", "lectura económica"]}
+      promesa="El criterio dura; el catálogo vigente, no."
+      temas={["criterio", "cuatro ejes", "gamas", "local vs. remoto"]}
     />
   );
 }

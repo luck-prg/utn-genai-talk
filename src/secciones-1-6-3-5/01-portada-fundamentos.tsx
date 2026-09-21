@@ -2,8 +2,8 @@ import type { SlideMeta } from "@/deck/types";
 import { PortadaSeccion } from "@/components/PortadaSeccion";
 
 export const meta: SlideMeta = {
-  title: "Portada · Fundamentos",
-  seccion: "FUNDAMENTOS",
+  title: "Portada · 1.1.1 LLM y tokens",
+  seccion: "1.1.1 · LLM Y TOKENS",
   notes:
     "Corte de sección. Antes de hablar de cómo trabajar con agentes, conviene saber qué hay abajo: un modelo que predice lenguaje, que lee tokens y que trabaja con una ventana finita. Todo lo que viene después se apoya en esto.",
   transition: "curtain",
@@ -11,23 +11,18 @@ export const meta: SlideMeta = {
 
 export default function PortadaFundamentos() {
   return (
-    <PortadaSeccion
+    <PortadaSeccion header={false} footer={false}
       meta="SECCIÓN"
-      numero="01"
-      kicker="Fundamentos"
+      numero="1.1.1"
+      kicker="LLM y tokens"
       titulo={
         <>
           Modelos de lenguaje
-          <br />y <span className="accent">agentes de código</span>
+          <br />y <span className="accent">tokens</span>
         </>
       }
-      promesa={
-        <>
-          Qué hay abajo de la herramienta que vamos a usar el resto de la charla, y por qué el{" "}
-          <b>contexto</b> pasó a ser el input que importa.
-        </>
-      }
-      temas={["LLM", "tokens", "seguridad del contexto", "agentes", "IDE vs. ADE", "contexto útil"]}
+      promesa="Qué hay abajo de la herramienta que vamos a usar toda la charla."
+      temas={["LLM", "tokens", "alucinaciones", "prefill / decode"]}
     />
   );
 }

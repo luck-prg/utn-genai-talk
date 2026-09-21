@@ -3,7 +3,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
   title: "Del chatbot al agente de código",
-  seccion: "FUNDAMENTOS",
+  seccion: "1.1.2 · ADE",
   notes:
     "Un agente de código es una capa por encima del LLM que lo conecta con un entorno de desarrollo real. La diferencia no es que conteste mejor: es que participa dentro de un ciclo de trabajo, puede modificar el proyecto y puede verificar lo que hizo.",
   transition: "fade",
@@ -11,7 +11,7 @@ export const meta: SlideMeta = {
 
 export default function AgentesDeCodigo() {
   return (
-    <SlideFrame meta="FUNDAMENTOS">
+    <SlideFrame header={false} footer={false} meta="1.1.2 · ADE">
       <h2 className="display t-md reveal">
         Del chatbot al <span className="accent">agente de código</span>
       </h2>
@@ -20,15 +20,13 @@ export default function AgentesDeCodigo() {
         <div>
           <div className="col-head bad">Chatbot</div>
           <p className="body">
-            Responde una pregunta <b>sobre</b> el código. Lo que sabe del proyecto es lo que vos le
-            pegaste en el chat.
+            Responde <b>sobre</b> el código. Sabe lo que le pegaste.
           </p>
         </div>
         <div>
           <div className="col-head good">Agente de código</div>
           <p className="body">
-            Opera <b>dentro</b> del proyecto: lee archivos, busca referencias, modifica código,
-            corre tests, observa errores y prepara un diff o un PR.
+            Opera <b>dentro</b> del proyecto: lee, edita, corre tests y valida.
           </p>
         </div>
       </div>
@@ -48,9 +46,6 @@ export default function AgentesDeCodigo() {
         </div>
       </div>
 
-      <p className="sub reveal mt-s maxw">
-        Claude Code, Codex, Gemini CLI, Cursor: ya no es un chat, es un <b>entorno de trabajo</b>.
-      </p>
     </SlideFrame>
   );
 }

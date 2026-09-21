@@ -1,46 +1,50 @@
 import type { SlideMeta } from "@/deck/types";
+import { Paso } from "@/components/Paso";
 import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
   title: "Qué es un LLM",
-  seccion: "FUNDAMENTOS",
+  seccion: "1.1.1 · LLM Y TOKENS",
+  steps: 3,
   notes:
-    "Arranque de la sección: el modelo predice y genera lenguaje. No es una base de datos ni un buscador. Reconoce patrones, infiere intención y produce artefactos textuales — y el código es sólo uno de ellos.",
+    "Definirlo por lo que hace, no por lo que parece: una función que, dada una secuencia de tokens, predice el siguiente. Nada más. El chat, la memoria, las herramientas y los agentes son andamiaje construido alrededor de esa función. Sembrar esta idea acá, porque se cosecha en la pirámide de madurez: cada nivel es literalmente cuánto andamiaje le construimos al modelo.",
   transition: "fade",
 };
 
-const ARTEFACTOS = [
-  "explicaciones",
-  "código",
-  "documentación",
-  "tests",
-  "comandos",
-  "planes",
-  "análisis",
-];
+const ANDAMIAJE = ["el chat", "la memoria", "las herramientas", "los agentes", "el harness"];
 
 export default function ModelosDeLenguaje() {
   return (
-    <SlideFrame meta="FUNDAMENTOS">
+    <SlideFrame header={false} footer={false} meta="1.1.1 · LLM Y TOKENS">
       <p className="prompt reveal">&gt; ¿qué hay abajo de todo esto?</p>
-      <h2 className="display t-md reveal mt-s">
-        Un modelo entrenado
+
+      <h2 className="display reveal mt-s" style={{ fontSize: "clamp(24px,min(3vw,5.33vh),62px)" }}>
+        Una función que, dada una secuencia de tokens,
         <br />
-        para <span className="accent">predecir lenguaje</span>
+        predice <span className="accent">el siguiente</span>
       </h2>
-      <div className="reveal mt-m maxw">
+
+      <Paso n={1} className="mt-m maxw">
         <p className="sub">
-          Reconoce patrones, infiere intención, resume y transforma información. Todo lo que
-          devuelve es <b>texto generado</b>, no una consulta a una base de verdad.
+          Nada más. Todo lo demás es <b>andamiaje</b> construido alrededor de esa función.
         </p>
-        <div className="chips mt-m">
-          {ARTEFACTOS.map((a) => (
+        <div className="chips mt-s">
+          {ANDAMIAJE.map((a) => (
             <span className="chip" key={a}>
               {a}
             </span>
           ))}
         </div>
-      </div>
+      </Paso>
+
+      <Paso n={2} className="mt-m">
+        <div className="bar">
+          <span>
+            Toda la charla es una sola pregunta: <b className="accent">cuánto andamiaje</b> le
+            construimos.
+          </span>
+        </div>
+      </Paso>
     </SlideFrame>
   );
 }

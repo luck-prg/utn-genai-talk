@@ -104,11 +104,17 @@
   min-height: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* `safe` es la clave: al centrar, un contenido más alto que el cuerpo se
+     desborda por ARRIBA y por abajo por igual, y lo de arriba termina encima
+     del header. Con `safe`, si no entra se alinea al tope y nunca lo pisa. */
+  justify-content: safe center;
+  /* El cuerpo recorta lo suyo en vez de dibujar por encima del pie. Sin esto,
+     un contenido más alto que el hueco se sale y se superpone con el footer. */
+  overflow: hidden;
   padding: clamp(20px, 3vh, 60px) 0;
 }
 .s-body.center {
-  justify-content: center;
+  justify-content: safe center;
 }
 
 .s-foot {

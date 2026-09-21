@@ -15,6 +15,8 @@ export function PortadaSeccion({
   titulo,
   promesa,
   temas,
+  header = true,
+  footer = true,
 }: {
   /** Rótulo del header, ej. "SECCIÓN". */
   meta: string;
@@ -28,16 +30,20 @@ export function PortadaSeccion({
   promesa: React.ReactNode;
   /** Los temas que vienen, como señalización. */
   temas: string[];
+  /** Oculta el header. Default: true (visible). */
+  header?: boolean;
+  /** Oculta el pie. Default: true (visible). */
+  footer?: boolean;
 }) {
   return (
-    <SlideFrame meta={meta} center>
+    <SlideFrame meta={meta} center header={header} footer={footer}>
       <p className="portada-kicker reveal">
         <span className="pk-num">{numero}</span>
         <span>{kicker}</span>
       </p>
       <h2 className="display portada-title reveal mt-m">{titulo}</h2>
       <p className="sub portada-sub reveal mt-m">{promesa}</p>
-      <div className="chips portada-beats reveal mt-l">
+      <div className="chips portada-beats reveal mt-m">
         {temas.map((t) => (
           <span className="chip" key={t}>
             {t}

@@ -84,12 +84,6 @@ export function CapasAbstraccion() {
       <text x="639" y="272" className="f-ttl" fontSize="56" fill={PAPEL} textAnchor="middle">
         IDE
       </text>
-      <text x="639" y="308" fontSize="17" fill={PAPEL} fillOpacity="0.85" textAnchor="middle">
-        Integrated
-      </text>
-      <text x="639" y="332" fontSize="17" fill={PAPEL} fillOpacity="0.85" textAnchor="middle">
-        Development Environment
-      </text>
       <rect
         x="552"
         y="366"

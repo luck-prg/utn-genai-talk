@@ -271,7 +271,9 @@
   background: color-mix(in srgb, var(--color-acento) 35%, transparent);
 }
 .portada-title {
-  font-size: var(--fs-section);
+  /* Algo menor que --fs-section: con dos líneas de título, una promesa de
+     dos líneas y la fila de temas, el alto justo no alcanzaba. */
+  font-size: clamp(34px, min(4.9vw, 8.71vh), 98px);
   line-height: 0.98;
   max-width: 20ch;
 }
