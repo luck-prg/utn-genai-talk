@@ -6,20 +6,20 @@ export const meta: SlideMeta = {
   title: "Las dos cuentas",
   seccion: "EL COSTO",
   notes:
-    "El momento que descomprime la sala: no era pereza ni ignorancia, era economía. Incluite vos en el 'no lo usábamos'. Las dos columnas son las dos cuentas que todos hicimos sin darnos cuenta.",
+    "El momento que descomprime la sala: no era pereza ni ignorancia, era economía. Incluite vos en el 'no lo usábamos'. Las dos columnas son la cuenta que todos hicimos sin darnos cuenta: a la izquierda lo que ganábamos, a la derecha lo que nos costaba en tiempo. Beneficio diferido, costo fijo alto: por eso daba lo mismo. Fijate en la columna derecha: en la próxima slide vuelve dada vuelta.",
   transition: "fade",
 };
 
-const SIN_USARLO: { icon: PictoName; text: string }[] = [
-  { icon: "wrong", text: "Construir lo que no era" },
-  { icon: "why", text: "Nadie sabe por qué" },
-  { icon: "rules", text: "Cada feature, sus reglas" },
+const GANABAMOS: { icon: PictoName; text: string }[] = [
+  { icon: "early", text: "Errores que aparecen temprano" },
+  { icon: "ledger", text: "Cada decisión queda escrita" },
+  { icon: "propagate", text: "Cambios que se propagan" },
 ];
 
-const USARLO: { icon: PictoName; text: string }[] = [
-  { icon: "write", text: "Escribirlo antes del código" },
-  { icon: "alive", text: "Mantenerlo vivo" },
-  { icon: "propagate", text: "Propagar cambios a mano" },
+const COSTABA: { icon: PictoName; text: string }[] = [
+  { icon: "write", text: "Redactar y formatear" },
+  { icon: "alive", text: "Mantenerlo actualizado" },
+  { icon: "maintain", text: "Todo a mano" },
 ];
 
 function Row({ icon, text }: { icon: PictoName; text: string }) {
@@ -50,17 +50,17 @@ export default function LasDosCuentas() {
       <h2 className="display t-md reveal">No era pereza. Era economía.</h2>
       <div className="two-col mt-l reveal">
         <div>
-          <div className="col-head bad">Lo que costaba NO usarlo</div>
+          <div className="col-head good">Lo que ganábamos usándolo</div>
           <div style={{ display: "flex", flexDirection: "column", gap: "clamp(10px, 1.3vh, 22px)" }}>
-            {SIN_USARLO.map((r) => (
+            {GANABAMOS.map((r) => (
               <Row key={r.text} {...r} />
             ))}
           </div>
         </div>
         <div>
-          <div className="col-head bad">Lo que costaba usarlo</div>
+          <div className="col-head bad">Lo que nos costaba</div>
           <div style={{ display: "flex", flexDirection: "column", gap: "clamp(10px, 1.3vh, 22px)" }}>
-            {USARLO.map((r) => (
+            {COSTABA.map((r) => (
               <Row key={r.text} {...r} />
             ))}
           </div>

@@ -6,7 +6,7 @@ export const meta: SlideMeta = {
   title: "El flujo",
   seccion: "SDD",
   notes:
-    "No pases rápido por la validación humana: un malentendido de producto en la spec que no se corrige, llega hasta el código. Anunciá que las próximas seis slides recorren este flujo con un solo ejemplo, un login. Antes de pasar, anclá el puente con la ingeniería de contexto: la constitución son las reglas del agente, spec, plan y tasks son el contexto que lee, la mano es el harness.",
+    "Hay mil implementaciones, todas siguen más o menos esto. La constitution es el archivo de reglas del agente: convenciones, tecnologías que se respetan, formas de hacer y de escribir. Spec: el qué. Plan: el cómo técnico. Tasks: trabajo chico y revisable. Implement: ejecutar. Etapas separadas, cada una con su responsabilidad, cada una aporta valor a la siguiente. Y leé la línea de abajo: esto ya lo vieron en la facu con otros nombres: estándares, relevamiento y casos de uso, diseño, planificación, construcción. Plan, tasks e implement: una frase cada uno, no más. No pases rápido por la mano: un malentendido en la spec que no se frena llega al código. Puente: 'ahora, ¿cómo llevo esto a la realidad con algo probabilístico?'",
   transition: "fade",
 };
 
@@ -48,7 +48,7 @@ export default function ElFlujo() {
         <span className="k">✋ validación humana entre cada paso.</span>
       </p>
       <p className="body mt-s reveal maxw" style={{ fontSize: "var(--fs-body)", color: "var(--color-fg)" }}>
-        Constitution son las reglas · Spec, Plan y Tasks son el contexto · ✋ es el harness
+        Constitution: estándares · Spec: relevamiento y casos de uso · Plan: diseño · Tasks: planificación · Implement: construcción
       </p>
     </SlideFrame>
   );

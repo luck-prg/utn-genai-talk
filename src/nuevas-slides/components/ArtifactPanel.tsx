@@ -7,9 +7,18 @@
  * falta control exacto de saltos de línea y color. Es texto escrito a mano en
  * cada diapositiva, nunca contenido externo.
  */
-export function ArtifactPanel({ path, html }: { path: string; html: string }) {
+export function ArtifactPanel({
+  path,
+  html,
+  className = "mt-s",
+}: {
+  path: string;
+  html: string;
+  /** Spacing classes for the outer panel; pass "" to align it with siblings. */
+  className?: string;
+}) {
   return (
-    <div className="code-panel mt-s reveal">
+    <div className={`code-panel ${className} reveal`.trim()}>
       <div className="code-bar">
         <span className="dot d1" />
         <span className="dot d2" />

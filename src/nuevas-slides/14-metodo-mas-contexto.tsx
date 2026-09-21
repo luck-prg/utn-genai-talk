@@ -6,7 +6,7 @@ export const meta: SlideMeta = {
   title: "Lo mejor de dos mundos",
   seccion: "SDD",
   notes:
-    "El puente con el track anterior. No vuelvas a explicar ingeniería de contexto: ya la vieron. Lo que decís: SDD es donde el método y el contexto se encuentran. Del método tomamos el orden, el contrato y la validación humana. De la ingeniería de contexto tomamos reglas, contexto estructurado y herramientas. Y el remate: los artefactos del método SON el contexto del agente. No hay dos cosas, hay una.",
+    "El puente con el bloque 2, ingeniería de contexto. No vuelvas a explicar ingeniería de contexto: ya la vieron. Lo que decís: SDD es donde el método y el contexto se encuentran. Del método tomamos el orden, el contrato y la validación humana. De la ingeniería de contexto tomamos reglas, contexto estructurado y herramientas. Y el remate: los artefactos del método SON el contexto del agente. No hay dos cosas, hay una. Y decilo explícito: SDD es el ejemplo de hoy; mañana puede ser otro nombre. Lo que se llevan es esto: el método necesita contexto y el contexto necesita método.",
   transition: "fade",
 };
 

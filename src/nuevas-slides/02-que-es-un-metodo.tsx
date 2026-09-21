@@ -5,7 +5,7 @@ export const meta: SlideMeta = {
   title: "Qué es un método",
   seccion: "EL MÉTODO",
   notes:
-    "Abrí ubicando el track: el 01 fue qué es, el 02 con qué, este es el CÓMO. Después la definición. Un enfoque metodológico es aplicar un método — y un método es esto. No lo expliques de más: se entiende solo.",
+    "Abrí ubicando el bloque: el 1 fue qué es y cómo funciona, el 2 con qué se trabaja, este es el CÓMO. Después la definición. Un enfoque metodológico es aplicar un método — y un método es esto. No lo expliques de más: se entiende solo.",
   transition: "fade",
 };
 

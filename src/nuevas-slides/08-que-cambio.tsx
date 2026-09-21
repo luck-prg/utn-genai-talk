@@ -6,14 +6,14 @@ export const meta: SlideMeta = {
   title: "Qué cambió",
   seccion: "EL COSTO",
   notes:
-    "El giro, y la puerta a SDD. NO digas 'la IA se lleva lo tedioso y deja el razonamiento': eso invita a delegar y firmar. El argumento es el costo. Las tres filas son las mismas tres de la columna derecha de la slide anterior, dadas vuelta: señalalo. Plantá el puente en una frase, sin desarrollarlo: 'y eso lo hace un agente que lee tu método como contexto; después volvemos a esto'. La última frase es tu seguro para el Q&A: cuando pregunten '¿y si el agente se equivoca?', ya está contestado.",
+    "El giro, y la puerta a SDD. NO digas 'la IA se lleva lo tedioso y deja el razonamiento': eso invita a delegar y firmar. El argumento es el costo. Las tres filas son las mismas tres de la columna derecha de la slide anterior, dadas vuelta: señalalo. Plantá el puente en una frase, sin desarrollarlo: 'y eso lo hace un agente que lee tu método como contexto; después volvemos a esto'. La última frase es tuya y vuelve en el cierre: no se delega el criterio, se delega la formalidad.",
   transition: "curtain",
 };
 
 const RESUELTO: { icon: PictoName; text: string }[] = [
   { icon: "write", text: "Redactar: de días a minutos" },
-  { icon: "alive", text: "Mantener: ya no se pudre" },
-  { icon: "propagate", text: "Propagar: baja solo" },
+  { icon: "alive", text: "Documentar: nace de la conversación" },
+  { icon: "propagate", text: "Propagar: automático" },
 ];
 
 function Row({ icon, text }: { icon: PictoName; text: string }) {
@@ -62,7 +62,7 @@ export default function QueCambio() {
         className="display mt-s reveal"
         style={{ fontSize: "var(--fs-sub)", fontWeight: 600, letterSpacing: "-0.01em", color: "var(--color-acento)" }}
       >
-        Lo tedioso pasó de escribir a revisar.
+        No se delega el criterio. Se delega la formalidad.
       </p>
     </SlideFrame>
   );
