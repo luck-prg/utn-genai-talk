@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">El ciclo de ejecución de un coding agent</title>
+  <desc id="desc">Dos ciclos anidados. El externo es el REPL de la sesión: lee la instrucción, la evalúa e imprime el resultado. Dentro del paso Eval corre el ciclo del agente: reunir contexto, actuar con herramientas y validar, repitiendo hasta cumplir una condición de salida.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#020617"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+    <marker id="arrowT" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto">
+      <path d="M1,1 L9,5.5 L1,10 Z" fill="#5eead4"/>
+    </marker>
+    <marker id="arrowV" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto">
+      <path d="M1,1 L9,5.5 L1,10 Z" fill="#c4b5fd"/>
+    </marker>
+    <style>
+      .title{font:700 36px Inter,Arial,sans-serif;fill:#f8fafc}
+      .subtitle{font:400 19px Inter,Arial,sans-serif;fill:#cbd5e1}
+      .outerlbl{font:800 19px Inter,Arial,sans-serif;fill:#c4b5fd;letter-spacing:1px}
+      .innerlbl{font:800 19px Inter,Arial,sans-serif;fill:#5eead4;letter-spacing:1px}
+      .step{font:800 20px Inter,Arial,sans-serif;fill:#ffffff}
+      .stepnum{font:800 15px Inter,Arial,sans-serif;fill:#042f2e}
+      .desc{font:500 15px Inter,Arial,sans-serif;fill:#e2e8f0}
+      .edge{font:600 15px Inter,Arial,sans-serif;fill:#94a3b8}
+      .note{font:500 16px Inter,Arial,sans-serif;fill:#99f6e4}
+      .lineT{stroke:#5eead4;stroke-width:3;fill:none;marker-end:url(#arrowT)}
+      .lineV{stroke:#c4b5fd;stroke-width:3;fill:none;marker-end:url(#arrowV)}
+    </style>
+  </defs>
+
+  <rect width="1400" height="760" fill="url(#bg)"/>
+
+  <text x="700" y="52" text-anchor="middle" class="title">El ciclo de ejecución de un coding agent</text>
+  <text x="700" y="84" text-anchor="middle" class="subtitle">Dos ciclos anidados: la sesión por fuera, el trabajo del agente por dentro</text>
+
+  <!-- Contenedor externo: REPL -->
+  <rect x="45" y="120" width="1310" height="600" rx="24" fill="#170b2e" stroke="#7b13cc" stroke-width="3"/>
+  <text x="78" y="158" class="outerlbl">CICLO EXTERNO · LA SESIÓN (REPL)</text>
+
+  <!-- Read -->
+  <g filter="url(#shadow)">
+    <rect x="80" y="360" width="180" height="120" rx="16" fill="#7b13cc" stroke="#d8b4fe" stroke-width="2"/>
+  </g>
+  <text x="170" y="408" text-anchor="middle" class="step">READ</text>
+  <text x="170" y="436" text-anchor="middle" class="desc">lee tu</text>
+  <text x="170" y="457" text-anchor="middle" class="desc">instrucción</text>
+
+  <!-- Eval: contenedor del ciclo del agente -->
+  <rect x="310" y="196" width="790" height="448" rx="20" fill="#082f2c" stroke="#18b3a3" stroke-width="3"/>
+  <text x="342" y="234" class="innerlbl">EVAL · CICLO DEL AGENTE</text>
+
+  <!-- Pasos del ciclo interno -->
+  <g filter="url(#shadow)">
+    <rect x="342" y="300" width="220" height="130" rx="16" fill="#0f766e" stroke="#5eead4" stroke-width="2"/>
+    <rect x="592" y="300" width="220" height="130" rx="16" fill="#0f766e" stroke="#5eead4" stroke-width="2"/>
+    <rect x="842" y="300" width="220" height="130" rx="16" fill="#0f766e" stroke="#5eead4" stroke-width="2"/>
+  </g>
+
+  <circle cx="372" cy="330" r="15" fill="#5eead4"/>
+  <text x="372" y="336" text-anchor="middle" class="stepnum">1</text>
+  <text x="452" y="372" text-anchor="middle" class="step">CONTEXTO</text>
+  <text x="452" y="398" text-anchor="middle" class="desc">leer, buscar,</text>
+  <text x="452" y="418" text-anchor="middle" class="desc">consultar</text>
+
+  <circle cx="622" cy="330" r="15" fill="#5eead4"/>
+  <text x="622" y="336" text-anchor="middle" class="stepnum">2</text>
+  <text x="702" y="372" text-anchor="middle" class="step">ACCIÓN</text>
+  <text x="702" y="398" text-anchor="middle" class="desc">editar, ejecutar,</text>
+  <text x="702" y="418" text-anchor="middle" class="desc">usar herramientas</text>
+
+  <circle cx="872" cy="330" r="15" fill="#5eead4"/>
+  <text x="872" y="336" text-anchor="middle" class="stepnum">3</text>
+  <text x="952" y="372" text-anchor="middle" class="step">VALIDACIÓN</text>
+  <text x="952" y="398" text-anchor="middle" class="desc">tests, build,</text>
+  <text x="952" y="418" text-anchor="middle" class="desc">lint, logs</text>
+
+  <!-- Flechas entre pasos internos -->
+  <path d="M562 365 H586" class="lineT"/>
+  <path d="M812 365 H836" class="lineT"/>
+
+  <!-- Retorno interno -->
+  <path d="M952 430 V500 H452 V436" class="lineT"/>
+  <text x="702" y="524" text-anchor="middle" class="edge">falta información o la validación falló</text>
+
+  <!-- Nota interna -->
+  <text x="705" y="592" text-anchor="middle" class="note">cada vuelta es un turno · todo lo que devuelve una herramienta queda en el contexto</text>
+
+  <!-- Read -> Eval -->
+  <path d="M260 420 H304" class="lineV"/>
+  <text x="282" y="398" text-anchor="middle" class="edge">objetivo</text>
+
+  <!-- Eval -> Print -->
+  <path d="M1100 420 H1144" class="lineV"/>
+  <text x="1122" y="398" text-anchor="middle" class="edge">listo</text>
+
+  <!-- Print -->
+  <g filter="url(#shadow)">
+    <rect x="1150" y="360" width="180" height="120" rx="16" fill="#7b13cc" stroke="#d8b4fe" stroke-width="2"/>
+  </g>
+  <text x="1240" y="408" text-anchor="middle" class="step">PRINT</text>
+  <text x="1240" y="436" text-anchor="middle" class="desc">respuesta</text>
+  <text x="1240" y="457" text-anchor="middle" class="desc">y evidencia</text>
+
+  <!-- Retorno externo -->
+  <path d="M1240 480 V678 H170 V486" class="lineV"/>
+  <text x="705" y="702" text-anchor="middle" class="edge">la sesión continúa: el contexto acumulado sigue ahí</text>
+</svg>

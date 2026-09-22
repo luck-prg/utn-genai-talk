@@ -1,4 +1,5 @@
 import { createContext, useContext, type ReactNode } from "react";
+import { useDeck } from "./DeckProvider";
 import type { Slide } from "./types";
 
 /**
@@ -30,4 +31,16 @@ export function SlideProvider({ slide, children }: { slide: Slide; children: Rea
 
 export function useCurrentSlide(): Slide | null {
   return useContext(SlideContext);
+}
+
+/**
+ * Paso interno de la diapositiva que se está dibujando, 0-indexado.
+ *
+ * En la vista de resumen no hay presentador que avance: las miniaturas
+ * devuelven `Infinity` para dibujarse completas, con todos los pasos dados.
+ */
+export function useStep(): number {
+  const isThumbnail = useIsThumbnail();
+  const { step } = useDeck();
+  return isThumbnail ? Number.POSITIVE_INFINITY : step;
 }

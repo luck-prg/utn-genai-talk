@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "./tokens.css";
 @import "./system.css";
+@import "./mis-slides.css";
+@import "./interactivos.css";
 
 @layer base {
   * {
@@ -22,7 +24,7 @@
     margin: 0;
     background: var(--color-fondo);
     color: var(--color-fg);
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     overflow: hidden;
     overscroll-behavior: none;
     -webkit-font-smoothing: antialiased;

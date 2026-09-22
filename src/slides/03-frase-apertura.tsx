@@ -9,9 +9,8 @@ export const meta: SlideMeta = {
 
 export default function FraseApertura() {
   return (
-    <SlideFrame meta="BLOQUE 0 · INTRODUCCIÓN">
-      <p className="prompt reveal">&gt; echo "tesis"</p>
-      <h2 className="display reveal" style={{ fontSize: "var(--fs-stmt)", marginTop: "clamp(16px,1.8vw,36px)" }}>
+    <SlideFrame header={false} footer={false} meta="BLOQUE 0 · INTRODUCCIÓN">
+      <h2 className="display t-frase reveal" style={{ marginTop: "clamp(16px,1.8vw,36px)" }}>
         El valor de desarrollar
         <br />
         software de calidad
