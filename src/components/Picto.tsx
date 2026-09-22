@@ -7,6 +7,22 @@ import type { ReactNode } from "react";
  * accent-colored detail (a dot, a short stroke, or a tiny filled shape).
  */
 export type PictoName =
+  // Bloque 2.1.3 · Skill
+  | "drift"
+  | "repeat"
+  | "tired"
+  | "package"
+  | "ask"
+  | "edge"
+  | "silent"
+  | "layers"
+  | "label"
+  | "match"
+  | "compete"
+  | "script"
+  | "judgment"
+  | "lock"
+  // Resto del mazo
   | "path"
   | "ledger"
   | "handoff"
@@ -45,6 +61,135 @@ export type PictoName =
   | "wall";
 
 const ICONS: Record<PictoName, ReactNode> = {
+  // --- Bloque 2.1.3 · Skill ---
+  // One request, three different outcomes.
+  drift: (
+    <>
+      <circle cx="9" cy="24" r="3.2" />
+      <path d="M13 23 L30 12" />
+      <path d="M13 24 H30" />
+      <path d="M13 25 L30 36" />
+      <rect x="32" y="8" width="8" height="8" rx="1.5" />
+      <rect x="32" y="20" width="8" height="8" rx="1.5" stroke="var(--color-acento)" />
+      <rect x="32" y="32" width="8" height="8" rx="1.5" />
+    </>
+  ),
+  // Saying the same thing over and over.
+  repeat: (
+    <>
+      <path d="M10 20 a14 14 0 0 1 24 -6" />
+      <path d="M38 28 a14 14 0 0 1 -24 6" />
+      <path d="M34 6 v8 h-8" />
+      <path d="M14 42 v-8 h8" />
+      <circle cx="24" cy="24" r="2.6" fill="var(--color-acento)" stroke="none" />
+    </>
+  ),
+  // The cost of repeating it: the same paragraph, pasted again.
+  tired: (
+    <>
+      <rect x="8" y="6" width="22" height="28" rx="2" />
+      <line x1="14" y1="14" x2="24" y2="14" />
+      <line x1="14" y1="20" x2="24" y2="20" />
+      <rect x="18" y="16" width="22" height="26" rx="2" stroke="var(--color-acento)" />
+    </>
+  ),
+  // A skill: a folder holding one document plus its resources.
+  package: (
+    <>
+      <path d="M5 40 V12 a2 2 0 0 1 2 -2 h11 l4 5 h19 a2 2 0 0 1 2 2 v23 a2 2 0 0 1 -2 2 H7 a2 2 0 0 1 -2 -2 Z" />
+      <path d="M18 24 h12" stroke="var(--color-acento)" />
+      <path d="M18 31 h8" />
+    </>
+  ),
+  // The questions it is not allowed to skip.
+  ask: (
+    <>
+      <path d="M8 10 a2 2 0 0 1 2 -2 h28 a2 2 0 0 1 2 2 v20 a2 2 0 0 1 -2 2 H20 l-9 8 v-8 h-1 a2 2 0 0 1 -2 -2 Z" />
+      <path d="M20 16 a4 4 0 1 1 4 5 v2" stroke="var(--color-acento)" />
+      <circle cx="24" cy="27" r="1.4" fill="var(--color-acento)" stroke="none" />
+    </>
+  ),
+  // Edge cases: the corner nobody looks at.
+  edge: (
+    <>
+      <path d="M8 40 V8 h32" />
+      <path d="M8 40 H40 V8" strokeDasharray="4 4" />
+      <path d="M32 32 l8 8" stroke="var(--color-acento)" />
+      <circle cx="36" cy="36" r="2.2" fill="var(--color-acento)" stroke="none" />
+    </>
+  ),
+  // Written, shipped, and never read.
+  silent: (
+    <>
+      <rect x="9" y="6" width="26" height="34" rx="2" />
+      <line x1="16" y1="16" x2="28" y2="16" />
+      <line x1="16" y1="23" x2="28" y2="23" />
+      <line x1="16" y1="30" x2="22" y2="30" />
+      <path d="M8 44 L42 4" stroke="var(--color-acento)" />
+    </>
+  ),
+  // Progressive disclosure: three levels, only the top one always loaded.
+  layers: (
+    <>
+      <path d="M24 6 L42 15 L24 24 L6 15 Z" stroke="var(--color-acento)" />
+      <path d="M6 24 L24 33 L42 24" />
+      <path d="M6 33 L24 42 L42 33" />
+    </>
+  ),
+  // The description field: the label the agent reads first.
+  label: (
+    <>
+      <path d="M6 20 V9 a3 3 0 0 1 3 -3 h11 l21 21 a3 3 0 0 1 0 4 L28 44 a3 3 0 0 1 -4 0 L6 26 Z" />
+      <circle cx="15" cy="15" r="3" stroke="var(--color-acento)" />
+    </>
+  ),
+  // The user's words meeting the skill's words.
+  match: (
+    <>
+      <circle cx="18" cy="24" r="11" />
+      <circle cx="30" cy="24" r="11" stroke="var(--color-acento)" />
+      <path d="M21 20 l2.5 3 l4 -5" />
+    </>
+  ),
+  // Two skills reaching for the same job.
+  compete: (
+    <>
+      <rect x="6" y="10" width="15" height="19" rx="2" />
+      <rect x="27" y="10" width="15" height="19" rx="2" />
+      <path d="M17 38 L24 32 L31 38" stroke="var(--color-acento)" />
+      <circle cx="24" cy="42" r="2.2" fill="var(--color-acento)" stroke="none" />
+    </>
+  ),
+  // A script: fixed steps, run as-is.
+  script: (
+    <>
+      <rect x="5" y="9" width="38" height="30" rx="3" />
+      <line x1="5" y1="17" x2="43" y2="17" />
+      <path d="M13 25 l5 4 l-5 4" stroke="var(--color-acento)" />
+      <line x1="23" y1="33" x2="34" y2="33" />
+    </>
+  ),
+  // Judgment: weighing one option against another.
+  judgment: (
+    <>
+      <path d="M24 8 v32" />
+      <path d="M10 16 H38" />
+      <path d="M4 30 a6 6 0 0 0 12 0 L10 16 Z" />
+      <path d="M32 30 a6 6 0 0 0 12 0 L38 16 Z" />
+      <circle cx="24" cy="8" r="2.4" fill="var(--color-acento)" stroke="none" />
+    </>
+  ),
+  // What the skill is allowed to touch.
+  lock: (
+    <>
+      <rect x="10" y="21" width="28" height="21" rx="3" />
+      <path d="M17 21 v-6 a7 7 0 0 1 14 0 v6" />
+      <circle cx="24" cy="30" r="2.6" fill="var(--color-acento)" stroke="none" />
+      <path d="M24 33 v4" stroke="var(--color-acento)" />
+    </>
+  ),
+
+  // --- Resto del mazo ---
   path: (
     <>
       <path d="M4 42 H14 V32 H24 V22 H34 V12 H44" />
