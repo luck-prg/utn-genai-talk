@@ -47,7 +47,9 @@ export const slides: Slide[] = Object.entries(modules)
       title: meta.title,
       notes: meta.notes,
       transition: meta.transition ?? "fade",
+      steps: Math.max(1, Math.trunc(meta.steps ?? 1)),
       seccion: meta.seccion,
+      variante: meta.variante,
       Component: mod.default,
     };
   });

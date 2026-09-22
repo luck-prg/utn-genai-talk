@@ -6,7 +6,7 @@
 
 ## Título
 
-**Diseñando el futuro del desarrollo con GenAI**
+**El proceso del diseño empleando IA Generativa**
 
 Cómo dirigir agentes de desarrollo para generar software escalable, predecible y de calidad.
 

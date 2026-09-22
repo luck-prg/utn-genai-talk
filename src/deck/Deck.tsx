@@ -7,6 +7,7 @@ import { Overview } from "./Overview";
 import { ProgressBar } from "./ProgressBar";
 import { SlideProvider } from "./StageContext";
 import { baseTransition, slideVariants } from "./transitions";
+import { Burbujas } from "@/components/Burbujas";
 import { GridBackground } from "@/components/GridBackground";
 import { useDeckControls } from "@/hooks/useDeckControls";
 
@@ -46,7 +47,7 @@ export function Deck() {
       <AnimatePresence mode="wait" custom={direction} initial={false}>
         <motion.section
           key={current.id}
-          className={`slide ${visible ? "visible" : ""}`}
+          className={`slide ${current.variante ? `slide--${current.variante}` : ""} ${visible ? "visible" : ""}`}
           custom={direction}
           variants={slideVariants[current.transition]}
           initial="enter"
@@ -56,6 +57,9 @@ export function Deck() {
           aria-label={`Diapositiva ${current.numberLabel}: ${current.title}`}
         >
           <SlideProvider slide={current}>
+            {/* Las divisorias (de bloque y de orador) llevan burbujas de fondo:
+                se montan acá para que valga para cualquier divisoria nueva. */}
+            {current.variante && <Burbujas />}
             <Component />
           </SlideProvider>
         </motion.section>

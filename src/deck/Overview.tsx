@@ -31,7 +31,7 @@ export function Overview() {
         >
           <div className="mx-auto max-w-[1660px] px-10 py-14">
             <header className="mb-10 flex items-baseline justify-between border-b border-linea pb-6">
-              <h2 className="text-[32px] font-light">Diseñando el futuro del desarrollo con GenAI</h2>
+              <h2 className="text-[32px] font-light">El proceso del diseño empleando IA Generativa</h2>
               <p className="text-[13px] tracking-[.2em] text-muted uppercase">
                 {slides.length} diapositivas · clic para ir · Esc para cerrar
               </p>
@@ -69,7 +69,9 @@ export function Overview() {
                         <div className="slide-mini">
                           <ThumbnailProvider>
                             <SlideProvider slide={slide}>
-                              <div className="slide visible">
+                              <div
+                                className={`slide ${slide.variante ? `slide--${slide.variante}` : ""} visible`}
+                              >
                                 <slide.Component />
                               </div>
                             </SlideProvider>

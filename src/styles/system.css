@@ -12,8 +12,8 @@
   pointer-events: none;
   background-color: var(--color-fondo);
   background-image:
-    repeating-linear-gradient(0deg, var(--color-grid) 0 1px, transparent 1px var(--gridsz)),
-    repeating-linear-gradient(90deg, var(--color-grid) 0 1px, transparent 1px var(--gridsz));
+    repeating-linear-gradient(0deg, var(--color-grid) 0 2px, transparent 2px var(--gridsz)),
+    repeating-linear-gradient(90deg, var(--color-grid) 0 2px, transparent 2px var(--gridsz));
   background-position: 0 0, 0 0;
   animation: gridUp 3.6s linear infinite;
   will-change: background-position;
@@ -21,6 +21,169 @@
 @keyframes gridUp {
   to {
     background-position: 0 calc(var(--gridsz) * -1), 0 0;
+  }
+}
+
+/* ===========================================================
+   BURBUJAS — suben despacio en las divisorias
+   =========================================================== */
+.burbujas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.burbuja {
+  position: absolute;
+  bottom: calc(var(--tam) * -2);
+  width: var(--tam);
+  height: var(--tam);
+  animation: burbuja-sube var(--dur) linear infinite;
+  animation-delay: var(--desfase);
+  will-change: transform;
+}
+/* La deriva va en un hijo para que se componga con la subida del padre. */
+.burbuja-cuerpo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--color);
+  opacity: 0.22;
+  animation: burbuja-deriva calc(var(--dur) / 3) ease-in-out infinite alternate;
+  animation-delay: var(--desfase);
+}
+/* Sobre el papel claro hay menos contraste disponible: un pelo más de cuerpo. */
+.slide--orador .burbuja-cuerpo {
+  opacity: 0.28;
+}
+
+@keyframes burbuja-sube {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  12%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-108vh);
+    opacity: 0;
+  }
+}
+@keyframes burbuja-deriva {
+  from {
+    transform: translateX(calc(var(--deriva) * -1));
+  }
+  to {
+    transform: translateX(var(--deriva));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .burbujas {
+    display: none;
+  }
+}
+
+/* ===========================================================
+   CROQUIS — diagramas del folleto, como marginalia de fondo
+   =========================================================== */
+.croquis {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  color: var(--color-fg);
+  opacity: 0.16;
+  height: auto;
+  /* Levitación: cada croquis trae su propio ritmo en --flota-dur/--flota-desfase
+     para que no queden dos sincronizados. */
+  animation: croquis-flota var(--flota-dur, 6s) ease-in-out infinite;
+  animation-delay: var(--flota-desfase, 0s);
+  will-change: transform;
+}
+/* El contenido de la diapositiva va siempre por encima del croquis. */
+.s-head,
+.s-body,
+.s-foot {
+  position: relative;
+  z-index: 1;
+}
+/* Sobre la paleta invertida de las divisorias el trazo claro pide algo más
+   de presencia para leerse igual que sobre papel. */
+.slide--corte .croquis {
+  opacity: 0.22;
+}
+
+@keyframes croquis-flota {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-0.4deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(0.4deg);
+  }
+}
+
+/* El trazo se re-dibuja cada 5 s: --largo lo mide el componente figura por
+   figura, así el dash recorre exactamente el largo de cada línea. Los
+   punteados del dibujo original se excluyen para no perder su patrón. */
+.croquis :is(path, line, rect, circle, ellipse, polyline, polygon):not([stroke-dasharray]) {
+  stroke-dasharray: var(--largo, 600);
+  stroke-dashoffset: var(--largo, 600);
+  animation: croquis-trazo 5s ease-in-out infinite;
+  animation-delay: var(--retraso, 0s);
+}
+/* Los punteados y los rótulos no se trazan: entran con la tinta. */
+.croquis [stroke-dasharray],
+.croquis text {
+  animation: croquis-tinta 5s ease-in-out infinite;
+  animation-delay: var(--retraso, 0s);
+}
+
+/* El ciclo dura 5 s: se traza en los primeros ~2 s, queda quieto la mayor
+   parte del tiempo y se desvanece al final para volver a empezar. */
+@keyframes croquis-trazo {
+  0% {
+    stroke-dashoffset: var(--largo, 600);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  40%,
+  92% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+@keyframes croquis-tinta {
+  0%,
+  22% {
+    opacity: 0;
+  }
+  42%,
+  92% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .croquis,
+  .croquis :is(path, line, rect, circle, ellipse, polyline, polygon),
+  .croquis text {
+    animation: none;
+    stroke-dashoffset: 0;
+    opacity: 1;
   }
 }
 
@@ -53,6 +216,23 @@
   pointer-events: none;
 }
 
+/* Divisoria de bloque: paleta invertida a pantalla completa. Redefinir los
+   tokens alcanza para que header, pie y contenido se adapten solos. */
+.slide--corte {
+  --color-fondo: #14120e;
+  --color-fg: #f6f1e7;
+  --color-muted: color-mix(in srgb, #f6f1e7 58%, transparent);
+  --color-linea: color-mix(in srgb, #f6f1e7 20%, transparent);
+  --color-grid: color-mix(in srgb, #f6f1e7 13%, transparent);
+  background-color: var(--color-fondo);
+  background-image:
+    repeating-linear-gradient(0deg, var(--color-grid) 0 2px, transparent 2px var(--gridsz)),
+    repeating-linear-gradient(90deg, var(--color-grid) 0 2px, transparent 2px var(--gridsz));
+  background-position: 0 0, 0 0;
+  animation: gridUp 3.6s linear infinite;
+  will-change: background-position;
+}
+
 .s-head {
   display: flex;
   align-items: center;
@@ -77,14 +257,14 @@
   letter-spacing: 0.02em;
 }
 .b-txt b {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: clamp(14px, 1.35vw, 27px);
   color: var(--color-fg);
   display: block;
 }
 .b-txt span {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: clamp(10px, 0.85vw, 17px);
   letter-spacing: 0.28em;
@@ -92,7 +272,7 @@
   display: block;
 }
 .head-meta {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 500;
   font-size: var(--fs-foot);
   color: var(--color-fg);
@@ -118,7 +298,7 @@
   padding-top: clamp(12px, 1.4vw, 26px);
   border-top: 2px solid var(--color-fg);
   flex-shrink: 0;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 500;
   font-size: var(--fs-foot);
   color: var(--color-muted);
@@ -140,7 +320,7 @@
    ELEMENTOS DE MARCA
    =========================================================== */
 .prompt {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: var(--fs-prompt);
   color: var(--color-acento);
@@ -171,12 +351,21 @@
 .accent {
   color: var(--color-acento);
 }
+/* Tratamiento del folleto para "IA Generativa": el degradado va de azul a
+   verde y remata en el acento de la charla, recortado sobre el texto. */
+.grad-genai {
+  background: linear-gradient(100deg, #2f6df0, #0f9c7d 46%, var(--color-acento));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
 .ink2 {
   color: var(--color-muted);
 }
 
 .eyebrow {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: var(--fs-prompt);
   letter-spacing: 0.04em;
@@ -189,7 +378,7 @@
   gap: clamp(10px, 0.9vw, 18px);
 }
 .chip {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 500;
   font-size: var(--fs-chip);
   color: var(--color-fg);
@@ -213,7 +402,7 @@
   justify-content: space-between;
   gap: clamp(16px, 2vw, 40px);
   flex-wrap: wrap;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 500;
   font-size: var(--fs-sub);
   letter-spacing: 0.04em;
@@ -233,14 +422,14 @@
 }
 
 .sub {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 400;
   font-size: var(--fs-sub);
   line-height: 1.5;
   color: var(--color-muted);
 }
 .body {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 400;
   font-size: var(--fs-body);
   line-height: 1.6;
@@ -262,7 +451,7 @@
   gap: clamp(10px, 1.3vh, 22px);
 }
 .blist li {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 400;
   font-size: var(--fs-body);
   line-height: 1.5;
@@ -275,6 +464,14 @@
   color: var(--color-acento);
   font-weight: 600;
   flex-shrink: 0;
+}
+/* Lista de pocos ítems cortos: se lee como titular, no como párrafo. */
+.blist-grande li {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(22px, min(2.9vw, 5.1vh), 58px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
 }
 
 .cards {
@@ -291,7 +488,7 @@
   background: color-mix(in srgb, var(--color-fondo) 40%, transparent);
 }
 .card .c-tag {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: var(--fs-prompt);
   color: var(--color-acento);
@@ -306,7 +503,7 @@
   line-height: 1;
 }
 .card .c-body {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 400;
   font-size: clamp(12px, 1.15vw, 23px);
   line-height: 1.45;
@@ -315,6 +512,333 @@
 .card .c-body b {
   font-weight: 600;
   color: var(--color-fg);
+}
+/* ===========================================================
+   CÓDIGO EN PAR — dos paneles para comparar antes y después
+   =========================================================== */
+.code-par {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 1.8vw, 40px);
+  align-items: start;
+  width: 100%;
+  margin-top: clamp(12px, 1.6vh, 28px);
+  min-height: 0;
+}
+/* Un paso que envuelve un panel no debe romper la grilla. */
+.code-par > .paso {
+  display: block;
+  min-width: 0;
+}
+
+/* ===========================================================
+   ESCALA — niveles con su nombre literal y para qué sirve cada uno
+   =========================================================== */
+.escala {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.escalon {
+  display: grid;
+  grid-template-columns: clamp(100px, 11vw, 210px) 1fr;
+  gap: clamp(14px, 1.6vw, 34px);
+  align-items: baseline;
+  padding: clamp(8px, 1.2vh, 20px) 0;
+  border-bottom: 2px solid var(--color-linea-suave);
+}
+.escalon:last-child {
+  border-bottom: 0;
+}
+/* El nivel va en mono: es un valor literal de la API, no una etiqueta. */
+.escalon-nivel {
+  font-family: var(--font-code);
+  font-weight: 600;
+  font-size: clamp(16px, min(1.9vw, 3.4vh), 38px);
+  color: var(--color-acento);
+}
+.escalon-uso {
+  font-family: var(--font-body);
+  font-size: clamp(14px, min(1.5vw, 2.7vh), 30px);
+  line-height: 1.35;
+  color: var(--color-fg);
+}
+
+/* ===========================================================
+   PRECIOS — qué cuesta cada tipo de token, con la barra a escala
+   =========================================================== */
+.precios {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 1.4vh, 24px);
+  width: 100%;
+}
+.precio {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 2fr) clamp(56px, 6vw, 110px) clamp(70px, 7vw, 130px);
+  gap: clamp(12px, 1.4vw, 30px);
+  align-items: center;
+}
+.precio-head {
+  font-family: var(--font-body);
+  font-size: var(--fs-foot);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  padding-bottom: clamp(4px, 0.6vh, 10px);
+  border-bottom: 2px solid var(--color-fg);
+}
+.precio-head > span:last-child,
+.precio-head > span:nth-child(3) {
+  text-align: right;
+}
+.precio-tipo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(16px, min(1.75vw, 3.1vh), 34px);
+  line-height: 1.1;
+  color: var(--color-fg);
+}
+.precio-tipo small {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(12px, min(1.1vw, 2vh), 21px);
+  color: var(--color-muted);
+  margin-top: 0.15em;
+}
+/* La barra va a escala lineal: que la lectura de cache se vea diminuta
+   al lado del output es exactamente el argumento. */
+.precio-barra {
+  height: clamp(14px, 1.9vh, 30px);
+  background: var(--color-linea-suave);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.precio-barra i {
+  display: block;
+  height: 100%;
+  min-width: 6px;
+  background: var(--color-fg);
+  border-radius: 999px;
+}
+.precio-barra i.acento {
+  background: var(--color-acento);
+}
+.precio-mult {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(16px, min(1.9vw, 3.4vh), 38px);
+  color: var(--color-acento);
+}
+.precio-usd {
+  font-family: var(--font-code);
+  font-weight: 600;
+  font-size: clamp(14px, min(1.5vw, 2.7vh), 30px);
+  color: var(--color-muted);
+  text-align: right;
+}
+
+/* ===========================================================
+   VUELTAS DEL LOOP — la tabla que crece paso a paso
+   =========================================================== */
+.vueltas {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 0.9vh, 14px);
+  width: 100%;
+}
+.vuelta {
+  display: grid;
+  grid-template-columns: clamp(58px, 6vw, 110px) 1fr clamp(78px, 8vw, 150px) clamp(120px, 13vw, 250px);
+  gap: clamp(10px, 1.2vw, 26px);
+  align-items: baseline;
+  padding: clamp(8px, 1.1vh, 18px) 0;
+  border-bottom: 2px solid var(--color-linea-suave);
+  font-family: var(--font-body);
+  font-size: clamp(14px, min(1.5vw, 2.7vh), 30px);
+  color: var(--color-fg);
+}
+.vuelta-head {
+  font-size: var(--fs-foot);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  border-bottom-color: var(--color-fg);
+}
+.vuelta-n {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-acento);
+}
+.vuelta-tokens {
+  font-family: var(--font-code);
+  font-weight: 600;
+  text-align: right;
+}
+
+/* ===========================================================
+   ARQUITECTURA DEL AGENTE — el diagrama que se arma por pasos
+   =========================================================== */
+.arq-agente {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  margin: clamp(10px, 1.6vh, 28px) auto 0;
+}
+.arq-remate {
+  margin-top: clamp(8px, 1.2vh, 20px);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.5;
+  color: var(--color-muted);
+  text-align: center;
+}
+.arq-remate b {
+  font-weight: 600;
+  color: var(--color-fg);
+}
+
+/* ===========================================================
+   ORADORES — matriz 2x2 a sangre: la foto llena la casilla
+   =========================================================== */
+.oradores-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.orador-celda {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  border-left: 2px solid var(--color-linea);
+  border-top: 2px solid var(--color-linea);
+}
+/* La primera columna y la primera fila no llevan línea: el marco lo da la pantalla. */
+.orador-celda:nth-child(odd) {
+  border-left: 0;
+}
+.orador-celda:nth-child(-n + 2) {
+  border-top: 0;
+}
+.orador-foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Encuadre: al correr el eje Y hacia abajo, la imagen sube dentro de la
+     casilla y entra menos aire por arriba. */
+  object-position: center 88%;
+  display: block;
+}
+/* Velo hacia abajo: el nombre se lee igual sobre cualquier foto. */
+.orador-celda.con-foto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgb(20 18 14 / 0.82), rgb(20 18 14 / 0.25) 42%, transparent 68%);
+}
+/* Casilla sin foto todavía: iniciales al centro, sobre el papel. */
+.orador-ini {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(40px, min(6vw, 10.7vh), 120px);
+  color: color-mix(in srgb, var(--color-muted) 35%, transparent);
+}
+.orador-nombre {
+  position: absolute;
+  left: clamp(18px, 2.2vw, 46px);
+  bottom: clamp(16px, 2.4vh, 42px);
+  z-index: 2;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(24px, min(3.1vw, 5.5vh), 62px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--color-fg);
+}
+.orador-celda.con-foto .orador-nombre {
+  color: #f6f1e7;
+}
+.orador-pendiente {
+  color: var(--color-muted);
+}
+.orador-celda.con-foto .orador-pendiente {
+  color: color-mix(in srgb, #f6f1e7 65%, transparent);
+}
+
+/* ===========================================================
+   AGENDA — tres franjas verticales a sangre
+   =========================================================== */
+.agenda-cols {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.agenda-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(8px, 1vh, 20px);
+  padding: var(--pad) clamp(22px, 2.6vw, 54px);
+  min-width: 0;
+  border-left: 2px solid var(--color-linea);
+}
+.agenda-col:first-child {
+  border-left: 0;
+}
+.agenda-rotulo {
+  position: absolute;
+  top: var(--pad);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--fs-foot);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+.agenda-num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(20px, min(2.2vw, 3.9vh), 44px);
+  line-height: 1;
+  color: var(--color-acento);
+}
+.agenda-titulo {
+  font-size: clamp(28px, min(3.5vw, 6.2vh), 70px);
+  line-height: 0.98;
+  margin: 0;
+}
+/* Temas de cada tramo: una línea por tema, con guion de acento. */
+.agenda-temas {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.1vh, 20px);
+  margin: clamp(8px, 1.2vh, 22px) 0 0;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: clamp(15px, min(1.55vw, 2.75vh), 31px);
+  line-height: 1.35;
+  color: var(--color-muted);
+}
+.agenda-temas li {
+  display: flex;
+  gap: 0.5em;
+}
+.agenda-temas li::before {
+  content: "—";
+  color: var(--color-acento);
+  flex-shrink: 0;
 }
 
 .two-col {
@@ -372,14 +896,14 @@
   background: #28c840;
 }
 .code-bar .path {
-  font-family: var(--font-mono);
+  font-family: var(--font-code);
   font-weight: 500;
   font-size: var(--fs-foot);
   color: #5b6680;
   margin-left: 0.6em;
 }
 .code {
-  font-family: var(--font-mono);
+  font-family: var(--font-code);
   font-weight: 400;
   font-size: clamp(12px, 1.15vw, 24px);
   line-height: 1.6;
@@ -489,7 +1013,7 @@
   color: var(--color-fg);
 }
 .s-role {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 400;
   font-size: var(--fs-body);
   color: var(--color-muted);
@@ -508,7 +1032,7 @@
   gap: clamp(10px, 1vw, 22px);
 }
 .loop .step {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: var(--fs-body);
   border: 1.5px solid var(--color-fg);
@@ -592,7 +1116,7 @@
   display: block;
 }
 .logo-tile span {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 500;
   font-size: var(--fs-chip);
   color: var(--color-fg);
@@ -602,7 +1126,7 @@
   justify-content: center;
 }
 .logo-tile--more .more {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: var(--fs-chip);
   color: var(--color-acento);
@@ -614,8 +1138,171 @@
   }
 }
 
+/* ===========================================================
+   MAPA DEL HARNESS — dona de propósitos + herramientas
+   =========================================================== */
+.harness-map {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  align-items: center;
+  gap: clamp(24px, 3vw, 70px);
+  width: 100%;
+  min-height: 0;
+}
+.harness-donut {
+  display: block;
+  margin-inline: auto;
+  width: auto;
+  height: min(54vh, 30vw);
+}
+.harness-title {
+  font-size: clamp(24px, 3vw, 62px);
+  line-height: 1;
+}
+.harness-donut path {
+  stroke: var(--color-fondo);
+  stroke-width: 3;
+  stroke-linejoin: round;
+}
+.harness-donut .hd-cat,
+.harness-donut .hd-tool {
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.harness-donut .hd-cat {
+  font-size: 15px;
+  fill: #f6f1e7;
+}
+.harness-donut .hd-tool {
+  font-size: 13px;
+  fill: #14120e;
+}
+.harness-donut .hd-cat.hd-off {
+  fill: #14120e;
+  fill-opacity: 0.4;
+}
+@media (max-width: 900px) {
+  .harness-map {
+    grid-template-columns: 1fr;
+  }
+  .harness-donut {
+    height: min(38vh, 62vw);
+  }
+}
+
+/* ===========================================================
+   CORTE — cuerpo de las divisorias de bloque
+   =========================================================== */
+.corte-kicker {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 1.1vw, 22px);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--fs-foot);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-acento);
+}
+.corte-kicker::before {
+  content: "";
+  width: clamp(26px, 2.4vw, 48px);
+  height: clamp(10px, 0.9vw, 18px);
+  background: var(--color-acento);
+  flex-shrink: 0;
+}
+.corte-kicker::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: color-mix(in srgb, var(--color-acento) 40%, transparent);
+}
+.corte-title {
+  font-size: var(--fs-section);
+  line-height: 0.98;
+  max-width: 22ch;
+}
+.corte-sub {
+  max-width: 44ch;
+}
+
+/* ===========================================================
+   ORADOR — divisor liviano de cambio de orador (dentro de un bloque)
+   =========================================================== */
+.orador-wrap {
+  text-align: center;
+  margin-inline: auto;
+}
+.orador-handoff {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--fs-foot);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+.orador-handoff .accent {
+  color: var(--color-acento);
+}
+.orador-rule {
+  width: clamp(60px, 6vw, 120px);
+  height: 2px;
+  background: var(--color-acento);
+  margin: clamp(18px, 2vw, 34px) auto;
+}
+.orador-title {
+  font-size: var(--fs-section);
+  line-height: 1;
+  max-width: 20ch;
+  margin-inline: auto;
+}
+
+/* ===========================================================
+   PLACEHOLDER — diapositiva de contenido pendiente ("[falta agregar]")
+   =========================================================== */
+.placeholder-box {
+  border: 2px dashed var(--color-linea);
+  border-radius: 12px;
+  padding: clamp(28px, 4vw, 60px);
+  text-align: center;
+  margin-inline: auto;
+  max-width: 60ch;
+}
+.placeholder-tag {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--fs-foot);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-acento);
+}
+.placeholder-flag {
+  font-size: var(--fs-title);
+  font-weight: 700;
+  margin-top: clamp(10px, 1.2vw, 20px);
+}
+.placeholder-meta {
+  margin-top: clamp(10px, 1.2vw, 20px);
+  color: var(--color-fg);
+  font-size: var(--fs-body);
+}
+.placeholder-nota {
+  margin-top: clamp(6px, 0.8vw, 12px);
+  color: var(--color-muted);
+  font-size: var(--fs-foot);
+}
+
 .t-md {
   font-size: var(--fs-title);
+}
+/* Diapositivas que son una sola frase: se les da el cuerpo de un título de
+   bloque para que se lean desde el fondo del aula. */
+.t-frase {
+  font-size: var(--fs-section);
 }
 .mt-s {
   margin-top: clamp(14px, 1.6vw, 32px);
