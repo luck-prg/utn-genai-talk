@@ -38,7 +38,7 @@ export default function ConocimientoOrganizacional() {
       <Paso n={2} className="mt-l">
         <div className="bar">
           <span>
-            No consulta: <b className="accent">completa el vacío</b> con lo más plausible.
+            No consulta: ante la falta de definición <b className="accent">puede inventar</b> definiciones de negocio.
           </span>
         </div>
       </Paso>

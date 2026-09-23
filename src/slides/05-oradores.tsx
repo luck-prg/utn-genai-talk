@@ -4,7 +4,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 export const meta: SlideMeta = {
   title: "Los oradores",
   seccion: "BLOQUE 0 · INTRODUCCIÓN",
-  notes: "Presentación de los cuatro. Pendiente: apellidos de Valentín, Ramiro y Sofía, y sus tres fotos.",
+  notes: "Presentación de los cuatro. Pendiente: apellidos de Ramiro y Sofía, y sus dos fotos.",
   transition: "fade",
 };
 
@@ -15,7 +15,7 @@ export const meta: SlideMeta = {
  */
 const ORADORES = [
   { nombre: "Luciano", apellido: "Rodriguez", iniciales: "LR", foto: "/img/oradores/luciano-rodriguez.jpg" },
-  { nombre: "Valentín", apellido: null, iniciales: "V", foto: null },
+  { nombre: "Valentín", apellido: "Bravo", iniciales: "V", foto: "/img/oradores/valentin-bravo.jpg" },
   { nombre: "Ramiro", apellido: null, iniciales: "R", foto: null },
   { nombre: "Sofía", apellido: null, iniciales: "S", foto: null },
 ];

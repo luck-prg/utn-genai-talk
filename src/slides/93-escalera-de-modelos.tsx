@@ -5,7 +5,7 @@ export const meta: SlideMeta = {
   title: "La escalera de modelos",
   seccion: "3.1 · MODELOS",
   notes:
-    "Acá sí ponemos nombres, y conviene decir en voz alta que esta es la diapositiva que más rápido caduca de toda la charla. Las tres familias siguen el mismo patrón de escalones. Económico para buscar, clasificar, resumir y tareas mecánicas de alto volumen. Balanceado como default diario: coding con spec clara, tests, docs, revisión. Premium para debugging complejo, migraciones delicadas y diseño de arquitectura. Y arriba de todo, un escalón extremo que sólo tiene Anthropic: Fable, para razonamiento extremo o agentes muy largos, a diez veces el precio del económico. La columna de la derecha es la que hace entender el resto: son dólares por millón de tokens de salida, con precios de Anthropic como referencia. De económico a extremo hay un factor de diez. Por eso elegir mal el escalón no es un detalle estético. El eje de la izquierda es lo único que no caduca.",
+    "Acá sí ponemos nombres, y conviene decir en voz alta que esta es la diapositiva que más rápido caduca de toda la charla. Las tres familias siguen el mismo patrón de escalones. Económico para buscar, clasificar, resumir y tareas mecánicas de alto volumen. Balanceado como default diario: coding con spec clara, tests, docs, revisión. Premium para debugging complejo, migraciones delicadas y diseño de arquitectura. Y arriba de todo, el escalón extremo, para razonamiento extremo o agentes muy largos, a diez veces el precio del económico: ahí ya no está sólo Anthropic con Fable y Mythos, OpenAI subió a GPT-6 Astra al mismo nivel. La columna de la derecha es la que hace entender el resto: son dólares por millón de tokens de salida, con precios de Anthropic como referencia. De económico a extremo hay un factor de diez. Por eso elegir mal el escalón no es un detalle estético. El eje de la izquierda es lo único que no caduca. Y esta escalera tampoco es todo el mapa: hay familias nuevas, como Jev de TypeSafe AI, que ni siquiera compiten en esta tabla porque no son modelos de conversación — son más parecidos al machine learning clásico, clasificación y ponderación, no texto. Fuente sobre Jev: https://typesafe.ai/blog/introducing-system-one-models-and-jev",
   transition: "fade",
 };
 
@@ -22,7 +22,7 @@ const NIVELES = [
   {
     tier: "extremo",
     uso: "Razonamiento extremo, agentes muy largos, o donde fallar sale carísimo",
-    openai: "—",
+    openai: "GPT-6 Astra",
     anthropic: "Fable 5 · Mythos 5",
     google: "—",
     salida: "50",
@@ -89,8 +89,9 @@ export default function EscaleraDeModelos() {
       </div>
 
       <p className="figcap reveal">
-        Del escalón más barato al más caro hay un <b>factor de diez</b>. Precios de referencia del
-        apunte (Anthropic, 08-2026): los nombres caducan, el eje de la izquierda no.
+        Esto tampoco es todo el mapa: hay familias más nuevas, como <b>Jev, de TypeSafe AI</b>, que
+        no compiten acá porque no son modelos de conversación — están más cerca del machine
+        learning tradicional: clasificación y ponderación, no texto.
       </p>
     </SlideFrame>
   );

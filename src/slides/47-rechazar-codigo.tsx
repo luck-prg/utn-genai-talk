@@ -18,6 +18,9 @@ export default function RechazarCodigo() {
         <br />
         es <span className="accent">rechazarlo</span> cuando está mal.
       </h2>
+      <p className="body reveal mt-l ink2">
+        El 20% cree que va más rápido, pero la realidad es que va <span className="accent">más lento</span>.
+      </p>
     </SlideFrame>
   );
 }

@@ -58,7 +58,7 @@ const SEMAFORO = [
 export default function CatalogoDeHerramientas() {
   return (
     <SlideFrame header={false} footer={false} meta="1.1.3 · HERRAMIENTAS">
-      <h2 className="display t-md reveal">Seis familias, no infinitas tools</h2>
+      <h2 className="display t-md reveal">Ejemplos de tools</h2>
 
       <div className="cards mt-l reveal" style={{ gridTemplateColumns: "1fr 1fr 1fr" }}>
         {CATEGORIAS.map((c) => (
