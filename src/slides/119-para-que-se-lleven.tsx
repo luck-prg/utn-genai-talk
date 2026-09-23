@@ -3,7 +3,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
   title: "Para que se lleven",
-  seccion: "CIERRE",
+  seccion: "CIERRE · BLOQUE 3",
   notes:
     "Las cinco frases para el que disoció en algún momento. Leelas despacio, una por una. Después: gracias, no se vayan que viene el quiz para cerrar el evento, y la conclusión de Luciano.",
   transition: "zoom",

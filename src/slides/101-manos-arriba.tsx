@@ -3,7 +3,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
   title: "Manos arriba",
-  seccion: "LO QUE YA CONOCEMOS",
+  seccion: "3.2.1 · EL MÉTODO",
   notes:
     "Las cuatro EN ORDEN, una por vez, esperando entre cada una. En la 03 pediles que dejen la mano arriba. Si en la 04 suben más manos que en la 03, tu tesis quedó probada por la sala. En streaming, pediles que respondan por el chat.",
   transition: "slide",

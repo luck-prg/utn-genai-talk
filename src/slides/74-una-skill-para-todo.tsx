@@ -4,7 +4,7 @@ import { Picto, type PictoName } from "@/components/Picto";
 
 export const meta: SlideMeta = {
   title: "Una skill para todo",
-  seccion: "BLOQUE 2.1 · SKILL",
+  seccion: "2.1.3 · SKILLS",
   notes:
     "El tercer problema, y es el que se llevan a casa mal si no lo decís. Entendieron el disparador, entonces la reacción es escribir una skill para cada cosa. Y ahí se rompe: lo que hace que el disparador funcione es justamente que hay pocas opciones. Volvé a la slide de contexto finito del bloque: cada token compite por lugar, y la descripción de cada skill está ocupando lugar desde antes de que escribas el primer mensaje.",
   transition: "fade",

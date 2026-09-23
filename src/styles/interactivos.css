@@ -26,6 +26,11 @@
 .paso:not(.on):not(.reserva) {
   pointer-events: none;
 }
+/* Para un paso que además debe salir del flujo mientras no llegó (si no,
+   aunque invisible sigue empujando el centrado del resto del cuerpo). */
+.paso.sin-flujo:not(.on) {
+  position: absolute;
+}
 
 /* Indicador de pasos en el pie. */
 .s-foot .f-pasos {
@@ -1111,17 +1116,30 @@
 }
 
 /* ===========================================================
-   PIRÁMIDE DE MADUREZ
+   PIRÁMIDE DE MADUREZ — escalones sólidos, sin adorno: los niveles
+   de este bloque en tinta llena, los de más arriba apenas insinuados.
    =========================================================== */
+.pir-holder {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+}
+.pir-stage {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
 .pir {
   display: flex;
   flex-direction: column;
-  gap: clamp(2px, min(0.22vw, 0.39vh), 5px);
+  gap: clamp(4px, min(0.55vw, 0.98vh), 10px);
   width: 100%;
 }
 .pir-fila {
   display: grid;
-  grid-template-columns: 9em 1fr 9em;
+  grid-template-columns: 8em 1fr 8em;
   align-items: center;
   gap: clamp(8px, min(0.85vw, 1.51vh), 17px);
 }
@@ -1129,28 +1147,31 @@
   margin-inline: auto;
   display: flex;
   align-items: center;
-  gap: clamp(8px, min(0.85vw, 1.51vh), 17px);
-  padding: clamp(3px, min(0.38vw, 0.68vh), 8px) clamp(10px, min(1vw, 1.78vh), 20px);
-  border-radius: 6px;
-  border: 2px solid var(--color-linea);
+  justify-content: center;
+  gap: clamp(10px, min(1.1vw, 1.96vh), 22px);
+  padding: clamp(8px, min(1vw, 1.78vh), 20px) clamp(14px, min(1.4vw, 2.49vh), 28px);
+  clip-path: polygon(3.5% 0, 96.5% 0, 100% 100%, 0 100%);
   font-family: var(--font-body);
   transition:
-    border-color 0.45s var(--ease-out-expo),
-    background 0.45s var(--ease-out-expo);
+    background 0.45s var(--ease-out-expo),
+    opacity 0.45s var(--ease-out-expo);
 }
-/* Los niveles de este bloque: con tinta. Los de más arriba, atenuados. */
+/* Los niveles de este bloque: tinta llena, texto claro. */
 .pir-nivel.mio {
-  border-color: var(--color-fg);
-  background: color-mix(in srgb, var(--color-fg) 6%, transparent);
+  background: var(--color-fg);
 }
+.pir-nivel.mio .pir-nombre {
+  color: var(--color-fondo);
+}
+/* Los de más arriba: apenas un borde, para que no compitan. */
 .pir-nivel.ajeno {
-  opacity: 0.4;
-  border-style: dashed;
+  background: color-mix(in srgb, var(--color-fg) 5%, transparent);
+  opacity: 0.55;
 }
 .pir-num {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(14px, min(1.45vw, 2.58vh), 30px);
+  font-size: clamp(20px, min(2.3vw, 4.09vh), 46px);
   line-height: 1;
   color: var(--color-acento);
   flex-shrink: 0;
@@ -1160,14 +1181,15 @@
 }
 .pir-nombre {
   font-weight: 600;
-  font-size: clamp(11px, min(1.05vw, 1.87vh), 21px);
+  font-size: clamp(15px, min(1.7vw, 3.02vh), 34px);
   color: var(--color-fg);
   line-height: 1.15;
+  white-space: nowrap;
 }
 .pir-bloque,
 .pir-dato {
   font-family: var(--font-body);
-  font-size: clamp(10px, min(0.92vw, 1.64vh), 18px);
+  font-size: clamp(11px, min(0.98vw, 1.74vh), 19px);
   color: var(--color-acento);
   opacity: 0;
   transition: opacity 0.5s var(--ease-out-expo);
@@ -1175,7 +1197,7 @@
 }
 .pir-bloque {
   text-align: right;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 .pir-dato b {

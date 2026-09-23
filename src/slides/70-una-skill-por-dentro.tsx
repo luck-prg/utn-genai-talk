@@ -4,7 +4,7 @@ import { ArtifactPanel } from "@/components/ArtifactPanel";
 
 export const meta: SlideMeta = {
   title: "Una skill por dentro",
-  seccion: "BLOQUE 2.1 · SKILL",
+  seccion: "2.1.3 · SKILLS",
   notes:
     "No la leas entera: señalá las dos partes. Arriba, entre los guiones, el encabezado: el nombre, la descripción y qué herramientas puede tocar. Abajo, el criterio, en markdown común. Si preguntan cuántos campos hay en el encabezado, no te metas ahí todavía: se ve entero en la 08, después de resolver el disparo. Cerrá con la frase que abre el próximo problema: la parte de arriba no le enseña nada al agente, solo le dice cuándo mirar acá.",
   transition: "fade",

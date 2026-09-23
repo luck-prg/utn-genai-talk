@@ -3,7 +3,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
   title: "Herramientas",
-  seccion: "SDD",
+  seccion: "3.2.2 · SPEC-DRIVEN DEVELOPMENT",
   notes:
     "Última slide de contenido. Existen, pero no hacen falta para empezar: lo que necesitan es el concepto. Y el framing honesto: SDD es el ejemplo de hoy, puede morir mañana porque gasta tokens o porque los modelos necesiten menos formalidad. Lo que no muere es la unión de un método con el contexto. En el documento que compartimos hay más información, y en el próximo encuentro se trabaja con ejemplos y demos reales.",
   transition: "fade",

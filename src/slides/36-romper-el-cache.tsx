@@ -5,7 +5,7 @@ import { Paso } from "@/components/Paso";
 
 export const meta: SlideMeta = {
   title: "Cómo se rompe el cache",
-  seccion: "BLOQUE 1.2 · CICLO AGÉNTICO",
+  seccion: "1.2.1 · CICLO AGÉNTICO",
   steps: 2,
   notes:
     "El error más común y el más caro. PASO 0: un timestamp arriba del system prompt. Parece inofensivo, incluso prolijo. Pero el cache es un match de prefijo: cambió el primer byte, se invalidó TODO lo que viene después — 188 mil tokens a precio lleno, en cada llamada, para siempre. La evidencia es cache_read_input_tokens en cero. PASO 1: la regla. Lo que no cambia va adelante, lo que cambia va al final. Y el orden del prefijo es tools, system, messages. Dato para el que pregunte: si el prefijo es más corto que el mínimo del modelo (entre 512 y 4096 tokens), directamente no cachea, y tampoco te avisa.",

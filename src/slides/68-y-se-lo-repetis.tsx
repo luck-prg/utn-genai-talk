@@ -6,7 +6,7 @@ import type { PictoName } from "@/components/Picto";
 
 export const meta: SlideMeta = {
   title: "Y entonces se lo repetís",
-  seccion: "BLOQUE 2.1 · SKILL",
+  seccion: "2.1.3 · SKILLS",
   notes:
     "El parche que hacemos todos: un párrafo guardado que pegamos al principio de cada sesión. Levantá la mano vos primero. Funciona una vez. Después queda viejo, nadie lo mantiene, y el que entra al equipo no lo tiene. El criterio existe: vive en tu cabeza y en tu portapapeles.",
   transition: "fade",

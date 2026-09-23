@@ -4,7 +4,7 @@ import { Paso } from "@/components/Paso";
 
 export const meta: SlideMeta = {
   title: "La conversación crece",
-  seccion: "BLOQUE 1.2 · CICLO AGÉNTICO",
+  seccion: "1.2.1 · CICLO AGÉNTICO",
   steps: 4,
   notes:
     "Una vuelta por paso. Lo que tienen que ver es que el array messages nunca se achica: cada tool_use y cada tool_result quedan adentro, y todo eso se vuelve a mandar en la llamada siguiente. Señalá la columna de tokens: en cuatro vueltas de una tarea trivial ya multiplicaste por cuatro. Y esto es una tarea de juguete; una sesión real son decenas de vueltas. Remate: no estás pagando tu último mensaje, estás pagando toda la conversación, otra vez.",

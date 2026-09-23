@@ -3,7 +3,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
   title: "¿Cómo estructuran el contexto?",
-  seccion: "BLOQUE 2.1 · CONTEXT ENG.",
+  seccion: "2.1.4 · CONCLUSIONES",
   notes: "Pregunta al público.",
   transition: "slide",
 };

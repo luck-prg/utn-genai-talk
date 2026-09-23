@@ -6,7 +6,7 @@ import type { PictoName } from "@/components/Picto";
 
 export const meta: SlideMeta = {
   title: "Eso es una skill",
-  seccion: "BLOQUE 2.1 · SKILL",
+  seccion: "2.1.3 · SKILLS",
   notes:
     "Recién acá aparece la palabra. La skill es ese mismo párrafo, sacado del portapapeles y puesto en el repo. Una carpeta con un SKILL.md adentro, y si hace falta, scripts y archivos al lado. Lo importante de esta slide es la última línea: se versiona con el código. Cuando cambia la convención, cambia en un solo lugar y cambia para todos.",
   transition: "fade",

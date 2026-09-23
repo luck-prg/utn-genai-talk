@@ -4,7 +4,7 @@ import { Picto, type PictoName } from "@/components/Picto";
 
 export const meta: SlideMeta = {
   title: "El flujo",
-  seccion: "SDD",
+  seccion: "3.2.2 · SPEC-DRIVEN DEVELOPMENT",
   notes:
     "Hay mil implementaciones, todas siguen más o menos esto. La constitution es el archivo de reglas del agente: convenciones, tecnologías que se respetan, formas de hacer y de escribir. Spec: el qué. Plan: el cómo técnico. Tasks: trabajo chico y revisable. Implement: ejecutar. Etapas separadas, cada una con su responsabilidad, cada una aporta valor a la siguiente. Y leé la línea de abajo: esto ya lo vieron en la facu con otros nombres: estándares, relevamiento y casos de uso, diseño, planificación, construcción. Plan, tasks e implement: una frase cada uno, no más. No pases rápido por la mano: un malentendido en la spec que no se frena llega al código. Puente: 'ahora, ¿cómo llevo esto a la realidad con algo probabilístico?'",
   transition: "fade",

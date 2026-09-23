@@ -4,7 +4,7 @@ import { Picto, type PictoName } from "@/components/Picto";
 
 export const meta: SlideMeta = {
   title: "Los que ya existen",
-  seccion: "LO QUE YA CONOCEMOS",
+  seccion: "3.2.1 · EL MÉTODO",
   notes:
     "La slide bisagra. Las cuatro tienen la MISMA forma: algo se define antes, el código lo tiene que satisfacer. Dejá eso plantado: cuando llegues a SDD, la sala ya va a entender que no es una moda nueva.",
   transition: "fade",

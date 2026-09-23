@@ -1,21 +1,29 @@
 import type { SlideMeta } from "@/deck/types";
-import { SlideFrame } from "@/components/SlideFrame";
-import { ArquitecturaAgente } from "@/components/ArquitecturaAgente";
+import { PortadaSeccion } from "@/components/PortadaSeccion";
 
 export const meta: SlideMeta = {
-  title: "Qué hay adentro de un agente",
-  seccion: "BLOQUE 1.2 · CICLO AGÉNTICO",
-  steps: 2,
+  title: "Sección · 1.2.1 Ciclo agéntico",
+  seccion: "1.2.1 · CICLO AGÉNTICO",
   notes:
     "PASO 0: la interacción pelada — mandás un input, el modelo predice, devuelve un output. Decí que el LLM es stateless: entre una llamada y otra no recuerda nada. PASO 1: aparece el harness, el programa que orquesta (Claude Code, Cursor, tu propio código), y con él la memoria de la sesión. La memoria no vive en el modelo, vive acá. Quedate en este estado: las dos diapositivas que siguen desarman qué es el harness, y después volvemos al diagrama.",
-  transition: "fade",
+  transition: "curtain",
 };
 
-export default function CicloAgentico() {
+export default function PortadaCicloAgentico() {
   return (
-    <SlideFrame header={false} footer={false} meta="BLOQUE 1.2 · CICLO AGÉNTICO" bodyClass="a-sangre">
-      <h2 className="display t-md reveal">Qué hay adentro de un agente</h2>
-      <ArquitecturaAgente />
-    </SlideFrame>
+    <PortadaSeccion
+      header={false}
+      footer={false}
+      meta="SECCIÓN"
+      numero="1.2.1"
+      kicker="Ciclo agéntico"
+      titulo={
+        <>
+          Qué hay <span className="accent">adentro</span> de un agente
+        </>
+      }
+      promesa="El modelo genera; el harness le da memoria, herramientas y un ciclo de trabajo."
+      temas={["modelo", "harness", "contexto", "validación"]}
+    />
   );
 }

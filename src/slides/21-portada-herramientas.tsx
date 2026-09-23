@@ -2,7 +2,7 @@ import type { SlideMeta } from "@/deck/types";
 import { PortadaSeccion } from "@/components/PortadaSeccion";
 
 export const meta: SlideMeta = {
-  title: "Portada · 1.1.3 Herramientas",
+  title: "Sección · 1.1.3 Herramientas",
   seccion: "1.1.3 · HERRAMIENTAS",
   notes:
     "Corte de sección. Un agente resuelve tareas de desarrollo no porque el modelo sepa todo, sino porque el stack que lo rodea le permite observar el entorno real y verificar lo que hizo. Acá vemos qué le conectamos y con qué permisos.",

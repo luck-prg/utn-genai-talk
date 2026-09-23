@@ -4,7 +4,7 @@ import { ArtifactPanel } from "@/components/ArtifactPanel";
 
 export const meta: SlideMeta = {
   title: "La description es el disparador",
-  seccion: "BLOQUE 2.1 · SKILL",
+  seccion: "2.1.3 · SKILLS",
   notes:
     "Acá está la respuesta al segundo problema, y es una sola línea de texto. La de la izquierda no se dispara nunca: no dice qué hace ni cuándo usarla, y no tiene ni una palabra de las que vos vas a escribir. La de la derecha se dispara porque nombra el trabajo y nombra el momento, con las palabras de la sala: endpoint, ruta, handler, controller. Tres reglas y seguís: tercera persona, qué hace, cuándo usarla. Sobre when_to_use, una frase y no más: es un campo propio de Claude Code que se le pega a la description, y los dos juntos se cortan a 1.536 caracteres. En claude.ai y en la API ese campo no existe, así que ahí la description es literalmente lo único. Si nadie pregunta, no abras el tema.",
   transition: "fade",

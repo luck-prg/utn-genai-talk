@@ -1,23 +1,27 @@
 import type { SlideMeta } from "@/deck/types";
-import { SlideFrame } from "@/components/SlideFrame";
+import { PortadaSeccion } from "@/components/PortadaSeccion";
 
 export const meta: SlideMeta = {
-  title: "Context Engineering",
-  seccion: "BLOQUE 2.1 · CONTEXT ENG.",
-  transition: "fade",
+  title: "Sección · 2.1.1 Context Engineering",
+  seccion: "2.1.1 · CONTEXT ENGINEERING",
+  transition: "curtain",
 };
 
-export default function ContextEngineering() {
+export default function PortadaContextEngineering() {
   return (
-    <SlideFrame header={false} footer={false} meta="BLOQUE 2.1 · CONTEXT ENG." center>
-      <h2 className="display reveal mt-s" style={{ fontSize: "var(--fs-section)" }}>
-        Context
-        <br />
-        <span className="accent">Engineering</span>
-      </h2>
-      <p className="sub reveal mt-m maxw">
-        Decidir qué información entra en la ventana del agente, cuándo entra y en qué forma.
-      </p>
-    </SlideFrame>
+    <PortadaSeccion
+      header={false}
+      footer={false}
+      meta="SECCIÓN"
+      numero="2.1.1"
+      kicker="Context Engineering"
+      titulo={
+        <>
+          Diseñar el <span className="accent">contexto</span> del agente
+        </>
+      }
+      promesa="Decidir qué información entra, cuándo entra y en qué forma."
+      temas={["ventana", "prioridades", "conversación", "contexto útil"]}
+    />
   );
 }

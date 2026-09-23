@@ -1,37 +1,34 @@
 import type { SlideMeta } from "@/deck/types";
-import { grupoHarness, HarnessDonut } from "@/components/HarnessDonut";
+import { grupoHarness, HarnessDonut, HarnessKeyword } from "@/components/HarnessDonut";
 import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
   title: "Harness · Control y seguridad",
-  seccion: "BLOQUE 2.1 · HARNESS",
+  seccion: "2.1.2 · HARNESS ENGINEERING",
   transition: "fade",
 };
 
 export default function HarnessControl() {
   return (
-    <SlideFrame header={false} footer={false} meta="BLOQUE 2.1 · HARNESS">
-      <div className="harness-map">
-        <HarnessDonut revelados={["flujos", "calidad", "control"]} />
-        <div className="reveal">
-          <p className="eyebrow">›// propósito 3</p>
-          <h2
-            className="display harness-title mt-s"
-            style={{ color: grupoHarness("control").color }}
-          >
-            Control y seguridad
-          </h2>
-          <p className="sub mt-s">Lo que no puede depender de que el modelo se acuerde.</p>
-          <ul className="blist mt-m">
-            <li>
-              <span>
-                <b>Hooks</b>: scripts determinísticos en momentos fijos del flujo.
-              </span>
-            </li>
-            <li>
-              <span>Formatear, correr los tests o frenar un commit no se piden: se garantizan.</span>
-            </li>
-          </ul>
+    <SlideFrame header={false} footer={false} meta="BLOQUE 2.1 · HARNESS" bodyClass="a-sangre">
+      <div className="harness-stage">
+        <h2
+          className="display harness-stage-title reveal"
+          style={{ color: grupoHarness("control").color }}
+        >
+          Control y seguridad
+        </h2>
+        <div className="harness-ring">
+          <HarnessDonut revelados={["flujos", "calidad", "control"]} />
+          <HarnessKeyword grupo="flujos" pos="tl">
+            Commands · Skills
+          </HarnessKeyword>
+          <HarnessKeyword grupo="calidad" pos="tr">
+            Rules · MCP · Skills
+          </HarnessKeyword>
+          <HarnessKeyword grupo="control" pos="bl">
+            Hooks
+          </HarnessKeyword>
         </div>
       </div>
     </SlideFrame>

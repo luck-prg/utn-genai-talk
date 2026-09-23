@@ -3,8 +3,8 @@ import { SlideFrame } from "@/components/SlideFrame";
 import { Croquis } from "@/components/Croquis";
 
 export const meta: SlideMeta = {
-  title: "Bloque 1.3 · Lo que pasa sin ingeniería de por medio",
-  seccion: "BLOQUE 1.3",
+  title: "Bloque 1 · 1.3 IA sin ingeniería",
+  seccion: "BLOQUE 1 · 1.3",
   variante: "corte",
   transition: "curtain",
 };
@@ -12,7 +12,7 @@ export const meta: SlideMeta = {
 export default function Bloque13() {
   return (
     <SlideFrame
-      meta="BLOQUE 1.3"
+      meta="BLOQUE 1 · 1.3"
       center
       footer={false}
       after={
@@ -23,8 +23,8 @@ export default function Bloque13() {
         </>
       }
     >
-      <p className="corte-kicker reveal">Bloque 1.3</p>
-      <h2 className="display corte-title reveal mt-m">Lo que pasa sin ingeniería de por medio</h2>
+      <p className="corte-kicker reveal">Bloque 1 · 1.3</p>
+      <h2 className="display corte-title reveal mt-m">IA sin ingeniería</h2>
     </SlideFrame>
   );
 }

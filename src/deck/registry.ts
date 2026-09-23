@@ -24,13 +24,13 @@ function slugFromPath(path: string): string {
   const file = path.split("/").pop() ?? path;
   return file
     .replace(/\.tsx$/, "")
-    .replace(/^\d+[-_]?/, "")
+    .replace(/^\d+(?:\.\d+)?[-_]?/, "")
     .toLowerCase();
 }
 
 function numberLabelFromPath(path: string, fallbackIndex: number): string {
   const file = path.split("/").pop() ?? path;
-  return file.match(/^(\d+)/)?.[1] ?? String(fallbackIndex + 1).padStart(2, "0");
+  return file.match(/^(\d+(?:\.\d+)?)/)?.[1] ?? String(fallbackIndex + 1).padStart(2, "0");
 }
 
 export const slides: Slide[] = Object.entries(modules)
@@ -60,6 +60,8 @@ export const lastSlideNumber = slides.at(-1)?.numberLabel ?? String(slideCount).
 export function findSlideIndex(idOrNumber: string): number {
   const bySlug = slides.findIndex((s) => s.id === idOrNumber);
   if (bySlug !== -1) return bySlug;
+  const byNumberLabel = slides.findIndex((s) => s.numberLabel === idOrNumber);
+  if (byNumberLabel !== -1) return byNumberLabel;
   const asNumber = Number.parseInt(idOrNumber, 10);
   if (Number.isFinite(asNumber)) {
     const numberLabel = String(asNumber).padStart(2, "0");

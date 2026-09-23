@@ -3,8 +3,8 @@ import { SlideFrame } from "@/components/SlideFrame";
 import { Croquis } from "@/components/Croquis";
 
 export const meta: SlideMeta = {
-  title: "Bloque 2.2 · De 2023 a hoy, y cómo se ejecuta",
-  seccion: "BLOQUE 2.2",
+  title: "Bloque 2 · 2.2 Madurez y ejecución",
+  seccion: "BLOQUE 2 · 2.2",
   variante: "corte",
   transition: "curtain",
 };
@@ -12,7 +12,7 @@ export const meta: SlideMeta = {
 export default function Bloque22() {
   return (
     <SlideFrame
-      meta="BLOQUE 2.2"
+      meta="BLOQUE 2 · 2.2"
       center
       footer={false}
       after={
@@ -23,8 +23,8 @@ export default function Bloque22() {
         </>
       }
     >
-      <p className="corte-kicker reveal">Bloque 2.2</p>
-      <h2 className="display corte-title reveal mt-m">De 2023 a hoy, y cómo se ejecuta</h2>
+      <p className="corte-kicker reveal">Bloque 2 · 2.2</p>
+      <h2 className="display corte-title reveal mt-m">Madurez y ejecución</h2>
     </SlideFrame>
   );
 }

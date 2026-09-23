@@ -3,8 +3,8 @@ import { SlideFrame } from "@/components/SlideFrame";
 import { Croquis } from "@/components/Croquis";
 
 export const meta: SlideMeta = {
-  title: "Bloque 1.2 · El ciclo agéntico",
-  seccion: "BLOQUE 1.2",
+  title: "Bloque 1 · 1.2 Ciclo agéntico",
+  seccion: "BLOQUE 1 · 1.2",
   variante: "corte",
   transition: "curtain",
 };
@@ -12,7 +12,7 @@ export const meta: SlideMeta = {
 export default function Bloque12() {
   return (
     <SlideFrame
-      meta="BLOQUE 1.2"
+      meta="BLOQUE 1 · 1.2"
       center
       footer={false}
       after={
@@ -23,7 +23,7 @@ export default function Bloque12() {
         </>
       }
     >
-      <p className="corte-kicker reveal">Bloque 1.2</p>
+      <p className="corte-kicker reveal">Bloque 1 · 1.2</p>
       <h2 className="display corte-title reveal mt-m">El ciclo agéntico</h2>
     </SlideFrame>
   );

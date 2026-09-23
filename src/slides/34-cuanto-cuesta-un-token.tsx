@@ -4,7 +4,7 @@ import { Paso } from "@/components/Paso";
 
 export const meta: SlideMeta = {
   title: "No todos los tokens cuestan igual",
-  seccion: "BLOQUE 1.2 · CICLO AGÉNTICO",
+  seccion: "1.2.1 · CICLO AGÉNTICO",
   steps: 5,
   notes:
     "La tabla de precios, en multiplicadores para que no caduque. PASO 0: el input normal es la unidad de medida, 1x. PASO 1: el output sale CINCO veces más caro por token — pensar y escribir cuesta. PASO 2: escribir al cache sale 25% más caro que el input normal; guardar tiene su precio. PASO 3: pero leerlo sale a la décima parte. Mirá la barra: es la diferencia entre pagar 2 dólares y pagar 20 centavos por el mismo millón de tokens. PASO 4: la cuenta que cierra todo — como escribir cuesta 1,25 y leer 0,1, con UNA sola lectura el cache ya se pagó solo. Los precios concretos son de Sonnet 5 y cambian seguido; los multiplicadores son estables.",

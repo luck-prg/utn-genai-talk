@@ -5,7 +5,7 @@ import { Paso } from "@/components/Paso";
 
 export const meta: SlideMeta = {
   title: "El modelo no ejecuta: pide",
-  seccion: "BLOQUE 1.2 · CICLO AGÉNTICO",
+  seccion: "1.2.1 · CICLO AGÉNTICO",
   steps: 2,
   notes:
     "El JSON real de una vuelta. PASO 0: lo que devuelve el modelo. Señalá stop_reason 'tool_use': no es un error ni un caso raro, es el modelo diciendo 'necesito que alguien corra esto'. El bloque tool_use es texto: un nombre y unos argumentos. El modelo no tocó ningún archivo. PASO 1: lo que devuelve TU código. El tool_use_id es el hilo que ata pedido y resultado. Y ese resultado se suma al historial: la conversación creció.",

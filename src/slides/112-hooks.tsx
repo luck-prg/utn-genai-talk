@@ -4,7 +4,7 @@ import { ArtifactPanel } from "@/components/ArtifactPanel";
 
 export const meta: SlideMeta = {
   title: "Hooks",
-  seccion: "SDD",
+  seccion: "3.2.2 · SPEC-DRIVEN DEVELOPMENT",
   notes:
     "Hook conceptual, sin herramienta: es la mano del flujo, pero mecánica. No construyas tasks sin leer la constitution; no planifiques una spec no aprobada; no implementes lo que no se planeó. Acá aportamos valor nosotros: el agente puede recordarnos, pero las respuestas las damos los que trabajamos con él. El agente ejecuta; el criterio es nuestro.",
   transition: "fade",

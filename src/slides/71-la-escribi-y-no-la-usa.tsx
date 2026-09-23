@@ -4,7 +4,7 @@ import { Picto, type PictoName } from "@/components/Picto";
 
 export const meta: SlideMeta = {
   title: "La escribí y no la usa",
-  seccion: "BLOQUE 2.1 · SKILL",
+  seccion: "2.1.3 · SKILLS",
   notes:
     "El segundo problema, y el que más frustra: la skill está escrita, está en el repo, y el agente sigue haciendo lo que quiere. La explicación es mecánica, no mágica. El agente no lee todas las skills al arrancar: sería insostenible. Lee solo el encabezado de cada una. Cien tokens. Dos líneas. El cuerpo entra recién cuando decidió entrar. Números de la documentación oficial de Anthropic: decilos como dato, no los repitas.",
   transition: "fade",

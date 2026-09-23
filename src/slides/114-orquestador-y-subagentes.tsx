@@ -4,7 +4,7 @@ import { Picto, type PictoName } from "@/components/Picto";
 
 export const meta: SlideMeta = {
   title: "Orquestador y subagentes",
-  seccion: "SDD",
+  seccion: "3.2.2 · SPEC-DRIVEN DEVELOPMENT",
   notes:
     "Valen acaba de hablar de modelos en el 3.1: apoyate en eso, no lo vuelvas a explicar. Cada etapa pide una potencia de pensamiento distinta. El orquestador es con el que razonás vos: modelo fuerte, los de más alto nivel de razonamiento (por ejemplo Opus o Fable). El implementador ya tiene todo el libro escrito por las etapas anteriores: no necesita un modelo fuerte, alcanza uno mediano o chico (Sonnet, hasta Haiku). Para explorar un repositorio y recopilar información, el más liviano: está juntando insumos para las otras etapas. No es lo mismo el que implementa algo ya planificado que el que lo planifica ni el que piensa las especificaciones.",
   transition: "fade",

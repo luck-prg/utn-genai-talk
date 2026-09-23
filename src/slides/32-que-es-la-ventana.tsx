@@ -3,7 +3,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
   title: "¿Qué es la ventana de contexto?",
-  seccion: "BLOQUE 1.2 · CICLO AGÉNTICO",
+  seccion: "1.2.1 · CICLO AGÉNTICO",
   notes:
     "La pregunta sola. Acaban de ver la conversación creciendo sin freno; ahora nombrá el techo contra el que crece. Dejala respirar antes de pasar.",
   transition: "fade",

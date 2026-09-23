@@ -3,7 +3,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
   title: "Qué tiene que resolver el contexto",
-  seccion: "BLOQUE 2.1 · CONTEXT ENG.",
+  seccion: "2.1.1 · CONTEXT ENGINEERING",
   transition: "fade",
 };
 

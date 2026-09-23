@@ -4,7 +4,7 @@ import { Picto, type PictoName } from "@/components/Picto";
 
 export const meta: SlideMeta = {
   title: "Dónde falla",
-  seccion: "SDD",
+  seccion: "3.2.2 · SPEC-DRIVEN DEVELOPMENT",
   notes:
     "Honestidad: SDD también se puede hacer mal. Falla con specs ambiguas, con contexto de más, y sobre todo cuando se aprueba todo sin pensar: es el mismo error, más rápido. Falla donde se cree que el humano solo da permisos. El humano razona y dirige, el agente ejecuta con nuestra ayuda.",
   transition: "fade",

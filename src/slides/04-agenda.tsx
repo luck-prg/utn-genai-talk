@@ -23,7 +23,7 @@ const TRAMOS = [
   {
     numero: "03",
     titulo: "Modelo y método",
-    temas: ["Elegir el modelo para cada tarea", "Spec-Driven Development", "Quiz y conclusiones"],
+    temas: ["Elegir el modelo para cada tarea", "Spec-Driven Development", "Conclusiones y preguntas"],
   },
 ];
 

@@ -4,7 +4,7 @@ import { Picto } from "@/components/Picto";
 
 export const meta: SlideMeta = {
   title: "Una skill no es un script",
-  seccion: "BLOQUE 2.1 · SKILL",
+  seccion: "2.1.3 · SKILLS",
   notes:
     "La confusión más común de todas, y la que más skills inútiles genera. Si vos ya sabés los pasos, de memoria, y siempre son los mismos, no necesitás que el agente los piense: necesitás que alguien los ejecute. Eso es un script, o un comando. La skill existe para el otro caso: cuando hay algo que decidir y querés que se decida como vos decidirías.",
   transition: "fade",

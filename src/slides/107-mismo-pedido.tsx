@@ -4,7 +4,7 @@ import { ArtifactPanel } from "@/components/ArtifactPanel";
 
 export const meta: SlideMeta = {
   title: "El mismo pedido, dos veces",
-  seccion: "SDD",
+  seccion: "3.2.2 · SPEC-DRIVEN DEVELOPMENT",
   notes:
     "Izquierda: 'hacé una pantalla de login'. Señalá cuántas decisiones quedan implícitas: los errores, el formato, la tecnología, las decide el agente, y ninguna la validaste vos. Derecha: el mismo pedido como spec real, con sus cuatro partes: intención, escenario, requisitos, criterio. No estamos delegando lógica, estamos delegando ejecución. No la leas entera: la slide siguiente nombra las partes.",
   transition: "fade",

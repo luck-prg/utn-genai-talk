@@ -4,7 +4,7 @@ import { Paso } from "@/components/Paso";
 
 export const meta: SlideMeta = {
   title: "Tres palabras y una consecuencia",
-  seccion: "BLOQUE 1.2 · CICLO AGÉNTICO",
+  seccion: "1.2.1 · CICLO AGÉNTICO",
   steps: 3,
   notes:
     "Cierre del bloque. PASO 0: las tres palabras que se tienen que llevar — ventana de contexto, harness, agent loop. PASO 1: la cuenta. Cada mensaje que mandás reenvía TODO el historial: la conversación no es gratis, se paga entera en cada vuelta. El cache abarata el prefijo que ya viste (hit ≈ 10% del precio), pero si el prefijo cambió no hay hit y se paga completo — por eso conviene que lo estable vaya adelante y lo que cambia al final. Y el token de salida es más caro por unidad, pero en una sesión agéntica el volumen de entrada es tan grande que la factura se la lleva la entrada. PASO 2: el remate — la ventana es finita y los recursos también. Entender cómo funciona el agente es lo que te permite no quemarlos al pedo.",

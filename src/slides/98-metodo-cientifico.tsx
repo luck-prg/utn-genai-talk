@@ -5,7 +5,7 @@ import { Picto, type PictoName } from "@/components/Picto";
 
 export const meta: SlideMeta = {
   title: "El método científico",
-  seccion: "EL MÉTODO",
+  seccion: "3.2.1 · EL MÉTODO",
   notes:
     "El ejemplo que nadie puede decir que no conoce. El punto no es la ciencia: es que los pasos y su orden están decididos ANTES de empezar, y por eso el resultado se puede repetir y refutar.",
   transition: "fade",

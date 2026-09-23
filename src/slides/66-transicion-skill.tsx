@@ -1,29 +1,27 @@
 import type { SlideMeta } from "@/deck/types";
-import { SlideFrame } from "@/components/SlideFrame";
-import { Croquis } from "@/components/Croquis";
-import { DivisorOrador } from "@/components/DivisorOrador";
+import { PortadaSeccion } from "@/components/PortadaSeccion";
 
 export const meta: SlideMeta = {
-  title: "Un ejemplo real: una skill",
-  seccion: "BLOQUE 2.1",
-  variante: "orador",
-  transition: "fade",
+  title: "Sección · 2.1.3 Skills",
+  seccion: "2.1.3 · SKILLS",
+  transition: "curtain",
 };
 
-export default function TransicionSkill() {
+export default function PortadaSkills() {
   return (
-    <SlideFrame
-      meta="BLOQUE 2.1"
-      center
+    <PortadaSeccion
+      header={false}
       footer={false}
-      after={
+      meta="SECCIÓN"
+      numero="2.1.3"
+      kicker="Skills"
+      titulo={
         <>
-          <Croquis nombre="specCodigo" style={{ left: "6vw", bottom: "14vh", width: "min(17vw, 250px)" }} />
-          <Croquis nombre="entornoAgente" style={{ right: "6vw", bottom: "13vh", width: "min(20vw, 310px)" }} />
+          Un ejemplo real: una <span className="accent">skill</span>
         </>
       }
-    >
-      <DivisorOrador frase="Un ejemplo real: una skill" />
-    </SlideFrame>
+      promesa="Una skill convierte las decisiones repetidas del equipo en una guía que el agente puede usar."
+      temas={["consistencia", "disparador", "estructura", "criterio"]}
+    />
   );
 }

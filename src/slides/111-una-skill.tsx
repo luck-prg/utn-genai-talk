@@ -5,7 +5,7 @@ import { ArtifactPanel } from "@/components/ArtifactPanel";
 
 export const meta: SlideMeta = {
   title: "Una skill",
-  seccion: "SDD",
+  seccion: "3.2.2 · SPEC-DRIVEN DEVELOPMENT",
   notes:
     "La skill que explicaste vos en el bloque 2.1, aplicada a SDD. Responde a '¿cómo hago que sepan escribir specs?': estructura, preguntas obligatorias, qué no puede faltar, casos borde. Mirá el ejemplo: al agente lo obligamos a respetar un formato, a preguntar lo que no definimos y a buscar casos borde. Nosotros tenemos siempre el criterio y la respuesta. Invitalos a pensar la skill de las demás etapas.",
   transition: "fade",

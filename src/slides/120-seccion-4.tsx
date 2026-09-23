@@ -3,7 +3,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 import { Croquis } from "@/components/Croquis";
 
 export const meta: SlideMeta = {
-  title: "Bloque 4 · Para cerrar",
+  title: "Bloque 4 · Conclusiones",
   seccion: "BLOQUE 4",
   variante: "corte",
   transition: "curtain",
@@ -23,8 +23,7 @@ export default function Bloque4() {
         </>
       }
     >
-      <p className="corte-kicker reveal">Bloque 4</p>
-      <h2 className="display corte-title reveal mt-m">Para cerrar</h2>
+      <h2 className="display corte-title reveal">Bloque 4</h2>
     </SlideFrame>
   );
 }

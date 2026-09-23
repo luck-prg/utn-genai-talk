@@ -5,7 +5,7 @@ import { Paso } from "@/components/Paso";
 
 export const meta: SlideMeta = {
   title: "Qué hay adentro de un agente (2)",
-  seccion: "BLOQUE 1.2 · CICLO AGÉNTICO",
+  seccion: "1.2.1 · CICLO AGÉNTICO",
   steps: 3,
   notes:
     "Retoma el diagrama donde lo dejamos: harness, memoria y modelo ya están. PASO 1: aparece el constructor de contexto — el input ya no va directo al modelo: en cada llamada se arma un paquete con todo el historial y se manda entero. Acá está la clave del costo. PASO 2: permisos y ejecución de tools, que cierran el loop: el modelo pide una tool, el harness chequea permisos, la ejecuta y mete el resultado en el historial. Eso es el agent loop.",

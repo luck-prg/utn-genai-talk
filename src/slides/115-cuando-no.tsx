@@ -4,7 +4,7 @@ import { Picto, type PictoName } from "@/components/Picto";
 
 export const meta: SlideMeta = {
   title: "Cuándo NO usar SDD",
-  seccion: "SDD",
+  seccion: "3.2.2 · SPEC-DRIVEN DEVELOPMENT",
   notes:
     "Decilo antes que el cuándo sí. Un método que sirve para todo no sirve para nada, y admitir dónde no aplica te da credibilidad para el resto.",
   transition: "fade",

@@ -1,38 +1,28 @@
 import type { SlideMeta } from "@/deck/types";
-import { SlideFrame } from "@/components/SlideFrame";
-import { Croquis } from "@/components/Croquis";
+import { PortadaSeccion } from "@/components/PortadaSeccion";
 
 export const meta: SlideMeta = {
-  title: "Spec-Driven Development",
-  seccion: "SECCIÓN",
+  title: "Sección · 3.2.2 Spec-Driven Development",
+  seccion: "3.2.2 · SPEC-DRIVEN DEVELOPMENT",
   notes: "Medio minuto. Respirá: acá arrancan los treinta minutos centrales del bloque.",
-  transition: "zoom",
+  transition: "curtain",
 };
 
-export default function SeccionSdd() {
+export default function PortadaSdd() {
   return (
-    <SlideFrame
-      meta="SECCIÓN"
-      center
+    <PortadaSeccion
+      header={false}
       footer={false}
-      after={
+      meta="SECCIÓN"
+      numero="3.2.2"
+      kicker="Spec-Driven Development"
+      titulo={
         <>
-          <Croquis nombre="specCodigo" style={{ right: "7vw", top: "18vh", width: "min(18vw, 270px)" }} />
-          <Croquis nombre="specDriven" style={{ right: "4vw", bottom: "9vh", width: "min(28vw, 460px)" }} />
+          La <span className="accent">spec</span> antes que el código
         </>
       }
-    >
-      <div
-        className="display reveal accent"
-        style={{ fontSize: "var(--fs-numbig)", lineHeight: 0.8 }}
-      >
-        SDD
-      </div>
-      <h2 className="display reveal mt-s" style={{ fontSize: "var(--fs-section)" }}>
-        Spec-Driven
-        <br />
-        Development
-      </h2>
-    </SlideFrame>
+      promesa="La especificación se convierte en el contrato que guía y valida el trabajo del agente."
+      temas={["spec", "plan", "implementación", "validación"]}
+    />
   );
 }

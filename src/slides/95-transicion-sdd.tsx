@@ -3,8 +3,8 @@ import { SlideFrame } from "@/components/SlideFrame";
 import { Croquis } from "@/components/Croquis";
 
 export const meta: SlideMeta = {
-  title: "Bloque 3.2 · El método: Spec-Driven Development",
-  seccion: "BLOQUE 3.2",
+  title: "Bloque 3 · 3.2 Spec-Driven Development",
+  seccion: "BLOQUE 3 · 3.2",
   variante: "corte",
   transition: "curtain",
   notes:
@@ -14,7 +14,7 @@ export const meta: SlideMeta = {
 export default function TransicionSdd() {
   return (
     <SlideFrame
-      meta="BLOQUE 3.2"
+      meta="BLOQUE 3 · 3.2"
       center
       footer={false}
       after={
@@ -24,7 +24,7 @@ export default function TransicionSdd() {
         </>
       }
     >
-      <p className="corte-kicker reveal">Bloque 3.2</p>
+      <p className="corte-kicker reveal">Bloque 3 · 3.2</p>
       <h2 className="display corte-title reveal mt-m">El método: Spec-Driven Development</h2>
       <p className="sub corte-sub reveal mt-m">Del prompt suelto a la spec como contrato de trabajo.</p>
     </SlideFrame>

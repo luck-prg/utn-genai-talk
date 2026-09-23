@@ -4,7 +4,7 @@ import { Picto, type PictoName } from "@/components/Picto";
 
 export const meta: SlideMeta = {
   title: "Para qué sirve un método",
-  seccion: "EL MÉTODO",
+  seccion: "3.2.1 · EL MÉTODO",
   notes: "Cierre del bloque 1. Cuatro ventajas concretas, sin teoría de ingeniería de software.",
   transition: "fade",
 };

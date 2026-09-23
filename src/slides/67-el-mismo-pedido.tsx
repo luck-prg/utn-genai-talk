@@ -3,7 +3,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
   title: "El mismo pedido, tres veces",
-  seccion: "BLOQUE 2.1 · SKILL",
+  seccion: "2.1.3 · SKILLS",
   notes:
     "Arrancá por el dolor, no por la herramienta. El mismo pedido, tres días distintos, tres respuestas distintas: el prefijo de la ruta, la capa donde cae el archivo y la forma del error cambian solos. Nadie pidió que cambiaran. Las tres son defendibles: versionar o no versionar es una decisión de equipo, controllers o routes también, y la tercera forma de error es directamente RFC 7807. Si alguien de la sala te discute una, ganaste: esa discusión ES la slide.",
   transition: "fade",

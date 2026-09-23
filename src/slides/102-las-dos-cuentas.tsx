@@ -4,7 +4,7 @@ import { Picto, type PictoName } from "@/components/Picto";
 
 export const meta: SlideMeta = {
   title: "Las dos cuentas",
-  seccion: "EL COSTO",
+  seccion: "3.2.1 · EL MÉTODO",
   notes:
     "El momento que descomprime la sala: no era pereza ni ignorancia, era economía. Incluite vos en el 'no lo usábamos'. Las dos columnas son la cuenta que todos hicimos sin darnos cuenta: a la izquierda lo que ganábamos, a la derecha lo que nos costaba en tiempo. Beneficio diferido, costo fijo alto: por eso daba lo mismo. Fijate en la columna derecha: en la próxima slide vuelve dada vuelta.",
   transition: "fade",

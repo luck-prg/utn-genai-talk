@@ -3,8 +3,8 @@ import { SlideFrame } from "@/components/SlideFrame";
 import { Croquis } from "@/components/Croquis";
 
 export const meta: SlideMeta = {
-  title: "Bloque 2.1 · Context Engineering",
-  seccion: "BLOQUE 2.1",
+  title: "Bloque 2 · 2.1 Context Engineering",
+  seccion: "BLOQUE 2 · 2.1",
   variante: "corte",
   transition: "curtain",
 };
@@ -12,7 +12,7 @@ export const meta: SlideMeta = {
 export default function Bloque21() {
   return (
     <SlideFrame
-      meta="BLOQUE 2.1"
+      meta="BLOQUE 2 · 2.1"
       center
       footer={false}
       after={
@@ -23,7 +23,7 @@ export default function Bloque21() {
         </>
       }
     >
-      <p className="corte-kicker reveal">Bloque 2.1</p>
+      <p className="corte-kicker reveal">Bloque 2 · 2.1</p>
       <h2 className="display corte-title reveal mt-m">Context Engineering</h2>
       <p className="sub corte-sub reveal mt-m">
         Diseñar el contexto del agente es diseñar el agente.

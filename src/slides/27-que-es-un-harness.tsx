@@ -3,7 +3,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
   title: "¿Qué es un Harness?",
-  seccion: "BLOQUE 1.2 · CICLO AGÉNTICO",
+  seccion: "1.2.1 · CICLO AGÉNTICO",
   notes:
     "La pregunta sola, para frenar el ritmo. Acabás de mostrarlo en el diagrama; ahora ponele nombre. Dejala respirar un segundo antes de pasar.",
   transition: "fade",

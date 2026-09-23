@@ -3,7 +3,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
   title: "Agent Harness",
-  seccion: "BLOQUE 1.2 · CICLO AGÉNTICO",
+  seccion: "1.2.1 · CICLO AGÉNTICO",
   notes:
     "Lo que hace un harness, punto por punto. Cada uno se corresponde con algo del diagrama que acaban de ver: el constructor de contexto, el ejecutor de tools, el catálogo que ve el modelo, el historial y los permisos.",
   transition: "fade",

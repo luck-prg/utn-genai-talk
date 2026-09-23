@@ -4,7 +4,7 @@ import { Picto, type PictoName } from "@/components/Picto";
 
 export const meta: SlideMeta = {
   title: "¿Qué es SDD?",
-  seccion: "SDD",
+  seccion: "3.2.2 · SPEC-DRIVEN DEVELOPMENT",
   notes:
     "La definición sin IA: specs primero, fuente de verdad, contrato verificable. La IA no es parte del método, es por qué explotó hoy: quien ejecuta la spec es la IA. Cerrá con 'nosotros ya no escribimos, pensamos' y dejalo respirar. Puente: 'y ojo, esto no es nuevo'.",
   transition: "fade",

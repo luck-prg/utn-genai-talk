@@ -1,17 +1,27 @@
 import type { SlideMeta } from "@/deck/types";
-import { SlideFrame } from "@/components/SlideFrame";
-import { Placeholder } from "@/components/Placeholder";
+import { PortadaSeccion } from "@/components/PortadaSeccion";
 
 export const meta: SlideMeta = {
-  title: "[Falta] 1.3.1 Seguridad y riesgos",
-  seccion: "BLOQUE 1.3 · SEGURIDAD Y RIESGOS",
-  transition: "fade",
+  title: "Sección · 1.3.1 Seguridad y riesgos",
+  seccion: "1.3.1 · SEGURIDAD Y RIESGOS",
+  transition: "curtain",
 };
 
-export default function Falta131() {
+export default function PortadaSeguridadYRiesgos() {
   return (
-    <SlideFrame header={false} footer={false} meta="BLOQUE 1.3 · SEGURIDAD Y RIESGOS" center>
-      <Placeholder item="1.3.1" title="Seguridad y riesgos" />
-    </SlideFrame>
+    <PortadaSeccion
+      header={false}
+      footer={false}
+      meta="SECCIÓN"
+      numero="1.3.1"
+      kicker="Seguridad y riesgos"
+      titulo={
+        <>
+          Delegar también exige <span className="accent">poner límites</span>
+        </>
+      }
+      promesa="Los permisos, los datos y la validación siguen siendo decisiones humanas."
+      temas={["permisos", "datos sensibles", "validación", "responsabilidad"]}
+    />
   );
 }

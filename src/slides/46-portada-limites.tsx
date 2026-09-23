@@ -2,7 +2,7 @@ import type { SlideMeta } from "@/deck/types";
 import { PortadaSeccion } from "@/components/PortadaSeccion";
 
 export const meta: SlideMeta = {
-  title: "Portada · 1.3.2 IA sin ingeniería",
+  title: "Sección · 1.3.2 IA sin ingeniería",
   seccion: "1.3.2 · IA SIN INGENIERÍA",
   notes:
     "Corte de sección. Hasta acá vimos qué puede hacer un agente bien equipado. Ahora, lo que no resuelve solo — y que no se arregla esperando un modelo mejor, porque son límites de contexto y de criterio, no de capacidad.",

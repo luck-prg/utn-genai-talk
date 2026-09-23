@@ -4,7 +4,7 @@ import { Picto, type PictoName } from "@/components/Picto";
 
 export const meta: SlideMeta = {
   title: "Una spec, por dentro",
-  seccion: "SDD",
+  seccion: "3.2.2 · SPEC-DRIVEN DEVELOPMENT",
   notes:
     "Reemplaza al ejemplo del login. Cuatro partes: intención, escenarios de aceptación, requisitos verificables, criterios medibles. Lo que decís: acá no hay tecnología, es producto y negocio; por eso la puede leer y corregir alguien que no programa. Puente: '¿y por qué explota SDD y no otro? Porque trae lo mejor de dos mundos.'",
   transition: "fade",

@@ -3,7 +3,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
   title: "La secuencia efectiva",
-  seccion: "BLOQUE 2.1 · CONTEXT ENG.",
+  seccion: "2.1.4 · CONCLUSIONES",
   transition: "fade",
 };
 

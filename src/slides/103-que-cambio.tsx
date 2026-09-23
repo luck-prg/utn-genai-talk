@@ -4,7 +4,7 @@ import { Picto, type PictoName } from "@/components/Picto";
 
 export const meta: SlideMeta = {
   title: "Qué cambió",
-  seccion: "EL COSTO",
+  seccion: "3.2.1 · EL MÉTODO",
   notes:
     "El giro, y la puerta a SDD. NO digas 'la IA se lleva lo tedioso y deja el razonamiento': eso invita a delegar y firmar. El argumento es el costo. Las tres filas son las mismas tres de la columna derecha de la slide anterior, dadas vuelta: señalalo. Plantá el puente en una frase, sin desarrollarlo: 'y eso lo hace un agente que lee tu método como contexto; después volvemos a esto'. La última frase es tuya y vuelve en el cierre: no se delega el criterio, se delega la formalidad.",
   transition: "curtain",
