@@ -13,7 +13,7 @@ const TRAMOS = [
   {
     numero: "Bloque 01",
     titulo: "¿Qué es un agente de código?",
-    temas: ["Modelos de lenguaje", "El ciclo agéntico", "Los límites de la IA sin ingeniería", "Seguridad"],
+    temas: ["Modelos de lenguaje", "El ciclo agéntico", "Los límites de la IA sin ingeniería", "Seguridad y riesgos"],
   },
   {
     numero: "Bloque 02",

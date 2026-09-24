@@ -20,7 +20,7 @@ interface BloqueData {
 const BLOQUES: Record<number, BloqueData> = {
   1: {
     titulo: "¿Qué es un agente de código?",
-    temas: ["Modelos de lenguaje", "El ciclo agéntico", "Seguridad", "Los límites de la IA sin ingeniería"],
+    temas: ["Modelos de lenguaje", "El ciclo agéntico", "Los límites de la IA sin ingeniería", "Seguridad y riesgos"],
     croquis: [
       { nombre: "tokenizacion", style: { left: "4vw", top: "13vh", width: "min(23vw, 360px)" } },
       { nombre: "agentLoop", style: { left: "6vw", bottom: "9vh", width: "min(17vw, 250px)" } },
