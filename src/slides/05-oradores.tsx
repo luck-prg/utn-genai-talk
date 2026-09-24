@@ -4,7 +4,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 export const meta: SlideMeta = {
   title: "Los oradores",
   seccion: "BLOQUE 0 · INTRODUCCIÓN",
-  notes: "Presentación de los cuatro. Pendiente: apellidos de Ramiro y Sofía, y sus dos fotos.",
+  notes: "Presentación de los cuatro. Pendiente: apellido de Sofía y su foto.",
   transition: "fade",
 };
 
@@ -12,11 +12,28 @@ export const meta: SlideMeta = {
  * Los cuatro lugares, en matriz 2x2 a pantalla completa: la foto llena la
  * casilla y el nombre va encima. Para sumar una foto, dejarla en
  * `public/img/oradores/` y poner su ruta en `foto`.
+ *
+ * `encuadre` solo hace falta cuando la foto no funciona con el recorte por
+ * defecto del CSS (`center 88%`, pensado para un retrato vertical). Una foto
+ * apaisada, con la cara arriba del centro, necesita correr ese eje hacia
+ * arriba para que no quede el torso en la casilla.
  */
-const ORADORES = [
+const ORADORES: {
+  nombre: string;
+  apellido: string | null;
+  iniciales: string;
+  foto: string | null;
+  encuadre?: string;
+}[] = [
   { nombre: "Luciano", apellido: "Rodriguez", iniciales: "LR", foto: "/img/oradores/luciano-rodriguez.jpg" },
   { nombre: "Valentín", apellido: "Bravo", iniciales: "V", foto: "/img/oradores/valentin-bravo.jpg" },
-  { nombre: "Ramiro", apellido: null, iniciales: "R", foto: null },
+  {
+    nombre: "Ramiro",
+    apellido: "Remersaro",
+    iniciales: "RR",
+    foto: "/img/oradores/ramiro-remersaro.webp",
+    encuadre: "58% 30%",
+  },
   { nombre: "Sofía", apellido: null, iniciales: "S", foto: null },
 ];
 
@@ -31,7 +48,12 @@ export default function Oradores() {
           {ORADORES.map((o) => (
             <div className={`orador-celda reveal ${o.foto ? "con-foto" : "sin-foto"}`} key={o.nombre}>
               {o.foto ? (
-                <img className="orador-foto" src={o.foto} alt={`${o.nombre} ${o.apellido ?? ""}`.trim()} />
+                <img
+                  className="orador-foto"
+                  src={o.foto}
+                  alt={`${o.nombre} ${o.apellido ?? ""}`.trim()}
+                  style={o.encuadre ? { objectPosition: o.encuadre } : undefined}
+                />
               ) : (
                 <span className="orador-ini">{o.iniciales}</span>
               )}
