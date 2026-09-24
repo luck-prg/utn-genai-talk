@@ -6,13 +6,17 @@ export const meta: SlideMeta = {
   title: "Una spec, por dentro",
   seccion: "3.2.2 · SPEC-DRIVEN DEVELOPMENT",
   notes:
-    "Reemplaza al ejemplo del login. Cuatro partes: intención, escenarios de aceptación, requisitos verificables, criterios medibles. Lo que decís: acá no hay tecnología, es producto y negocio; por eso la puede leer y corregir alguien que no programa. Puente: '¿y por qué explota SDD y no otro? Porque trae lo mejor de dos mundos.'",
+    "Reemplaza al ejemplo del login. Cuatro partes: intención, escenarios de aceptación, requisitos verificables, criterios medibles. Lo que decís: acá no hay tecnología, es producto y negocio; por eso la puede leer y corregir alguien que no programa. Enganchá con lo que ya saben de la cátedra: el caso de uso está acá, partido en dos tarjetas. El 'para quién' de la intención es el actor, y los escenarios son sus flujos hechos verificables. Si alguien te discute que escenario y caso de uso son lo mismo, la diferencia es esta: el caso de uso describe la interacción completa —actor, precondición, flujo principal, alternativos, postcondición— y el escenario es una instancia concreta y comprobable. Uno a muchos: un caso de uso produce varios escenarios. No renombres la tarjeta, que no son sinónimos. Puente: '¿y por qué explota SDD y no otro? Porque trae lo mejor de dos mundos.'",
   transition: "fade",
 };
 
 const PARTES: { icon: PictoName; title: string; body: string }[] = [
   { icon: "spec", title: "Intención", body: "Qué problema resuelve y para quién." },
-  { icon: "behavior", title: "Escenarios de aceptación", body: "Dado, cuando, entonces." },
+  {
+    icon: "behavior",
+    title: "Escenarios de aceptación",
+    body: "Dado, cuando, entonces. Cada flujo del caso de uso, hecho comprobable.",
+  },
   { icon: "contract", title: "Requisitos verificables", body: "Cada uno se puede comprobar." },
   { icon: "analyze", title: "Criterios medibles", body: "Cómo sabemos que salió bien." },
 ];
