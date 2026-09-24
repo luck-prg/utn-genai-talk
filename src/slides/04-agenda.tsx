@@ -11,19 +11,19 @@ export const meta: SlideMeta = {
 /** El recorrido de la charla, en tres tramos. */
 const TRAMOS = [
   {
-    numero: "01",
-    titulo: "Fundamentos",
-    temas: ["Modelos de lenguaje", "El ciclo agéntico", "Lo que pasa sin ingeniería de por medio"],
+    numero: "Bloque 01",
+    titulo: "¿Qué es un agente de código?",
+    temas: ["Modelos de lenguaje", "El ciclo agéntico", "Seguridad", "Los límites de la IA sin ingeniería"],
   },
   {
-    numero: "02",
-    titulo: "Context Engineering",
-    temas: ["Diseñar el contexto es diseñar el agente", "De 2023 a hoy, y cómo se ejecuta"],
+    numero: "Bloque 02",
+    titulo: "¿Cómo diseño un agente efectivo?",
+    temas: ["Buenas prácticas", "Context Engineering", "Harness Engineering", "Conceptos varios"],
   },
   {
-    numero: "03",
-    titulo: "Modelo y método",
-    temas: ["Elegir el modelo para cada tarea", "Spec-Driven Development", "Conclusiones y preguntas"],
+    numero: "Bloque 03",
+    titulo: "¿Cómo desarrollo de forma efectiva con agentes?",
+    temas: ["Uso correcto de los modelos", "Spec-Driven Development", "Conclusiones y preguntas"],
   },
 ];
 
