@@ -4,7 +4,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 export const meta: SlideMeta = {
   title: "Los oradores",
   seccion: "BLOQUE 0 · INTRODUCCIÓN",
-  notes: "Presentación de los cuatro. Pendiente: apellido de Sofía y su foto.",
+  notes: "Presentación de los cuatro.",
   transition: "fade",
 };
 
@@ -34,7 +34,13 @@ const ORADORES: {
     foto: "/img/oradores/ramiro-remersaro.webp",
     encuadre: "58% 30%",
   },
-  { nombre: "Sofía", apellido: null, iniciales: "S", foto: null },
+  {
+    nombre: "Sofía",
+    apellido: "Cortés",
+    iniciales: "SC",
+    foto: "/img/oradores/sofia-cortes.jpg",
+    encuadre: "center 40%",
+  },
 ];
 
 export default function Oradores() {
