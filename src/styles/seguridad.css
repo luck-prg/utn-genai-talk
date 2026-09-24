@@ -1,0 +1,162 @@
+/*
+ * SECCIÓN 1.3.2 — SEGURIDAD Y RIESGOS
+ * Piezas propias de la sección. Mismos tokens y convenciones que
+ * `system.css`; se importa desde `global.css`.
+ */
+
+/* ===========================================================
+   CASOS — lista de incidentes: cuándo + qué pasó
+   =========================================================== */
+.casos {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, min(1.3vw, 2.3vh), 26px);
+}
+.caso {
+  display: grid;
+  grid-template-columns: 4.6em 1fr;
+  gap: 0.9em;
+  align-items: baseline;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.38;
+  color: var(--color-fg);
+}
+.caso-cuando {
+  font-weight: 600;
+  font-size: var(--fs-foot);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-acento);
+}
+.caso-txt b {
+  font-weight: 600;
+}
+.caso-txt code {
+  font-family: var(--font-code);
+  font-size: 0.86em;
+  background: color-mix(in srgb, var(--color-fg) 8%, transparent);
+  border-radius: 4px;
+  padding: 0.05em 0.3em;
+}
+.caso-fuente {
+  color: var(--color-muted);
+  font-size: 0.78em;
+}
+
+/* Versión compacta, para dos columnas lado a lado. */
+.casos.compactos .caso {
+  font-size: clamp(14px, min(1.3vw, 2.31vh), 26px);
+  grid-template-columns: 4.2em 1fr;
+}
+
+/* ===========================================================
+   DOS COLUMNAS con rótulo grande
+   =========================================================== */
+.dos-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(22px, min(3.2vw, 5.7vh), 68px);
+  width: 100%;
+}
+.col-rotulo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(20px, min(2.2vw, 3.91vh), 46px);
+  letter-spacing: -0.025em;
+  line-height: 1;
+  border-bottom: 2px solid var(--color-fg);
+  padding-bottom: 0.4em;
+  margin-bottom: 0.7em;
+}
+
+/* ===========================================================
+   CARDS con lista corta adentro (tres preguntas, cuatro riesgos)
+   =========================================================== */
+.card .c-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45em;
+  margin-top: 0.3em;
+  font-family: var(--font-body);
+  font-size: clamp(13px, min(1.2vw, 2.13vh), 25px);
+  line-height: 1.35;
+  color: var(--color-fg);
+}
+.card .c-list li {
+  display: flex;
+  gap: 0.55em;
+}
+.card .c-list li::before {
+  content: "›//";
+  color: var(--color-acento);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.card .c-dato {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(22px, min(2.4vw, 4.27vh), 50px);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--color-acento);
+  margin-top: auto;
+  padding-top: 0.4em;
+}
+.card .c-dato small {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(11px, min(0.95vw, 1.69vh), 19px);
+  letter-spacing: 0;
+  color: var(--color-muted);
+  margin-top: 0.35em;
+  line-height: 1.3;
+}
+
+/* Tarjetas que se encienden por paso: antes de su turno quedan en gris. */
+.card.apagada {
+  opacity: 0.18;
+  transition: opacity var(--duration-base) var(--ease-out-expo);
+}
+.card.encendida {
+  opacity: 1;
+  transition: opacity var(--duration-base) var(--ease-out-expo);
+}
+
+/* ===========================================================
+   DATO GRANDE a la izquierda + texto
+   =========================================================== */
+.dato-fila {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(20px, min(2.6vw, 4.6vh), 56px);
+  align-items: center;
+}
+.dato-grande {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(56px, min(8vw, 14.2vh), 160px);
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  color: var(--color-acento);
+}
+.dato-grande small {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--fs-foot);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-top: 0.8em;
+}
+
+/* Rótulos más largos (vigilancia, quién gana): columna más ancha, sin cortar. */
+.casos.anchos .caso {
+  grid-template-columns: 7.4em 1fr;
+}
+.casos.anchos .caso-cuando {
+  white-space: nowrap;
+}

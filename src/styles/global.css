@@ -3,6 +3,7 @@
 @import "./system.css";
 @import "./mis-slides.css";
 @import "./interactivos.css";
+@import "./seguridad.css";
 
 @layer base {
   * {
