@@ -1319,6 +1319,88 @@
   max-width: 44ch;
 }
 
+/* Fila de la divisoria: título a la izquierda, temas del bloque a la
+   derecha como línea de tiempo. La línea de tiempo es el elemento con más
+   peso de los dos: el título cede ancho (y admite quebrar en más líneas)
+   para que los temas tengan lugar de sobra. */
+.corte-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(36px, 4.4vw, 90px);
+}
+.corte-copy {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+.corte-layout .corte-title {
+  max-width: 13ch;
+}
+.corte-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(30px, 3.4vw, 58px);
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* La línea que baja uniendo los temas, centrada sobre la columna de puntos.
+   No aparece entera: se va dibujando de arriba abajo, al ritmo de los puntos. */
+.corte-timeline::before {
+  content: "";
+  position: absolute;
+  left: clamp(8px, 0.65vw, 12px);
+  top: clamp(8px, 0.65vw, 12px);
+  bottom: clamp(8px, 0.65vw, 12px);
+  width: 3px;
+  background: linear-gradient(to bottom, var(--color-acento), color-mix(in srgb, var(--color-acento) 12%, transparent));
+  transform: scaleY(0);
+  transform-origin: top;
+  /* Lineal: así el trazo avanza a velocidad constante y llega a cada punto
+     justo cuando le toca aparecer (ver --retraso en cada tema). */
+  transition: transform var(--timeline-duracion, 2.2s) linear;
+  transition-delay: var(--timeline-retraso, 0.4s);
+}
+.slide.visible .corte-timeline::before {
+  transform: scaleY(1);
+}
+.corte-timeline-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: clamp(22px, 2vw, 36px);
+  /* Pisa el delay parejo de `.reveal`: cada tema espera su propio turno. */
+  transition-delay: var(--retraso, 0s);
+}
+.corte-timeline-punto {
+  flex-shrink: 0;
+  width: clamp(16px, 1.35vw, 24px);
+  height: clamp(16px, 1.35vw, 24px);
+  border-radius: 50%;
+  background: var(--color-acento);
+  box-shadow: 0 0 0 5px var(--color-fondo);
+  transform: scale(0.3);
+  opacity: 0;
+  transition:
+    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.3s ease;
+  transition-delay: var(--retraso, 0s);
+}
+.slide.visible .corte-timeline-punto {
+  transform: scale(1);
+  opacity: 1;
+}
+.corte-timeline-texto {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(21px, 1.9vw, 36px);
+  line-height: 1.22;
+  max-width: 16ch;
+  color: var(--color-fg);
+}
+
 /* ===========================================================
    ORADOR — divisor liviano de cambio de orador (dentro de un bloque)
    =========================================================== */

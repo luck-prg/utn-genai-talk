@@ -1,7 +1,12 @@
 import type { SlideMeta } from "@/deck/types";
 import { InicioDeBloque } from "@/components/SeparadorDeBloque";
 
-export const meta: SlideMeta = { title: "Bloque 3", seccion: "BLOQUE 3", variante: "corte", transition: "curtain" };
+export const meta: SlideMeta = {
+  title: "Bloque 03 · ¿Cómo desarrollo de forma efectiva con agentes?",
+  seccion: "BLOQUE 03",
+  variante: "corte",
+  transition: "curtain",
+};
 
 export default function InicioBloque3() {
   return <InicioDeBloque numero={3} />;

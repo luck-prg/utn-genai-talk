@@ -17,6 +17,9 @@ export const meta: SlideMeta = {
  * defecto del CSS (`center 88%`, pensado para un retrato vertical). Una foto
  * apaisada, con la cara arriba del centro, necesita correr ese eje hacia
  * arriba para que no quede el torso en la casilla.
+ *
+ * `zoom` acerca la imagen (transform: scale) tomando `encuadre` como origen,
+ * para fotos apaisadas donde la persona queda chica dentro de la casilla.
  */
 const ORADORES: {
   nombre: string;
@@ -24,8 +27,16 @@ const ORADORES: {
   iniciales: string;
   foto: string | null;
   encuadre?: string;
+  zoom?: number;
 }[] = [
-  { nombre: "Luciano", apellido: "Rodriguez", iniciales: "LR", foto: "/img/oradores/luciano-rodriguez.jpg" },
+  {
+    nombre: "Luciano",
+    apellido: "Rodriguez",
+    iniciales: "LR",
+    foto: "/img/oradores/luciano-rodriguez.jpg",
+    encuadre: "48% 100%",
+    zoom: 1.18,
+  },
   { nombre: "Valentín", apellido: "Bravo", iniciales: "V", foto: "/img/oradores/valentin-bravo.jpg" },
   {
     nombre: "Ramiro",
@@ -52,7 +63,12 @@ export default function Oradores() {
                   className="orador-foto"
                   src={o.foto}
                   alt={`${o.nombre} ${o.apellido ?? ""}`.trim()}
-                  style={o.encuadre ? { objectPosition: o.encuadre } : undefined}
+                  style={{
+                    ...(o.encuadre ? { objectPosition: o.encuadre } : undefined),
+                    ...(o.zoom
+                      ? { transform: `scale(${o.zoom})`, transformOrigin: o.encuadre ?? "center 88%" }
+                      : undefined),
+                  }}
                 />
               ) : (
                 <span className="orador-ini">{o.iniciales}</span>
