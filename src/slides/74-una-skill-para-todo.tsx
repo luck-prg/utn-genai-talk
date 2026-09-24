@@ -30,7 +30,7 @@ const RIESGOS: { icon: PictoName; title: string; body: string }[] = [
 
 export default function UnaSkillParaTodo() {
   return (
-    <SlideFrame header={false} footer={false} meta="BLOQUE 2.1 · SKILL">
+    <SlideFrame header={false} footer={false} meta="2.1.3 · SKILLS">
       <p className="eyebrow reveal">&ldquo;ENTONCES HAGO UNA SKILL PARA CADA COSA&rdquo;</p>
       <h2 className="display t-md reveal">No.</h2>
       <div className="cards mt-m reveal" style={{ gridTemplateColumns: "1fr 1fr 1fr" }}>

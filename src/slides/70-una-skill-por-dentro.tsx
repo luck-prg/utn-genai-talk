@@ -16,6 +16,7 @@ const HTML = `<span class="cm">---</span>
   <span class="st">Usar cuando se pida un endpoint, una ruta,</span>
   <span class="st">un handler o un controller.</span>
 <span class="fn">allowed-tools</span>: <span class="pr">Read Edit Bash</span>
+<span class="fn">model</span>: <span class="pr">sonnet</span>   <span class="fn">effort</span>: <span class="pr">medium</span>
 <span class="cm">---</span>
 <span class="kw"># Crear un endpoint</span>
 <span class="fn">## Antes de escribir, preguntá</span>
@@ -26,7 +27,7 @@ Rutas en <span class="pr">plural</span> · handlers en <span class="pr">src/rout
 
 export default function UnaSkillPorDentro() {
   return (
-    <SlideFrame header={false} footer={false} meta="BLOQUE 2.1 · SKILL">
+    <SlideFrame header={false} footer={false} meta="2.1.3 · SKILLS">
       <h2 className="display t-md reveal">Una skill por dentro</h2>
       <div
         className="two-col mt-s reveal"
@@ -36,7 +37,8 @@ export default function UnaSkillPorDentro() {
         <div style={{ paddingTop: "clamp(6px, 0.6vw, 12px)" }}>
           <div className="col-head good">Arriba · el encabezado</div>
           <p className="body">
-            Quién es, <span className="k">cuándo</span> se usa y qué puede tocar. No enseña nada.
+            Quién es, <span className="k">cuándo</span> se usa, qué puede tocar y cómo corre. No
+            enseña nada.
           </p>
           <div className="col-head bad" style={{ marginTop: "clamp(16px, 1.8vw, 36px)" }}>
             Abajo · el criterio
@@ -45,7 +47,8 @@ export default function UnaSkillPorDentro() {
             <span className="k">Cómo</span> lo hacemos nosotros. Markdown común.
           </p>
           <p className="body" style={{ marginTop: "clamp(16px, 1.8vw, 36px)" }}>
-            La de arriba, <span className="k">en la próxima, es el problema.</span>
+            No pasen por alto la de arriba:{" "}
+            <span className="k">en un rato vamos a ver por qué importa.</span>
           </p>
         </div>
       </div>

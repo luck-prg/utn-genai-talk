@@ -45,7 +45,7 @@ const CORRIDAS: { dia: string; lines: { label: string; value: string }[] }[] = [
 
 export default function ElMismoPedido() {
   return (
-    <SlideFrame header={false} footer={false} meta="BLOQUE 2.1 · SKILL">
+    <SlideFrame header={false} footer={false} meta="2.1.3 · SKILLS">
       <h2 className="display t-md reveal">El mismo pedido, tres veces</h2>
       <p className="prompt reveal mt-s">&gt; creá un endpoint para dar de alta un usuario</p>
       <div className="cards mt-m reveal" style={{ gridTemplateColumns: "1fr 1fr 1fr" }}>

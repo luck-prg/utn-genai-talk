@@ -27,7 +27,7 @@ Nunca devuelvas un <span class="pr">500</span> sin loguear antes.
 
 export default function YSeLoRepetis() {
   return (
-    <SlideFrame header={false} footer={false} meta="BLOQUE 2.1 · SKILL">
+    <SlideFrame header={false} footer={false} meta="2.1.3 · SKILLS">
       <h2 className="display t-md reveal">Y entonces se lo repetís</h2>
       <div className="two-col mt-m reveal" style={{ alignItems: "start", gridTemplateColumns: "1.4fr 1fr" }}>
         <ArtifactPanel path="el-párrafo-de-siempre.txt" html={HTML} className="" />

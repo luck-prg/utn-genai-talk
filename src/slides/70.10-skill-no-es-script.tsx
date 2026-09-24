@@ -6,13 +6,14 @@ export const meta: SlideMeta = {
   title: "Una skill no es un script",
   seccion: "2.1.3 · SKILLS",
   notes:
-    "La confusión más común de todas, y la que más skills inútiles genera. Si vos ya sabés los pasos, de memoria, y siempre son los mismos, no necesitás que el agente los piense: necesitás que alguien los ejecute. Eso es un script, o un comando. La skill existe para el otro caso: cuando hay algo que decidir y querés que se decida como vos decidirías.",
+    "Viene enganchada con la carpeta que acaban de ver: ahí adentro había un scripts/. La pregunta nace sola. La confusión es la más común de todas y la que más skills inútiles genera. Si vos ya sabés los pasos, de memoria, y siempre son los mismos, no necesitás que el agente los piense: necesitás que alguien los ejecute. Eso es un script. La skill existe para el otro caso: cuando hay algo que decidir y querés que se decida como vos decidirías. Y el remate es que no compiten: la skill puede llamar al script. Ahí es donde se juntan las dos mitades.",
   transition: "fade",
 };
 
 export default function SkillNoEsScript() {
   return (
-    <SlideFrame header={false} footer={false} meta="BLOQUE 2.1 · SKILL">
+    <SlideFrame header={false} footer={false} meta="2.1.3 · SKILLS">
+      <p className="eyebrow reveal">CUANDO EL CRITERIO NO ALCANZA CON PALABRAS</p>
       <h2 className="display t-md reveal">Una skill no es un script</h2>
       <div className="two-col mt-s reveal">
         <div>
@@ -43,7 +44,8 @@ export default function SkillNoEsScript() {
         </div>
       </div>
       <p className="body mt-s reveal maxw" style={{ fontSize: "var(--fs-sub)" }}>
-        <span className="k">Un procedimiento que ya sabés de memoria no es una skill.</span>
+        <span className="k">Un procedimiento que ya sabés de memoria no es una skill.</span> Es un
+        script, y tu skill puede llamarlo.
       </p>
     </SlideFrame>
   );
