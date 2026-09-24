@@ -1,6 +1,7 @@
 # El proceso del diseño empleando IA Generativa 
 
 
+
 Presentación web (no un PowerPoint) para la charla de UTN sobre desarrollo de
 software asistido por agentes de IA. Construida con **Vite + React +
 TypeScript**, animada con **Motion**, y pensada para desplegarse en
