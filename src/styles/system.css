@@ -23,6 +23,11 @@
     background-position: 0 calc(var(--gridsz) * -1), 0 0;
   }
 }
+/* La diapositiva de ejes de clasificación queda con la rejilla quieta:
+   el movimiento de fondo compite con las cuatro barras que ya animan solas. */
+main[data-slide="ejes-de-clasificacion"] .grid-bg {
+  animation: none;
+}
 
 /* ===========================================================
    BURBUJAS — suben despacio en las divisorias

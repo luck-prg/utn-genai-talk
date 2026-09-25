@@ -39,7 +39,7 @@ export function Deck() {
   const { Component } = current;
 
   return (
-    <main className="deck-viewport [perspective:2400px]">
+    <main className="deck-viewport [perspective:2400px]" data-slide={current.id}>
       <GridBackground />
       <ProgressBar />
       <Dots />

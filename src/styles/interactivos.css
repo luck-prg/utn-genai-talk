@@ -800,6 +800,12 @@
   letter-spacing: -0.03em;
   color: var(--color-fg);
   white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.35s var(--ease-out-expo);
+}
+.mx-fila.on .mx-val {
+  opacity: 1;
+  transition-delay: 0.65s;
 }
 /* --- Panel de la actualización 2026 --- */
 .mx-update {
