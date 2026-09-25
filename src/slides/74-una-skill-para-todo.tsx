@@ -6,7 +6,7 @@ export const meta: SlideMeta = {
   title: "Una skill para todo",
   seccion: "2.1.3 · SKILLS",
   notes:
-    "El tercer problema, y es el que se llevan a casa mal si no lo decís. Entendieron el disparador, entonces la reacción es escribir una skill para cada cosa. Y ahí se rompe: lo que hace que el disparador funcione es justamente que hay pocas opciones. Volvé a la slide de contexto finito del bloque: cada token compite por lugar, y la descripción de cada skill está ocupando lugar desde antes de que escribas el primer mensaje.",
+    "El tercer problema, y es el que se llevan a casa mal si no lo decís. Entendieron el disparador, entonces la reacción es escribir una skill para cada cosa. Y ahí se rompe: lo que hace que el disparador funcione es justamente que hay pocas opciones. Volvé a la slide de contexto finito del bloque: cada token compite por lugar, y la descripción de cada skill está ocupando lugar desde antes de que escribas el primer mensaje. Leé la pregunta como la haría alguien de la sala, pausa, y recién ahí la respuesta. Las cards son el porqué; la siguiente slide dice cuándo sí.",
   transition: "fade",
 };
 
@@ -31,8 +31,20 @@ const RIESGOS: { icon: PictoName; title: string; body: string }[] = [
 export default function UnaSkillParaTodo() {
   return (
     <SlideFrame header={false} footer={false} meta="2.1.3 · SKILLS">
-      <p className="eyebrow reveal">&ldquo;ENTONCES HAGO UNA SKILL PARA CADA COSA&rdquo;</p>
-      <h2 className="display t-md reveal">No.</h2>
+      <p className="eyebrow reveal">LA TENTACIÓN DESPUÉS DE ENTENDER EL DISPARADOR</p>
+      <h2 className="display t-md reveal">¿Hago una skill para cada cosa?</h2>
+      <p
+        className="display reveal"
+        style={{
+          fontSize: "clamp(20px, 2.4vw, 50px)",
+          fontWeight: 700,
+          letterSpacing: "-0.02em",
+          lineHeight: 1.1,
+          marginTop: "clamp(8px, 1vw, 20px)",
+        }}
+      >
+        <span className="accent">No.</span> El contexto es finito.
+      </p>
       <div className="cards mt-m reveal" style={{ gridTemplateColumns: "1fr 1fr 1fr" }}>
         {RIESGOS.map((r) => (
           <div className="card" key={r.title}>
@@ -50,7 +62,7 @@ export default function UnaSkillParaTodo() {
         ))}
       </div>
       <p className="body mt-s reveal maxw" style={{ fontSize: "var(--fs-sub)" }}>
-        <span className="k">El contexto es finito.</span> Cada skill le saca lugar a otra cosa.
+        Cada skill <span className="k">le saca lugar a otra cosa.</span>
       </p>
     </SlideFrame>
   );
