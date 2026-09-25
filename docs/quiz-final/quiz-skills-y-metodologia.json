@@ -1,0 +1,630 @@
+{
+  "titulo": "Quiz · Skills y enfoques metodológicos",
+  "descripcion": "Preguntas de escenario que aplican los conceptos de skills (bloque 2) y enfoques metodológicos con SDD (bloque 3.2) a situaciones distintas de las mostradas en la presentación.",
+  "preguntas": [
+    {
+      "id": 1,
+      "tema": "skills",
+      "escenario": "En un equipo de datos, cada analista le aclara al agente antes de escribir una consulta: usar CTEs, nunca SELECT *, fechas siempre en UTC, alias en snake_case. Una analista nueva no conoce esas reglas y sus consultas salen con otro estilo.",
+      "pregunta": "¿Qué conviene hacer?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "Sumar las reglas al README del repositorio para que cada analista las tenga a mano al pedir."
+        },
+        {
+          "id": "b",
+          "texto": "Crear un snippet compartido que inserte las reglas al comienzo de cada pedido al agente."
+        },
+        {
+          "id": "c",
+          "texto": "Escribir las reglas como una skill del repo que el agente cargue al escribir consultas."
+        },
+        {
+          "id": "d",
+          "texto": "Revisar las consultas de la analista nueva hasta que incorpore el estilo del equipo."
+        }
+      ],
+      "correcta": "c",
+      "explicacion": "El README y el snippet siguen dependiendo de que cada persona se acuerde de pasarle las reglas al agente; revisar a mano transfiere el criterio a la persona, no al agente. Como skill, el criterio vive en el repo, versionado, y el agente lo carga solo cuando la tarea lo pide."
+    },
+    {
+      "id": 2,
+      "tema": "skills",
+      "escenario": "Existe una skill llamada \"docs-helper\" cuya description es \"Utilidades para documentación\". Adentro tiene el formato exacto que usa el equipo para el changelog. Cuando alguien pide \"armame las notas de la versión 2.3\", el agente las escribe con otro formato y no usa la skill.",
+      "pregunta": "¿Qué cambio resuelve la causa del problema?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "Mover el formato del changelog al principio del cuerpo para que el agente lo vea primero."
+        },
+        {
+          "id": "b",
+          "texto": "Separar el formato del changelog en un archivo de referencia aparte dentro de la skill."
+        },
+        {
+          "id": "c",
+          "texto": "Pedir las notas nombrando la skill: \"usá docs-helper para las notas de la versión 2.3\"."
+        },
+        {
+          "id": "d",
+          "texto": "Reescribir la description con qué hace, cuándo se usa y con qué palabras se pide."
+        }
+      ],
+      "correcta": "d",
+      "explicacion": "El agente elige la skill solo por su encabezado; el cuerpo y los archivos de referencia se leen después. Nombrar la skill en el pedido funciona esa vez, pero depende de que cada persona lo haga: no corrige la causa."
+    },
+    {
+      "id": 3,
+      "tema": "skills",
+      "escenario": "Todos los viernes alguien le pide al agente que comprima los logs de la semana, los suba a un bucket y borre los locales con más de 30 días. Los pasos nunca cambian.",
+      "pregunta": "¿Qué conviene?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "Un script programado que haga los tres pasos, sin pasar por el agente."
+        },
+        {
+          "id": "b",
+          "texto": "Una skill con los pasos, para que el agente los adapte si algún viernes cambia algo."
+        },
+        {
+          "id": "c",
+          "texto": "Una skill que llame a un script por paso, así el agente supervisa la ejecución."
+        },
+        {
+          "id": "d",
+          "texto": "Una entrada en el archivo de reglas que describa el procedimiento de los viernes."
+        }
+      ],
+      "correcta": "a",
+      "explicacion": "Si no hay nada que decidir, no hay criterio que empaquetar. Poner un agente en el medio (con skill, con script supervisado o con reglas) agrega tokens, latencia y la posibilidad de que interprete distinto algo que siempre es igual."
+    },
+    {
+      "id": 4,
+      "tema": "skills",
+      "escenario": "Una skill revisa la accesibilidad de componentes de interfaz. Parte de la revisión depende del contraste entre colores, y el agente lo estima \"a ojo\": a veces aprueba combinaciones que no cumplen.",
+      "pregunta": "¿Qué mejora corresponde?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "Agregar a la skill una tabla con los valores mínimos de contraste que exige la norma."
+        },
+        {
+          "id": "b",
+          "texto": "Que la skill indique correr un script que calcule el contraste y razonar con ese resultado."
+        },
+        {
+          "id": "c",
+          "texto": "Reemplazar la skill por un script que calcule el contraste y apruebe o rechace el componente."
+        },
+        {
+          "id": "d",
+          "texto": "Usar un modelo con mejor capacidad visual para que estime el contraste con más precisión."
+        }
+      ],
+      "correcta": "b",
+      "explicacion": "Conocer el mínimo de la norma no sirve si el valor real se sigue estimando. El cálculo es determinístico y le corresponde a un script; el juicio sobre la accesibilidad del componente pide criterio y queda en la skill. Reemplazar la skill por el script pierde esa segunda parte."
+    },
+    {
+      "id": 5,
+      "tema": "skills",
+      "escenario": "Un desarrollador entusiasmado crea 30 skills: \"hacer commit\", \"abrir un archivo\", \"renombrar una variable\", \"formatear un JSON\", \"crear una carpeta\", entre otras.",
+      "pregunta": "¿Qué efecto es esperable?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "Ninguno relevante: el cuerpo de cada skill se carga solo cuando se usa."
+        },
+        {
+          "id": "b",
+          "texto": "Mejores resultados en tareas simples, a cambio de un poco más de consumo."
+        },
+        {
+          "id": "c",
+          "texto": "Un agente algo más lento al elegir entre tantas skills, pero sin cambios en la calidad."
+        },
+        {
+          "id": "d",
+          "texto": "Contexto ocupado desde el arranque y más elecciones erradas entre skills parecidas."
+        }
+      ],
+      "correcta": "d",
+      "explicacion": "Es cierto que el cuerpo se carga a demanda, pero el encabezado de cada skill ocupa contexto siempre. Con muchas skills parecidas, el agente elige la que no era. Y en tareas triviales no hay criterio que mejore el resultado."
+    },
+    {
+      "id": 6,
+      "tema": "skills",
+      "escenario": "Camila pasó la tarde con el agente hasta lograr que el pipeline de CI levante un entorno de prueba por cada pull request. Hubo mucha prueba y error. Mañana otro proyecto necesita lo mismo.",
+      "pregunta": "¿Qué conviene hacer?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "Ahora, en esa sesión, pedirle al agente una skill con lo que funcionó, y revisarla."
+        },
+        {
+          "id": "b",
+          "texto": "Mañana, en una sesión limpia, escribir la skill sin el ruido de todos los intentos fallidos."
+        },
+        {
+          "id": "c",
+          "texto": "Pedirle al agente un resumen de la sesión y guardarlo en la wiki del equipo como referencia."
+        },
+        {
+          "id": "d",
+          "texto": "Esperar a hacerlo en el otro proyecto y escribir la skill con esa segunda experiencia."
+        }
+      ],
+      "correcta": "a",
+      "explicacion": "El contexto ganado (qué funcionó y qué no) solo existe en esa sesión. Mañana ese contexto ya no está, y un resumen en la wiki no es algo que el agente cargue al hacer la tarea. La revisión posterior mantiene el criterio humano."
+    },
+    {
+      "id": 7,
+      "tema": "skills",
+      "escenario": "El equipo descubrió que el agente genera migraciones que bloquean tablas grandes en producción. Ya entendieron por qué pasa y cómo evitarlo (procesar en lotes, crear índices de forma concurrente).",
+      "pregunta": "¿Cuál es el siguiente paso?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "Documentarlo en el postmortem del incidente para que todo el equipo lo tenga presente."
+        },
+        {
+          "id": "b",
+          "texto": "Revisar con más atención cada migración que genere el agente de ahora en adelante."
+        },
+        {
+          "id": "c",
+          "texto": "Escribir el problema, la causa y cómo evitarlo en la skill de migraciones."
+        },
+        {
+          "id": "d",
+          "texto": "En la próxima migración, pedirle al agente que tenga en cuenta el tamaño de las tablas."
+        }
+      ],
+      "correcta": "c",
+      "explicacion": "Un problema entendido es uno de los momentos en que nace (o se actualiza) una skill. El postmortem y la revisión más atenta dejan el aprendizaje en las personas; pedirlo en la próxima sesión depende de que alguien se acuerde."
+    },
+    {
+      "id": 8,
+      "tema": "skills",
+      "escenario": "Hace un mes que el equipo usa una skill para escribir tests. Los tests salen solo con el caso feliz, y cada desarrollador agrega a mano los casos límite cada vez.",
+      "pregunta": "¿Qué conviene hacer?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "Crear una segunda skill de casos límite que se use siempre después de la de tests."
+        },
+        {
+          "id": "b",
+          "texto": "Actualizar la skill con ese feedback para que los casos límite salgan de entrada."
+        },
+        {
+          "id": "c",
+          "texto": "Pedir los casos límite de forma explícita en cada pedido de tests al agente."
+        },
+        {
+          "id": "d",
+          "texto": "Sumar una revisión humana obligatoria de los tests antes de cada merge."
+        }
+      ],
+      "correcta": "b",
+      "explicacion": "La skill se itera: usar, mirar el resultado, dar feedback y actualizarla. Una segunda skill tapa un hueco de la primera y suma otra que compite; pedirlo en cada pedido y revisar a mano es lo que ya hacen, y el hueco sigue ahí."
+    },
+    {
+      "id": 9,
+      "tema": "skills",
+      "escenario": "Antes de sumar seis skills nuevas al repositorio, el equipo quiere saber si el agente las va a elegir bien, sin tener que correr tareas reales con cada una.",
+      "pregunta": "¿Qué verificación sirve?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "Pedirle al agente que lea las seis skills completas y diga si están bien escritas."
+        },
+        {
+          "id": "b",
+          "texto": "Revisar que cada una siga la estructura recomendada de encabezado y criterio."
+        },
+        {
+          "id": "c",
+          "texto": "Probar cada skill invocándola por su nombre en un pedido de prueba corto."
+        },
+        {
+          "id": "d",
+          "texto": "Darle pedidos de ejemplo y preguntarle qué skill usaría, sin que abra ninguna."
+        }
+      ],
+      "correcta": "d",
+      "explicacion": "La elección depende solo de lo que el agente tiene cargado: los encabezados. Leerlas completas o revisar su estructura evalúa otra cosa, e invocarlas por nombre saltea justamente el paso de elegir."
+    },
+    {
+      "id": 10,
+      "tema": "skills",
+      "escenario": "El equipo tiene una skill con sus convenciones de Terraform. Quieren que se aplique cada vez que alguien edita un archivo .tf, aunque el pedido sea \"subí la memoria de la instancia de staging\", sin mencionar Terraform.",
+      "pregunta": "¿Qué mecanismo conviene?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "Asociar la skill a los archivos .tf para que se cargue al tocarlos."
+        },
+        {
+          "id": "b",
+          "texto": "Sumar a la description términos como instancia, memoria y staging."
+        },
+        {
+          "id": "c",
+          "texto": "Agregar al cuerpo \"aplicar ante cualquier cambio de infraestructura\"."
+        },
+        {
+          "id": "d",
+          "texto": "Acordar con el equipo mencionar \"Terraform\" en todos sus pedidos."
+        }
+      ],
+      "correcta": "a",
+      "explicacion": "Ampliar la description ayuda con algunos pedidos, pero nunca cubre todas las formas de pedir un cambio. El cuerpo se lee después de elegir, y un acuerdo depende de las personas. Disparar por archivo cubre todos los casos, en las herramientas que lo permiten."
+    },
+    {
+      "id": 11,
+      "tema": "metodologia",
+      "escenario": "Un líder técnico dice: \"Hace años probamos escribir documentos de diseño antes de programar. A las dos semanas estaban desactualizados y los abandonamos. Los métodos no funcionan con nosotros\".",
+      "pregunta": "¿Qué lectura es más acertada?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "Falló el formato: eran documentos demasiado largos; con specs cortas se habría sostenido."
+        },
+        {
+          "id": "b",
+          "texto": "Falló el costo de sostenerlos a mano; con agentes baja, y decidir sigue siendo suyo."
+        },
+        {
+          "id": "c",
+          "texto": "Falló la disciplina: con un responsable de mantener la documentación se habría sostenido."
+        },
+        {
+          "id": "d",
+          "texto": "Falló el momento: conviene documentar al final, cuando el código ya está estable."
+        }
+      ],
+      "correcta": "b",
+      "explicacion": "Un método tiene costo fijo alto (redactar, mantener, propagar) y beneficio diferido. Achicar documentos o asignar un responsable no cambia esa cuenta; documentar al final pierde el beneficio de detectar errores temprano."
+    },
+    {
+      "id": 12,
+      "tema": "metodologia",
+      "escenario": "Hay que pasar una sola vez 300 filas de un Excel a la base de datos. El script se va a descartar después.",
+      "pregunta": "¿Conviene el flujo completo de spec, plan, tasks e implementación?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "Sí, porque toca datos reales y ese riesgo justifica el método."
+        },
+        {
+          "id": "b",
+          "texto": "Solo spec y plan, salteando las tasks porque el cambio es chico."
+        },
+        {
+          "id": "c",
+          "texto": "No: nadie va a mantener el script ni, por lo tanto, su spec."
+        },
+        {
+          "id": "d",
+          "texto": "Sí, pero con un modelo liviano en cada etapa para bajar el costo."
+        }
+      ],
+      "correcta": "c",
+      "explicacion": "El beneficio del método llega con el mantenimiento y la transferencia; un script de una sola vez no tiene ninguno de los dos. El riesgo de tocar datos reales se cubre revisando el script y probándolo antes, no con una spec que nadie va a volver a leer."
+    },
+    {
+      "id": 13,
+      "tema": "metodologia",
+      "escenario": "En una clínica quieren evaluar si el reconocimiento de voz puede reemplazar los formularios de la recepción. Nadie sabe todavía si es viable ni cómo debería funcionar.",
+      "pregunta": "¿Cómo conviene empezar?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "Prototipar primero y escribir la spec cuando esté claro qué se quiere construir."
+        },
+        {
+          "id": "b",
+          "texto": "Escribir una spec breve con lo que se sabe hoy y completarla mientras se prueba."
+        },
+        {
+          "id": "c",
+          "texto": "Arrancar por la constitution, para fijar las tecnologías antes de probar nada."
+        },
+        {
+          "id": "d",
+          "texto": "Pedirle al agente un plan técnico con dos o tres alternativas de implementación."
+        }
+      ],
+      "correcta": "a",
+      "explicacion": "Si todavía no se sabe qué se quiere, la spec cambiaría en cada intento, aunque sea breve. Fijar tecnologías o pedir un plan técnico es decidir el cómo antes de conocer el qué."
+    },
+    {
+      "id": 14,
+      "tema": "metodologia",
+      "escenario": "Un equipo hereda un sistema de liquidación de sueldos. Hay una regla de cálculo de horas extra que nadie entiende y hay que modificarla.",
+      "pregunta": "¿Qué conviene hacer antes de tocar el código?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "Pedirle al agente que lea el código y aplique el cambio respetando la lógica actual."
+        },
+        {
+          "id": "b",
+          "texto": "Escribir la spec del cambio nuevo y dejar la regla actual fuera del alcance."
+        },
+        {
+          "id": "c",
+          "texto": "Reescribir la regla desde cero según lo que hoy pide el área de recursos humanos."
+        },
+        {
+          "id": "d",
+          "texto": "Reconstruir en una spec qué hace la regla y por qué, validarla y después cambiarla."
+        }
+      ],
+      "correcta": "d",
+      "explicacion": "El código dice qué hace la regla, no por qué. Sin recuperar esa intención y validarla con el negocio, no se sabe qué hay que conservar. Dejarla fuera del alcance o reescribirla desde cero ignora justamente lo que nadie entiende."
+    },
+    {
+      "id": 15,
+      "tema": "metodologia",
+      "escenario": "La spec de \"inscripción a materias\" incluye esta línea: \"Exponer POST /inscripciones en NestJS y cachear los cupos en Redis\".",
+      "pregunta": "¿Qué problema tiene?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "Falta justificar por qué se eligieron NestJS y Redis frente a otras opciones."
+        },
+        {
+          "id": "b",
+          "texto": "Describe el cómo técnico, y la spec tiene que describir el qué."
+        },
+        {
+          "id": "c",
+          "texto": "Ninguno, siempre que coincidan con las tecnologías de la constitution."
+        },
+        {
+          "id": "d",
+          "texto": "El cacheo de cupos es un requisito no funcional y va en su propia sección."
+        }
+      ],
+      "correcta": "b",
+      "explicacion": "La spec es producto y negocio: qué necesita el alumno y qué reglas tienen los cupos. La tecnología es el cómo y va en el plan, aunque coincida con la constitution. Justificarla o moverla a otra sección de la spec no cambia que no pertenece ahí."
+    },
+    {
+      "id": 16,
+      "tema": "metodologia",
+      "escenario": "Un requisito dice: \"El reporte mensual debe generarse en un tiempo razonable\".",
+      "pregunta": "¿Cuál es la mejor reescritura?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "\"El reporte mensual se genera rápido, incluso en los meses con más movimientos\"."
+        },
+        {
+          "id": "b",
+          "texto": "\"El reporte mensual usa consultas indexadas para no superar los 30 segundos\"."
+        },
+        {
+          "id": "c",
+          "texto": "\"Con 50.000 movimientos, el reporte mensual se genera en menos de 30 segundos\"."
+        },
+        {
+          "id": "d",
+          "texto": "\"El reporte mensual se genera en un tiempo aceptable para el área contable\"."
+        }
+      ],
+      "correcta": "c",
+      "explicacion": "Un requisito tiene que poder comprobarse. \"Rápido\" y \"aceptable\" no dicen cuándo se cumple. La opción b tiene un número, pero mete una decisión técnica (índices) en el requisito."
+    },
+    {
+      "id": 17,
+      "tema": "metodologia",
+      "escenario": "Se está especificando la función \"cancelar un pedido\" de una tienda online.",
+      "pregunta": "¿Cuál es el escenario de aceptación mejor formulado?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "Dado un pedido no despachado, cuando el cliente lo cancela, entonces queda cancelado y se inicia el reintegro del pago."
+        },
+        {
+          "id": "b",
+          "texto": "Dado un pedido no despachado, cuando el cliente lo cancela, entonces se guarda el estado CANCELLED en la tabla pedidos."
+        },
+        {
+          "id": "c",
+          "texto": "Dado un pedido cualquiera, cuando el cliente lo cancela, entonces el sistema procesa la cancelación correctamente."
+        },
+        {
+          "id": "d",
+          "texto": "Dado que cancelar es importante para el cliente, cuando lo necesite, entonces podrá hacerlo desde su cuenta."
+        }
+      ],
+      "correcta": "a",
+      "explicacion": "Las cuatro usan dado, cuando y entonces, pero solo una describe un hecho comprobable en términos de negocio. La b baja a la base de datos, la c no dice qué es \"correctamente\" y la d es una intención, no un escenario."
+    },
+    {
+      "id": 18,
+      "tema": "metodologia",
+      "escenario": "La spec pedía que un cliente pudiera tener varias direcciones de envío. El plan del agente asumió una sola dirección por cliente. Nadie lo notó hasta que el error apareció en QA.",
+      "pregunta": "¿En qué momento era más barato detectarlo?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "En la revisión de las tasks, que es donde el plan se vuelve concreto."
+        },
+        {
+          "id": "b",
+          "texto": "En la revisión de código de la primera task que tocó las direcciones."
+        },
+        {
+          "id": "c",
+          "texto": "En los tests automáticos de la implementación, antes de llegar a QA."
+        },
+        {
+          "id": "d",
+          "texto": "En la validación del plan contra la spec, antes de generar las tasks."
+        }
+      ],
+      "correcta": "d",
+      "explicacion": "El error nació en el plan. Cualquier momento posterior (tasks, código, tests) ya tiene trabajo construido sobre ese error. La validación humana entre etapas sirve para que cada error aparezca en la etapa donde nace."
+    },
+    {
+      "id": 19,
+      "tema": "metodologia",
+      "escenario": "La regla del equipo es no implementar nada sin un plan aprobado. Aun así, cuando alguien escribe \"dale, hacelo\", a veces el agente empieza a programar sin plan.",
+      "pregunta": "¿Qué lo resuelve de forma confiable?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "Agregar la regla al archivo de reglas del agente, que se carga en cada sesión."
+        },
+        {
+          "id": "b",
+          "texto": "Una validación automática, fuera del modelo, que bloquee si no hay plan aprobado."
+        },
+        {
+          "id": "c",
+          "texto": "Una skill de implementación que empiece verificando si existe un plan aprobado."
+        },
+        {
+          "id": "d",
+          "texto": "Configurar el agente para que pida confirmación antes de editar cualquier archivo."
+        }
+      ],
+      "correcta": "b",
+      "explicacion": "El archivo de reglas y la skill dependen de que el modelo los respete, y eso es lo que ya está fallando. Pedir confirmación tampoco alcanza: quien escribió \"dale, hacelo\" va a confirmar. Un hook es determinístico y se ejecuta siempre."
+    },
+    {
+      "id": 20,
+      "tema": "metodologia",
+      "escenario": "Para cada tarea, el equipo le pasa al agente las specs de las 40 features del sistema, \"por las dudas\". Empiezan a aparecer implementaciones que mezclan requisitos de features que no tienen nada que ver.",
+      "pregunta": "¿Cuál es el problema?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "Las specs no tienen un índice que ayude al agente a ubicar la relevante."
+        },
+        {
+          "id": "b",
+          "texto": "El modelo no tiene suficiente ventana de contexto para cuarenta specs."
+        },
+        {
+          "id": "c",
+          "texto": "Recibe specs que la tarea no necesita, y ese ruido degrada la calidad."
+        },
+        {
+          "id": "d",
+          "texto": "Las specs de distintas features se contradicen entre sí en algún punto."
+        }
+      ],
+      "correcta": "c",
+      "explicacion": "El contexto tiene que ser de calidad, no de cantidad. Un índice o una ventana más grande siguen metiendo lo que no hace falta; el síntoma (mezclar features ajenas) apunta a contexto de más, no a specs contradictorias."
+    },
+    {
+      "id": 21,
+      "tema": "metodologia",
+      "escenario": "Mientras arma la spec de un sistema de reservas, el agente pregunta: \"¿Qué pasa si el usuario ya tiene una reserva ese mismo día?\". El desarrollador responde: \"Decidilo vos\".",
+      "pregunta": "¿Qué problema hay?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "Es una regla de negocio: se está delegando el criterio, no la formalidad."
+        },
+        {
+          "id": "b",
+          "texto": "Ninguno, si la decisión del agente queda escrita en la spec y es revisable."
+        },
+        {
+          "id": "c",
+          "texto": "Es una cuestión de diseño técnico que debería resolverse recién en el plan."
+        },
+        {
+          "id": "d",
+          "texto": "El agente debió elegir la opción más habitual sin frenar a preguntar."
+        }
+      ],
+      "correcta": "a",
+      "explicacion": "El agente hizo bien en preguntar. Que la decisión quede escrita no cambia quién la tomó: una regla de negocio es criterio, y el criterio es de la persona. Al agente le toca redactarla y formalizarla."
+    },
+    {
+      "id": 22,
+      "tema": "metodologia",
+      "escenario": "Cada feature nueva del proyecto termina usando una librería de fechas distinta: el agente elige una diferente en cada plan.",
+      "pregunta": "¿Dónde conviene fijar esa decisión?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "En la spec de cada feature que trabaje con fechas."
+        },
+        {
+          "id": "b",
+          "texto": "En una skill de fechas que se cargue al trabajar con ellas."
+        },
+        {
+          "id": "c",
+          "texto": "En el code review, rechazando los PR con otra librería."
+        },
+        {
+          "id": "d",
+          "texto": "En el archivo de reglas que el agente carga en cada sesión."
+        }
+      ],
+      "correcta": "d",
+      "explicacion": "Es una decisión de tecnología que vale para todo el proyecto: va en la constitution, que es contexto permanente. La spec no lleva tecnología; una skill puede no dispararse al planificar una feature que usa fechas de forma secundaria; el code review lo detecta tarde."
+    },
+    {
+      "id": 23,
+      "tema": "metodologia",
+      "escenario": "Una auditoría encuentra que las exportaciones a CSV incluyen el DNI completo de los usuarios. El equipo lo corrige en el código.",
+      "pregunta": "¿Qué más conviene hacer?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "Registrar el hallazgo y la corrección en el informe de la auditoría."
+        },
+        {
+          "id": "b",
+          "texto": "Sumar la restricción a la spec de exportaciones, en la fuente de verdad."
+        },
+        {
+          "id": "c",
+          "texto": "Agregar un comentario en la exportación explicando por qué no va el DNI."
+        },
+        {
+          "id": "d",
+          "texto": "Pedirle al agente que revise las demás exportaciones por el mismo problema."
+        }
+      ],
+      "correcta": "b",
+      "explicacion": "Lo que se aprende en producción vuelve a la spec: una vulnerabilidad se convierte en una restricción. El informe y el comentario no guían cambios futuros, y revisar las otras exportaciones es útil pero no deja la regla escrita."
+    },
+    {
+      "id": 24,
+      "tema": "metodologia",
+      "escenario": "El módulo de notificaciones ya tiene su spec aprobada e implementada. Ahora hay que sumar WhatsApp como canal.",
+      "pregunta": "¿Qué conviene hacer con los artefactos?",
+      "opciones": [
+        {
+          "id": "a",
+          "texto": "Crear una spec nueva para WhatsApp que haga referencia a la de notificaciones."
+        },
+        {
+          "id": "b",
+          "texto": "Implementar el canal y actualizar la spec al final, cuando el cambio esté estable."
+        },
+        {
+          "id": "c",
+          "texto": "Actualizar la spec de notificaciones y propagar el cambio a plan, tasks y código."
+        },
+        {
+          "id": "d",
+          "texto": "Escribir solo el plan y las tasks del canal, porque la spec general no cambia."
+        }
+      ],
+      "correcta": "c",
+      "explicacion": "La spec es la fuente de verdad: primero cambia la spec y de ahí se propaga. Una spec paralela duplica y termina contradiciéndose; actualizarla al final la usa como documentación, no como contrato; y sumar un canal sí cambia el qué."
+    }
+  ]
+}
