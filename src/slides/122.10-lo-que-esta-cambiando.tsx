@@ -11,10 +11,10 @@ export const meta: SlideMeta = {
 export default function LoQueEstaCambiando() {
   return (
     <SlideFrame header={false} footer={false} meta="4.2 · CONCLUSIONES">
-      <p className="eyebrow reveal">Lo que está pasando</p>
-      <h2 className="display t-md mt-s reveal">La IA participa<br />en la <span className="accent">ejecución</span></h2>
-      <p className="sub maxw mt-m reveal">Lee el proyecto, modifica archivos y usa herramientas para comprobar lo que hizo.</p>
-      <p className="sub maxw mt-m reveal">Nos toca decidir qué delegar y cuándo el resultado está listo.</p>
+      <p className="eyebrow reveal">Lo que está pasando actualmente</p>
+      <h2 className="display t-md mt-s reveal">La IA participa<br />en todo el proceso de <span className="accent">desarrollo.</span></h2>
+      <p className="sub maxw mt-m reveal">Puede leer archivos, proponer y aplicar cambios, y usar herramientas para comprobarlos.</p>
+      <p className="sub maxw mt-m reveal">Por eso tenemos que decidir qué tareas le damos y cómo sabremos si el trabajo quedó bien.</p>
     </SlideFrame>
   );
 }

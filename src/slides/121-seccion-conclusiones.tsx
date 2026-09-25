@@ -15,9 +15,9 @@ export default function SeccionConclusiones() {
       meta="BLOQUE 4"
       numero="4.2"
       kicker="Conclusiones"
-      titulo={<>El modelo importa.<br />Nuestro <span className="accent">criterio</span>, también.</>}
-      promesa="Qué nos llevamos y cómo seguimos aprendiendo en un campo que cambia."
-      temas={["ingeniería", "aprendizaje", "futuro", "comunidad"]}
+      titulo={<>El modelo importa.<br />El prompt, el contexto, el harness y <span className="accent">nuestro criterio</span>, también.</>}
+      promesa="¿Qué nos llevamos y cómo seguimos aprendiendo en un campo que cambia constantemente?"
+      temas={["ingeniería de software", "aprendizaje continúo", "futuro incierto", "comunidad"]}
     />
   );
 }

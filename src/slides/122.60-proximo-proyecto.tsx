@@ -10,14 +10,14 @@ export const meta: SlideMeta = {
 export default function ProximoProyecto() {
   return (
     <SlideFrame header={false} footer={false} meta="4.2 · CONCLUSIONES">
-      <p className="eyebrow reveal">Para nuestro próximo TP o proyecto</p>
-      <h2 className="display t-md mt-s reveal">Les propongo<br />un <span className="accent">experimento</span></h2>
+      <p className="eyebrow reveal">Para nuestro próximo proyecto a desarrollar</p>
+      <h2 className="display t-md mt-s reveal">Les proponenmos<br />un <span className="accent">experimento</span></h2>
       <ul className="blist mt-l reveal">
         <li>Definamos el resultado esperado antes de pedir código.</li>
-        <li>Demos contexto y comprobemos el cambio.</li>
-        <li>Registremos qué mejoró y dónde tuvimos que intervenir.</li>
+        <li>Demos contexto adecuado y comprobemos el cambio sabiendo qué vamos a evluar.</li>
+        <li>Registremos qué mejoró y dónde y cuanto tuvimos que intervenir.</li>
+        <li>Compartamos también lo que falló: ahí hay algo para aprender para futuros proyectos.</li>
       </ul>
-      <p className="sub mt-m reveal">Compartamos también lo que falló: ahí hay algo para aprender.</p>
     </SlideFrame>
   );
 }
