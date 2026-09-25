@@ -6,7 +6,7 @@ export const meta: SlideMeta = {
   title: "Los que ya existen",
   seccion: "3.2.1 · EL MÉTODO",
   notes:
-    "La slide bisagra. Las cuatro tienen la MISMA forma: algo se define antes, el código lo tiene que satisfacer. Dejá eso plantado: cuando llegues a SDD, la sala ya va a entender que no es una moda nueva.",
+    "La slide bisagra. No asumas que los conocen: la mayoría no conoce ninguno o conoce uno. Presentalos en una frase cada uno, sin entrar en detalle. Las cuatro tienen la MISMA forma: algo se define antes, el código lo tiene que satisfacer. Dejá eso plantado: cuando llegues a SDD, la sala ya va a entender que no es una moda nueva.",
   transition: "fade",
 };
 
@@ -19,8 +19,8 @@ const METODOS: { icon: PictoName; title: string; body: string }[] = [
 
 export default function LosQueYaExisten() {
   return (
-    <SlideFrame header={false} footer={false} meta="LO QUE YA CONOCEMOS">
-      <h2 className="display t-md reveal">Cuatro que ya conocés</h2>
+    <SlideFrame header={false} footer={false} meta="LO QUE YA EXISTE">
+      <h2 className="display t-md reveal">Cuatro métodos que ya existían</h2>
       <div className="cards mt-m reveal" style={{ gridTemplateColumns: "1fr 1fr 1fr 1fr" }}>
         {METODOS.map((m) => (
           <div className="card" key={m.title}>
