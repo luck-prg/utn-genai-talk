@@ -40,7 +40,9 @@ export function Deck() {
 
   return (
     <main className="deck-viewport [perspective:2400px]" data-slide={current.id}>
-      <GridBackground />
+      {(current.variante === "corte" || current.id === "portada" || current.id === "ya-comenzamos") && (
+        <GridBackground dark={current.variante === "corte"} />
+      )}
       <ProgressBar />
       <Dots />
 

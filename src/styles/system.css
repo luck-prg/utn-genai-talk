@@ -4,7 +4,10 @@
  * src/slides/. Ver src/slides/_plantilla.tsx para la referencia de uso.
  */
 
-/* Grilla de fondo — capa fija que se desplaza hacia arriba en loop */
+/* Grilla de fondo — capa fija que se desplaza hacia arriba en loop.
+   Solo se monta en la portada y en las divisorias de bloque ('corte');
+   .grid-bg--dark cubre estas últimas con la paleta oscura, ya que al ser
+   hermana de .slide--corte (no descendiente) no hereda sus tokens. */
 .grid-bg {
   position: fixed;
   inset: 0;
@@ -17,6 +20,12 @@
   background-position: 0 0, 0 0;
   animation: gridUp 3.6s linear infinite;
   will-change: background-position;
+}
+.grid-bg--dark {
+  background-color: #14120e;
+  background-image:
+    repeating-linear-gradient(0deg, color-mix(in srgb, #f6f1e7 13%, transparent) 0 2px, transparent 2px var(--gridsz)),
+    repeating-linear-gradient(90deg, color-mix(in srgb, #f6f1e7 13%, transparent) 0 2px, transparent 2px var(--gridsz));
 }
 @keyframes gridUp {
   to {
