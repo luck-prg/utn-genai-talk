@@ -670,7 +670,7 @@ main[data-slide="ejes-de-clasificacion"] .grid-bg {
 }
 .vuelta {
   display: grid;
-  grid-template-columns: clamp(58px, 6vw, 110px) 1fr clamp(78px, 8vw, 150px) clamp(120px, 13vw, 250px);
+  grid-template-columns: clamp(58px, 6vw, 110px) 1.1fr clamp(78px, 8vw, 150px) 1fr clamp(96px, 9vw, 170px);
   gap: clamp(10px, 1.2vw, 26px);
   align-items: baseline;
   padding: clamp(8px, 1.1vh, 18px) 0;
@@ -695,6 +695,41 @@ main[data-slide="ejes-de-clasificacion"] .grid-bg {
   font-family: var(--font-code);
   font-weight: 600;
   text-align: right;
+}
+.vuelta-barra {
+  display: flex;
+  align-self: center;
+  height: clamp(10px, 1.6vh, 22px);
+}
+.vuelta-barra i,
+.vuelta-leyenda i {
+  display: block;
+  height: 100%;
+}
+.vuelta-leyenda {
+  display: flex;
+  gap: clamp(14px, 1.8vw, 36px);
+  margin-top: clamp(8px, 1.2vh, 18px);
+  font-family: var(--font-body);
+  font-size: var(--fs-foot);
+  color: var(--color-muted);
+}
+.vuelta-leyenda span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.vuelta-leyenda i {
+  width: 1.1em;
+  height: 0.7em;
+}
+.vuelta-barra .base,
+.vuelta-leyenda .base {
+  background: var(--color-muted);
+}
+.vuelta-barra .historial,
+.vuelta-leyenda .historial {
+  background: var(--color-acento);
 }
 
 /* ===========================================================

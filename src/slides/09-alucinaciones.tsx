@@ -3,7 +3,7 @@ import { Paso } from "@/components/Paso";
 import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
-  title: "Alucinaciones: plausible ≠ verídico",
+  title: "Alucinaciones: probable ≠ verídico",
   seccion: "1.1.1 · LLM Y TOKENS",
   steps: 3,
   notes:
@@ -16,7 +16,7 @@ export default function Alucinaciones() {
     <SlideFrame header={false} footer={false} meta="1.1.1 · LLM Y TOKENS">
 
       <h2 className="display reveal mt-s" style={{ fontSize: "clamp(24px,min(3vw,5.33vh),62px)" }}>
-        Optimiza lo <span className="accent">plausible</span>,
+        Predice lo <span className="accent">más probable</span>,
         <br />
         no lo <span className="accent">verídico</span>
       </h2>

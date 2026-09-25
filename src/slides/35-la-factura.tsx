@@ -15,7 +15,7 @@ export const meta: SlideMeta = {
 export default function LaFactura() {
   return (
     <SlideFrame header={false} footer={false} meta="BLOQUE 1.2 · CICLO AGÉNTICO">
-      <h2 className="display t-md reveal">La factura viene en la respuesta</h2>
+      <h2 className="display t-md reveal">Cada respuesta te dice cuánto costó</h2>
       <CodigoPar>
         <Codigo archivo="primera llamada · usage" className="reveal">
           <span className="cm">{"// el prefijo se escribe al cache\n"}</span>

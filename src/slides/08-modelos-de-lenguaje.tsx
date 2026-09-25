@@ -7,11 +7,11 @@ export const meta: SlideMeta = {
   seccion: "1.1.1 · LLM Y TOKENS",
   steps: 3,
   notes:
-    "Definirlo por lo que hace, no por lo que parece: una función que, dada una secuencia de tokens, predice el siguiente. Nada más. El chat, la memoria, las herramientas y los agentes son andamiaje construido alrededor de esa función. Sembrar esta idea acá, porque se cosecha en la pirámide de madurez: cada nivel es literalmente cuánto andamiaje le construimos al modelo.",
+    "Definirlo por lo que hace, no por lo que parece: una función que, dada una secuencia de tokens, predice el siguiente. Nada más. El chat, la memoria, las herramientas y los agentes son harness construido alrededor de esa función. Sembrar esta idea acá, porque se cosecha en la pirámide de madurez: cada nivel es literalmente cuánto harness le construimos al modelo.",
   transition: "fade",
 };
 
-const ANDAMIAJE = ["el chat", "la memoria", "las herramientas", "los agentes", "el harness"];
+const HARNESS = ["el chat", "la memoria", "las herramientas", "los agentes", "el ciclo agéntico"];
 
 export default function ModelosDeLenguaje() {
   return (
@@ -25,10 +25,10 @@ export default function ModelosDeLenguaje() {
 
       <Paso n={1} className="mt-m maxw">
         <p className="sub">
-          Nada más. Todo lo demás es <b>andamiaje</b> construido alrededor de esa función.
+          Nada más. Todo lo demás es <b>harness</b> construido alrededor de esa función.
         </p>
         <div className="chips mt-s">
-          {ANDAMIAJE.map((a) => (
+          {HARNESS.map((a) => (
             <span className="chip" key={a}>
               {a}
             </span>
@@ -39,7 +39,7 @@ export default function ModelosDeLenguaje() {
       <Paso n={2} className="mt-m">
         <div className="bar">
           <span>
-            Toda la charla es una sola pregunta: <b className="accent">cuánto andamiaje</b> le
+            Toda la charla es una sola pregunta: <b className="accent">cuánto harness</b> le
             construimos.
           </span>
         </div>
