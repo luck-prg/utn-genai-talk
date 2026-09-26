@@ -4,7 +4,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 import { useStep } from "@/deck/StageContext";
 
 export const meta: SlideMeta = {
-  title: "¿En qué nivel estás?",
+  title: "Pirámide · niveles y bloques de la charla",
   seccion: "2.2.2 · PIRÁMIDE",
   steps: 2,
   notes:
@@ -17,11 +17,7 @@ export default function PiramideVotacion() {
 
   return (
     <SlideFrame header={false} footer={false} meta="2.2.2 · PIRÁMIDE">
-      <h2 className="display reveal" style={{ fontSize: "clamp(20px,min(2.5vw,4.44vh),52px)" }}>
-        ¿En qué nivel está <span className="accent">tu equipo</span>?
-      </h2>
-
-      <div className="reveal mt-s pir-holder">
+      <div className="reveal pir-holder">
         <Piramide paso={paso} bloquesDesde={1} />
       </div>
     </SlideFrame>

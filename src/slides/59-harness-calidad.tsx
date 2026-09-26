@@ -1,11 +1,11 @@
 import type { SlideMeta } from "@/deck/types";
-import { grupoHarness, HarnessDonut, HarnessKeyword } from "@/components/HarnessDonut";
+import { grupoHarness, HarnessDonut } from "@/components/HarnessDonut";
 import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
   title: "Harness · Calidad y contexto",
   seccion: "2.1.2 · HARNESS ENGINEERING",
-  transition: "fade",
+  transition: "none",
 };
 
 export default function HarnessCalidad() {
@@ -20,12 +20,6 @@ export default function HarnessCalidad() {
         </h2>
         <div className="harness-ring">
           <HarnessDonut revelados={["flujos", "calidad"]} />
-          <HarnessKeyword grupo="flujos" pos="tl">
-            Commands · Skills
-          </HarnessKeyword>
-          <HarnessKeyword grupo="calidad" pos="tr">
-            Rules · MCP · Skills
-          </HarnessKeyword>
         </div>
       </div>
     </SlideFrame>

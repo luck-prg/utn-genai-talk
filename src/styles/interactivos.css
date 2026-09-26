@@ -1138,10 +1138,52 @@
   place-items: center;
 }
 .pir {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: clamp(4px, min(0.55vw, 0.98vh), 10px);
   width: 100%;
+}
+
+/* Palabras clave alrededor de la pirámide: ocupan el espacio libre a los
+   costados de los escalones superiores. */
+.pir-clave {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--fs-chip);
+  color: var(--color-fg);
+  white-space: nowrap;
+  padding: 0.5em 1em;
+  border: 1.5px solid var(--color-acento);
+  border-radius: 8px;
+  background: var(--color-fondo);
+}
+.pir-clave::before {
+  content: "";
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: var(--color-acento);
+}
+.pir-clave--arriba-izq {
+  left: 12%;
+  top: calc(12.5% - 1.5em);
+}
+.pir-clave--arriba-der {
+  right: 12%;
+  top: calc(12.5% - 1.5em);
+}
+.pir-clave--izq {
+  left: 0;
+  top: calc(37.5% - 1.5em);
+}
+.pir-clave--der {
+  right: 0;
+  top: calc(37.5% - 1.5em);
 }
 .pir-fila {
   display: grid;

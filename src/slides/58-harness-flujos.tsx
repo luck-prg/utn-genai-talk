@@ -1,11 +1,11 @@
 import type { SlideMeta } from "@/deck/types";
-import { grupoHarness, HarnessDonut, HarnessKeyword } from "@/components/HarnessDonut";
+import { grupoHarness, HarnessDonut } from "@/components/HarnessDonut";
 import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
   title: "Harness · Flujos",
   seccion: "2.1.2 · HARNESS ENGINEERING",
-  transition: "fade",
+  transition: "none",
 };
 
 export default function HarnessFlujos() {
@@ -20,9 +20,6 @@ export default function HarnessFlujos() {
         </h2>
         <div className="harness-ring">
           <HarnessDonut revelados={["flujos"]} />
-          <HarnessKeyword grupo="flujos" pos="tl">
-            Commands · Skills
-          </HarnessKeyword>
         </div>
       </div>
     </SlideFrame>

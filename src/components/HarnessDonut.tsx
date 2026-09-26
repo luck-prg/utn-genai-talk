@@ -1,13 +1,15 @@
 /**
- * Dona del harness: anillo interno = propósito, anillo externo = herramientas.
- * Se arma de a partes a lo largo de varias diapositivas: `revelados` dice qué
- * cuadrantes ya mostraron sus herramientas. Los que faltan quedan atenuados,
- * así el círculo nunca cambia de tamaño ni de posición entre pasos.
+ * Dona del harness: disco interno = propósito, anillo angosto = herramientas,
+ * y un marco exterior del que salen líneas guía con el nombre de cada
+ * herramienta. Se arma de a partes a lo largo de varias diapositivas:
+ * `revelados` dice qué cuadrantes ya mostraron sus herramientas. Los que
+ * faltan quedan atenuados, así el gráfico nunca cambia de tamaño ni de
+ * posición entre pasos.
  *
  * Cada porción es un arco con trazo grueso: al montar, el trazo barre en
  * sentido horario (stroke-dashoffset) y el gráfico se "dibuja" solo.
  */
-import type { CSSProperties, ReactNode } from "react";
+import type { CSSProperties } from "react";
 
 export interface GrupoHarness {
   id: string;
@@ -25,7 +27,7 @@ export const GRUPOS_HARNESS: GrupoHarness[] = [
     color: "#4d7c4f",
     soft: "#a9c4a7",
     desde: 0,
-    tools: ["Skills", "MCP", "Rules"],
+    tools: ["Rules", "MCP", "Skills"],
   },
   {
     id: "eficiencia",
@@ -59,18 +61,18 @@ export function grupoHarness(id: string): GrupoHarness {
   return grupo;
 }
 
-const CX = 200;
-const CY = 200;
-const R_HUECO = 46;
-const R_DISCO = 128;
-const R_ANILLO_0 = 136;
-const R_ANILLO_1 = 262;
-const R_ETIQUETA = 86;
-const MARGEN_VIEWBOX = 8;
-const VIEWBOX = (() => {
-  const lado = R_ANILLO_1 + MARGEN_VIEWBOX;
-  return `${CX - lado} ${CY - lado} ${lado * 2} ${lado * 2}`;
-})();
+const CX = 0;
+const CY = 0;
+const R_HUECO = 54;
+const R_DISCO = 196;
+const R_ANILLO_0 = 206;
+const R_ANILLO_1 = 244;
+const R_MARCO = 266;
+const MARCA = 9;
+const R_CODO = 318;
+const X_FIN = 540;
+const R_ETIQUETA = (R_HUECO + R_DISCO) / 2;
+const VIEWBOX = "-548 -284 1096 568";
 
 function polar(r: number, grados: number): [number, number] {
   const rad = ((grados - 90) * Math.PI) / 180;
@@ -90,55 +92,13 @@ function radio(a: number, r0: number, r1: number): string {
   return `M ${x1.toFixed(2)} ${y1.toFixed(2)} L ${x2.toFixed(2)} ${y2.toFixed(2)}`;
 }
 
-/** ¿El punto cae dentro de la porción de anillo, con aire contra los bordes? */
-function adentro(x: number, y: number, a0: number, a1: number, aire: number): boolean {
-  const dx = x - CX;
-  const dy = y - CY;
-  const r = Math.hypot(dx, dy);
-  if (r < R_ANILLO_0 + aire || r > R_ANILLO_1 - aire) return false;
-  const angulo = ((Math.atan2(dx, -dy) * 180) / Math.PI + 360) % 360;
-  const rel = (angulo - a0 + 360) % 360;
-  const ancho = a1 - a0;
-  if (rel > ancho) return false;
-  const aRad = (g: number) => (g * Math.PI) / 180;
-  // Distancia perpendicular a cada lado recto de la porción.
-  return r * Math.sin(aRad(rel)) >= aire && r * Math.sin(aRad(ancho - rel)) >= aire;
+/** Estilo de una porción que pasa de atenuada a plena en esta diapositiva. */
+function aviva(desde: number): CSSProperties {
+  return { "--hd-desde": desde, "--hd-retraso": "0.15s" } as CSSProperties;
 }
 
-/** Busca el tamaño de letra más grande (y el lugar) en que la palabra, en
- * horizontal, entra completa dentro de su porción de anillo. */
-function ubicarTool(texto: string, a0: number, a1: number) {
-  const aire = 7;
-  for (let fs = 26; fs >= 12; fs -= 1) {
-    const w = texto.length * fs * 0.6;
-    const h = fs * 0.8;
-    let mejor: { x: number; y: number; d: number } | null = null;
-    for (let ri = 0; ri <= 14; ri++) {
-      const r = R_ANILLO_0 + ((R_ANILLO_1 - R_ANILLO_0) * ri) / 14;
-      for (let ai = 1; ai < 12; ai++) {
-        const a = a0 + ((a1 - a0) * ai) / 12;
-        const [x, y] = polar(r, a);
-        const puntos: [number, number][] = [
-          [x - w / 2, y - h / 2],
-          [x + w / 2, y - h / 2],
-          [x - w / 2, y + h / 2],
-          [x + w / 2, y + h / 2],
-          [x, y - h / 2],
-          [x, y + h / 2],
-        ];
-        if (!puntos.every(([px, py]) => adentro(px, py, a0, a1, aire))) continue;
-        const [mx, my] = polar((R_ANILLO_0 + R_ANILLO_1) / 2, (a0 + a1) / 2);
-        const d = Math.hypot(x - mx, y - my);
-        if (!mejor || d < mejor.d) mejor = { x, y, d };
-      }
-    }
-    if (mejor) return { x: mejor.x, y: mejor.y, fs };
-  }
-  const [x, y] = polar((R_ANILLO_0 + R_ANILLO_1) / 2, (a0 + a1) / 2);
-  return { x, y, fs: 12 };
-}
-
-/** Arco que se dibuja solo: el largo se conoce de antemano (r·θ). */
+/** Arco que se dibuja solo en la primera aparición: el largo se conoce de
+ * antemano (r·θ). */
 function Trazo({
   r,
   a0,
@@ -147,6 +107,7 @@ function Trazo({
   color,
   opacidad = 1,
   retraso,
+  avivaDesde,
 }: {
   r: number;
   a0: number;
@@ -155,23 +116,84 @@ function Trazo({
   color: string;
   opacidad?: number;
   retraso: number;
+  /** Opacidad desde la que la porción se enciende en esta diapositiva. */
+  avivaDesde?: number;
 }) {
   const largo = Math.ceil((r * (a1 - a0) * Math.PI) / 180) + 1;
   return (
     <path
       data-trazo
+      className={avivaDesde === undefined ? undefined : "hd-aviva"}
       d={arco(r, a0, a1)}
       fill="none"
       stroke={color}
       strokeWidth={ancho}
       strokeOpacity={opacidad}
-      style={{ "--hd-largo": largo, "--hd-retraso": `${retraso}s` } as CSSProperties}
+      style={
+        avivaDesde === undefined
+          ? ({ "--hd-largo": largo, "--hd-retraso": `${retraso}s` } as CSSProperties)
+          : aviva(avivaDesde)
+      }
     />
   );
 }
 
+/** Línea guía: sale del marco en diagonal, por el medio del cuadrante, y se
+ * quiebra en horizontal hacia afuera. Sobre el tramo horizontal van las
+ * herramientas del grupo, alineadas al borde exterior. Solo la guía nueva
+ * se traza; las que ya estaban quedan quietas. */
+function Guia({ grupo, nueva }: { grupo: GrupoHarness; nueva: boolean }) {
+  const medio = grupo.desde + 45;
+  const [x0, y0] = polar(R_MARCO, medio);
+  const [x1, y1] = polar(R_CODO, medio);
+  const lado = x1 >= 0 ? 1 : -1;
+  const x2 = lado * X_FIN;
+  const largo = Math.ceil(Math.hypot(x1 - x0, y1 - y0) + Math.abs(x2 - x1)) + 1;
+  const retraso = 0.45;
+
+  return (
+    <g className={nueva ? "hd-guia hd-nuevo" : "hd-guia"}>
+      <circle
+        className="hd-punto"
+        cx={x0}
+        cy={y0}
+        r={4.5}
+        fill={grupo.color}
+        style={{ "--hd-retraso": `${retraso}s` } as CSSProperties}
+      />
+      <path
+        data-trazo
+        d={`M ${x0.toFixed(2)} ${y0.toFixed(2)} L ${x1.toFixed(2)} ${y1.toFixed(2)} L ${x2} ${y1.toFixed(2)}`}
+        fill="none"
+        stroke={grupo.color}
+        strokeWidth={2}
+        strokeLinejoin="round"
+        style={{ "--hd-largo": largo, "--hd-retraso": `${retraso}s` } as CSSProperties}
+      />
+      <text
+        className="hd-tool"
+        x={x2}
+        y={y1 - 16}
+        textAnchor={lado > 0 ? "end" : "start"}
+        style={{ "--hd-retraso": `${retraso + 0.55}s` } as CSSProperties}
+      >
+        {grupo.tools.join(" · ")}
+      </text>
+    </g>
+  );
+}
+
+const OPACIDAD_DISCO_OFF = 0.18;
+const OPACIDAD_ANILLO_OFF = 0.22;
+
+/**
+ * Sin `revelados` el gráfico se dibuja entero (primera aparición). Con
+ * `revelados` ya estaba en pantalla en la diapositiva anterior: queda quieto
+ * y solo se anima el último grupo de la lista, que se enciende y traza su guía.
+ */
 export function HarnessDonut({ revelados = [] }: { revelados?: string[] }) {
-  const hayRevelados = revelados.length > 0;
+  const entrada = revelados.length === 0;
+  const nuevo = revelados.at(-1);
   const rDisco = (R_HUECO + R_DISCO) / 2;
   const anchoDisco = R_DISCO - R_HUECO;
   const rAnillo = (R_ANILLO_0 + R_ANILLO_1) / 2;
@@ -180,15 +202,23 @@ export function HarnessDonut({ revelados = [] }: { revelados?: string[] }) {
 
   return (
     <svg
-      className="harness-donut"
+      className={entrada ? "harness-donut harness-donut--entrada" : "harness-donut"}
       viewBox={VIEWBOX}
       role="img"
       aria-label="Las herramientas del harness agrupadas por propósito: flujos, calidad y contexto, control y seguridad, eficiencia y paralelismo."
     >
+      {/* Marco exterior con una marca en cada límite de cuadrante. */}
+      <g className="hd-marco">
+        <circle cx={CX} cy={CY} r={R_MARCO} />
+        {GRUPOS_HARNESS.map((g) => (
+          <path key={g.id} d={radio(g.desde, R_MARCO - MARCA, R_MARCO + MARCA)} />
+        ))}
+      </g>
+
       {GRUPOS_HARNESS.map((g, gi) => {
         const activo = revelados.includes(g.id);
-        const atenuado = hayRevelados && !activo;
-        const paso = 90 / g.tools.length;
+        const atenuado = !entrada && !activo;
+        const esNuevo = g.id === nuevo;
 
         return (
           <g key={g.id}>
@@ -198,33 +228,20 @@ export function HarnessDonut({ revelados = [] }: { revelados?: string[] }) {
               a1={g.desde + 90}
               ancho={anchoDisco}
               color={g.color}
-              opacidad={atenuado ? 0.18 : 1}
+              opacidad={atenuado ? OPACIDAD_DISCO_OFF : 1}
               retraso={gi * 0.1}
+              avivaDesde={esNuevo ? OPACIDAD_DISCO_OFF : undefined}
             />
-
-            {activo ? (
-              g.tools.map((tool, i) => (
-                <Trazo
-                  key={tool}
-                  r={rAnillo}
-                  a0={g.desde + i * paso}
-                  a1={g.desde + (i + 1) * paso}
-                  ancho={anchoAnillo}
-                  color={g.soft}
-                  retraso={retrasoAnillo + gi * 0.1 + i * 0.08}
-                />
-              ))
-            ) : (
-              <Trazo
-                r={rAnillo}
-                a0={g.desde}
-                a1={g.desde + 90}
-                ancho={anchoAnillo}
-                color={g.soft}
-                opacidad={0.22}
-                retraso={retrasoAnillo + gi * 0.1}
-              />
-            )}
+            <Trazo
+              r={rAnillo}
+              a0={g.desde}
+              a1={g.desde + 90}
+              ancho={anchoAnillo}
+              color={g.soft}
+              opacidad={activo ? 1 : OPACIDAD_ANILLO_OFF}
+              retraso={retrasoAnillo + gi * 0.1}
+              avivaDesde={esNuevo ? OPACIDAD_ANILLO_OFF : undefined}
+            />
           </g>
         );
       })}
@@ -234,83 +251,37 @@ export function HarnessDonut({ revelados = [] }: { revelados?: string[] }) {
         {GRUPOS_HARNESS.map((g) => (
           <path key={g.id} d={radio(g.desde, R_HUECO - 1, R_ANILLO_1 + 1)} />
         ))}
-        {GRUPOS_HARNESS.filter((g) => revelados.includes(g.id)).flatMap((g) =>
-          g.tools
-            .slice(1)
-            .map((tool, i) => (
-              <path
-                key={`${g.id}-${tool}`}
-                d={radio(g.desde + ((i + 1) * 90) / g.tools.length, R_ANILLO_0 - 1, R_ANILLO_1 + 1)}
-              />
-            )),
-        )}
       </g>
 
       {GRUPOS_HARNESS.map((g, gi) => {
-        const activo = revelados.includes(g.id);
-        const atenuado = hayRevelados && !activo;
-        const paso = 90 / g.tools.length;
+        const atenuado = !entrada && !revelados.includes(g.id);
+        const esNuevo = g.id === nuevo;
         const [lx, ly] = polar(R_ETIQUETA, g.desde + 45);
 
         return (
-          <g key={g.id}>
-            <text
-              className={`hd-cat ${atenuado ? "hd-off" : ""}`}
-              x={lx}
-              y={ly}
-              style={{ "--hd-retraso": `${0.35 + gi * 0.1}s` } as CSSProperties}
-            >
-              {g.lineas.map((linea, i) => (
-                <tspan key={linea} x={lx} dy={i === 0 ? (g.lineas.length > 1 ? -9 : 0) : 19}>
-                  {linea}
-                </tspan>
-              ))}
-            </text>
-
-            {activo &&
-              g.tools.map((tool, i) => {
-                const { x, y, fs } = ubicarTool(tool, g.desde + i * paso, g.desde + (i + 1) * paso);
-                return (
-                  <text
-                    className="hd-tool"
-                    key={tool}
-                    x={x}
-                    y={y}
-                    style={
-                      {
-                        fontSize: fs,
-                        "--hd-retraso": `${retrasoAnillo + 0.45 + gi * 0.1 + i * 0.08}s`,
-                      } as CSSProperties
-                    }
-                  >
-                    {tool}
-                  </text>
-                );
-              })}
-          </g>
+          <text
+            key={g.id}
+            className={`hd-cat${atenuado ? " hd-off" : ""}${esNuevo ? " hd-aviva" : ""}`}
+            x={lx}
+            y={ly}
+            style={
+              esNuevo
+                ? aviva(0)
+                : ({ "--hd-retraso": `${0.35 + gi * 0.1}s` } as CSSProperties)
+            }
+          >
+            {g.lineas.map((linea, i) => (
+              <tspan key={linea} x={lx} dy={i === 0 ? (g.lineas.length > 1 ? -12 : 0) : 25}>
+                {linea}
+              </tspan>
+            ))}
+          </text>
         );
       })}
-    </svg>
-  );
-}
 
-/** Palabra clave alrededor del gráfico, junto al cuadrante que nombra. */
-export function HarnessKeyword({
-  children,
-  grupo,
-  pos,
-}: {
-  children: ReactNode;
-  grupo: string;
-  pos: "tl" | "tr" | "bl" | "br";
-}) {
-  const g = grupoHarness(grupo);
-  return (
-    <span
-      className={`harness-keyword harness-keyword--${pos} reveal`}
-      style={{ "--kw-color": g.color } as CSSProperties}
-    >
-      {children}
-    </span>
+      {GRUPOS_HARNESS.filter((g) => revelados.includes(g.id)).map((g) => (
+        <Guia key={g.id} grupo={g} nueva={g.id === nuevo} />
+      ))}
+    </svg>
   );
 }

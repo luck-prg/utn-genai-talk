@@ -6,7 +6,7 @@ export const meta: SlideMeta = {
   title: "El harness, por propósito",
   seccion: "2.1.2 · HARNESS ENGINEERING",
   notes: "Arranca el armado del gráfico: primero los cuatro propósitos, sin herramientas.",
-  transition: "fade",
+  transition: "none",
 };
 
 export default function HarnessPropositos() {

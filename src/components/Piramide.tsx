@@ -8,6 +8,7 @@
  * Los niveles 0 a 3 son los de este bloque; del 4 para arriba los toma la
  * parte de Lucho, así que se dibujan atenuados — se ven, pero no se explican.
  */
+import type { ReactNode } from "react";
 
 export interface Nivel {
   n: number;
@@ -42,12 +43,15 @@ export function Piramide({
   niveles,
   /** Qué niveles van en tinta llena. Por defecto, los marcados `mio`. */
   activos,
+  /** Elementos posicionados sobre la pirámide (ej. palabras clave alrededor). */
+  adornos,
 }: {
   paso: number;
   datosDesde?: number;
   bloquesDesde?: number;
   niveles?: number[];
   activos?: number[];
+  adornos?: ReactNode;
 }) {
   const at = (n?: number) => n !== undefined && paso >= n;
   const lista = niveles ? NIVELES.filter((n) => niveles.includes(n.n)) : NIVELES;
@@ -87,6 +91,7 @@ export function Piramide({
             </div>
           );
         })}
+        {adornos}
       </div>
     </div>
   );

@@ -1306,41 +1306,66 @@ main[data-slide="ejes-de-clasificacion"] .grid-bg {
 .harness-donut {
   display: block;
   width: auto;
-  height: min(70vh, 52vw);
+  height: min(74vh, 47vw);
+  overflow: visible;
 }
 .harness-donut .hd-sep path {
   stroke: var(--color-fondo);
-  stroke-width: 4;
+  stroke-width: 5;
+}
+.harness-donut .hd-marco {
+  fill: none;
+  stroke: var(--color-fg);
+  stroke-width: 1.5;
+  stroke-opacity: 0.45;
+}
+.harness-donut .hd-marco path {
+  stroke-width: 2;
+  stroke-opacity: 0.7;
+  stroke-linecap: round;
 }
 .harness-donut .hd-cat,
 .harness-donut .hd-tool {
   font-family: var(--font-body);
   font-weight: 600;
-  text-anchor: middle;
   dominant-baseline: middle;
 }
 .harness-donut .hd-cat {
-  font-size: 15px;
+  font-size: 21px;
   fill: #f6f1e7;
+  text-anchor: middle;
 }
 .harness-donut .hd-tool {
-  fill: #14120e;
+  font-size: 32px;
+  fill: var(--color-fg);
+  dominant-baseline: auto;
 }
 .harness-donut .hd-cat.hd-off {
   fill: #14120e;
   fill-opacity: 0.4;
 }
 
-/* Cada porción barre en sentido horario una vez al montar; los textos
-   entran con la tinta cuando su porción ya está dibujada. */
-.harness-donut path[data-trazo] {
+/* Primera aparición: cada porción barre en sentido horario y los textos
+   entran con la tinta. En las diapositivas siguientes el gráfico queda
+   quieto: solo el grupo nuevo se enciende (.hd-aviva) y traza su guía. */
+.harness-donut--entrada path[data-trazo],
+.harness-donut .hd-nuevo path[data-trazo] {
   stroke-dasharray: var(--hd-largo) var(--hd-largo);
   stroke-dashoffset: var(--hd-largo);
   animation: harness-trazo 850ms var(--hd-retraso, 0s) cubic-bezier(0.65, 0, 0.35, 1) both;
 }
-.harness-donut text {
+.harness-donut--entrada text,
+.harness-donut--entrada .hd-marco,
+.harness-donut .hd-nuevo text,
+.harness-donut .hd-nuevo .hd-punto {
   opacity: 0;
   animation: harness-tinta 450ms var(--hd-retraso, 0s) ease-out both;
+}
+.harness-donut path.hd-aviva {
+  animation: harness-aviva 700ms var(--hd-retraso, 0s) ease-out both;
+}
+.harness-donut .hd-cat.hd-aviva {
+  animation: harness-aviva-texto 700ms var(--hd-retraso, 0s) ease-out both;
 }
 @keyframes harness-trazo {
   to {
@@ -1352,50 +1377,24 @@ main[data-slide="ejes-de-clasificacion"] .grid-bg {
     opacity: 1;
   }
 }
-
-.harness-keyword {
-  position: absolute;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55em;
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: var(--fs-chip);
-  color: var(--color-fg);
-  padding: 0.45em 0.9em;
-  border: 1.5px solid var(--kw-color);
-  border-radius: 6px;
-  background: var(--color-fondo);
-  white-space: nowrap;
+@keyframes harness-aviva {
+  from {
+    stroke-opacity: var(--hd-desde);
+  }
 }
-.harness-keyword::before {
-  content: "";
-  width: 0.55em;
-  height: 0.55em;
-  border-radius: 50%;
-  background: var(--kw-color);
-}
-.harness-keyword--tl {
-  top: 4%;
-  left: 2%;
-}
-.harness-keyword--tr {
-  top: 4%;
-  right: 2%;
-}
-.harness-keyword--bl {
-  bottom: 4%;
-  left: 2%;
-}
-.harness-keyword--br {
-  bottom: 4%;
-  right: 2%;
+@keyframes harness-aviva-texto {
+  from {
+    fill: #14120e;
+    fill-opacity: 0.4;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .harness-donut path[data-trazo],
-  .harness-donut text {
-    animation: none;
+  .harness-donut text,
+  .harness-donut .hd-punto,
+  .harness-donut .hd-marco {
+    animation: none !important;
     stroke-dashoffset: 0;
     opacity: 1;
   }
@@ -1403,15 +1402,108 @@ main[data-slide="ejes-de-clasificacion"] .grid-bg {
 
 @media (max-width: 900px) {
   .harness-donut {
-    height: min(36vh, 60vw);
+    width: 100%;
+    height: auto;
   }
-  .harness-ring {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+}
+
+/* ===========================================================
+   HERRAMIENTAS — burbujas con ícono unidas por líneas punteadas
+   =========================================================== */
+.herramientas {
+  --hb: clamp(104px, min(12vw, 22vh), 220px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.herramienta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 1.6vh, 22px);
+  margin: 0;
+}
+.herramienta-burbuja {
+  display: grid;
+  place-items: center;
+  width: var(--hb);
+  height: var(--hb);
+  border-radius: 24%;
+  background: #fbf9f4;
+  border: 1.5px solid rgba(20, 18, 14, 0.14);
+  box-shadow: 0 10px 28px -14px rgba(20, 18, 14, 0.35);
+}
+.herramienta-burbuja img {
+  width: 56%;
+  height: 56%;
+  object-fit: contain;
+}
+.herramienta figcaption {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: clamp(18px, min(1.7vw, 3vh), 34px);
+  color: var(--color-fg);
+}
+/* El enlace mide lo mismo que la burbuja, así los puntos quedan a media altura. */
+.herramientas-enlace {
+  flex: 0 1 clamp(56px, 8vw, 170px);
+  height: var(--hb);
+  margin: 0 clamp(10px, 1vw, 20px);
+  background: radial-gradient(circle, var(--color-muted) 2px, transparent 2.5px) repeat-x center /
+    14px 14px;
+  opacity: 0.6;
+}
+
+/* Escena: deja aire alrededor de las burbujas para los conceptos que flotan. */
+.herramientas-escena {
+  position: relative;
+  width: 100%;
+  padding: clamp(56px, 11vh, 130px) 0;
+}
+.concepto-flotante {
+  position: absolute;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(14px, min(1.3vw, 2.3vh), 26px);
+  color: var(--color-muted);
+  white-space: nowrap;
+  padding: 0.4em 0.95em;
+  border: 1px solid var(--color-linea);
+  border-radius: 999px;
+  background: var(--color-fondo);
+  animation: concepto-deriva var(--deriva-dur, 12s) var(--deriva-delay, 0s) ease-in-out infinite;
+}
+@keyframes concepto-deriva {
+  0%,
+  100% {
+    transform: translate(0, 0);
   }
-  .harness-keyword {
-    position: static;
+  25% {
+    transform: translate(6px, -8px);
+  }
+  50% {
+    transform: translate(-4px, -3px);
+  }
+  75% {
+    transform: translate(-7px, 6px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .concepto-flotante {
+    animation: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .herramientas {
+    --hb: 84px;
+  }
+  .concepto-flotante {
+    display: none;
+  }
+  .herramientas-enlace {
+    flex-basis: 24px;
+    margin: 0 6px;
   }
 }
 

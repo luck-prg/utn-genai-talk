@@ -39,10 +39,12 @@ export const slideVariants: Record<SlideTransition, Variants> = {
     center: { clipPath: "inset(0% 0% 0% 0%)" },
     exit: { clipPath: "inset(0% 0% 100% 0%)" },
   },
+  // Cambio instantáneo: para diapositivas que continúan un mismo gráfico, sin
+  // que el fundido (ni la espera de la salida) lo haga parpadear.
   none: {
     enter: { opacity: 1 },
-    center: { opacity: 1 },
-    exit: { opacity: 1 },
+    center: { opacity: 1, transition: { duration: 0 } },
+    exit: { opacity: 1, transition: { duration: 0 } },
   },
 };
 
