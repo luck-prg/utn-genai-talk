@@ -6,14 +6,15 @@ export const meta: SlideMeta = {
   title: "¿Qué puedo investigar para orquestar agentes?",
   seccion: "2.2.3 · EJECUCIÓN",
   notes:
-    "Tres puntos de partida para investigar por cuenta propia. HERMES: agente open source de Nous Research (feb. 2026) que corre en tu propio servidor, no en una sesión de chat. Tiene un subsistema de cron real: tareas recurrentes en lenguaje natural, con resultado al chat, a un archivo o a otra plataforma. Ejemplo de su documentación: todos los días hábiles a las 8:30, leer un CSV de ventas, resumir anomalías y enviar el resultado a un canal. Los monitores aplican la misma idea a una condición: solo avisan o actúan si se cumple. Permite delegar en subagentes aislados y paralelizar. OBSIDIAN: memoria fuera de la ventana de contexto. Es markdown plano en el disco, legible por la persona y por el agente; los links entre notas le dan estructura para navegar just-in-time sin cargarlo todo. La memoria sobrevive entre corridas y es auditable: se abre la nota y se ve qué registró el agente. Conecta con el nivel 4 de la pirámide. GEMINI: completar con el caso de uso que se quiera mostrar.",
+    "Cuatro conceptos para investigar por cuenta propia. CRON: tareas recurrentes en lenguaje natural, con resultado al chat, a un archivo o a otra plataforma. Ejemplo: todos los días hábiles a las 8:30, leer un CSV de ventas, resumir anomalías y enviar el resultado a un canal. Hermes, agente open source de Nous Research (feb. 2026), corre en tu propio servidor —no en una sesión de chat— y tiene un subsistema de cron real. LOOP: el mismo agente delega en subagentes aislados, paraleliza tareas y sostiene monitores, que aplican la misma idea de tarea recurrente a una condición: solo avisan o actúan si se cumple. EVAL: completar con el caso de uso que se quiera mostrar. MEMORIA EXTERNA: memoria fuera de la ventana de contexto. Obsidian es markdown plano en el disco, legible por la persona y por el agente; los links entre notas le dan estructura para navegar just-in-time sin cargarlo todo. La memoria sobrevive entre corridas y es auditable: se abre la nota y se ve qué registró el agente. Conecta con el nivel 4 de la pirámide.",
   transition: "fade",
 };
 
 const HERRAMIENTAS = [
-  { nombre: "Hermes", icono: "/img/herramientas/hermes.svg" },
-  { nombre: "Obsidian", icono: "/img/herramientas/obsidian.svg" },
-  { nombre: "Gemini", icono: "/img/herramientas/gemini.svg" },
+  { nombre: "Cron", icono: "/img/conceptos/cron.svg" },
+  { nombre: "Loop", icono: "/img/conceptos/loop.svg" },
+  { nombre: "Eval", icono: "/img/conceptos/eval.svg" },
+  { nombre: "Memoria externa", icono: "/img/conceptos/memoria.svg" },
 ];
 
 /** Conceptos que flotan alrededor de las herramientas. `pos` es la ubicación
@@ -23,19 +24,16 @@ const centrado = (left: string): CSSProperties => ({ left, translate: "-50% 0" }
 
 const CONCEPTOS: { texto: string; pos: CSSProperties; dur: number; delay: number }[] = [
   // Arriba
-  { texto: "Cron", pos: { top: "3%", ...centrado("13%") }, dur: 11, delay: 0 },
-  { texto: "Webhooks", pos: { top: "0%", ...centrado("38%") }, dur: 13, delay: -4 },
-  { texto: "Evals", pos: { top: "2%", ...centrado("62%") }, dur: 12, delay: -8 },
-  { texto: "Objetivos (Goals)", pos: { top: "0%", ...centrado("87%") }, dur: 12, delay: -7 },
+  { texto: "Webhooks", pos: { top: "1%", ...centrado("25%") }, dur: 13, delay: -4 },
+  { texto: "Objetivos (Goals)", pos: { top: "0%", ...centrado("75%") }, dur: 12, delay: -7 },
   // Costados: a la altura del título y de las herramientas
-  { texto: "Loop", pos: { top: "31%", left: "4%" }, dur: 10, delay: -2 },
-  { texto: "Productividad", pos: { top: "57%", left: "0%" }, dur: 13, delay: -6 },
-  { texto: "Monitores", pos: { top: "31%", right: "4%" }, dur: 12, delay: -5 },
+  { texto: "Productividad", pos: { top: "31%", left: "3%" }, dur: 13, delay: -6 },
+  { texto: "Context engineering", pos: { top: "57%", left: "0%" }, dur: 14, delay: -3 },
+  { texto: "Monitores", pos: { top: "31%", right: "3%" }, dur: 12, delay: -5 },
   { texto: "Tareas repetitivas", pos: { top: "57%", right: "0%" }, dur: 11, delay: -10 },
   // Abajo
-  { texto: "Context engineering", pos: { bottom: "1%", ...centrado("18%") }, dur: 14, delay: -3 },
-  { texto: "Métricas de rendimiento", pos: { bottom: "3%", ...centrado("50%") }, dur: 12, delay: -11 },
-  { texto: "Harness engineering", pos: { bottom: "1%", ...centrado("82%") }, dur: 13, delay: -9 },
+  { texto: "Métricas de rendimiento", pos: { bottom: "2%", ...centrado("35%") }, dur: 12, delay: -11 },
+  { texto: "Harness engineering", pos: { bottom: "1%", ...centrado("65%") }, dur: 13, delay: -9 },
 ];
 
 export default function InvestigarOrquestacion() {

@@ -121,8 +121,8 @@ export function PreguntasDeBloque({ numero }: { numero: number }) {
         mensaje="Accedé al quiz del bloque y completalo"
         alt={`Código QR al quiz del bloque ${numero}`}
       >
-        <h2 className="display reveal" style={{ fontSize: "var(--fs-cover)" }}>
-          ¿<span className="accent">Preguntas</span>?
+        <h2 className="display reveal" style={{ fontSize: "var(--fs-section)", whiteSpace: "nowrap" }}>
+          ¡<span className="accent">Muchas gracias</span>!
         </h2>
       </QrMaterial>
     </SlideFrame>
