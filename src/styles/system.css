@@ -1411,7 +1411,7 @@ main[data-slide="ejes-de-clasificacion"] .grid-bg {
    HERRAMIENTAS — burbujas con ícono unidas por líneas punteadas
    =========================================================== */
 .herramientas {
-  --hb: clamp(104px, min(12vw, 22vh), 220px);
+  --hb: clamp(72px, min(7.5vw, 13.5vh), 140px);
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -1440,13 +1440,13 @@ main[data-slide="ejes-de-clasificacion"] .grid-bg {
 }
 .herramienta figcaption {
   font-family: var(--font-body);
-  font-weight: 600;
-  font-size: clamp(18px, min(1.7vw, 3vh), 34px);
-  color: var(--color-fg);
+  font-weight: 500;
+  font-size: clamp(13px, min(1.1vw, 1.95vh), 22px);
+  color: var(--color-muted);
 }
 /* El enlace mide lo mismo que la burbuja, así los puntos quedan a media altura. */
 .herramientas-enlace {
-  flex: 0 1 clamp(56px, 8vw, 170px);
+  flex: 0 0 clamp(40px, 6vw, 120px);
   height: var(--hb);
   margin: 0 clamp(10px, 1vw, 20px);
   background: radial-gradient(circle, var(--color-muted) 2px, transparent 2.5px) repeat-x center /
@@ -1457,20 +1457,31 @@ main[data-slide="ejes-de-clasificacion"] .grid-bg {
 /* Escena: deja aire alrededor de las burbujas para los conceptos que flotan. */
 .herramientas-escena {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(20px, 4.5vh, 56px);
   width: 100%;
-  padding: clamp(56px, 11vh, 130px) 0;
+  padding: clamp(84px, 15vh, 180px) 0;
+}
+.herramientas-titulo {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(24px, min(2.9vw, 5.2vh), 60px);
+  line-height: 1.08;
 }
 .concepto-flotante {
   position: absolute;
   font-family: var(--font-body);
-  font-weight: 500;
-  font-size: clamp(14px, min(1.3vw, 2.3vh), 26px);
-  color: var(--color-muted);
+  font-weight: 600;
+  font-size: clamp(17px, min(1.75vw, 3.1vh), 36px);
+  color: var(--color-fg);
   white-space: nowrap;
-  padding: 0.4em 0.95em;
-  border: 1px solid var(--color-linea);
+  padding: 0.42em 1em;
+  border: 1.5px solid color-mix(in srgb, var(--color-acento) 55%, transparent);
   border-radius: 999px;
-  background: var(--color-fondo);
+  background: #fbf9f4;
+  box-shadow: 0 6px 18px -12px rgba(20, 18, 14, 0.35);
   animation: concepto-deriva var(--deriva-dur, 12s) var(--deriva-delay, 0s) ease-in-out infinite;
 }
 @keyframes concepto-deriva {

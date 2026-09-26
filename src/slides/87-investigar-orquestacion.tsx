@@ -23,32 +23,25 @@ const centrado = (left: string): CSSProperties => ({ left, translate: "-50% 0" }
 
 const CONCEPTOS: { texto: string; pos: CSSProperties; dur: number; delay: number }[] = [
   // Arriba
-  { texto: "Cron", pos: { top: "3%", ...centrado("11%") }, dur: 11, delay: 0 },
-  { texto: "Webhooks", pos: { top: "0%", ...centrado("37%") }, dur: 13, delay: -4 },
-  { texto: "Evals", pos: { top: "2%", ...centrado("63%") }, dur: 12, delay: -8 },
-  { texto: "Objetivos (Goals)", pos: { top: "0%", ...centrado("89%") }, dur: 12, delay: -7 },
-  // Costados
-  { texto: "Loop", pos: { top: "30%", left: "1%" }, dur: 10, delay: -2 },
-  { texto: "Productividad", pos: { top: "60%", left: "0%" }, dur: 13, delay: -6 },
-  { texto: "Monitores", pos: { top: "30%", right: "1%" }, dur: 12, delay: -5 },
-  { texto: "Tareas repetitivas", pos: { top: "60%", right: "0%" }, dur: 11, delay: -10 },
+  { texto: "Cron", pos: { top: "3%", ...centrado("13%") }, dur: 11, delay: 0 },
+  { texto: "Webhooks", pos: { top: "0%", ...centrado("38%") }, dur: 13, delay: -4 },
+  { texto: "Evals", pos: { top: "2%", ...centrado("62%") }, dur: 12, delay: -8 },
+  { texto: "Objetivos (Goals)", pos: { top: "0%", ...centrado("87%") }, dur: 12, delay: -7 },
+  // Costados: a la altura del título y de las herramientas
+  { texto: "Loop", pos: { top: "31%", left: "4%" }, dur: 10, delay: -2 },
+  { texto: "Productividad", pos: { top: "57%", left: "0%" }, dur: 13, delay: -6 },
+  { texto: "Monitores", pos: { top: "31%", right: "4%" }, dur: 12, delay: -5 },
+  { texto: "Tareas repetitivas", pos: { top: "57%", right: "0%" }, dur: 11, delay: -10 },
   // Abajo
-  { texto: "Context engineering", pos: { bottom: "1%", ...centrado("17%") }, dur: 14, delay: -3 },
+  { texto: "Context engineering", pos: { bottom: "1%", ...centrado("18%") }, dur: 14, delay: -3 },
   { texto: "Métricas de rendimiento", pos: { bottom: "3%", ...centrado("50%") }, dur: 12, delay: -11 },
-  { texto: "Harness engineering", pos: { bottom: "1%", ...centrado("83%") }, dur: 13, delay: -9 },
+  { texto: "Harness engineering", pos: { bottom: "1%", ...centrado("82%") }, dur: 13, delay: -9 },
 ];
 
 export default function InvestigarOrquestacion() {
   return (
     <SlideFrame header={false} footer={false} meta="2.2.3 · EJECUCIÓN" center>
-      <h2
-        className="display reveal"
-        style={{ fontSize: "clamp(24px,min(3vw,5.33vh),62px)", textAlign: "center" }}
-      >
-        ¿Qué puedo investigar para <span className="accent">orquestar agentes</span>?
-      </h2>
-
-      <div className="herramientas-escena mt-s reveal">
+      <div className="herramientas-escena reveal">
         {CONCEPTOS.map((c) => (
           <span
             key={c.texto}
@@ -64,6 +57,12 @@ export default function InvestigarOrquestacion() {
             {c.texto}
           </span>
         ))}
+
+        <h2 className="display herramientas-titulo">
+          ¿Qué puedo investigar para
+          <br />
+          <span className="accent">orquestar agentes</span>?
+        </h2>
 
         <div className="herramientas">
           {HERRAMIENTAS.map((h, i) => (
