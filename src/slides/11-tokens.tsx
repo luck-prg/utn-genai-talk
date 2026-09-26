@@ -13,9 +13,11 @@ export const meta: SlideMeta = {
   transition: "fade",
 };
 
+const FRASE = "El contexto es el nuevo código: cada token que entra se paga.";
+
 export default function Tokens() {
   const paso = useStep();
-  const [texto, setTexto] = useState("");
+  const [texto, setTexto] = useState(FRASE);
   const conteo = useConteo(texto);
 
   const modo = paso >= 2 ? "solo-ids" : paso >= 1 ? "ids" : "texto";
