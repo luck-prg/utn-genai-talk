@@ -737,12 +737,93 @@ main[data-slide="ejes-de-clasificacion"] .grid-bg {
 /* ===========================================================
    ARQUITECTURA DEL AGENTE — el diagrama que se arma por pasos
    =========================================================== */
-.arq-agente {
+.arq-completa {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 70vh;
-  margin: clamp(10px, 1.6vh, 28px) auto 0;
+  max-height: 80vh;
+  margin: clamp(6px, 1vh, 16px) auto 0;
+}
+/* Bloques del diagrama: ocultos, difuminados (todavía sin explicar) o en foco. */
+.arq-completa .foco {
+  transition:
+    opacity 0.7s var(--ease-out-expo),
+    filter 0.7s var(--ease-out-expo);
+}
+.arq-completa .foco.difuso {
+  opacity: 0.3;
+  filter: blur(3px);
+}
+.arq-completa .foco.oculto {
+  opacity: 0;
+}
+.arq-completa .arq-mueve {
+  transition: transform 0.8s var(--ease-out-expo);
+}
+/* Los marcos crecen para contener los bloques que van apareciendo. */
+.arq-completa .arq-marco {
+  transition:
+    y 0.8s var(--ease-out-expo),
+    height 0.8s var(--ease-out-expo);
+}
+/* Al enfocarse, el bloque se redibuja en orden: contorno, relleno, texto,
+   flecha, punta y rótulo. Las formas usan pathLength=1, así el trazo dura
+   lo mismo sin importar el tamaño. */
+.arq-completa .foco.enfocado :is(rect, path, line):not(.sin-trazo, .flecha-punta, .flecha-linea) {
+  stroke-dasharray: 1;
+  animation:
+    arq-trazo 0.7s var(--ease-out-expo) both,
+    arq-relleno 0.45s 0.35s ease both;
+}
+.arq-completa .foco.enfocado text {
+  animation: arq-escribe 0.55s 0.45s linear both;
+}
+.arq-completa .foco.enfocado .flecha-linea {
+  stroke-dasharray: 1;
+  animation: arq-trazo 0.55s 0.8s ease-in-out both;
+}
+.arq-completa .foco.enfocado .flecha-punta {
+  animation: arq-aparece 0.2s 1.3s ease both;
+}
+.arq-completa .foco.enfocado .flecha-rotulo {
+  animation: arq-escribe 0.45s 1.35s linear both;
+}
+.arq-completa .foco.enfocado .sin-trazo {
+  animation: arq-aparece 0.5s ease both;
+}
+@keyframes arq-trazo {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes arq-relleno {
+  from {
+    fill-opacity: 0;
+  }
+}
+@keyframes arq-escribe {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes arq-aparece {
+  from {
+    opacity: 0;
+  }
+}
+.arq-completa .foco.ya * {
+  animation: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .arq-completa .foco.enfocado * {
+    animation: none !important;
+  }
 }
 .arq-remate {
   margin-top: clamp(8px, 1.2vh, 20px);

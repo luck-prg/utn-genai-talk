@@ -5,7 +5,7 @@ export const meta: SlideMeta = {
   title: "¿Qué es la ventana de contexto?",
   seccion: "1.2.1 · CICLO AGÉNTICO",
   notes:
-    "La pregunta sola. Acaban de ver la conversación creciendo sin freno; ahora nombrá el techo contra el que crece. Dejala respirar antes de pasar.",
+    "La pregunta sola. Acaban de ver en el diagrama la ventana de contexto que arma el constructor y se envía al modelo; ahora se define qué es y cuál es su límite. Una pausa antes de pasar.",
   transition: "fade",
 };
 

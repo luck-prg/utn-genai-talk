@@ -1,26 +1,23 @@
 import type { SlideMeta } from "@/deck/types";
 import { SlideFrame } from "@/components/SlideFrame";
 import { ArquitecturaAgente } from "@/components/ArquitecturaAgente";
-import { Paso } from "@/components/Paso";
 
 export const meta: SlideMeta = {
-  title: "Componentes de un agente (2)",
+  title: "Arquitectura de un agente (2)",
   seccion: "1.2.1 · CICLO AGÉNTICO",
-  steps: 3,
+  steps: 8,
   notes:
-    "Retoma el diagrama donde lo dejamos: harness, memoria y modelo ya están. PASO 1: aparece el constructor de contexto — el input ya no va directo al modelo: en cada llamada se arma un paquete con todo el historial y se manda entero. Acá está la clave del costo. PASO 2: permisos y ejecución de tools, que cierran el loop: el modelo pide una tool, el harness chequea permisos, la ejecuta y mete el resultado en el historial. Eso es el agent loop.",
+    "Retoma el diagrama solo con los marcos, el usuario y el modelo: en cada paso aparece un bloque y los marcos se agrandan para contenerlo. HARNESS — PASO 1: ciclo agéntico. PASO 2: configuración, las fuentes de contexto. PASO 3: historial de la sesión. PASO 4: constructor de contexto, que arma cada request. PASO 5: permisos y hooks. PASO 6: ejecutor de tools; el resultado se agrega al historial. PROVEEDOR — PASO 7: la ventana de contexto que se envía y la respuesta del modelo. Acá se corta: las dos diapositivas siguientes explican qué es la ventana de contexto, y después se retoma el diagrama.",
   transition: "none",
 };
 
 export default function CicloAgenticoCompleto() {
   return (
-    <SlideFrame header={false} footer={false} meta="BLOQUE 1.2 · CICLO AGÉNTICO" bodyClass="a-sangre">
-      <h2 className="display t-md reveal">Componentes de un agente</h2>
-      {/* Arranca con lo que ya quedó dibujado en la diapositiva 26. */}
-      <ArquitecturaAgente base={1} />
-      <Paso n={2} className="arq-remate">
-        En cada iteración se reenvía <b>el historial completo</b>: el contexto aumenta en cada llamada.
-      </Paso>
+    <SlideFrame header={false} footer={false} meta="1.2.1 · CICLO AGÉNTICO" bodyClass="a-sangre">
+      <h2 className="display reveal" style={{ fontSize: "var(--fs-sub)" }}>
+        Arquitectura de un agente: quién hace qué
+      </h2>
+      <ArquitecturaAgente inicio={1} />
     </SlideFrame>
   );
 }
