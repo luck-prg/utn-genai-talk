@@ -89,7 +89,7 @@ Un detalle más, que dijo el propio Sam Altman en 2025: lo que le contás a Chat
 **En pantalla**
 
 - **Al llegar:** **Y a veces, lo que le mandás es un dato confidencial**.
-- **Clic 1:** «2025 · El jefe de ciberseguridad de EE.UU. sube a ChatGPT información sensible no clasificada».
+- **Clic 1:** «2025 · El jefe de CISA (EE.UU.) sube a ChatGPT información sensible no clasificada».
 - **Clic 2:** «2025 · Roban los tokens OAuth del chatbot de IA Drift: datos de Salesforce de 700+ empresas, con claves de AWS pegadas en tickets».
 - **Clic 3:** dato grande **77%** (LayerX · 2025): de quienes usan IA en el trabajo pega datos en el chat.
 
@@ -99,7 +99,7 @@ Y a veces lo que le mandamos es un dato confidencial.
 
 **[clic]** En 2025, el director interino de CISA, la agencia de ciberseguridad del gobierno de Estados Unidos, subió a la versión pública de ChatGPT documentos marcados "sólo para uso oficial". Lo detectaron los propios sistemas de seguridad y se abrió una investigación. Si le pasa al responsable de la ciberseguridad de Estados Unidos, le puede pasar a cualquiera.
 
-**[clic]** Un caso más técnico: **Drift** es un chatbot de IA que muchas empresas conectan a su Salesforce con tokens OAuth. En agosto de 2025, un grupo robó esos tokens y, en diez días, exportó datos de Salesforce de **más de 700 organizaciones**: Cloudflare, Google, Palo Alto, Zscaler. Después revisaron los tickets de soporte buscando lo que la gente había pegado en texto plano: claves de AWS, credenciales de VPN, tokens de Snowflake. Al integrar un agente le damos acceso a todo lo que ve, y eso incluye los secretos que otros dejaron ahí.
+**[clic]** Un caso más técnico: **Drift** es un chatbot de IA de la empresa **Salesloft**, que muchas empresas conectan a su Salesforce con tokens OAuth. En agosto de 2025, un grupo robó esos tokens y, en diez días, exportó datos de Salesforce de **unas 700 organizaciones**: Cloudflare, Zscaler, Palo Alto, PagerDuty. Después revisaron los tickets de soporte buscando lo que la gente había pegado en texto plano: claves de AWS, contraseñas, tokens de Snowflake. Cloudflare, por ejemplo, tuvo que rotar 104 tokens que estaban pegados en tickets. Al integrar un agente le damos acceso a todo lo que ve, y eso incluye los secretos que otros dejaron ahí.
 
 **[clic]** Y no es un caso aislado: según LayerX, **el 77%** de quienes usan IA en el trabajo pega datos de la empresa en el chat, y la mayoría lo hace desde su cuenta personal, donde nadie lo controla.
 
@@ -354,7 +354,8 @@ Entonces, ¿avanzamos? Sí, con criterio y cautela.
 | OpenAI: "imposible" sin copyright | [MobileSyrup, 09/01/2024](https://mobilesyrup.com/2024/01/09/openai-says-impossible-train-ai-without-copyrighted-works/) | ➕ |
 | Reglas `deny` en el `settings.json` de Claude Code | [Docs de settings](https://code.claude.com/docs/en/settings) · [permisos](https://code.claude.com/docs/en/permissions) | ➕ |
 | Director interino de CISA sube documentos a ChatGPT | [TechCrunch, 28/01/2026](https://techcrunch.com/2026/01/28/trumps-acting-cybersecurity-chief-uploaded-sensitive-government-docs-to-chatgpt/) · [CSO Online](https://www.csoonline.com/article/4124320/cisa-chief-uploaded-sensitive-government-files-to-public-chatgpt.html) | ➕ |
-| Salesloft Drift: tokens OAuth robados, 700+ organizaciones | [Google Threat Intelligence](https://cloud.google.com/blog/topics/threat-intelligence/data-theft-salesforce-instances-via-salesloft-drift) · [FINRA](https://www.finra.org/rules-guidance/guidance/salesloft-drift-AI-supply-chain-attack) | ➕ |
+| Salesloft Drift: tokens OAuth robados, datos de Salesforce | [Google Threat Intelligence](https://cloud.google.com/blog/topics/threat-intelligence/data-theft-salesforce-instances-via-salesloft-drift) · [FINRA](https://www.finra.org/rules-guidance/guidance/salesloft-drift-AI-supply-chain-attack) | ➕ |
+| Drift: ~700 organizaciones; Cloudflare rotó 104 tokens | [CM-Alliance](https://www.cm-alliance.com/cybersecurity-blog/salesloft-drift-attack-one-compromised-integration-shakes-700-cos) · [The Record](https://therecord.media/salesloft-drift-breach-cloudflare-zscaler-palo-alto-networks) | ➕ |
 | 77% pega datos en el chat; 82% desde cuentas personales | [The Register, 07/10/2025](https://www.theregister.com/2025/10/07/gen_ai_shadow_it_secrets) (informe de LayerX) | ➕ |
 | GTG-1002 (80–90% hecho por IA) | [Anthropic, 13/11/2025](https://www.anthropic.com/news/disrupting-AI-espionage) | ➕ |
 | Pérdidas de las plataformas | [isaiprofitable.com](http://isaiprofitable.com) | apunte [13] |

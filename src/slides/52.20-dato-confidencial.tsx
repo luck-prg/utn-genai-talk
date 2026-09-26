@@ -7,7 +7,7 @@ export const meta: SlideMeta = {
   seccion: "1.3.2 · SEGURIDAD Y RIESGOS",
   steps: 4,
   notes:
-    "[~1:15] Y a veces lo que le mandamos es un dato confidencial. PASO 1 — en 2025, el director interino de CISA, la agencia de ciberseguridad del gobierno de Estados Unidos, subió a la versión pública de ChatGPT documentos marcados 'sólo para uso oficial'. Lo detectaron los propios sistemas de seguridad y se abrió una investigación. Si le pasa al responsable de la ciberseguridad de Estados Unidos, le puede pasar a cualquiera. PASO 2 — un caso más técnico: Drift es un chatbot de IA que muchas empresas conectan a su Salesforce con tokens OAuth. En agosto de 2025, un grupo robó esos tokens y, en diez días, exportó datos de Salesforce de más de 700 organizaciones — Cloudflare, Google, Palo Alto, Zscaler. Después revisaron los tickets de soporte buscando lo que la gente había pegado en texto plano: claves de AWS, credenciales de VPN, tokens de Snowflake. Al integrar un agente le damos acceso a todo lo que ve, y eso incluye los secretos que otros dejaron ahí. PASO 3 — y no es un caso aislado: según LayerX, el 77% de quienes usan IA en el trabajo pega datos de la empresa en el chat, y la mayoría lo hace desde su cuenta personal, donde nadie lo controla.",
+    "[~1:15] Y a veces lo que le mandamos es un dato confidencial. PASO 1 — en 2025, el director interino de CISA, la agencia de ciberseguridad del gobierno de Estados Unidos, subió a la versión pública de ChatGPT documentos marcados 'sólo para uso oficial'. Lo detectaron los propios sistemas de seguridad y se abrió una investigación. Si le pasa al responsable de la ciberseguridad de Estados Unidos, le puede pasar a cualquiera. PASO 2 — un caso más técnico: Drift es un chatbot de IA de la empresa Salesloft, que muchas empresas conectan a su Salesforce con tokens OAuth. En agosto de 2025, un grupo robó esos tokens y, en diez días, exportó datos de Salesforce de unas 700 organizaciones — Cloudflare, Zscaler, Palo Alto, PagerDuty. Después revisaron los tickets de soporte buscando lo que la gente había pegado en texto plano: claves de AWS, contraseñas, tokens de Snowflake. Cloudflare, por ejemplo, tuvo que rotar 104 tokens que estaban pegados en tickets. Al integrar un agente le damos acceso a todo lo que ve, y eso incluye los secretos que otros dejaron ahí. PASO 3 — y no es un caso aislado: según LayerX, el 77% de quienes usan IA en el trabajo pega datos de la empresa en el chat, y la mayoría lo hace desde su cuenta personal, donde nadie lo controla.",
   transition: "fade",
 };
 
@@ -16,7 +16,7 @@ const CASOS: { cuando: string; txt: React.ReactNode }[] = [
     cuando: "2025",
     txt: (
       <>
-        El <b>jefe de ciberseguridad de EE.UU.</b> sube a ChatGPT información sensible no clasificada.
+        El <b>jefe de CISA (EE.UU.)</b> sube a ChatGPT información sensible no clasificada.
       </>
     ),
   },
