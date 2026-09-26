@@ -1,13 +1,26 @@
 import type { ReactNode } from "react";
 
-/** Texto a la izquierda y, a la derecha, el QR al material con una nota y una flecha dibujadas. */
-export function QrMaterial({ children }: { children: ReactNode }) {
+/**
+ * Texto a la izquierda y, a la derecha, un QR con una nota y una flecha dibujadas.
+ * Por defecto lleva al material de la charla; los cierres de bloque lo usan para el quiz.
+ */
+export function QrMaterial({
+  children,
+  qr = "/img/qr-documentacion.svg",
+  mensaje = "Escaneá el QR para acceder al material",
+  alt = "Código QR al material de la charla",
+}: {
+  children: ReactNode;
+  qr?: string;
+  mensaje?: string;
+  alt?: string;
+}) {
   return (
     <div className="con-qr">
       <div className="con-qr-texto">
         {children}
         <div className="con-qr-nota reveal">
-          <p>Escaneá el QR para acceder al material: documento y diapositivas</p>
+          <p>{mensaje}</p>
           <span className="con-qr-flecha" aria-hidden="true">
             <svg className="trazo" viewBox="0 0 200 100" preserveAspectRatio="none">
               <path d="M3 18Q14 88 70 86Q128 84 162 58Q182 49 200 50" />
@@ -18,7 +31,7 @@ export function QrMaterial({ children }: { children: ReactNode }) {
           </span>
         </div>
       </div>
-      <img className="con-qr-img reveal" src="/img/qr-documentacion.svg" alt="Código QR al material de la charla" />
+      <img className="con-qr-img reveal" src={qr} alt={alt} />
     </div>
   );
 }

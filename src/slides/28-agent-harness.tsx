@@ -20,7 +20,9 @@ const RESPONSABILIDADES = [
 export default function AgentHarness() {
   return (
     <SlideFrame header={false} footer={false} meta="BLOQUE 1.2 · CICLO AGÉNTICO">
-      <h2 className="display t-md reveal">Agent Harness</h2>
+      <h2 className="display t-md reveal">
+        Es todo lo que rodea al modelo para que funcione como un agente confiable
+      </h2>
       <ul className="blist blist-grande mt-l reveal">
         {RESPONSABILIDADES.map((r) => (
           <li key={r}>{r}</li>

@@ -7,26 +7,14 @@ export const meta: SlideMeta = {
   seccion: "1.2.1 · CICLO AGÉNTICO",
   steps: 2,
   notes:
-    "Cierre del bloque. PASO 0: las tres palabras que se tienen que llevar — ventana de contexto, harness, agent loop. PASO 1: la cuenta. Cada mensaje que mandás reenvía TODO el historial: la conversación no es gratis, se paga entera en cada vuelta. El cache abarata el prefijo que ya viste (hit ≈ 10% del precio), pero si el prefijo cambió no hay hit y se paga completo — por eso conviene que lo estable vaya adelante y lo que cambia al final. Y el token de salida es más caro por unidad, pero en una sesión agéntica el volumen de entrada es tan grande que la factura se la lleva la entrada.",
+    "Cierre del bloque. PASO 0: las tres palabras que se tienen que llevar — ventana de contexto, harness, ciclo agéntico. PASO 1: la cuenta. Cada mensaje que mandás reenvía TODO el historial: la conversación no es gratis, se paga entera en cada vuelta. El cache abarata el prefijo que ya viste (hit ≈ 10% del precio), pero si el prefijo cambió no hay hit y se paga completo — por eso conviene que lo estable vaya adelante y lo que cambia al final. Y el token de salida es más caro por unidad, pero en una sesión agéntica el volumen de entrada es tan grande que la factura se la lleva la entrada.",
   transition: "fade",
 };
 
 const CONCEPTOS = [
-  {
-    tag: "dónde lee",
-    titulo: "Ventana de contexto",
-    body: "Todo lo que el modelo lee en UNA llamada. Tiene un límite duro: la memoria del agente es finita.",
-  },
-  {
-    tag: "quién orquesta",
-    titulo: "Harness",
-    body: "El programa que guarda el historial, arma el contexto, aplica permisos y ejecuta las tools. El modelo solo predice.",
-  },
-  {
-    tag: "cómo avanza",
-    titulo: "Agent loop",
-    body: "Llamar al modelo, ¿pide una tool?, ejecutarla, sumar el resultado al historial y volver a empezar.",
-  },
+  { tag: "dónde lee", titulo: "Ventana de contexto" },
+  { tag: "quién orquesta", titulo: "Harness" },
+  { tag: "cómo avanza", titulo: "Ciclo agéntico" },
 ];
 
 const COSTOS = [
@@ -45,7 +33,6 @@ export default function CicloResumen() {
           <div className="card" key={c.titulo}>
             <div className="c-tag">{c.tag}</div>
             <div className="c-title">{c.titulo}</div>
-            <div className="c-body">{c.body}</div>
           </div>
         ))}
       </div>

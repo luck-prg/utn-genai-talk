@@ -295,7 +295,7 @@
   gap: clamp(28px, 5vw, 110px);
 }
 .con-qr-img {
-  width: min(34vw, 62vh);
+  width: min(27vw, 50vh);
   height: auto;
   flex-shrink: 0;
 }

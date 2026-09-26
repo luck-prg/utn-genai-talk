@@ -12,7 +12,7 @@ export default function Cierre() {
   return (
     <SlideFrame meta="BLOQUE 4 · CIERRE" center footer={false}>
       <QrMaterial>
-        <h2 className="display reveal" style={{ fontSize: "var(--fs-cover)" }}>
+        <h2 className="display reveal" style={{ fontSize: "var(--fs-section)", whiteSpace: "nowrap" }}>
           ¡<span className="accent">Muchas gracias</span>!
         </h2>
         <p className="display reveal mt-m" style={{ fontSize: "var(--fs-title)" }}>

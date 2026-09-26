@@ -115,7 +115,7 @@ export function TiraDeTokens({
 export function EntradaDeTexto({
   valor,
   onChange,
-  placeholder = "Ingresá una frase para ver su tokenización…",
+  placeholder = "Escribí una frase y mirá cómo se parte…",
 }: {
   valor: string;
   onChange: (v: string) => void;

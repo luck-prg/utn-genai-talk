@@ -18,12 +18,12 @@ const TRAMOS = [
   {
     numero: "Bloque 02",
     titulo: "¿Cómo diseño un agente efectivo?",
-    temas: ["Buenas prácticas", "Context Engineering", "Harness Engineering", "Conceptos varios"],
+    temas: ["Buenas prácticas", "Context Engineering", "Otros conceptos"],
   },
   {
     numero: "Bloque 03",
     titulo: "¿Cómo desarrollo de forma efectiva con agentes?",
-    temas: ["Uso correcto de los modelos", "Spec-Driven Development", "Conclusiones y preguntas"],
+    temas: ["Uso correcto de los modelos", "Enfoques metodológicos", "Spec-Driven Development", "Conclusiones y preguntas"],
   },
 ];
 

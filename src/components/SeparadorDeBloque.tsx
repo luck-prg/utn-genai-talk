@@ -29,7 +29,7 @@ const BLOQUES: Record<number, BloqueData> = {
   },
   2: {
     titulo: "¿Cómo diseño un agente efectivo?",
-    temas: ["Buenas prácticas", "Context Engineering", "Harness Engineering", "Conceptos varios"],
+    temas: ["Buenas prácticas", "Context Engineering", "Otros conceptos"],
     croquis: [
       { nombre: "entornoAgente", style: { left: "4vw", top: "13vh", width: "min(21vw, 320px)" } },
       { nombre: "ventanaContexto", style: { left: "5vw", bottom: "8vh", width: "min(21vw, 330px)" } },
@@ -37,7 +37,7 @@ const BLOQUES: Record<number, BloqueData> = {
   },
   3: {
     titulo: "¿Cómo desarrollo de forma efectiva con agentes?",
-    temas: ["Uso correcto de los modelos", "Spec-Driven Development", "Conclusiones y preguntas"],
+    temas: ["Uso correcto de los modelos", "Enfoques metodológicos", "Spec-Driven Development", "Conclusiones y preguntas"],
     croquis: [
       { nombre: "specCodigo", style: { left: "5vw", top: "14vh", width: "min(17vw, 250px)" } },
       { nombre: "specDriven", style: { left: "4vw", bottom: "9vh", width: "min(23vw, 380px)" } },
@@ -116,7 +116,11 @@ export function InicioDeBloque({ numero }: { numero: number }) {
 export function PreguntasDeBloque({ numero }: { numero: number }) {
   return (
     <SlideFrame meta={`CIERRE · BLOQUE ${String(numero).padStart(2, "0")}`} center header={false} footer={false}>
-      <QrMaterial>
+      <QrMaterial
+        qr={`/img/qr-quiz-bloque-${numero}.svg`}
+        mensaje="Accedé al quiz del bloque y completalo"
+        alt={`Código QR al quiz del bloque ${numero}`}
+      >
         <h2 className="display reveal" style={{ fontSize: "var(--fs-cover)" }}>
           ¿<span className="accent">Preguntas</span>?
         </h2>

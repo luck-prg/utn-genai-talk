@@ -22,13 +22,18 @@ export default function QueEsUnAde() {
         trabajen <span className="accent">agentes</span>
       </h2>
 
-      <Paso n={1} className="mt-l">
-        <p className="quote">
-          El IDE se diseñó para que una persona <span className="accent">escriba código</span>.
-          <br />
-          El ADE se diseñó para que una persona <span className="accent">coordine agentes</span>.
-        </p>
-      </Paso>
+      <div className="versus mt-l">
+        <Paso n={1} className="vs-col">
+          <div className="vs-num chico">
+            El IDE se diseñó para que una persona <span className="accent">escriba código</span>.
+          </div>
+        </Paso>
+        <Paso n={2} className="vs-col acc">
+          <div className="vs-num chico">
+            El ADE se diseñó para que una persona <span className="accent">coordine agentes</span>.
+          </div>
+        </Paso>
+      </div>
     </SlideFrame>
   );
 }
