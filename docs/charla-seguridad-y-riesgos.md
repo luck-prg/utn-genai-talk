@@ -210,8 +210,6 @@ Primer riesgo: los costos. No hay consenso sobre si el precio que pagamos hoy es
 
 *(sin clic)* **Quién gana.** Mientras tanto, los que sí ganan son los que venden el hardware y la infraestructura: NVIDIA, Amazon, Google, Microsoft.
 
-> ⚠️ La slide tiene configurados 4 clics pero muestra una sola línea: después de «subsidio» hay dos clics que no muestran nada. Si querés, lo ajusto a 2.
-
 ---
 
 ### 9. Riesgo 2 · Ambiental: la huella ambiental

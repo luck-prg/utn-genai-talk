@@ -5,7 +5,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 export const meta: SlideMeta = {
   title: "Riesgo · Costos",
   seccion: "1.3.2 · SEGURIDAD Y RIESGOS",
-  steps: 4,
+  steps: 2,
   notes:
     "[~1:00] Primer riesgo: los costos. No hay consenso sobre si el precio que pagamos hoy es real. PASO 0 — las plataformas de IA pierden plata: OpenAI proyecta perder unos 14 mil millones de dólares sólo en 2026. PASO 1 — entonces, ¿el precio de hoy es real, o está subsidiado para ganar mercado y dejar afuera a la competencia? PASO 2 — si es subsidio, el día que el precio se sincere, quien diseñó todo atado a un proveedor queda preso. PASO 3 — mientras tanto, los que sí ganan son los que venden el hardware y la infraestructura: NVIDIA, Amazon, Google, Microsoft.",
   transition: "fade",
