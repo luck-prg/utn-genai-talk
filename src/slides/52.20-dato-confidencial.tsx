@@ -16,7 +16,7 @@ const CASOS: { cuando: string; txt: React.ReactNode }[] = [
     cuando: "2025",
     txt: (
       <>
-        El <b>jefe de ciberseguridad de EE.UU.</b> sube a ChatGPT documentos de uso oficial.
+        El <b>jefe de ciberseguridad de EE.UU.</b> sube a ChatGPT información sensible no clasificada.
       </>
     ),
   },

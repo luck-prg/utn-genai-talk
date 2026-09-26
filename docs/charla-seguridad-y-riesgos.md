@@ -3,7 +3,7 @@
 **Oradora:** Sofía Cortes. Ingeniera en Sistemas (UTN FRBA), ingeniera de software en Double y ayudante de Diseño de Sistemas.
 **Duración objetivo:** unos 14 minutos (tope: 15).
 **Posición:** cierra la sección 1.3, justo después de *1.3.1 IA sin ingeniería* (slides 46 a 52), y es lo último del bloque 1 (se sacó la slide de "¿Preguntas?").
-**Slides:** `src/slides/52.10-*.tsx` a `src/slides/52.70-*.tsx`. Las notas del orador de cada slide traen esta misma versión, resumida.
+**Slides:** `src/slides/52.10-*.tsx` a `src/slides/52.70-*.tsx`. Las notas del orador de cada slide traen el mismo texto.
 **Fuente principal:** apunte *Introducción a la "IA" Generativa* (Franco Bulgarelli, v0.1, sept. 2026), secciones *Profilaxis*, *Riesgos* y *Conclusiones*. Lo que agregué por fuera del apunte va marcado con ➕ en la tabla de fuentes.
 
 ---
@@ -35,15 +35,39 @@
 
 ## Guion
 
-### 52.10 · Portada (0:20)
+Por cada slide: **en pantalla**, lo que aparece al llegar y con cada clic; **qué digo**, el texto hablado con los **[clic]** marcados.
 
-Recién vimos lo que el agente no resuelve solo. Ahora, lo que puede salir mal cuando le damos acceso. Qué pasa con lo que le mandamos. Qué puede romper sin querer. Quién lo puede usar en nuestra contra. Cómo nos cuidamos. Y los riesgos que no se ven desde el repo.
+### 1. Portada · Delegar también exige poner límites
 
-### 52.15 · Lo que le mandás ya no es tuyo (1:30)
+`52.10` · ~0:20 (acumulado 0:20) · 0 clics
+
+**En pantalla**
+
+- **Al llegar:** «1.3.2 · Seguridad y riesgos» y el título *Delegar también exige **poner límites***.
+
+**Qué digo**
+
+Recién vimos lo que el agente no resuelve solo. Ahora, lo que puede salir mal cuando lo usamos: qué pasa con lo que le mandamos, cómo nos cuidamos, y lo que está en juego más allá de nuestra máquina.
+
+---
+
+### 2. Lo que le mandás ya no es tuyo
+
+`52.15` · ~1:30 (acumulado 1:50) · 2 clics
+
+**En pantalla**
+
+- **Al llegar:** *›// ese código que pegaste en el chat* · **Lo que le mandás ya no es tuyo**.
+- **Clic 1:** chips «se guarda · se analiza · se comparte · se usa para entrenar».
+- **Clic 2:** caja «OpenAI · Anthropic · Google · GitHub — **entrenan con tus datos** — En la mayoría de sus planes, por defecto».
+
+**Qué digo**
 
 Arranco por algo que hacemos todos: pegar en el chat un pedazo de código, un error o un CSV para que nos ayude.
 
-Todo lo que mandamos a un proveedor de IA queda del otro lado, y ahí deja de estar bajo nuestro control. **[clic]** Se puede guardar, analizar y compartir con terceros, como otras empresas o gobiernos. También se puede usar para reentrenar el modelo. No es paranoia: está en los términos y condiciones.
+Todo lo que mandamos a un proveedor de IA queda del otro lado, y ahí deja de estar bajo nuestro control.
+
+**[clic]** Se puede guardar, analizar y compartir con terceros, como otras empresas o gobiernos. También se puede usar para reentrenar el modelo. No es paranoia: está en los términos y condiciones.
 
 **[clic]** En la mayoría de los planes, las grandes empresas **entrenan con lo que les mandás**, por defecto:
 
@@ -52,11 +76,24 @@ Todo lo que mandamos a un proveedor de IA queda del otro lado, y ahí deja de es
 - Gemini gratis además avisa que puede haber personas leyendo lo que mandás.
 - GitHub Copilot, en sus planes Free y Pro, entrena con tu código desde abril de este año.
 
-Hay excepciones, que digo oralmente: en la API paga y en los planes de empresa, por contrato, no entrenan. Pero igual guardan registros un tiempo para detectar abusos. Ojo: la API gratuita de Gemini sí entrena.
+Hay excepciones: en la API paga y en los planes de empresa, por contrato, no entrenan. Pero igual guardan registros un tiempo para detectar abusos. Ojo: la API gratuita de Gemini sí entrena.
 
 Un detalle más, que dijo el propio Sam Altman en 2025: lo que le contás a ChatGPT no tiene secreto profesional. Si hay un juicio, pueden estar obligados a entregarlo.
 
-### 52.20 · Y a veces, lo que le mandás es un dato confidencial (1:15)
+---
+
+### 3. Y a veces, lo que le mandás es un dato confidencial
+
+`52.20` · ~1:15 (acumulado 3:05) · 3 clics
+
+**En pantalla**
+
+- **Al llegar:** **Y a veces, lo que le mandás es un dato confidencial**.
+- **Clic 1:** «2025 · El jefe de ciberseguridad de EE.UU. sube a ChatGPT información sensible no clasificada».
+- **Clic 2:** «2025 · Roban los tokens OAuth del chatbot de IA Drift: datos de Salesforce de 700+ empresas, con claves de AWS pegadas en tickets».
+- **Clic 3:** dato grande **77%** (LayerX · 2025): de quienes usan IA en el trabajo pega datos en el chat.
+
+**Qué digo**
 
 Y a veces lo que le mandamos es un dato confidencial.
 
@@ -66,7 +103,21 @@ Y a veces lo que le mandamos es un dato confidencial.
 
 **[clic]** Y no es un caso aislado: según LayerX, **el 77%** de quienes usan IA en el trabajo pega datos de la empresa en el chat, y la mayoría lo hace desde su cuenta personal, donde nadie lo controla.
 
-### 52.37 · Cómo protegernos (1:15)
+---
+
+### 4. Cómo protegernos
+
+`52.37` · ~1:15 (acumulado 4:20) · 4 clics
+
+**En pantalla**
+
+- **Al llegar:** *›// profilaxis* · **Cómo protegernos**, con cuatro tarjetas apagadas.
+- **Clic 1:** 01 **Nada sensible** — Ni datos personales, ni contraseñas, API keys o tokens.
+- **Clic 2:** 02 **Permisos mínimos** — Que sólo pueda leer y tocar lo que necesita, definido en la configuración del agente. A producción, nunca.
+- **Clic 3:** 03 **Aislarlo** — En un entorno virtualizado.
+- **Clic 4:** 04 **Más de un proveedor** — No acoplar el diseño a un servicio: poder migrar de modelo mañana.
+
+**Qué digo**
 
 Entonces, ¿cómo nos cuidamos? Cuatro medidas, que salen de la sección *Profilaxis* del apunte de Franco.
 
@@ -78,11 +129,33 @@ Entonces, ¿cómo nos cuidamos? Cuatro medidas, que salen de la sección *Profil
 
 **[clic] Más de un proveedor.** No acoplar el diseño a un servicio en particular, para poder migrar de modelo mañana si cambian los términos o el precio.
 
-### 52.45 · Divisor: lo que está en juego (0:10)
+---
+
+### 5. Divisor · Lo que está en juego
+
+`52.45` · ~0:10 (acumulado 4:30) · 0 clics
+
+**En pantalla**
+
+- **Al llegar:** **Lo que está en juego** (divisor, sin clics).
+
+**Qué digo**
 
 Hasta acá, lo que podemos controlar nosotros. Ahora, lo que está en juego más allá de nuestra máquina.
 
-### 52.47 · ¿De dónde salen los datos? (0:45)
+---
+
+### 6. ¿De dónde salen los datos?
+
+`52.47` · ~0:45 (acumulado 5:15) · 2 clics
+
+**En pantalla**
+
+- **Al llegar:** **¿De dónde salen los datos?**
+- **Clic 1:** «2024 · OpenAI: es “imposible” entrenar sin material con copyright».
+- **Clic 2:** «2025 · Anthropic paga US$ 1.500 M por ~480 mil libros bajados de sitios piratas».
+
+**Qué digo**
 
 Primero: los datos para entrenar, ¿de dónde salen?
 
@@ -92,7 +165,21 @@ Primero: los datos para entrenar, ¿de dónde salen?
 
 No siempre la consiguen de forma ética.
 
-### 52.50 · Soberanía: ¿de quién dependemos? (1:15)
+---
+
+### 7. Soberanía · ¿De quién dependemos?
+
+`52.50` · ~1:15 (acumulado 6:30) · 4 clics
+
+**En pantalla**
+
+- **Al llegar:** *›// soberanía digital* · **¿De quién dependemos?** y el dato **90%** (ONU · 2026): de la capacidad de cómputo para IA está en dos países.
+- **Clic 1:** «datos · Se procesan en otro país, bajo sus leyes».
+- **Clic 2:** «reglas · Precios, términos y acceso los decide un tercero, y pueden cambiar mañana».
+- **Clic 3:** «futuro · Lo que construimos encima queda atado a ese proveedor».
+- **Clic 4:** barra «Pocas empresas tienen casi toda la información del mundo».
+
+**Qué digo**
 
 Y esto abre una pregunta más grande: la soberanía. Según Naciones Unidas, sólo 32 países tienen centros de datos para IA, y **el 90% de esa capacidad está en dos**. Más de 150 países no tienen cómputo propio, y Argentina está en ese grupo.
 
@@ -104,15 +191,41 @@ Y esto abre una pregunta más grande: la soberanía. Según Naciones Unidas, só
 
 **[clic]** Pocas empresas, de pocos países, tienen casi toda la información del mundo.
 
-### 52.55 · Riesgo · Costos: ¿cuánto cuesta de verdad? (1:00)
+---
+
+### 8. Riesgo 1 · Costos: ¿cuánto cuesta de verdad?
+
+`52.55` · ~1:00 (acumulado 7:30) · 1 clic
+
+**En pantalla**
+
+- **Al llegar:** *›// riesgo 1 · costos* · **¿Cuánto cuesta de verdad?** y el dato **−US$ 14 mil M** (OpenAI · 2026): lo que proyecta perder OpenAI sólo este año.
+- **Clic 1:** «subsidio · ¿El precio de hoy es real, o está subsidiado para ganar mercado?».
+
+**Qué digo**
 
 Primer riesgo: los costos. No hay consenso sobre si el precio que pagamos hoy es real. Las plataformas de IA pierden plata: OpenAI proyecta perder **unos 14 mil millones de dólares** sólo en 2026.
 
 **[clic] Subsidio.** Entonces, ¿el precio de hoy es real, o está subsidiado para ganar mercado y dejar afuera a la competencia?
 
-**[clic] Quién gana.** Mientras tanto, los que sí ganan son los que venden el hardware y la infraestructura: NVIDIA, Amazon, Google, Microsoft.
+*(sin clic)* **Quién gana.** Mientras tanto, los que sí ganan son los que venden el hardware y la infraestructura: NVIDIA, Amazon, Google, Microsoft.
 
-### 52.56 · Riesgo · Ambiental: la huella ambiental (1:00)
+> ⚠️ La slide tiene configurados 4 clics pero muestra una sola línea: después de «subsidio» hay dos clics que no muestran nada. Si querés, lo ajusto a 2.
+
+---
+
+### 9. Riesgo 2 · Ambiental: la huella ambiental
+
+`52.56` · ~1:00 (acumulado 8:30) · 3 clics
+
+**En pantalla**
+
+- **Al llegar:** *›// riesgo 2 · ambiental* · **La huella ambiental** y el dato **945 TWh** (ONU · 2030): casi el triple de lo que consumen Pakistán, Bangladesh y Nigeria juntos.
+- **Clic 1:** «agua · Para enfriar los equipos, compite con la de la población».
+- **Clic 2:** «energía · Sube las tarifas de la zona y a veces exige plantas fósiles».
+- **Clic 3:** «empleo · Genera pocos puestos locales, aunque la región compite por atraerlos».
+
+**Qué digo**
 
 Segundo: el impacto ambiental. Naciones Unidas proyecta que en 2030 los centros de datos de IA van a consumir **unos 945 teravatios-hora por año**: casi el triple de lo que consumen Pakistán, Bangladesh y Nigeria juntos, más de 650 millones de personas.
 
@@ -122,7 +235,20 @@ Segundo: el impacto ambiental. Naciones Unidas proyecta que en 2030 los centros 
 
 **[clic] Empleo.** Y no generan muchos empleos a largo plazo. Aun así, al menos siete países de la región están impulsando leyes para atraer mega data centers, incluida la Patagonia. Cada token que no mandamos también cuenta.
 
-### 52.57 · Riesgo · Cognitivo: lo que dejamos de ejercitar (1:00)
+---
+
+### 10. Riesgo 3 · Cognitivo: lo que dejamos de ejercitar
+
+`52.57` · ~1:00 (acumulado 9:30) · 3 clics
+
+**En pantalla**
+
+- **Al llegar:** *›// riesgo 3 · cognitivo* · **Lo que dejamos de ejercitar** y el dato **MIT · 2025**: quienes escribían con ChatGPT mostraron menos actividad cerebral y después no podían citar su propio texto.
+- **Clic 1:** «deuda · Los autores lo llaman deuda cognitiva: lo que delegás, dejás de ejercitarlo».
+- **Clic 2:** «ironía · Cuanto más se automatiza una tarea, más difícil es supervisarla».
+- **Clic 3:** «y encima · Justo perdemos las habilidades que hacen falta para supervisar».
+
+**Qué digo**
 
 Tercero: el impacto cognitivo. Un estudio del **MIT** de 2025 midió la actividad cerebral de personas escribiendo ensayos: quienes usaban ChatGPT mostraron la menor conectividad, y después no podían citar su propio texto.
 
@@ -132,7 +258,20 @@ Tercero: el impacto cognitivo. Un estudio del **MIT** de 2025 midió la activida
 
 **[clic] Y encima.** Justo vamos perdiendo las habilidades que necesitamos para hacerlo. Eso podría, y probablemente debería, ser un límite a la adopción masiva.
 
-### 52.58 · Riesgo · Político: la IA también es poder (1:15)
+---
+
+### 11. Riesgo 4 · Político: la IA también es poder
+
+`52.58` · ~1:15 (acumulado 10:45) · 3 clics
+
+**En pantalla**
+
+- **Al llegar:** *›// riesgo 4 · político* · **La IA también es poder** y el dato **80–90%** (GTG-1002 · 2025): de una campaña de espionaje la hizo la IA sola, según la propia Anthropic.
+- **Clic 1:** «defensa · OpenAI, Anthropic, Google y xAI firmaron contratos con el Pentágono».
+- **Clic 2:** «vigilancia · Empresas como Palantir, en el centro del espionaje digital».
+- **Clic 3:** «guerra · Organizaciones de derechos humanos piden límites a la IA en la guerra».
+
+**Qué digo**
 
 Cuarto: el impacto político. En 2025, Anthropic reportó un grupo que usó Claude Code para una campaña de espionaje contra unos 30 objetivos, y **la IA hizo entre el 80 y el 90% del trabajo**, sola. Atacar se volvió mucho más barato.
 
@@ -142,7 +281,19 @@ Cuarto: el impacto político. En 2025, Anthropic reportó un grupo que usó Clau
 
 **[clic] Guerra.** Y organizaciones de derechos humanos, como Amnistía Internacional, piden límites al uso de la IA en la guerra. La IA ya no es sólo una herramienta: es infraestructura de poder, y eso impacta en la vida democrática.
 
-### 52.60 · ¿Y los modelos abiertos? (1:00)
+---
+
+### 12. ¿Y los modelos abiertos?
+
+`52.60` · ~1:00 (acumulado 11:45) · 2 clics
+
+**En pantalla**
+
+- **Al llegar:** **¿Y los modelos abiertos?**
+- **Clic 1:** caja «suman · tus datos no salen · Corren en tu infraestructura. Menos dependencia de un proveedor».
+- **Clic 2:** caja «pero · pesos abiertos ≠ código abierto · Casi nunca publican los datos de entrenamiento. El hardware lo ponés vos» y la barra «Latam-GPT: abierto, regional, entrenado con datos de la región».
+
+**Qué digo**
 
 ¿Hay salida? Una parte de la respuesta son los modelos abiertos, como Llama, Mistral o Qwen. Publican los pesos, así que se pueden descargar y correr en infraestructura propia.
 
@@ -150,9 +301,19 @@ Cuarto: el impacto político. En 2025, Anthropic reportó un grupo que usó Clau
 
 **[clic]** Los peros: casi siempre publican los pesos pero no el código ni los datos de entrenamiento, por eso se habla de "pesos abiertos" y no de código abierto. El hardware lo ponés vos, muchas licencias tienen restricciones, y hay presiones empresariales para limitarlos "por seguridad". Un ejemplo cercano es Latam-GPT: un modelo abierto hecho en Chile por un equipo de toda la región, con contenido latinoamericano. Cómo elegir entre abierto y cerrado lo vemos en el bloque de modelos.
 
-### 52.70 · Sí, con criterio y cautela (1:00)
+---
 
-*(Basado en las Conclusiones del apunte de Franco.)*
+### 13. Cierre · Sí, con criterio y cautela
+
+`52.70` · ~1:00 (acumulado 12:45) · 2 clics
+
+**En pantalla**
+
+- **Al llegar:** *›// ¿avanzar?* · **Sí, con criterio y cautela.**
+- **Clic 1:** «Es una foto de un escenario que cambia: los efectos a largo plazo todavía no los conocemos».
+- **Clic 2:** «Usamos la IA y construimos con ella: las dos cosas piden mirada crítica».
+
+**Qué digo**
 
 Entonces, ¿avanzamos? Sí, con criterio y cautela.
 
@@ -163,7 +324,6 @@ Entonces, ¿avanzamos? Sí, con criterio y cautela.
 *(pausa)* Con esto cerramos el bloque 1. Y para usarla bien hace falta ingeniería alrededor: de eso se trata lo que viene.
 
 ---
-
 ## Qué evité repetir de slides anteriores
 
 - **Trifecta y permisos por herramienta** (slides 23 y 24, semáforo y panel de switches): no los vuelvo a explicar, sólo los retomo ("contenido no confiable").
