@@ -5,7 +5,7 @@ export const meta: SlideMeta = {
   title: "El harness ejecuta, el modelo valida",
   seccion: "1.2.1 · CICLO AGÉNTICO",
   notes:
-    "Cierre de la parte técnica: todo lo que vieron es gasto, y el harness es quien lo administra. No hace falta que se acuerden los nombres; el punto es que estas decisiones existen y las toma el harness, no el modelo. El esfuerzo ya lo vieron aparte; acá van las otras tres.",
+    "Cierre de la parte técnica: todo lo que vieron es gasto, y el harness es quien lo administra. No hace falta que se acuerden los nombres; el punto es que estas decisiones existen y las toma el harness, no el modelo.",
   transition: "fade",
 };
 
