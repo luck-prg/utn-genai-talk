@@ -293,7 +293,7 @@ Cuarto: el impacto político. En 2025, Anthropic reportó un grupo que usó Clau
 
 **Qué digo**
 
-¿Hay salida? Una parte de la respuesta son los modelos abiertos, como Llama, Mistral o Qwen. Publican los pesos, así que se pueden descargar y correr en infraestructura propia.
+¿Hay salida? Una parte de la respuesta son los modelos abiertos. ChatGPT, Claude o Gemini son modelos **cerrados**: no te dan el modelo, lo usás por internet y tus datos viajan a la empresa. Los modelos **abiertos**, como Llama, Mistral o Qwen, publican los pesos: te podés bajar el modelo y correrlo en tu propia máquina o en tus servidores.
 
 **[clic]** Lo que suman: los datos nunca salen de tu máquina ni de tu organización, dependés menos de un proveedor y, con modelos chicos, puede salir más barato.
 
