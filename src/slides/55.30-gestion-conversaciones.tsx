@@ -3,7 +3,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
   title: "Gestión de conversaciones",
-  seccion: "2.1.4 · CONCLUSIONES",
+  seccion: "2.1.1 · CONTEXT ENGINEERING",
   transition: "fade",
 };
 

@@ -4,7 +4,7 @@ import { Paso } from "@/components/Paso";
 
 export const meta: SlideMeta = {
   title: "Los niveles de esfuerzo",
-  seccion: "1.2.1 · CICLO AGÉNTICO",
+  seccion: "2.1.1 · CONTEXT ENGINEERING",
   steps: 2,
   notes:
     "Cinco niveles, y son un parámetro de la API: output_config.effort. PASO 0: la escala. El default es high. xhigh apareció después, entre high y max, y es el que usa Claude Code para codear. Bajar el esfuerzo no es sólo 'piensa menos': también hace menos llamadas a tools, más consolidadas, y menos preámbulo. PASO 1: el remate que engancha con todo lo anterior — razonar se cobra como tokens de salida, y la salida sale 5x. Elegir el nivel es elegir cuánto gastás. Regla práctica: subir el esfuerzo sólo cuando midas que hace falta, no por las dudas.",
@@ -21,7 +21,7 @@ const NIVELES = [
 
 export default function NivelesDeEsfuerzo() {
   return (
-    <SlideFrame header={false} footer={false} meta="BLOQUE 1.2 · CICLO AGÉNTICO">
+    <SlideFrame header={false} footer={false} meta="BLOQUE 2.1 · CONTEXT ENG.">
       <h2 className="display t-md reveal">El nivel de esfuerzo es una decisión de costo</h2>
       <div className="escala mt-m reveal">
         {NIVELES.map((n) => (
