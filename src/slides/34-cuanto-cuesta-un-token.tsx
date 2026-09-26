@@ -45,8 +45,7 @@ export default function CuantoCuestaUnToken() {
         ))}
       </div>
       <Paso n={4} className="arq-remate">
-        Escribir al cache cuesta un 25% más, pero leerlo sale a la décima parte:{" "}
-        <b>con una sola lectura ya se pagó solo</b>.
+        Escribir al cache cuesta un 25% más, pero leerlo sale a la décima parte.
       </Paso>
     </SlideFrame>
   );

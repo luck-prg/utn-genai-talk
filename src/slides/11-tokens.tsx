@@ -13,11 +13,9 @@ export const meta: SlideMeta = {
   transition: "fade",
 };
 
-const FRASE = "El contexto es el nuevo código: cada token que entra se paga.";
-
 export default function Tokens() {
   const paso = useStep();
-  const [texto, setTexto] = useState(FRASE);
+  const [texto, setTexto] = useState("");
   const conteo = useConteo(texto);
 
   const modo = paso >= 2 ? "solo-ids" : paso >= 1 ? "ids" : "texto";
@@ -25,7 +23,7 @@ export default function Tokens() {
   return (
     <SlideFrame header={false} footer={false} meta="1.1.1 · LLM Y TOKENS">
       <h2 className="display t-md reveal">
-        No lee palabras: lee <span className="accent">tokens</span>
+        El modelo procesa <span className="accent">tokens</span>, no palabras
       </h2>
 
       <div className="tokz reveal mt-l">

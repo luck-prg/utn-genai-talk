@@ -21,7 +21,7 @@ export default function RiesgoCostos() {
       <p className="eyebrow reveal">›// riesgo 1 · costos</p>
 
       <h2 className="display reveal mt-s" style={{ fontSize: "clamp(24px,min(3vw,5.33vh),62px)" }}>
-        ¿Cuánto cuesta <span className="accent">de verdad</span>?
+        ¿Es sostenible el <span className="accent">precio actual</span>?
       </h2>
 
       <div className="dato-fila mt-m reveal">

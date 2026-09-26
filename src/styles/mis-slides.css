@@ -284,3 +284,70 @@
   border-top: 2px solid var(--color-linea);
   padding-top: clamp(14px, min(1.4vw, 2.49vh), 28px);
 }
+
+/* ===========================================================
+   QR AL MATERIAL — texto + QR con nota y flecha dibujadas
+   =========================================================== */
+.con-qr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(28px, 5vw, 110px);
+}
+.con-qr-img {
+  width: min(34vw, 62vh);
+  height: auto;
+  flex-shrink: 0;
+}
+.con-qr-texto {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.con-qr-nota {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(8px, 1vw, 20px);
+  margin-top: clamp(16px, 2.4vh, 40px);
+  /* La flecha se mete en el hueco hasta casi tocar el QR. */
+  margin-right: calc(clamp(28px, 5vw, 110px) * -0.75);
+  color: var(--color-acento);
+}
+.con-qr-nota p {
+  font-family: "Caveat", cursive;
+  font-weight: 700;
+  font-size: clamp(28px, min(3.3vw, 5.87vh), 64px);
+  line-height: 1;
+  max-width: 19ch;
+  flex-shrink: 0;
+  transform: rotate(-2deg);
+}
+/* El trazo se estira hasta el QR; la punta va aparte para no deformarse. */
+.con-qr-flecha {
+  flex: 1 1 auto;
+  display: flex;
+  min-width: clamp(60px, 6vw, 120px);
+  height: clamp(60px, 10vh, 120px);
+  margin-bottom: clamp(20px, 4vh, 60px);
+}
+.con-qr-flecha svg {
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  overflow: visible;
+}
+.con-qr-flecha .trazo {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.con-qr-flecha .trazo path {
+  vector-effect: non-scaling-stroke;
+}
+.con-qr-flecha .punta {
+  flex: 0 0 auto;
+  width: auto;
+  aspect-ratio: 30 / 100;
+  margin-left: -1px;
+}

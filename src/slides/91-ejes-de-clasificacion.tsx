@@ -42,7 +42,7 @@ export default function EjesDeClasificacion() {
   return (
     <SlideFrame header={false} footer={false} meta="3.1 · MODELOS">
       <h2 className="display reveal" style={{ fontSize: "clamp(22px,min(2.7vw,4.8vh),56px)" }}>
-        No existe <span className="accent">el modelo bueno</span>
+        No existe un <span className="accent">modelo óptimo</span> para todos los casos
       </h2>
 
       <div className="ejes mt-m">

@@ -12,7 +12,7 @@ export const meta: SlideMeta = {
 
 const PILARES: { icon: PictoName; title: string; body: string }[] = [
   { icon: "spec", title: "Specs primero", body: "El qué antes del cómo." },
-  { icon: "source", title: "Fuente de verdad", body: "Antes mandaba el código. Ahora, al revés." },
+  { icon: "source", title: "Fuente de verdad", body: "La spec pasa a ser la referencia principal." },
   { icon: "contract", title: "Contrato verificable", body: "Cambia la spec, cambia el código." },
 ];
 
@@ -32,13 +32,13 @@ export default function QueEsSdd() {
         ))}
       </div>
       <h3 className="display mt-s reveal" style={{ fontSize: "clamp(26px, 3.4vw, 72px)" }}>
-        Hoy explotó por una razón: quien la ejecuta es <span className="accent">la IA</span>.
+        Su adopción creció porque hoy la spec la ejecuta <span className="accent">un agente de IA</span>.
       </h3>
       <p
         className="display reveal"
         style={{ fontSize: "var(--fs-sub)", fontWeight: 600, color: "var(--color-muted)" }}
       >
-        Nosotros ya no escribimos. Pensamos.
+        El ingeniero pasa de redactar código a definir y validar.
       </p>
     </SlideFrame>
   );

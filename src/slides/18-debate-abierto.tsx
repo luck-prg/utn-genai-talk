@@ -26,11 +26,11 @@ export default function DebateAbierto() {
         <div className="versus">
           <div className="vs-col">
             <div className="vs-tag">una abstracción de verdad</div>
-            <div className="vs-num chico">dejás de mirar</div>
+            <div className="vs-num chico">el código deja de revisarse</div>
           </div>
           <div className="vs-col acc">
             <div className="vs-tag">un agente</div>
-            <div className="vs-num chico">volvés todo el tiempo</div>
+            <div className="vs-num chico">el código se revisa en forma continua</div>
           </div>
         </div>
       </Paso>

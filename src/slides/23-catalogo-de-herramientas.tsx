@@ -83,11 +83,12 @@ export default function CatalogoDeHerramientas() {
       <Paso n={2} className="mt-l">
         <div className="bar">
           <span>
-            La tool la ejecuta el <b className="accent">harness</b>, no el agente: el modelo pide, el harness
-            corre y devuelve evidencia.
+            Las herramientas las ejecuta <b className="accent">un sistema</b> que sabe interpretar lo
+            que el modelo pide, y ese sistema es quien le devuelve el resultado al modelo como
+            evidencia.
           </span>
           <span className="accent">
-            Más herramientas ≠ mejor respuesta: amplían lo observable, no garantizan criterio.
+            Sumar herramientas amplía lo observable, pero no garantiza una mejor respuesta.
           </span>
         </div>
       </Paso>

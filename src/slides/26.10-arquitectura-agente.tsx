@@ -3,7 +3,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 import { ArquitecturaAgente } from "@/components/ArquitecturaAgente";
 
 export const meta: SlideMeta = {
-  title: "Qué hay adentro de un agente",
+  title: "Componentes de un agente",
   seccion: "1.2.1 · CICLO AGÉNTICO",
   steps: 2,
   notes:
@@ -14,7 +14,7 @@ export const meta: SlideMeta = {
 export default function ArquitecturaAgenteSlide() {
   return (
     <SlideFrame header={false} footer={false} meta="1.2.1 · CICLO AGÉNTICO" bodyClass="a-sangre">
-      <h2 className="display t-md reveal">Qué hay adentro de un agente</h2>
+      <h2 className="display t-md reveal">Componentes de un agente</h2>
       <ArquitecturaAgente />
     </SlideFrame>
   );

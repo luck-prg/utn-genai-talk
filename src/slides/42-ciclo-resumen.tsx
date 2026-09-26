@@ -3,11 +3,11 @@ import { SlideFrame } from "@/components/SlideFrame";
 import { Paso } from "@/components/Paso";
 
 export const meta: SlideMeta = {
-  title: "Tres palabras y una consecuencia",
+  title: "Conceptos importantes",
   seccion: "1.2.1 · CICLO AGÉNTICO",
-  steps: 3,
+  steps: 2,
   notes:
-    "Cierre del bloque. PASO 0: las tres palabras que se tienen que llevar — ventana de contexto, harness, agent loop. PASO 1: la cuenta. Cada mensaje que mandás reenvía TODO el historial: la conversación no es gratis, se paga entera en cada vuelta. El cache abarata el prefijo que ya viste (hit ≈ 10% del precio), pero si el prefijo cambió no hay hit y se paga completo — por eso conviene que lo estable vaya adelante y lo que cambia al final. Y el token de salida es más caro por unidad, pero en una sesión agéntica el volumen de entrada es tan grande que la factura se la lleva la entrada. PASO 2: el remate — la ventana es finita y los recursos también. Entender cómo funciona el agente es lo que te permite no quemarlos al pedo.",
+    "Cierre del bloque. PASO 0: las tres palabras que se tienen que llevar — ventana de contexto, harness, agent loop. PASO 1: la cuenta. Cada mensaje que mandás reenvía TODO el historial: la conversación no es gratis, se paga entera en cada vuelta. El cache abarata el prefijo que ya viste (hit ≈ 10% del precio), pero si el prefijo cambió no hay hit y se paga completo — por eso conviene que lo estable vaya adelante y lo que cambia al final. Y el token de salida es más caro por unidad, pero en una sesión agéntica el volumen de entrada es tan grande que la factura se la lleva la entrada.",
   transition: "fade",
 };
 
@@ -38,7 +38,7 @@ const COSTOS = [
 export default function CicloResumen() {
   return (
     <SlideFrame header={false} footer={false} meta="BLOQUE 1.2 · CICLO AGÉNTICO">
-      <h2 className="display t-md reveal">Tres palabras que se llevan</h2>
+      <h2 className="display t-md reveal">Conceptos importantes</h2>
 
       <div className="cards mt-m reveal" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
         {CONCEPTOS.map((c) => (
@@ -56,15 +56,6 @@ export default function CicloResumen() {
             <li key={c}>{c}</li>
           ))}
         </ul>
-      </Paso>
-
-      <Paso n={2} className="mt-m">
-        <div className="bar">
-          <span>
-            Un agente trabaja con <b>recursos finitos</b>: entenderlo es lo que permite no quemarlos al pedo.
-          </span>
-          <span className="accent">ventana · costo · loop</span>
-        </div>
       </Paso>
     </SlideFrame>
   );

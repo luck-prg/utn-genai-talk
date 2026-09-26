@@ -21,7 +21,7 @@ export default function PortadaFundamentos() {
           <br />y <span className="accent">tokens</span>
         </>
       }
-      promesa="Qué hay abajo de la herramienta que vamos a usar toda la charla."
+      promesa="Los fundamentos de la herramienta que utilizaremos durante el seminario."
       temas={["LLM", "tokens", "alucinaciones", "prefill / decode"]}
     />
   );

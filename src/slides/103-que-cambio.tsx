@@ -42,13 +42,9 @@ export default function QueCambio() {
   return (
     <SlideFrame header={false} footer={false} meta="EL COSTO">
       <h2 className="display reveal" style={{ fontSize: "var(--fs-stmt)" }}>
-        La IA no volvió el
+        La IA reduce el costo
         <br />
-        razonamiento más fácil.
-        <br />
-        Volvió el método
-        <br />
-        <span className="accent">barato de sostener</span>.
+        de <span className="accent">sostener un método</span>.
       </h2>
       <div
         className="mt-m reveal"
@@ -62,7 +58,7 @@ export default function QueCambio() {
         className="display mt-s reveal"
         style={{ fontSize: "var(--fs-sub)", fontWeight: 600, letterSpacing: "-0.01em", color: "var(--color-acento)" }}
       >
-        No se delega el criterio. Se delega la formalidad.
+        Se delega la formalización; el criterio lo aplica el ingeniero.
       </p>
     </SlideFrame>
   );

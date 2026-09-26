@@ -78,13 +78,13 @@ export function PrefillDecode({ paso }: { paso: number }) {
         </div>
 
         <div className={`pd-cartel acc ${paso >= 2 ? "on" : ""}`}>
-          uno por vez · {Math.max(generados, 0)} pasos
+          secuencial · {Math.max(generados, 0)} pasos
         </div>
       </div>
 
       <div className={`pd-kv ${paso >= 3 ? "on" : ""}`}>
         <div className="kv-lbl">
-          KV cache <span>arranca en el prompt y suma uno por token generado</span>
+          KV cache <span>se inicializa con el prompt y crece un elemento por token generado</span>
         </div>
         <div className="kv-barra">
           {Array.from({ length: maxLadrillos }, (_, i) => (

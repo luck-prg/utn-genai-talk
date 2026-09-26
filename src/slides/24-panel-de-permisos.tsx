@@ -32,7 +32,7 @@ export default function PanelDePermisosSlide() {
             ¿Permite que el agente <b>lea mejor</b>, <b>actúe mejor</b> o <b>valide mejor</b>?
           </span>
           <span className="accent">
-            <b>Si no, es decoración técnica: pesa en contexto y en riesgo.</b>
+            <b>Si no, la integración suma contexto y riesgo sin aportar valor.</b>
           </span>
         </div>
       </Paso>

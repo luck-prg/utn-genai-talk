@@ -1,6 +1,7 @@
 import type { CSSProperties, ReactNode } from "react";
 import { Croquis } from "@/components/Croquis";
 import type { CroquisNombre } from "@/components/Croquis";
+import { QrMaterial } from "@/components/QrMaterial";
 import { SlideFrame } from "@/components/SlideFrame";
 
 interface BloqueData {
@@ -115,9 +116,11 @@ export function InicioDeBloque({ numero }: { numero: number }) {
 export function PreguntasDeBloque({ numero }: { numero: number }) {
   return (
     <SlideFrame meta={`CIERRE · BLOQUE ${String(numero).padStart(2, "0")}`} center header={false} footer={false}>
-      <h2 className="display reveal" style={{ fontSize: "var(--fs-cover)" }}>
-        ¿<span className="accent">Preguntas</span>?
-      </h2>
+      <QrMaterial>
+        <h2 className="display reveal" style={{ fontSize: "var(--fs-cover)" }}>
+          ¿<span className="accent">Preguntas</span>?
+        </h2>
+      </QrMaterial>
     </SlideFrame>
   );
 }

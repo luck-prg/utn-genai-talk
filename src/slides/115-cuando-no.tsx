@@ -12,7 +12,7 @@ export const meta: SlideMeta = {
 
 const CASOS: { icon: PictoName; title: string; body: string }[] = [
   { icon: "patch", title: "Un fix de dos líneas", body: "El contrato ya existe." },
-  { icon: "spike", title: "Un spike o una prueba", body: "Todavía no sabés qué querés." },
+  { icon: "spike", title: "Un spike o una prueba", body: "El objetivo todavía no está definido." },
   { icon: "once", title: "Un script de una sola vez", body: "Nadie lo mantiene después." },
 ];
 
@@ -32,7 +32,7 @@ export default function CuandoNo() {
         ))}
       </div>
       <p className="body mt-m reveal maxw">
-        <span className="k">Un método que sirve para todo no sirve para nada.</span>
+        <span className="k">Ningún método aplica a todos los casos.</span>
       </p>
     </SlideFrame>
   );

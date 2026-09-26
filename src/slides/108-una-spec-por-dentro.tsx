@@ -37,7 +37,7 @@ export default function UnaSpecPorDentro() {
         ))}
       </div>
       <h3 className="display mt-s reveal" style={{ fontSize: "clamp(26px, 3.4vw, 72px)" }}>
-        Ni una línea de <span className="accent">tecnología</span>. Es producto y negocio.
+        La spec no menciona <span className="accent">tecnología</span>: describe producto y negocio.
       </h3>
     </SlideFrame>
   );

@@ -49,8 +49,7 @@ export function SlideFrame({
           <div className="brand">
             <UtnLogo className="brandmark" />
             <span className="b-txt">
-              <b>UTN</b>
-              <span>FRBA</span>
+              UTN<span>.BA</span>
             </span>
           </div>
           <div className="head-meta">{meta}</div>

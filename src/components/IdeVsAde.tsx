@@ -80,7 +80,7 @@ export function IdeVsAde({ paso }: { paso: number }) {
 
         {/* En el flujo, no posicionado encima: no puede pisar nada. */}
         <div className={`iva-vos ${paso >= 3 ? "on" : ""}`}>
-          <span>vos, acá</span>
+          <span>supervisión humana</span>
         </div>
       </div>
     </div>

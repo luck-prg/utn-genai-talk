@@ -105,13 +105,13 @@ export function SpecKitTerminal() {
       render();
       await sleep(450);
       if (stop()) return;
-      committed += '<span class="pr">→ En Claude, ahora usás:</span>\n';
+      committed += '<span class="pr">→ Comandos disponibles en Claude Code:</span>\n';
       render();
       await sleep(250);
-      await typeLine("  ", "/speckit.specify", "kw", '  <span class="cm">describí el qué</span>');
+      await typeLine("  ", "/speckit.specify", "kw", '  <span class="cm">especificación: qué construir</span>');
       if (stop()) return;
       await sleep(200);
-      await typeLine("  ", "/speckit.plan", "kw", '     <span class="cm">generá el plan</span>');
+      await typeLine("  ", "/speckit.plan", "kw", '     <span class="cm">plan técnico</span>');
       if (stop()) return;
       dyn = "";
       render();

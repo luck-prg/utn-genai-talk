@@ -31,7 +31,7 @@ export default function IdeVsAdeFlujo() {
       <Paso n={4} className="mt-m">
         <div className="bar">
           <span>
-            No compiten: son <b className="accent">complementarias</b>.
+            Son herramientas <b className="accent">complementarias</b>.
           </span>
         </div>
       </Paso>

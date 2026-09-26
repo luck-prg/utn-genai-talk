@@ -19,7 +19,7 @@ export default function PortadaCicloAgentico() {
       kicker="Ciclo agéntico"
       titulo={
         <>
-          Qué hay <span className="accent">adentro</span> de un agente
+          <span className="accent">Componentes</span> de un agente
         </>
       }
       promesa="El modelo genera; el harness le da memoria, herramientas y un ciclo de trabajo."

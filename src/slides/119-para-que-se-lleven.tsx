@@ -28,13 +28,13 @@ export default function ParaQueSeLleven() {
         No estamos reinventando la <span className="accent">rueda</span>.
       </p>
       <p className="display reveal" style={lineStyle}>
-        Cayó el muro del <span className="accent">costo</span>.
+        Bajó el <span className="accent">costo</span> de sostener el método.
       </p>
       <p className="display reveal" style={lineStyle}>
-        No se delega el pensamiento. Se delega la <span className="accent">formalidad</span>.
+        Se delega la <span className="accent">formalización</span>, no el criterio.
       </p>
       <p className="display reveal" style={lineStyle}>
-        El método necesita contexto. El contexto necesita <span className="accent">método</span>.
+        Método y contexto se <span className="accent">complementan</span>.
       </p>
     </SlideFrame>
   );

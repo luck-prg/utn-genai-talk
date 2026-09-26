@@ -26,7 +26,7 @@ const MOMENTOS: { icon: PictoName; tag: string; title: string; body: string }[] 
   {
     icon: "feature",
     tag: "un objetivo",
-    title: "Llegaste, pero no sabés bien cómo",
+    title: "Objetivo logrado, sin un procedimiento claro",
     body: "En esa misma sesión, con todo el contexto ganado, pedile al agente que genere la skill.",
   },
 ];

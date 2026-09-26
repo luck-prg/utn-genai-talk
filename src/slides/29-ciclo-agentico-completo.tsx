@@ -4,7 +4,7 @@ import { ArquitecturaAgente } from "@/components/ArquitecturaAgente";
 import { Paso } from "@/components/Paso";
 
 export const meta: SlideMeta = {
-  title: "Qué hay adentro de un agente (2)",
+  title: "Componentes de un agente (2)",
   seccion: "1.2.1 · CICLO AGÉNTICO",
   steps: 3,
   notes:
@@ -15,11 +15,11 @@ export const meta: SlideMeta = {
 export default function CicloAgenticoCompleto() {
   return (
     <SlideFrame header={false} footer={false} meta="BLOQUE 1.2 · CICLO AGÉNTICO" bodyClass="a-sangre">
-      <h2 className="display t-md reveal">Qué hay adentro de un agente</h2>
+      <h2 className="display t-md reveal">Componentes de un agente</h2>
       {/* Arranca con lo que ya quedó dibujado en la diapositiva 26. */}
       <ArquitecturaAgente base={1} />
       <Paso n={2} className="arq-remate">
-        Cada vuelta del loop vuelve a mandar <b>todo el historial</b>: el contexto se paga en cada llamada.
+        En cada iteración se reenvía <b>el historial completo</b>: el contexto aumenta en cada llamada.
       </Paso>
     </SlideFrame>
   );

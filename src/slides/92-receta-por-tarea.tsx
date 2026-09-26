@@ -31,7 +31,7 @@ export default function RecetaPorTarea() {
   return (
     <SlideFrame header={false} footer={false} meta="3.1 · MODELOS">
       <h2 className="display reveal" style={{ fontSize: "clamp(22px,min(2.7vw,4.8vh),56px)" }}>
-        Elegís <span className="accent">por tarea</span>, no por el nombre del modelo
+        La gama se elige según <span className="accent">la tarea</span>
       </h2>
 
       <div className="gamas reveal mt-l">

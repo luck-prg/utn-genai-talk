@@ -61,7 +61,7 @@ export default function UnaSkill() {
         <ArtifactPanel path="skills/spec/SKILL.md" html={HTML} className="" />
       </div>
       <h3 className="display mt-s reveal" style={{ fontSize: "clamp(26px, 3.4vw, 72px)" }}>
-        El método, empaquetado. El criterio sigue siendo <span className="accent">tuyo</span>.
+        La skill encapsula el método; el criterio lo aplica el <span className="accent">ingeniero</span>.
       </h3>
     </SlideFrame>
   );

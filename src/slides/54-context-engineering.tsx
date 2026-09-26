@@ -15,11 +15,7 @@ export default function PortadaContextEngineering() {
       meta="SECCIÓN"
       numero="2.1.1"
       kicker="Context Engineering"
-      titulo={
-        <>
-          Diseñar el <span className="accent">contexto</span> del agente
-        </>
-      }
+      titulo={<span className="accent">Context Engineering</span>}
       promesa="Decidir qué información entra, cuándo entra y en qué forma."
       temas={["ventana", "prioridades", "conversación", "contexto útil"]}
     />

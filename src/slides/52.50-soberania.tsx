@@ -47,7 +47,7 @@ export default function Soberania() {
       <Paso n={4} className="mt-m">
         <div className="bar">
           <span>
-            Pocas empresas tienen <b className="accent">casi toda la información del mundo</b>.
+            La información y el cómputo <b className="accent">se concentran en pocas empresas</b>.
           </span>
         </div>
       </Paso>

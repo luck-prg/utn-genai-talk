@@ -13,12 +13,12 @@ export default function TipsCierre() {
   return (
     <SlideFrame header={false} footer={false} meta="2.2.3 · EJECUCIÓN" center>
       <h2 className="display reveal" style={{ fontSize: "var(--fs-stmt)", textAlign: "center" }}>
-        Un agente autónomo necesita lo mismo que vos le dabas en el chat: alguien que lo{" "}
-        <span className="accent">arranque</span>, alguien que <span className="accent">revise</span>{" "}
-        lo que hizo, y un lugar donde <span className="accent">anotar</span> lo que aprendió.
+        Un agente autónomo requiere un <span className="accent">disparador</span> que lo inicie, una{" "}
+        <span className="accent">evaluación</span> que revise su trabajo y una{" "}
+        <span className="accent">memoria</span> donde registrar lo aprendido.
       </h2>
       <p className="sub reveal mt-m" style={{ textAlign: "center" }}>
-        <b className="accent">Cron, evals y un second brain</b> son eso.
+        <b className="accent">Cron, evals y memoria externa</b> cumplen esas tres funciones.
       </p>
     </SlideFrame>
   );

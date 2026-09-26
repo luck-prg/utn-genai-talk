@@ -38,7 +38,7 @@ export default function DosProductos() {
       <Paso n={3} className="mt-m">
         <div className="bar">
           <span>
-            Construir software y construir <b>al que construye con vos</b> son, cada vez más, el
+            El desarrollo del producto y el <b>del agente que lo construye</b> forman parte del
             mismo trabajo.
           </span>
         </div>

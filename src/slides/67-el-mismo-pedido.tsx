@@ -86,8 +86,8 @@ export default function ElMismoPedido() {
         ))}
       </div>
       <p className="body mt-m reveal maxw">
-        <span className="k">Ninguna está mal.</span> Y ese es el problema: no hay con qué decir cuál
-        está bien.
+        <span className="k">Las tres son válidas:</span> sin una convención escrita, no hay forma de
+        elegir.
       </p>
     </SlideFrame>
   );

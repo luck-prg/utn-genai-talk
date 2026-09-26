@@ -19,9 +19,9 @@ export default function PrefillDecodeSlide() {
   return (
     <SlideFrame header={false} footer={false} meta="1.1.1 · LLM Y TOKENS">
       <h2 className="display reveal" style={{ fontSize: "clamp(22px,min(2.7vw,4.8vh),56px)" }}>
-        La entrada se procesa <span className="accent">de una</span>.
+        La entrada se procesa <span className="accent">en paralelo</span>.
         <br />
-        La salida sale <span className="accent">de a una</span>.
+        La salida se genera <span className="accent">token por token</span>.
       </h2>
 
       <div className="reveal mt-s">

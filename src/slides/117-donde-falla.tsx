@@ -14,7 +14,7 @@ const FALLOS: { icon: PictoName; title: string; body: string }[] = [
   { icon: "bloat", title: "Specs ambiguas", body: "Nadie sabe qué aceptar." },
   { icon: "fire", title: "Contexto de más", body: "Más docs, más tokens." },
   { icon: "loop", title: "Aprobar sin leer", body: "El mismo error, más rápido." },
-  { icon: "human", title: "El humano como botón de OK", body: "Solo da permisos." },
+  { icon: "human", title: "El humano como aprobador", body: "Solo da permisos." },
 ];
 
 export default function DondeFalla() {

@@ -22,7 +22,7 @@ export default function PortadaLimites() {
           alrededor
         </>
       }
-      promesa="Qué no resuelve el agente solo, por más bueno que sea el modelo."
+      promesa="Qué no resuelve el agente por sí solo, independientemente de la calidad del modelo."
       temas={["ventana limitada", "conocimiento del equipo", "producto ≠ código", "deuda técnica"]}
     />
   );

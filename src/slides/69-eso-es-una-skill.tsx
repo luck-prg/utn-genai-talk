@@ -28,7 +28,7 @@ const HTML = `<span class="pr">.claude/skills/</span>
 export default function EsoEsUnaSkill() {
   return (
     <SlideFrame header={false} footer={false} meta="2.1.3 · SKILLS">
-      <p className="eyebrow reveal">SACARLO DEL PORTAPAPELES Y PONERLO EN EL REPO</p>
+      <p className="eyebrow reveal">DOCUMENTAR EL CRITERIO EN EL REPOSITORIO</p>
       <h2 className="display t-md reveal">Eso es una skill</h2>
       <div
         className="two-col mt-s reveal"

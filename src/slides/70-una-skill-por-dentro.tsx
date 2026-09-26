@@ -38,7 +38,7 @@ export default function UnaSkillPorDentro() {
           <div className="col-head good">Arriba · el encabezado</div>
           <p className="body">
             Quién es, <span className="k">cuándo</span> se usa, qué puede tocar y cómo corre. No
-            enseña nada.
+            contiene instrucciones.
           </p>
           <div className="col-head bad" style={{ marginTop: "clamp(16px, 1.8vw, 36px)" }}>
             Abajo · el criterio
@@ -47,8 +47,8 @@ export default function UnaSkillPorDentro() {
             <span className="k">Cómo</span> lo hacemos nosotros. Markdown común.
           </p>
           <p className="body" style={{ marginTop: "clamp(16px, 1.8vw, 36px)" }}>
-            No pasen por alto la de arriba:{" "}
-            <span className="k">en un rato vamos a ver por qué importa.</span>
+            El encabezado es clave:{" "}
+            <span className="k">determina cuándo se activa la skill.</span>
           </p>
         </div>
       </div>

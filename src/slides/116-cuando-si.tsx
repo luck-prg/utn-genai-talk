@@ -33,7 +33,7 @@ export default function CuandoSi() {
       </div>
       <p className="body mt-m reveal maxw">
         Alguien va a tener que entender esto después.{" "}
-        <span className="k">Puede ser tu yo de dentro de tres meses.</span>
+        <span className="k">Incluso quien lo escribió, meses después.</span>
       </p>
     </SlideFrame>
   );

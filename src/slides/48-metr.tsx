@@ -13,7 +13,11 @@ export const meta: SlideMeta = {
   transition: "fade",
 };
 
-const OBJECIONES = ["¿principiantes? no", "¿peor código? no", "¿casualidad? no"];
+const OBJECIONES = [
+  "desarrolladores con experiencia",
+  "misma calidad de código",
+  "brecha replicada en otros estudios",
+];
 
 export default function Metr() {
   const paso = useStep();
@@ -23,9 +27,9 @@ export default function Metr() {
       <p className="eyebrow reveal">›// estudio de METR · ensayo controlado aleatorizado, 2025</p>
 
       <h2 className="display reveal mt-s" style={{ fontSize: "clamp(20px,min(2.5vw,4.44vh),52px)" }}>
-        METR: creyeron que iban <span className="accent">más rápido</span>.
+        METR: los desarrolladores estimaron ser <span className="accent">más rápidos</span>;
         <br />
-        El cronómetro dijo <span className="accent">lo contrario</span>.
+        la medición indicó <span className="accent">lo contrario</span>.
       </h2>
 
       <div className="reveal mt-m">

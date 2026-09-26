@@ -12,7 +12,7 @@ export const meta: SlideMeta = {
 
 const ROLES: { icon: PictoName; title: string; body: string }[] = [
   { icon: "domain", title: "Orquestador", body: "Razona con vos. Modelo fuerte." },
-  { icon: "implement", title: "Implementador", body: "Ya tiene el libro. Modelo mediano o chico." },
+  { icon: "implement", title: "Implementador", body: "Parte de un plan definido. Modelo intermedio o liviano." },
   { icon: "observe", title: "Explorador", body: "Recopila. El más liviano." },
 ];
 

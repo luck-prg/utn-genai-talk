@@ -84,7 +84,7 @@ export function Linterna({ paso }: { paso: number }) {
           lo que ve el agente
         </text>
         <text x="780" y="345" fontSize="18" fill="rgba(20,18,14,0.38)" textAnchor="end">
-          lo que le da sentido
+          contexto no visible para el agente
         </text>
       </g>
     </svg>

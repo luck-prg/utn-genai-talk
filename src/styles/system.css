@@ -267,23 +267,16 @@ main[data-slide="ejes-de-clasificacion"] .grid-bg {
   color: var(--color-fg);
 }
 .b-txt {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(18px, 1.75vw, 34px);
   line-height: 1;
   letter-spacing: 0.02em;
-}
-.b-txt b {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: clamp(14px, 1.35vw, 27px);
   color: var(--color-fg);
-  display: block;
+  white-space: nowrap;
 }
 .b-txt span {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: clamp(10px, 0.85vw, 17px);
-  letter-spacing: 0.28em;
   color: var(--color-acento);
-  display: block;
 }
 .head-meta {
   font-family: var(--font-body);
@@ -410,6 +403,15 @@ main[data-slide="ejes-de-clasificacion"] .grid-bg {
   background: color-mix(in srgb, var(--color-acento) 12%, transparent);
   color: color-mix(in srgb, var(--color-acento) 75%, var(--color-fg));
   font-weight: 600;
+}
+.chips.grandes {
+  gap: clamp(12px, 1.2vw, 24px);
+}
+.chips.grandes .chip {
+  font-size: clamp(18px, min(2.1vw, 3.73vh), 42px);
+  border-width: 2px;
+  border-radius: 10px;
+  padding: clamp(10px, 0.9vw, 18px) clamp(16px, 1.5vw, 30px);
 }
 
 .bar {

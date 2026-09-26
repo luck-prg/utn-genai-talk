@@ -18,10 +18,10 @@ const PALANCAS = [
   {
     tag: "dónde se lee",
     titulo: "Subagentes",
-    body: "Trabajan en su propia ventana: exploran, leen de más y devuelven un resumen. Su ruido no entra en tu contexto.",
+    body: "Trabajan en su propia ventana: exploran, leen información adicional y devuelven un resumen. Ese contenido no ocupa la ventana principal.",
   },
   {
-    tag: "qué se tira",
+    tag: "qué se descarta",
     titulo: "Compactación",
     body: "Cuando la ventana se llena, primero se borran los resultados de tools viejos y recién después se resume la conversación.",
   },

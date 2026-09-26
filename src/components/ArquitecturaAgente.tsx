@@ -133,7 +133,7 @@ export function ArquitecturaAgente({ base = 0 }: { /** Nivel ya construido al en
 
       {/* ---- Paso 0: la interacción pelada ---- */}
       <Caja x={16} y={292} w={152} h={76} titulo="Input" lineas={[]} />
-      <Caja x={600} y={286} w={200} h={100} titulo="LLM" lineas={["predice tokens", "no recuerda nada"]} oscura />
+      <Caja x={600} y={286} w={200} h={100} titulo="LLM" lineas={["predice tokens", "no conserva estado"]} oscura />
       <Caja x={1072} y={292} w={152} h={76} titulo="Output" lineas={[]} />
 
       {/* El input va directo al modelo sólo hasta que aparece el constructor. */}

@@ -24,15 +24,15 @@ export default function PromptYContextoUtil() {
   return (
     <SlideFrame header={false} footer={false} meta="1.1.2 · ADE">
       <h2 className="display reveal" style={{ fontSize: "clamp(22px,min(2.9vw,5.16vh),58px)" }}>
-        No es escribir prompts más largos:
+        La calidad depende del <span className="accent">diseño del contexto</span>,
         <br />
-        es <span className="accent">diseñar mejor contexto</span>
+        no de la extensión del prompt
       </h2>
 
       <Paso n={1} className="mt-l">
-        <div className="chips">
+        <div className="chips grandes">
           {CONTEXTO.map((c) => (
-            <span className="chip" key={c}>
+            <span className="chip acento" key={c}>
               {c}
             </span>
           ))}

@@ -20,7 +20,7 @@ const MEDIDAS = [
   {
     tag: "02",
     titulo: "Permisos mínimos",
-    body: <>Que sólo pueda leer y tocar lo que necesita, definido en la configuración del agente. A producción, nunca.</>,
+    body: <>Acceso de lectura y escritura limitado a lo necesario, definido en la configuración del agente. Sin acceso a producción.</>,
   },
   {
     tag: "03",

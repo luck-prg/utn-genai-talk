@@ -37,7 +37,7 @@ export default function Alucinaciones() {
       <Paso n={2} className="mt-l">
         <div className="bar">
           <span>
-            Y lo hace con la <b className="accent">misma seguridad</b>.
+            El modelo responde con la <b className="accent">misma seguridad</b> en ambos casos.
           </span>
         </div>
       </Paso>

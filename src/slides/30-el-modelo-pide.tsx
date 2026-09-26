@@ -4,7 +4,7 @@ import { Codigo, CodigoPar } from "@/components/Codigo";
 import { Paso } from "@/components/Paso";
 
 export const meta: SlideMeta = {
-  title: "El modelo no ejecuta: pide",
+  title: "El modelo solicita la ejecución",
   seccion: "1.2.1 · CICLO AGÉNTICO",
   steps: 2,
   notes:
@@ -15,7 +15,7 @@ export const meta: SlideMeta = {
 export default function ElModeloPide() {
   return (
     <SlideFrame header={false} footer={false} meta="BLOQUE 1.2 · CICLO AGÉNTICO">
-      <h2 className="display t-md reveal">El modelo no ejecuta: pide</h2>
+      <h2 className="display t-md reveal">El modelo solicita la ejecución; no la realiza</h2>
       <CodigoPar>
         <Codigo archivo="respuesta del modelo" className="reveal">
           <span className="cm">{"// lo que devuelve la API\n"}</span>

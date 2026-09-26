@@ -40,7 +40,7 @@ export default function NoInventamosNada() {
           color: "var(--color-muted)",
         }}
       >
-        La idea tiene medio siglo. Siempre chocó contra el costo.
+        La idea tiene medio siglo; su límite fue siempre el costo de sostenerla.
       </p>
       <h3 className="display mt-s reveal" style={{ fontSize: "var(--fs-stmt)" }}>
         Volvemos a las bases porque <span className="accent">ahora se pueden sostener</span>.

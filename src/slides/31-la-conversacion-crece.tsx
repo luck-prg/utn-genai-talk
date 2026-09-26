@@ -57,7 +57,7 @@ export default function LaConversacionCrece() {
         </span>
       </div>
       <Paso n={3} className="arq-remate">
-        No pagás tu último mensaje: pagás <b>toda la conversación</b>, otra vez.
+        Cada consulta lleva consigo <b>la conversación completa</b>, no solo el último mensaje.
       </Paso>
     </SlideFrame>
   );

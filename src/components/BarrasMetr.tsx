@@ -22,9 +22,9 @@ interface Barra {
 }
 
 const BARRAS: Barra[] = [
-  { etiqueta: "Predijeron", detalle: "antes de empezar", valor: 24, tipo: "creencia" },
-  { etiqueta: "Midieron", detalle: "cronómetro en mano", valor: -19, tipo: "medicion" },
-  { etiqueta: "Creyeron", detalle: "después de terminar", valor: 20, tipo: "creencia" },
+  { etiqueta: "Estimación", detalle: "antes de empezar", valor: 24, tipo: "creencia" },
+  { etiqueta: "Medición", detalle: "tiempo medido", valor: -19, tipo: "medicion" },
+  { etiqueta: "Percepción", detalle: "después de terminar", valor: 20, tipo: "creencia" },
 ];
 
 function ancho(valor: number): string {
@@ -88,10 +88,10 @@ export function ActualizacionMetr({ visible }: { visible: boolean }) {
       <div className="mx-update-head">actualización · febrero 2026</div>
       <div className="mx-update-body">
         <div className="mx-update-item">
-          <b>+18 %</b> los que repitieron
+          <b>+18 %</b> participantes recurrentes
         </div>
         <div className="mx-update-item">
-          <b>−4 %</b> los recién reclutados
+          <b>−4 %</b> participantes nuevos
         </div>
         <div className="mx-update-item acc">
           ambos intervalos <b>cruzan el cero</b>

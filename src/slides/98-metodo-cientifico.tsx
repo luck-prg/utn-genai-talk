@@ -23,7 +23,6 @@ const PASOS: { label: string; picto: PictoName }[] = [
 export default function MetodoCientifico() {
   return (
     <SlideFrame header={false} footer={false} meta="EL MÉTODO">
-      <p className="eyebrow reveal">UNO QUE CONOCÉS DESDE EL SECUNDARIO</p>
       <h2 className="display t-md reveal">El método científico</h2>
       <div className="loop mt-l reveal" style={{ alignItems: "flex-end" }}>
         {PASOS.map((paso, i) => (

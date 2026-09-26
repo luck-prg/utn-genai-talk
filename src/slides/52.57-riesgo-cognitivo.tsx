@@ -14,7 +14,7 @@ export const meta: SlideMeta = {
 const LINEAS: { cuando: string; txt: React.ReactNode }[] = [
   { cuando: "deuda", txt: <>Los autores lo llaman <b>deuda cognitiva</b>: lo que delegás, dejás de ejercitarlo.</> },
   { cuando: "ironía", txt: <>Cuanto más se automatiza una tarea, <b>más difícil es supervisarla</b>.</> },
-  { cuando: "y encima", txt: <>Justo perdemos <b>las habilidades</b> que hacen falta para supervisar.</> },
+  { cuando: "supervisión", txt: <>Justo perdemos <b>las habilidades</b> que hacen falta para supervisar.</> },
 ];
 
 export default function RiesgoCognitivo() {

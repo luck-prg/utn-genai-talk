@@ -12,7 +12,7 @@ export default function GestionConversaciones() {
     <SlideFrame header={false} footer={false} meta="BLOQUE 2.1 · CONTEXT ENG.">
       <h2 className="display t-md reveal">Gestión de conversaciones</h2>
       <p className="sub reveal mt-s maxw">
-        El historial es una <span style={{ color: "var(--color-acento)", fontWeight: 600 }}>aspiradora de tokens</span>:
+        El historial <span style={{ color: "var(--color-acento)", fontWeight: 600 }}>consume tokens de forma acumulativa</span>:
         cuanto más crece, más caro y menos preciso se vuelve el agente.
       </p>
       <ul className="blist mt-m reveal">

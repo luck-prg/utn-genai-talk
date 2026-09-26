@@ -28,7 +28,7 @@ export default function ModelosAbiertos() {
           <div className="vs-tag">pero</div>
           <div className="vs-num chico">pesos abiertos ≠ código abierto</div>
           <div className="vs-body">
-            Casi nunca publican los datos de entrenamiento. El hardware lo ponés vos.
+            Casi nunca publican los datos de entrenamiento. La infraestructura corre por cuenta propia.
           </div>
         </Paso>
       </div>

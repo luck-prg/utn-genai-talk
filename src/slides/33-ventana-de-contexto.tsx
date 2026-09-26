@@ -11,8 +11,8 @@ export const meta: SlideMeta = {
 
 const PUNTOS = [
   "Todo lo que el modelo lee en UNA llamada",
-  "Se acumula: no se resetea sola",
-  "Tiene techo: hoy, un millón de tokens",
+  "Se acumula: no se vacía automáticamente",
+  "Tiene un límite",
   "Al llenarse, el harness compacta",
   "Aunque entre, la atención también es finita",
 ];

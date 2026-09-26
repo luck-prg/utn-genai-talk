@@ -12,13 +12,14 @@ export const meta: SlideMeta = {
 export default function RechazarCodigo() {
   return (
     <SlideFrame header={false} footer={false} meta="1.3.1 · IA SIN INGENIERÍA" center>
-      <p className="eyebrow reveal">›// el cuello de botella se mudó</p>
+      <p className="eyebrow reveal">›// el cuello de botella cambió de lugar</p>
       <h2 className="display t-frase reveal mt-m" style={{ maxWidth: "24ch" }}>
         Ahora lo escaso es el <span className="accent">criterio para frenar</span> el código que
         está mal.
       </h2>
       <p className="body reveal mt-l ink2">
-        El 20% cree que va más rápido, pero la realidad es que va <span className="accent">más lento</span>.
+        Los desarrolladores creyeron haber trabajado un 20% más rápido; la medición mostró que fueron
+        un 19% <span className="accent">más lentos</span>.
       </p>
     </SlideFrame>
   );

@@ -15,7 +15,7 @@ export default function CorreEnAlgunLado() {
   return (
     <SlideFrame header={false} footer={false} meta="3.1 · MODELOS">
       <h2 className="display reveal" style={{ fontSize: "clamp(22px,min(2.7vw,4.8vh),56px)" }}>
-        La nube es <span className="accent">la computadora de otro</span>
+        El modelo se ejecuta en <span className="accent">hardware propio o de un tercero</span>
       </h2>
 
       <Paso n={1} className="mt-l">
@@ -27,8 +27,8 @@ export default function CorreEnAlgunLado() {
           </div>
           <div className="vs-col acc">
             <div className="vs-tag">remoto</div>
-            <div className="vs-num grande">la de otro</div>
-            <div className="vs-body">pagás por token, y tus datos salen</div>
+            <div className="vs-num grande">de un tercero</div>
+            <div className="vs-body">costo por token; los datos salen de tu infraestructura</div>
           </div>
         </div>
       </Paso>

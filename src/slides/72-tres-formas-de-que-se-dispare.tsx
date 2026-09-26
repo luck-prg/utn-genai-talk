@@ -27,15 +27,15 @@ const DISPAROS: { icon: PictoName; tag: string; title: string; body: string }[] 
     icon: "files",
     tag: "los archivos",
     title: "La extensión",
-    body: "Tocás un .py y carga sola la skill de nomenclaturas en Python.",
+    body: "Al editar un .py se carga la skill de nomenclatura en Python.",
   },
 ];
 
 export default function TresFormasDeQueSeDispare() {
   return (
     <SlideFrame header={false} footer={false} meta="2.1.3 · SKILLS">
-      <p className="eyebrow reveal">DE NADA SIRVE UN CRITERIO QUE NUNCA SABE ELEGIR</p>
-      <h2 className="display t-md reveal">¿Cómo el agente puede encontrar la skill?</h2>
+      <p className="eyebrow reveal">UNA SKILL SOLO SIRVE SI EL AGENTE LA ACTIVA</p>
+      <h2 className="display t-md reveal">¿Cómo puede el agente encontrar la skill?</h2>
       <div className="cards mt-s reveal" style={{ gridTemplateColumns: "1fr 1fr 1fr" }}>
         {DISPAROS.map((d) => (
           <div className="card" key={d.tag}>

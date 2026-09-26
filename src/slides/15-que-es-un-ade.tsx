@@ -24,9 +24,9 @@ export default function QueEsUnAde() {
 
       <Paso n={1} className="mt-l">
         <p className="quote">
-          El IDE se construyó para un humano <span className="accent">tipeando</span>.
+          El IDE se diseñó para que una persona <span className="accent">escriba código</span>.
           <br />
-          El ADE, para humanos <span className="accent">orquestando</span>.
+          El ADE se diseñó para que una persona <span className="accent">coordine agentes</span>.
         </p>
       </Paso>
     </SlideFrame>

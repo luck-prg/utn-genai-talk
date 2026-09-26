@@ -29,7 +29,7 @@ export default function MismoPedido() {
           <ul className="blist">
             <li>“Hacé una pantalla de login”</li>
           </ul>
-          <p className="sub mt-m">Todo lo demás lo decide el agente, y vos te enterás después.</p>
+          <p className="sub mt-m">Las demás decisiones quedan implícitas y las toma el agente.</p>
         </div>
         <div>
           <div className="col-head good">Spec</div>

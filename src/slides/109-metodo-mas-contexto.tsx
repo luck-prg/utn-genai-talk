@@ -3,7 +3,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 import { Picto, type PictoName } from "@/components/Picto";
 
 export const meta: SlideMeta = {
-  title: "Lo mejor de dos mundos",
+  title: "Método e ingeniería de contexto",
   seccion: "3.2.2 · SPEC-DRIVEN DEVELOPMENT",
   notes:
     "El puente con el bloque 2, ingeniería de contexto. No vuelvas a explicar ingeniería de contexto: ya la vieron. Lo que decís: SDD es donde el método y el contexto se encuentran. Del método tomamos el orden, el contrato y la validación humana. De la ingeniería de contexto tomamos reglas, contexto estructurado y herramientas. Y el remate: los artefactos del método SON el contexto del agente. No hay dos cosas, hay una. Y decilo explícito: SDD es el ejemplo de hoy; mañana puede ser otro nombre. Lo que se llevan es esto: el método necesita contexto y el contexto necesita método.",
@@ -47,7 +47,7 @@ function Row({ icon, text }: { icon: PictoName; text: string }) {
 export default function MetodoMasContexto() {
   return (
     <SlideFrame header={false} footer={false} meta="SDD">
-      <h2 className="display t-md reveal">Lo mejor de dos mundos</h2>
+      <h2 className="display t-md reveal">Método e ingeniería de contexto</h2>
       <div className="two-col mt-m reveal">
         <div>
           <div className="col-head">Del método</div>

@@ -19,9 +19,9 @@ export default function CriterioDeModelos() {
       <p className="eyebrow reveal">›// regla práctica</p>
 
       <h2 className="display reveal mt-s" style={{ fontSize: "clamp(24px,min(3vw,5.33vh),62px)" }}>
-        El modelo <span className="accent">más barato</span>
+        El modelo <span className="accent">más económico</span>
         <br />
-        que resuelva la tarea
+        que resuelva la tarea con la confiabilidad necesaria
       </h2>
 
       <Paso n={1} className="mt-l">

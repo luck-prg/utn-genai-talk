@@ -33,8 +33,8 @@ export default function LosQueYaExisten() {
         ))}
       </div>
       <p className="body mt-m reveal maxw">
-        <span className="k">Algo se define antes.</span> El código lo satisface. Ninguno es nuevo,
-        casi ninguno se aplica.
+        <span className="k">En todos, algo se define antes</span> y el código debe satisfacerlo.
+        Ninguno es nuevo, pero su adopción es baja.
       </p>
     </SlideFrame>
   );

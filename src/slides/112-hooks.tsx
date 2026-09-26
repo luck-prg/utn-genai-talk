@@ -21,9 +21,6 @@ export default function Hooks() {
       <p className="eyebrow reveal">¿CÓMO EVITO QUE AVANCE SIN LEER LO ANTERIOR?</p>
       <h2 className="display t-md reveal">Hooks: validación determinística</h2>
       <ArtifactPanel path="hooks.md" html={HTML} />
-      <h3 className="display mt-s reveal" style={{ fontSize: "clamp(26px, 3.4vw, 72px)" }}>
-        El agente recuerda. La respuesta la das <span className="accent">vos</span>.
-      </h3>
     </SlideFrame>
   );
 }

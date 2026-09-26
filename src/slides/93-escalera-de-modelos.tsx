@@ -21,7 +21,7 @@ export const meta: SlideMeta = {
 const NIVELES = [
   {
     tier: "extremo",
-    uso: "Razonamiento extremo, agentes muy largos, o donde fallar sale carísimo",
+    uso: "Razonamiento extremo, agentes muy largos, o donde el costo de un error es muy alto",
     openai: "GPT-6 Astra",
     anthropic: "Fable 5 · Mythos 5",
     google: "—",
@@ -37,7 +37,7 @@ const NIVELES = [
   },
   {
     tier: "balanceado",
-    uso: "Default diario: coding con spec clara, tests, docs, revisión",
+    uso: "Uso cotidiano: implementación con especificación clara, tests, documentación y revisión",
     openai: "GPT-5.6 Terra",
     anthropic: "Sonnet 5 · 4.6",
     google: "Gemini Flash",

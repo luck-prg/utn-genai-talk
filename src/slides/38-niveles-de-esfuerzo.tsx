@@ -15,14 +15,14 @@ const NIVELES = [
   { nivel: "low", uso: "Subagentes y tareas simples: buscar un archivo, listar un directorio" },
   { nivel: "medium", uso: "Ediciones rutinarias, donde el camino ya está claro" },
   { nivel: "high", uso: "El default. Trabajo donde la calidad del razonamiento importa" },
-  { nivel: "xhigh", uso: "Codear y tareas agénticas largas. Es el que usa Claude Code" },
+  { nivel: "xhigh", uso: "Programación y tareas agénticas extensas. Es el que usa Claude Code" },
   { nivel: "max", uso: "Cuando estar en lo correcto importa más que lo que cuesta" },
 ];
 
 export default function NivelesDeEsfuerzo() {
   return (
     <SlideFrame header={false} footer={false} meta="BLOQUE 1.2 · CICLO AGÉNTICO">
-      <h2 className="display t-md reveal">Cuánto pensar es una decisión</h2>
+      <h2 className="display t-md reveal">El nivel de esfuerzo es una decisión de costo</h2>
       <div className="escala mt-m reveal">
         {NIVELES.map((n) => (
           <div className="escalon" key={n.nivel}>
@@ -32,7 +32,7 @@ export default function NivelesDeEsfuerzo() {
         ))}
       </div>
       <Paso n={1} className="arq-remate">
-        Razonar se cobra como <b>tokens de salida</b>: elegir el nivel es elegir cuánto gastás.
+        Razonar se cobra como <b>tokens de salida</b>: el nivel elegido determina el costo.
       </Paso>
     </SlideFrame>
   );

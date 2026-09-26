@@ -33,8 +33,8 @@ export default function TipSecondBrain() {
         </li>
         <li>
           <span>
-            Los <b>links entre notas</b> le dan estructura para navegar just-in-time, sin cargar
-            todo de una.
+            Los <b>links entre notas</b> le dan estructura para navegar just-in-time, sin cargarlo
+            todo en el contexto.
           </span>
         </li>
       </ul>

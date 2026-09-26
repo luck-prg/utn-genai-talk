@@ -3,7 +3,7 @@ import { Paso } from "@/components/Paso";
 import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
-  title: "Lo que le mandás ya no es tuyo",
+  title: "Lo que enviás queda fuera de tu control",
   seccion: "1.3.2 · SEGURIDAD Y RIESGOS",
   steps: 3,
   notes:
@@ -16,10 +16,10 @@ const VERBOS = ["se guarda", "se analiza", "se comparte", "se usa para entrenar"
 export default function LoQueMandas() {
   return (
     <SlideFrame header={false} footer={false} meta="1.3.2 · SEGURIDAD Y RIESGOS">
-      <p className="eyebrow reveal">›// ese código que pegaste en el chat</p>
+      <p className="eyebrow reveal">›// datos enviados a un proveedor externo</p>
 
       <h2 className="display reveal mt-s" style={{ fontSize: "clamp(24px,min(3vw,5.33vh),62px)" }}>
-        Lo que le mandás <span className="accent">ya no es tuyo</span>
+        Lo que enviás <span className="accent">queda fuera de tu control</span>
       </h2>
 
       <Paso n={1} className="mt-m">
@@ -35,7 +35,7 @@ export default function LoQueMandas() {
       <Paso n={2} className="mt-l">
         <div className="vs-col acc">
           <div className="vs-tag">OpenAI · Anthropic · Google · GitHub</div>
-          <div className="vs-num">entrenan con tus datos</div>
+          <div className="vs-num">pueden entrenar con tus datos</div>
           <div className="vs-body">En la mayoría de sus planes, por defecto.</div>
         </div>
       </Paso>

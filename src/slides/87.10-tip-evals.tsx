@@ -19,14 +19,14 @@ export default function TipEvals() {
 
       <div className="bar reveal mt-m">
         <span>
-          Cuando nadie mira la salida, <b>el eval es el que mira</b>.
+          En un flujo sin supervisión, <b>el eval verifica cada salida</b>.
         </span>
       </div>
 
       <ul className="blist mt-l reveal">
         <li>
           <span>
-            <b>Determinista</b>: el formato es válido, los números cierran.
+            <b>Determinista</b>: el formato es válido y los valores son consistentes.
           </span>
         </li>
         <li>
@@ -36,8 +36,8 @@ export default function TipEvals() {
         </li>
         <li>
           <span>
-            Cambiaste el <b>prompt, el modelo o una skill</b>: corrés el mismo set de casos antes
-            de confiar en que no empeoró.
+            Ante un cambio de <b>prompt, modelo o skill</b>, se ejecuta el mismo conjunto de casos
+            para detectar regresiones.
           </span>
         </li>
       </ul>

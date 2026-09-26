@@ -19,7 +19,7 @@ const RIESGOS: { icon: PictoName; title: string; body: string }[] = [
   {
     icon: "compete",
     title: "Compiten entre ellas",
-    body: "Dos que suenan parecido y el agente elige la que no era.",
+    body: "Si dos son similares, el agente puede elegir la incorrecta.",
   },
   {
     icon: "script",

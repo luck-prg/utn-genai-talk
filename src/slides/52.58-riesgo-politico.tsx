@@ -23,7 +23,7 @@ export default function RiesgoPolitico() {
       <p className="eyebrow reveal">›// riesgo 4 · político</p>
 
       <h2 className="display reveal mt-s" style={{ fontSize: "clamp(24px,min(3vw,5.33vh),62px)" }}>
-        La IA también es <span className="accent">poder</span>
+        La IA como <span className="accent">infraestructura de poder</span>
       </h2>
 
       <div className="dato-fila mt-m reveal">

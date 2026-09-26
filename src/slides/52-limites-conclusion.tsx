@@ -15,7 +15,7 @@ export default function LimitesConclusion() {
   return (
     <SlideFrame header={false} footer={false} meta="1.3.1 · IA SIN INGENIERÍA">
       <h2 className="display reveal" style={{ fontSize: "clamp(24px,min(3vw,5.33vh),62px)" }}>
-        Sin contexto, specs ni validación,
+        Sin contexto, especificación ni validación,
         <br />
         la IA sólo acelera la <span className="accent">deuda técnica</span>
       </h2>
@@ -29,12 +29,10 @@ export default function LimitesConclusion() {
       </Paso>
 
       <Paso n={2} className="mt-l">
-        <div className="bar">
-          <span>
-            La <b className="accent">calidad</b> es nuestra responsabilidad: cada uno valida a su manera, pero lo
-            innegociable es <b className="accent">VALIDAR</b>.
-          </span>
-        </div>
+        <p className="display" style={{ fontSize: "clamp(24px,min(3vw,5.33vh),62px)" }}>
+          La <span className="accent">calidad</span> es nuestra responsabilidad: cada uno valida a su
+          manera, pero lo innegociable es <span className="accent">VALIDAR</span>.
+        </p>
       </Paso>
     </SlideFrame>
   );

@@ -44,8 +44,8 @@ export default function SkillNoEsScript() {
         </div>
       </div>
       <p className="body mt-s reveal maxw" style={{ fontSize: "var(--fs-sub)" }}>
-        <span className="k">Un procedimiento que ya sabés de memoria no es una skill.</span> Es un
-        script, y tu skill puede llamarlo.
+        <span className="k">Un procedimiento fijo conviene implementarlo como script;</span> la skill
+        puede invocarlo.
       </p>
     </SlideFrame>
   );

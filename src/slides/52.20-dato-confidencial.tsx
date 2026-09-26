@@ -3,7 +3,7 @@ import { Paso } from "@/components/Paso";
 import { SlideFrame } from "@/components/SlideFrame";
 
 export const meta: SlideMeta = {
-  title: "Lo que le mandás es un dato confidencial",
+  title: "Cuando lo enviado es información confidencial",
   seccion: "1.3.2 · SEGURIDAD Y RIESGOS",
   steps: 4,
   notes:
@@ -35,9 +35,9 @@ export default function DatoConfidencial() {
   return (
     <SlideFrame header={false} footer={false} meta="1.3.2 · SEGURIDAD Y RIESGOS">
       <h2 className="display reveal mt-s" style={{ fontSize: "clamp(24px,min(3vw,5.33vh),62px)" }}>
-        Y a veces, lo que le mandás
+        Cuando lo enviado
         <br />
-        <span className="accent">es un dato confidencial</span>
+        <span className="accent">es información confidencial</span>
       </h2>
 
       <div className="casos mt-l">
@@ -55,7 +55,7 @@ export default function DatoConfidencial() {
             77%<small>LayerX · 2025</small>
           </div>
           <p className="body">
-            de quienes usan IA en el trabajo <b>pega datos en el chat</b>. Casi siempre, desde su cuenta personal.
+            de quienes usan IA en el trabajo <b>ingresa datos de la empresa</b>; la mayoría, desde una cuenta personal.
           </p>
         </div>
       </Paso>

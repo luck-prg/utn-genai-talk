@@ -21,21 +21,21 @@ export default function Strawberry() {
   return (
     <SlideFrame header={false} footer={false} meta="1.1.1 · LLM Y TOKENS">
       <h2 className="display reveal" style={{ fontSize: "clamp(24px,min(3vw,5.33vh),62px)" }}>
-        No es falla de razonamiento:
+        El error se origina en la <span className="accent">tokenización</span>,
         <br />
-        es falla de <span className="accent">tokenización</span>
+        no en el razonamiento
       </h2>
 
       <div className="reveal mt-s">
         <div className="stats">
           <div className="stat">
             <div className="s-num">2</div>
-            <div className="s-lbl">lo que contestaba</div>
+            <div className="s-lbl">respuesta del modelo</div>
           </div>
           <div className="stat-sep">≠</div>
           <div className="stat">
             <div className="s-num acc">3</div>
-            <div className="s-lbl">las que hay</div>
+            <div className="s-lbl">respuesta correcta</div>
           </div>
           <p className="sub" style={{ maxWidth: "26ch" }}>
             <code>{PREGUNTA}</code>
@@ -57,7 +57,7 @@ export default function Strawberry() {
       <Paso n={3} className="mt-m">
         <div className="bar">
           <span>
-            Por eso se le da una <b className="accent">calculadora</b>, no se le pide que sume.
+            Por eso las operaciones exactas se delegan en <b className="accent">herramientas determinísticas</b>.
           </span>
         </div>
       </Paso>

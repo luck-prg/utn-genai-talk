@@ -31,8 +31,8 @@ export default function ParaQueSeLleven() {
         Puede usar <span className="accent">scripts</span> y archivos, si vos se lo decís.
       </p>
       <p className="display reveal" style={lineStyle}>
-        Si vamos a darle criterio al agente, tengamos <span className="accent">criterio</span>{" "}
-        nosotros.
+        Definir el criterio del agente exige un <span className="accent">criterio</span> propio
+        claro.
       </p>
     </SlideFrame>
   );

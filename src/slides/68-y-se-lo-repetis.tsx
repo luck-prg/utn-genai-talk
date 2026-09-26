@@ -5,7 +5,7 @@ import { FilaPictoLista } from "@/components/FilaPicto";
 import type { PictoName } from "@/components/Picto";
 
 export const meta: SlideMeta = {
-  title: "Y entonces se lo repetís",
+  title: "La solución habitual: repetir las instrucciones",
   seccion: "2.1.3 · SKILLS",
   notes:
     "El parche que hacemos todos: un párrafo guardado que pegamos al principio de cada sesión. Levantá la mano vos primero. Funciona una vez. Después queda viejo, nadie lo mantiene, y el que entra al equipo no lo tiene. El criterio existe: vive en tu cabeza y en tu portapapeles.",
@@ -14,7 +14,7 @@ export const meta: SlideMeta = {
 
 const COSTOS: { icon: PictoName; text: string }[] = [
   { icon: "repeat", text: "Lo pegás en cada sesión" },
-  { icon: "tired", text: "Queda viejo y nadie lo mantiene" },
+  { icon: "tired", text: "Se desactualiza y nadie lo mantiene" },
   { icon: "silent", text: "El que entra al equipo no lo tiene" },
 ];
 
@@ -28,7 +28,7 @@ Nunca devuelvas un <span class="pr">500</span> sin loguear antes.
 export default function YSeLoRepetis() {
   return (
     <SlideFrame header={false} footer={false} meta="2.1.3 · SKILLS">
-      <h2 className="display t-md reveal">Y entonces se lo repetís</h2>
+      <h2 className="display t-md reveal">La solución habitual: repetir las instrucciones</h2>
       <div className="two-col mt-m reveal" style={{ alignItems: "start", gridTemplateColumns: "1.4fr 1fr" }}>
         <ArtifactPanel path="el-párrafo-de-siempre.txt" html={HTML} className="" />
         <div style={{ paddingTop: "clamp(6px, 0.6vw, 12px)" }}>
@@ -36,7 +36,7 @@ export default function YSeLoRepetis() {
         </div>
       </div>
       <p className="body mt-m reveal maxw">
-        El criterio <span className="k">ya existe</span>. Vive en tu cabeza y en tu portapapeles.
+        El criterio <span className="k">ya existe</span>, pero no está documentado ni versionado.
       </p>
     </SlideFrame>
   );

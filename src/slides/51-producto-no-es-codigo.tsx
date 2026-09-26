@@ -35,7 +35,7 @@ export default function ProductoNoEsCodigo() {
       <Paso n={2} className="mt-l">
         <div className="bar">
           <span>
-            Compila, los tests pasan… y el <b className="accent">sistema empeoró</b>.
+            El código compila y los tests pasan, pero el <b className="accent">sistema puede degradarse</b>.
           </span>
           <span>
             Lo importante es satisfacer la <b className="accent">necesidad</b>: el producto es el foco, el código
