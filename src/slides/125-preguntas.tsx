@@ -25,9 +25,6 @@ export default function Cierre() {
       <h2 className="display reveal" style={{ fontSize: "var(--fs-cover)", marginTop: "clamp(16px,1.8vw,36px)" }}>
         ¿<span className="accent">Preguntas</span>?
       </h2>
-      <p className="sub reveal mt-m maxw">
-        Gracias por venir. Hablemos de agentes de código, context engineering y specs.
-      </p>
     </SlideFrame>
   );
 }
