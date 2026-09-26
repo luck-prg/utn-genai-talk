@@ -15,7 +15,7 @@ export default function CorreEnAlgunLado() {
   return (
     <SlideFrame header={false} footer={false} meta="3.1 · MODELOS">
       <h2 className="display reveal" style={{ fontSize: "clamp(22px,min(2.7vw,4.8vh),56px)" }}>
-        No hay nube: hay <span className="accent">la GPU de otro</span>
+        La nube es <span className="accent">la computadora de otro</span>
       </h2>
 
       <Paso n={1} className="mt-l">

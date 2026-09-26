@@ -7,7 +7,7 @@ export const meta: SlideMeta = {
   title: "Los cuatro niveles que vienen",
   seccion: "2.2.3 · EJECUCIÓN",
   notes:
-    "Recorte de la pirámide: sólo los niveles 4 a 7, con todo el ancho de la diapositiva para que se lean grandes. Nómbralos de corrido — segunda memoria, loops, evals, teams — y anunciá que los vamos a ir viendo uno por uno.",
+    "Recorte de la pirámide: sólo los niveles 4 a 7, con todo el ancho de la diapositiva para que se lean grandes. Nómbralos de corrido — segunda memoria, loops, evals, orquestación de agentes — y anunciá que los vamos a ir viendo uno por uno.",
   transition: "fade",
 };
 

@@ -57,7 +57,7 @@ export default function EscaleraDeModelos() {
   return (
     <SlideFrame header={false} footer={false} meta="3.1 · MODELOS">
       <h2 className="display reveal" style={{ fontSize: "clamp(20px,min(2.5vw,4.44vh),52px)" }}>
-        Tres familias, <span className="accent">los mismos escalones</span>
+        ¿Cómo selecciono la <span className="accent">gama de modelo</span> a utilizar?
       </h2>
 
       <div className="esc reveal mt-m">

@@ -5,7 +5,7 @@ export const meta: SlideMeta = {
   title: "Sección · 2.2.2 Hacia dónde va el desarrollo",
   seccion: "2.2.2 · PIRÁMIDE",
   notes:
-    "Apertura de la sección de pirámide: ya no alcanza con pensar el software del producto; el agente que lo construye también se diseña. La madurez de un equipo se observa en el andamiaje que construye alrededor del modelo.",
+    "Apertura de la sección de pirámide: ya no alcanza con pensar el software del producto; el agente que lo construye también se diseña. La madurez de un equipo se observa en el harness que construye alrededor del modelo.",
   transition: "curtain",
 };
 

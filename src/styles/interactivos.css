@@ -1151,6 +1151,7 @@
 }
 .pir-nivel {
   margin-inline: auto;
+  min-width: max-content;
   display: flex;
   align-items: center;
   justify-content: center;

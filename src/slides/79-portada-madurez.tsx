@@ -17,7 +17,7 @@ export default function PortadaMadurez() {
       kicker="Madurez"
       titulo={
         <>
-          Cuánto <span className="accent">andamiaje</span> le construiste
+          Cuánto <span className="accent">harness</span> le construiste
         </>
       }
       promesa="Ocho niveles de delegación, de pegar texto en un chat a orquestar agentes."

@@ -20,7 +20,7 @@ export interface Nivel {
 }
 
 export const NIVELES: Nivel[] = [
-  { n: 7, nombre: "Teams: Orquestación de agentes", mio: false },
+  { n: 7, nombre: "Orquestación de agentes", mio: false },
   { n: 6, nombre: "Evals: Validación sistemática", mio: false },
   { n: 5, nombre: "Loops: Tareas programadas", mio: false },
   { n: 4, nombre: "Segunda memoria: Conocimiento externo centralizado", mio: false },

@@ -32,7 +32,9 @@ export default function UnaSkillParaTodo() {
   return (
     <SlideFrame header={false} footer={false} meta="2.1.3 · SKILLS">
       <p className="eyebrow reveal">LA TENTACIÓN DESPUÉS DE ENTENDER EL DISPARADOR</p>
-      <h2 className="display t-md reveal">¿Hago una skill para cada cosa?</h2>
+      <h2 className="display t-md reveal">
+        ¿Hago una skill para <span className="accent">cada cosa</span>?
+      </h2>
       <p
         className="display reveal"
         style={{
@@ -43,7 +45,7 @@ export default function UnaSkillParaTodo() {
           marginTop: "clamp(8px, 1vw, 20px)",
         }}
       >
-        <span className="accent">No.</span> El contexto es finito.
+        No. El contexto es finito.
       </p>
       <div className="cards mt-m reveal" style={{ gridTemplateColumns: "1fr 1fr 1fr" }}>
         {RIESGOS.map((r) => (

@@ -3,7 +3,7 @@ import { SlideFrame } from "@/components/SlideFrame";
 import { Picto, type PictoName } from "@/components/Picto";
 
 export const meta: SlideMeta = {
-  title: "Tres formas de que se dispare",
+  title: "Cómo el agente encuentra la skill",
   seccion: "2.1.3 · SKILLS",
   notes:
     "La respuesta al segundo problema, y es la slide que más te entusiasma en el ensayo: decís 'esto es genial, es fundamental que lo hagan'. Las tres son las tuyas y en tu orden. La tercera es la mejor del bloque: contá entero lo del archivo Python, que el agente aprende que al tocar un .py carga la skill de nomenclaturas. Decilo .py, nunca .python. La línea del medio es el contraste: leé la mala textual, que es corta y da gracia. Y cerrá con la pregunta de control. Si alguien pregunta cómo se configuran las dos últimas: los campos se llaman when_to_use y paths y son propios de Claude Code, no del estándar. Una frase y seguís; no lo abras vos.",
@@ -35,7 +35,7 @@ export default function TresFormasDeQueSeDispare() {
   return (
     <SlideFrame header={false} footer={false} meta="2.1.3 · SKILLS">
       <p className="eyebrow reveal">DE NADA SIRVE UN CRITERIO QUE NUNCA SABE ELEGIR</p>
-      <h2 className="display t-md reveal">Tres formas de que se dispare</h2>
+      <h2 className="display t-md reveal">¿Cómo el agente puede encontrar la skill?</h2>
       <div className="cards mt-s reveal" style={{ gridTemplateColumns: "1fr 1fr 1fr" }}>
         {DISPAROS.map((d) => (
           <div className="card" key={d.tag}>
